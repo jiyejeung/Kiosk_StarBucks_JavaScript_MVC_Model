@@ -1,0 +1,24 @@
+@import 'reset';
+@import 'variable';
+@import 'mixin';
+
+@include desktop {
+	html {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@include tablet {
+	html {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@include mobile {
+	html {
+		width: 100%;
+		height: 100%;
+	}
+}

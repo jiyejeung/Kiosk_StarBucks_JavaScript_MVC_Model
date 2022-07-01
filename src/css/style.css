@@ -155,10 +155,25 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 5vw;
+    background-color: #172d29;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+  }
+  #app section.sectionIntroContainer h1.h1IntroTitle {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 8vw;
+    font-weight: bolder;
+    color: #fafafa;
+    margin-bottom: 2.5vw;
+  }
+  #app section.sectionIntroContainer h2.h2IntroGreeting {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5vw;
+    color: #fafafa;
   }
 }
 @media (min-width: 758px) and (max-width: 1024px) {

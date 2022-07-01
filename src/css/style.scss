@@ -15,9 +15,23 @@
 		section.sectionIntroContainer {
 			width: 100%;
 			height: 100%;
-			@include flexRow();
+			@include flexCol();
 			font-size: 5vw;
-			
+			background-color: #172d29;
+			transition: all 300ms ease-in-out;
+			cursor: pointer;
+			h1.h1IntroTitle {
+				font-family: 'Times New Roman', Times, serif;
+				font-size: 8vw;
+				font-weight: bolder;
+				color: #fafafa;
+				margin-bottom: 2.5vw;
+			}
+			h2.h2IntroGreeting {
+				font-family: 'Times New Roman', Times, serif;
+				font-size: 2.5vw;
+				color: #fafafa;
+			}
 		}
 	}
 }

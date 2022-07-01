@@ -150,6 +150,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: #172d29;
   }
   #app section.sectionIntroContainer {
     width: 100%;
@@ -164,7 +165,6 @@ body {
     cursor: pointer;
   }
   #app section.sectionIntroContainer h1.h1IntroTitle {
-    font-family: "Times New Roman", Times, serif;
     font-size: 8vw;
     font-weight: bolder;
     color: #fafafa;
@@ -173,6 +173,42 @@ body {
   #app section.sectionIntroContainer h2.h2IntroGreeting {
     font-family: "Times New Roman", Times, serif;
     font-size: 2.5vw;
+    color: #fafafa;
+  }
+  #app section.sectionSlideContainer {
+    display: none;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    background-color: #172d29;
+    position: relative;
+    cursor: pointer;
+  }
+  #app section.sectionSlideContainer ul.ulSlideContainer {
+    width: 300vw;
+    height: 100%;
+    display: block;
+  }
+  #app section.sectionSlideContainer ul.ulSlideContainer li {
+    float: left;
+    width: 100vw;
+    height: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 1500ms ease-in-out;
+  }
+  #app section.sectionSlideContainer h3.h3SlideTouchText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Times New Roman", Times, serif;
+    text-shadow: rgba(10, 10, 10, 0.7) 0.1vw 0.1vw 0.3vw;
+    font-weight: bolder;
+    font-size: 5vw;
     color: #fafafa;
   }
 }

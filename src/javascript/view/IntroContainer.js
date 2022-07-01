@@ -20,7 +20,7 @@ export default Object.create({
 		return sectionIntroContainer;
 	},
 	printH1Title() {
-		return objElement.createElement('H1', 'STAR BUCKS').setClassName('h1IntroTitle').complete();
+		return objElement.createElement('H1', 'STARBUCKS').setClassName('h1IntroTitle').complete();
 	},
 	printH2Greeting() {
 		return objElement.createElement('H2', 'This website was made for portfolio.').setClassName('h2IntroGreeting').complete();

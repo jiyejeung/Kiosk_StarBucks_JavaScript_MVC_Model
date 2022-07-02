@@ -1,4 +1,4 @@
-export default Object.freeze = {
+export default Object.create({
 	imgUrl: [],
 	async getImgUrl() {
 		await fetch('http://localhost:3000/exampleSlideImage')
@@ -6,4 +6,4 @@ export default Object.freeze = {
 			.then(res => (this.imgUrl = [...res]))
 			.catch(err => err);
 	},
-};
+});

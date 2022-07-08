@@ -3,6 +3,9 @@ import IntroContainer from '../view/IntroContainer.js';
 import SlideContainer from '../view/SlideContainer.js';
 import TakeOutContainer from '../view/TakeOutContainer.js';
 import TakeOutInfo from '../model/TakeOutInfo.js';
+import SlideImageInfo from '../model/SlideImageInfo.js';
+import AllMenuInfo from '../model/AllMenuInfo.js';
+import UserInfo from '../model/UserInfo.js';
 
 export default {
 	init() {},
@@ -20,13 +23,24 @@ export default {
 	},
 	updateTakeOutValue({ currentTarget }) {
 		TakeOutInfo.takeOut = currentTarget.textContent;
-		console.log(currentTarget.textContent);
 	},
 	clickButtonTakeOut() {
 		$('.buttonTakeOut')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e)));
 	},
 	clickButtonStore() {
 		$('.buttonStore')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e)));
+	},
+	getSlideImageInfo() {
+		return SlideImageInfo;
+	},
+	getTakeOutInfo() {
+		return TakeOutInfo;
+	},
+	getCoffeeInfo() {
+		return AllMenuInfo;
+	},
+	getUserInfo() {
+		return UserInfo;
 	},
 	main() {
 		this.clickSectionIntroContainer();

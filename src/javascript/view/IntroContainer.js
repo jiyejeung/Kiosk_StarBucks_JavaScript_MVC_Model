@@ -5,10 +5,7 @@ export default Object.create({
 		this.showSectionIntroContainer();
 	},
 	setup() {
-		const fragment = document.createDocumentFragment();
-		fragment.appendChild(this.printSectionIntroContainer());
-
-		return fragment;
+		return this.printSectionIntroContainer();
 	},
 	printSectionIntroContainer() {
 		const sectionIntroContainer = objElement.createElement('SECTION').setClassName('sectionIntroContainer').complete();

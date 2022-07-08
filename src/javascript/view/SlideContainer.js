@@ -1,4 +1,4 @@
-import SlideImage from '../model/SlideImage.js';
+import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
@@ -7,7 +7,9 @@ export default Object.create({
 	init() {
 		this.slideAutomatically = true;
 		$('.sectionSlideContainer').append(objElement.createElement('UL').setClassName('ulSlideContainer').complete());
-		SlideImage.imgUrl.forEach(imgUrl => void $('.ulSlideContainer').append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete()));
+		Controller.getSlideImageInfo().imgUrl.forEach(
+			imgUrl => void $('.ulSlideContainer').append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete())
+		);
 	},
 	setup() {
 		return this.printSectionSlideContainer();
@@ -20,9 +22,11 @@ export default Object.create({
 	},
 	printUlSlideContainer() {
 		const ulSlideContainer = objElement.createElement('UL').setClassName('ulSlideContainer').complete();
-		SlideImage.getImgUrl().then(() =>
-			SlideImage.imgUrl.forEach(imgUrl => void ulSlideContainer.append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete()))
-		);
+		Controller.getSlideImageInfo()
+			.getImgUrl()
+			.then(() =>
+				Controller.getSlideImageInfo().imgUrl.forEach(imgUrl => void ulSlideContainer.append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete()))
+			);
 
 		return ulSlideContainer;
 	},
@@ -48,18 +52,18 @@ export default Object.create({
 	},
 	startSlideAutomatically() {
 		setTimeout(() => {
-			this.slideHandler && this.slideAutomatically();
+			this.slideAutomatically();
 		}, 5000);
 	},
 	slideAutomatically() {
 		$$('.liSlideItem')[0].style.width = 0;
 		setTimeout(() => {
 			$$('.liSlideItem')[0]?.remove();
-			$('.ulSlideContainer')?.appendChild(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${SlideImage.imgUrl[this.orderHandler]})`).complete());
+			$('.ulSlideContainer')?.appendChild(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${Controller.getSlideImageInfo().imgUrl[this.orderHandler]})`).complete());
 			this.orderHandler++;
 			this.orderHandler = this.orderHandler < 3 ? this.orderHandler : 0;
 			setTimeout(() => {
-				this.slideAutomatically();
+				this.slideHandler && this.slideAutomatically();
 			}, 5000);
 		}, 1500);
 	},

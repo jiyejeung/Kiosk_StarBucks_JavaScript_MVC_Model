@@ -6,12 +6,19 @@ import TakeOutInfo from '../model/TakeOutInfo.js';
 import SlideImageInfo from '../model/SlideImageInfo.js';
 import AllMenuInfo from '../model/AllMenuInfo.js';
 import UserInfo from '../model/UserInfo.js';
+import SelectMenuContainer from '../view/SelectMenuContainer.js';
 
 export default {
 	init() {},
-	setup() {
+	async setup() {
 		const fragment = document.createDocumentFragment();
-		fragment.append(IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup());
+
+		await SlideImageInfo.getImageUrl()
+			.then(() => void fragment.append(IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup()))
+			.then(() => AllMenuInfo.getAllMenu())
+			.then(() => fragment);
+
+		await AllMenuInfo.getAllMenu().then(fragment.append(SelectMenuContainer.setup()));
 
 		return fragment;
 	},
@@ -25,10 +32,10 @@ export default {
 		TakeOutInfo.takeOut = currentTarget.textContent;
 	},
 	clickButtonTakeOut() {
-		$('.buttonTakeOut')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e)));
+		$('.buttonTakeOut')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectMenuContainer.showSelectMenuContainer()));
 	},
 	clickButtonStore() {
-		$('.buttonStore')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e)));
+		$('.buttonStore')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectMenuContainer.showSelectMenuContainer()));
 	},
 	getSlideImageInfo() {
 		return SlideImageInfo;
@@ -36,7 +43,7 @@ export default {
 	getTakeOutInfo() {
 		return TakeOutInfo;
 	},
-	getCoffeeInfo() {
+	getAllMenuInfo() {
 		return AllMenuInfo;
 	},
 	getUserInfo() {

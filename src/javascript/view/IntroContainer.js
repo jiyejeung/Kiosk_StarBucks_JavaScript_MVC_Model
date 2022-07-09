@@ -1,26 +1,14 @@
 import { $, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
-	init() {
-		this.showSectionIntroContainer();
-	},
-	setup() {
-		return this.printSectionIntroContainer();
-	},
-	printSectionIntroContainer() {
-		const sectionIntroContainer = objElement.createElement('SECTION').setClassName('sectionIntroContainer').complete();
-		const fragment = document.createDocumentFragment();
-
-		fragment.append(this.printH1Title(), this.printH2Greeting());
-		sectionIntroContainer.appendChild(fragment);
-
-		return sectionIntroContainer;
-	},
 	printH1Title() {
 		return objElement.createElement('H1', 'STARBUCKS').setClassName('h1IntroTitle').complete();
 	},
 	printH2Greeting() {
 		return objElement.createElement('H2', 'This website was made for portfolio.').setClassName('h2IntroGreeting').complete();
+	},
+	printSectionIntroContainer() {
+		return objElement.createElement('SECTION').setClassName('sectionIntroContainer').complete();
 	},
 	showSectionIntroContainer() {
 		$('.sectionIntroContainer').style.display = 'flex';
@@ -33,5 +21,14 @@ export default Object.create({
 		setTimeout(() => {
 			$('.sectionIntroContainer').style.display = 'none';
 		}, 300);
+	},
+	setup() {
+		const sectionIntroContainer = this.printSectionIntroContainer();
+		sectionIntroContainer.append(this.printH1Title(), this.printH2Greeting());
+
+		return sectionIntroContainer;
+	},
+	init() {
+		this.showSectionIntroContainer();
 	},
 });

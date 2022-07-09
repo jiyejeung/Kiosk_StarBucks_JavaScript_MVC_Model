@@ -2,30 +2,30 @@ import { objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
 	setup() {
-		this.printNavKioskContainer();
-	},
-	printNavKioskContainer() {
-		const navKioskContainer = objElement.create('NAV').setClassName('navKioskContainer').complete();
-		const fragment = document.createDocumentFragment();
+		const navKioskContainer = this.printNavKioskContainer();
+		const buttonHome = this.printButtonHome();
+		const divLogoContainer = this.printDivLogoContainer();
+		const h1NavTitle = this.printH1NavTitle();
+		const divKioskTimer = this.printDivKioskTimer();
 
-		fragment.append(this.printButtonHome(), this.printH1NavTitle(), this.printDivKioskTimer());
-		navKioskContainer.appendChild(fragment);
+		buttonHome.appendChild(divLogoContainer);
+		navKioskContainer.append(buttonHome, h1NavTitle, divKioskTimer);
 
 		return navKioskContainer;
 	},
-	printButtonHome() {
-		const buttonHome = objElement.create('BUTTON').setClassName('buttonKioskHome').complete();
-		buttonHome.appendChild(this.printHome());
-
-		return buttonHome;
+	printNavKioskContainer() {
+		return objElement.createElement('NAV').setClassName('navKioskContainer').complete();
 	},
-	printIHome() {
-		return objElement.create('I').setClassName('fa-solid fa-house iHome').complete();
+	printButtonHome() {
+		return objElement.createElement('BUTTON').setClassName('buttonKioskHome').complete();
+	},
+	printDivLogoContainer() {
+		return objElement.createElement('DIV').setClassName('divLogoContainer').setAttribute('style', 'background-image: url(./images/logo.png)').complete();
 	},
 	printH1NavTitle() {
-		return objElement.create('H1', 'STARBUCKS').setClassName('h1NavKioskTitle').complete();
+		return objElement.createElement('H1', 'STARBUCKS').setClassName('h1NavKioskTitle').complete();
 	},
 	printDivKioskTimer() {
-		return objElement.create('DIV', '120').setClassName('divKioskTimer').complete();
+		return objElement.createElement('DIV', '120').setClassName('divKioskTimer').complete();
 	},
 });

@@ -1,5 +1,8 @@
 import { $ } from './utils/ElementTool.js';
 import Controller from './controller/Controller.js';
 
-$('#app').appendChild(Controller.setup());
-Controller.main();
+Controller.setup()
+	.then(res => $('#app').appendChild(res))
+	.then(() => Controller.main())
+	.catch(err => console.log(err))
+	.finally(() => console.log('This website was made just for portfolio!\nPlease call me +82-10-4820-1962,\nif you have any question!'));

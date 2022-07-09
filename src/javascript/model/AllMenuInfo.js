@@ -1,4 +1,11 @@
 export default Object.create({
-	coffeeCategory: ['Recommendation', 'Espresso', 'Cold Brew', 'Frappuccino', 'Bakery'],
-	coffeeFullMenu: [{ id: 1, coffeeName: 'example01', coffeeCategory: 'recommendation' }],
+	allMenu: [],
+	productCategory: [],
+	async getAllMenu() {
+		await fetch('http://localhost:3000/exampleAllMenu')
+			.then(res => res.json())
+			.then(res => void (this.allMenu = [...res]))
+			.then(() => void (this.productCategory = [...new Set(this.allMenu.map(product => product['productCategory']))]))
+			.catch(err => console.log(err));
+	},
 });

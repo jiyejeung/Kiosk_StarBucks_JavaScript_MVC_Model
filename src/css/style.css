@@ -162,6 +162,7 @@ body {
     font-size: 5vw;
     background-color: #172d29;
     transition: all 300ms ease-in-out;
+    display: none;
     cursor: pointer;
   }
   #app section.sectionIntroContainer h1.h1IntroTitle {
@@ -198,7 +199,7 @@ body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all 1500ms ease-in-out;
+    transition: all 1000ms ease-in-out;
   }
   #app section.sectionSlideContainer h3.h3SlideTouchText {
     position: absolute;
@@ -270,6 +271,191 @@ body {
   }
   #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonStore {
     margin-left: 3vw;
+  }
+  #app section.sectionSelectMenuContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+    position: relative;
+    padding-top: 8vw;
+    padding-bottom: 8vw;
+    background-color: #fafafa;
+  }
+  #app section.sectionSelectMenuContainer nav.navKioskContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 7vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    padding-left: 11vw;
+  }
+  #app section.sectionSelectMenuContainer nav.navKioskContainer h1.h1NavKioskTitle {
+    margin-top: 1vw;
+    font-size: 5.5vw;
+    font-weight: bolder;
+    font-family: "Archivo Black", sans-serif;
+    color: #174841;
+    cursor: pointer;
+  }
+  #app section.sectionSelectMenuContainer nav.navKioskContainer .divKioskTimer {
+    font-size: 2.7vw;
+    font-family: "Times New Roman", Times, serif;
+    color: #174841;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3vw 0;
+    padding-left: 3vw;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer li.liSelectMenuCategoryItem {
+    width: 100%;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-size: 1.8vw;
+    text-align: center;
+    padding: 1.2vw 0;
+    background-color: #16584e;
+    transition: all 300ms ease-in-out;
+    cursor: pointer;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer li.liSelectMenuCategoryItem:nth-child(1) {
+    background-color: #193c35;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer {
+    width: 60%;
+    height: 100%;
+    overflow: hidden;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer {
+    width: 100%;
+    max-height: 100%;
+    flex-wrap: wrap;
+    display: none;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 3vw;
+    overflow: auto;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer {
+    width: 12.9vw;
+    height: 20vw;
+    margin-right: 1vw;
+    margin-bottom: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li {
+    width: 100%;
+    text-align: center;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuImageItem {
+    height: 12.9vw;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuNameItem {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2vw;
+    color: #0a0a0a;
+    margin: 0.5vw 0;
+    margin-bottom: 1.5vw;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuPriceItem {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.8vw;
+    color: #0a0a0a;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer:nth-child(1) {
+    display: flex;
+    opacity: 1;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer ul.ulSelectedProductListContainer {
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer {
+    width: 100%;
+    height: 60%;
+    border: 1px solid black;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button {
+    width: 100%;
+    height: 30%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5vw;
+    font-weight: bolder;
+    color: #fafafa;
+    transition: all 300ms ease-in-out;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button.buttonPay {
+    background-color: #172d29;
+    margin: 5% 0;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button.buttonCancel {
+    background-color: #cf3131;
+  }
+  #app section.sectionSelectMenuContainer footer.footerKioskContainer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #172d29;
+    border-top: 1vw solid #fafafa;
+  }
+  #app section.sectionSelectMenuContainer footer.footerKioskContainer div {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.5vw;
+    color: #fafafa;
+  }
+  #app section.sectionSelectMenuContainer footer.footerKioskContainer .divEmail {
+    margin-bottom: 1.5vw;
+  }
+  #app section.sectionSelectMenuContainer footer.footerKioskContainer .divContactMe {
+    font-size: 1.1vw;
   }
 }
 @media (min-width: 758px) and (max-width: 1024px) {

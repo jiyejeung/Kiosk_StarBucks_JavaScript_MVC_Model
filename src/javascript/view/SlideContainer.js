@@ -2,37 +2,27 @@ import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
-	orderHandler: 0,
-	slideHandler: true,
-	init() {
-		this.slideAutomatically = true;
-		$('.sectionSlideContainer').append(objElement.createElement('UL').setClassName('ulSlideContainer').complete());
-		Controller.getSlideImageInfo().imgUrl.forEach(
-			imgUrl => void $('.ulSlideContainer').append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete())
-		);
-	},
-	setup() {
-		return this.printSectionSlideContainer();
-	},
 	printSectionSlideContainer() {
-		const sectionSlideContainer = objElement.createElement('SECTION').setClassName('sectionSlideContainer').complete();
-		sectionSlideContainer.append(this.printUlSlideContainer(), this.printH3SlideTouchText());
+		return objElement.createElement('SECTION').setClassName('sectionSlideContainer').complete();
+	},
+	printLiSlideItem(imageUrl) {
+		return objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imageUrl})`).complete();
+	},
+	printLiSlideItems() {
+		const fragment = document.createDocumentFragment();
 
-		return sectionSlideContainer;
+		Controller.getSlideImageInfo().imageUrl.forEach(imageUrl => void fragment.append(this.printLiSlideItem(imageUrl)));
+
+		return fragment;
 	},
 	printUlSlideContainer() {
-		const ulSlideContainer = objElement.createElement('UL').setClassName('ulSlideContainer').complete();
-		Controller.getSlideImageInfo()
-			.getImgUrl()
-			.then(() =>
-				Controller.getSlideImageInfo().imgUrl.forEach(imgUrl => void ulSlideContainer.append(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imgUrl})`).complete()))
-			);
-
-		return ulSlideContainer;
+		return objElement.createElement('UL').setClassName('ulSlideContainer').complete();
 	},
 	printH3SlideTouchText() {
 		return objElement.createElement('H3', 'Please Touch Here!').setClassName('h3SlideTouchText').complete();
 	},
+	orderHandler: 0,
+	slideHandler: true,
 	showSectionContainer() {
 		setTimeout(() => {
 			$('.sectionSlideContainer').style.display = 'inline-block';
@@ -53,18 +43,32 @@ export default Object.create({
 	startSlideAutomatically() {
 		setTimeout(() => {
 			this.slideAutomatically();
-		}, 5000);
+		}, 4000);
 	},
 	slideAutomatically() {
 		$$('.liSlideItem')[0].style.width = 0;
 		setTimeout(() => {
 			$$('.liSlideItem')[0]?.remove();
-			$('.ulSlideContainer')?.appendChild(objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${Controller.getSlideImageInfo().imgUrl[this.orderHandler]})`).complete());
+			$('.ulSlideContainer')?.appendChild(this.printLiSlideItem(Controller.getSlideImageInfo().imageUrl[this.orderHandler]));
 			this.orderHandler++;
 			this.orderHandler = this.orderHandler < 3 ? this.orderHandler : 0;
 			setTimeout(() => {
 				this.slideHandler && this.slideAutomatically();
-			}, 5000);
-		}, 1500);
+			}, 4000);
+		}, 1000);
+	},
+	setup() {
+		const sectionSlideContainer = this.printSectionSlideContainer();
+		const ulSlideContainer = this.printUlSlideContainer();
+		const h3SlideTouchText = this.printH3SlideTouchText();
+		const liSlideItems = this.printLiSlideItems();
+
+		ulSlideContainer.appendChild(liSlideItems);
+		sectionSlideContainer.append(ulSlideContainer, h3SlideTouchText);
+
+		return sectionSlideContainer;
+	},
+	init() {
+		this.slideAutomatically = true;
 	},
 });

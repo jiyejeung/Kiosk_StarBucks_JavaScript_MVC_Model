@@ -296,8 +296,7 @@ body {
     justify-content: center;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5vw;
-    padding-left: 11vw;
+    padding: 0 2vw;
   }
   #app section.sectionSelectMenuContainer nav.navKioskContainer h1.h1NavKioskTitle {
     margin-top: 1vw;
@@ -310,6 +309,7 @@ body {
   #app section.sectionSelectMenuContainer nav.navKioskContainer .divKioskTimer {
     font-size: 2.7vw;
     font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
     color: #174841;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer {
@@ -319,26 +319,27 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 3vw 0;
-    padding-left: 3vw;
+    justify-content: flex-start;
+    padding-left: 2vw;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer li.liSelectMenuCategoryItem {
     width: 100%;
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
     font-size: 1.8vw;
+    font-weight: bold;
     text-align: center;
-    padding: 1.2vw 0;
+    padding: 1.5vw 0;
     background-color: #16584e;
     transition: all 300ms ease-in-out;
+    margin-bottom: 0.5vw;
     cursor: pointer;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuCategoryContainer li.liSelectMenuCategoryItem:nth-child(1) {
-    background-color: #193c35;
+    background-color: #193c36;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer {
-    width: 60%;
+    width: 57%;
     height: 100%;
     overflow: hidden;
   }
@@ -351,12 +352,12 @@ body {
     opacity: 0;
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 3vw;
+    padding-left: 2vw;
     overflow: auto;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer {
-    width: 12.9vw;
-    height: 20vw;
+    width: 10vw;
+    height: 14vw;
     margin-right: 1vw;
     margin-bottom: 1vw;
     display: flex;
@@ -370,39 +371,48 @@ body {
     text-align: center;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuImageItem {
-    height: 12.9vw;
+    height: 10vw;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-bottom: 0.3vw;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuNameItem {
     font-family: "Times New Roman", Times, serif;
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: #0a0a0a;
-    margin: 0.5vw 0;
-    margin-bottom: 1.5vw;
+    margin-bottom: 0.5vw;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer ul.ulSelectMenuItemContainer li.liSelectMenuPriceItem {
     font-family: "Times New Roman", Times, serif;
-    font-size: 1.8vw;
+    font-size: 1.3vw;
     color: #0a0a0a;
+  }
+  #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer::-webkit-scrollbar {
+    display: none;
   }
   #app section.sectionSelectMenuContainer ul.ulSelectMenuWrapperContainer ul.ulSelectMenuListContainer:nth-child(1) {
     display: flex;
     opacity: 1;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer {
-    width: 20%;
+    width: 23%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-right: 2vw;
+    padding-left: 1vw;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer ul.ulSelectedProductListContainer {
     width: 100%;
     height: 60%;
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer {
     width: 100%;
@@ -414,21 +424,65 @@ body {
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer {
     width: 100%;
-    height: 60%;
-    border: 1px solid black;
+    height: 45%;
+    padding-bottom: 2%;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span {
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberText {
+    font-size: 2.3vw;
+    text-align: left;
+    width: 80%;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberValue {
+    font-size: 2.2vw;
+    width: 20%;
+    text-align: right;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span {
+    font-size: 2.2vw;
+    font-weight: bold;
+    font-family: "Times New Roman", Times, serif;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountText {
+    text-align: left;
+    width: 60%;
+  }
+  #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountValue {
+    text-align: right;
+    width: 40%;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button {
     width: 100%;
-    height: 30%;
+    height: 25%;
     font-family: "Times New Roman", Times, serif;
     font-size: 2.5vw;
     font-weight: bolder;
     color: #fafafa;
     transition: all 300ms ease-in-out;
+    cursor: pointer;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button.buttonPay {
     background-color: #172d29;
-    margin: 5% 0;
+    margin-bottom: 5%;
   }
   #app section.sectionSelectMenuContainer .divSelectedMenuWrapperContainer .divPayWrapperContainer button.buttonCancel {
     background-color: #cf3131;

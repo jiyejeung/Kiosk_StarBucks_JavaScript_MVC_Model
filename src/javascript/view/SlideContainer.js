@@ -42,7 +42,7 @@ export default Object.create({
 	},
 	startSlideAutomatically() {
 		setTimeout(() => {
-			this.slideAutomatically();
+			this.slideHandler && this.slideAutomatically();
 		}, 4000);
 	},
 	slideAutomatically() {

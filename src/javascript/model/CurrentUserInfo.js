@@ -1,5 +1,6 @@
 export default Object.create({
-	selectedProduct: [
+	currentUser: { name: '', couponUsing: 'no', couponCount: 0 },
+	currentSelectedProduct: [
 		{
 			id: 1,
 			productName: 'example01',

@@ -1,7 +1,7 @@
 import FooterKioskContainer from '../components/FooterKioskContainer.js';
 import NavKioskContainer from '../components/NavKioskContainer.js';
 import Controller from '../controller/Controller.js';
-import { $, objElement } from '../utils/ElementTool.js';
+import { $, $$, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
 	printFooterKioskContainer() {
@@ -13,28 +13,70 @@ export default Object.create({
 	printButtonPay() {
 		return objElement.createElement('BUTTON', 'PAY').setClassName('buttonPay').complete();
 	},
-	printSpanTotalText() {},
-	printSpanTotalValue() {},
-	printDivTotalContainer() {
-		return objElement.createElement('DIV').setClassName('divTotalContainer');
+	printSpanTotalNumberValue() {
+		return objElement.createElement('SPAN', '0').setClassName('spanTotalNumberValue').complete();
 	},
-	appendDivTotalContainer() {
-		const divTotalContainer = this.printDivTotalContainer();
+	printSpanTotalNumberText() {
+		return objElement.createElement('SPAN', 'No. of items: ').setClassName('spanTotalNumberText').complete();
+	},
+	printDivTotalNumberContainer() {
+		return objElement.createElement('DIV').setClassName('divTotalNumberContainer').complete();
+	},
+	appendDivTotalNumberContainer() {
+		const divTotalNumberContainer = this.printDivTotalNumberContainer();
+		const spanTotalNumberText = this.printSpanTotalNumberText();
+		const spanTotalNumberValue = this.printSpanTotalNumberValue();
 		const fragment = document.createDocumentFragment();
-		
+
+		fragment.append(spanTotalNumberText, spanTotalNumberValue);
+
+		divTotalNumberContainer.appendChild(fragment);
+
+		return divTotalNumberContainer;
 	},
-	printDiv() {},
-	print() {},
+	printSpanTotalAmountText() {
+		return objElement.createElement('SPAN', 'TOTAL: ').setClassName('spanTotalAmountText').complete();
+	},
+	printSpanTotalAmountValue() {
+		return objElement.createElement('SPAN', '0').setClassName('spanTotalAmountValue').complete();
+	},
+	printDivTotalAmountContainer() {
+		return objElement.createElement('DIV').setClassName('divTotalAmountContainer').complete();
+	},
+	appendDivTotalAmountContainer() {
+		const divTotalAmountContainer = this.printDivTotalAmountContainer();
+		const spanTotalAmountText = this.printSpanTotalAmountText();
+		const spanTotalAmountValue = this.printSpanTotalAmountValue();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(spanTotalAmountText, spanTotalAmountValue);
+
+		divTotalAmountContainer.appendChild(fragment);
+
+		return divTotalAmountContainer;
+	},
 	printDivPayInfoContainer() {
 		return objElement.createElement('DIV').setClassName('divPayInfoContainer').complete();
 	},
-	appendDivPayInfoContainer() {},
+	appendDivPayInfoContainer() {
+		const divPayInfoContainer = this.printDivPayInfoContainer();
+		const divTotalAmountContainer = this.appendDivTotalAmountContainer();
+		const divTotalNumberContainer = this.appendDivTotalNumberContainer();
+
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(divTotalNumberContainer, divTotalAmountContainer);
+
+		divPayInfoContainer.appendChild(fragment);
+
+		return divPayInfoContainer;
+	},
 	printDivPayWrapperContainer() {
 		return objElement.createElement('DIV').setClassName('divPayWrapperContainer').complete();
 	},
 	appendDivPayWrapperContainer() {
 		const divPayWrapperContainer = this.printDivPayWrapperContainer();
-		const divPayInfoContainer = this.printDivPayInfoContainer();
+		const divPayInfoContainer = this.appendDivPayInfoContainer();
 		const buttonCancel = this.printButtonCancel();
 		const buttonPay = this.printButtonPay();
 		const fragment = document.createDocumentFragment();
@@ -150,8 +192,15 @@ export default Object.create({
 	},
 	printLiSelectMenuCategoryItems() {
 		const fragment = document.createDocumentFragment();
-
-		Controller.getAllMenuInfo().productCategory.forEach(category => void fragment.append(this.printLiSelectMenuCategoryItem(category)));
+		Controller.getAllMenuInfo()
+			.productCategory.map(category =>
+				category
+					.split('')
+					.map(str => str.replace(/[A-Z]/, ' ' + str))
+					.map((str, index) => (index ? str : str.toUpperCase()))
+					.join('')
+			)
+			.forEach(category => void fragment.append(this.printLiSelectMenuCategoryItem(category)));
 
 		return fragment;
 	},
@@ -186,15 +235,45 @@ export default Object.create({
 		return sectionSelectMenuContainer;
 	},
 	init() {},
-	showSelectMenuContainer() {
+	changeBackgroundColorLiSelectMenuCategoryItem(target) {
+		$$('.liSelectMenuCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
+		target.style.backgroundColor = '#193c36';
+	},
+	showUlSelectMenuListContainer(index01) {
+		$$('.ulSelectMenuListContainer').forEach(
+			(ul, index02) =>
+				void (
+					index01 === index02 &&
+					setTimeout(() => {
+						ul.style.display = 'flex';
+						setTimeout(() => {
+							ul.style.opacity = 1;
+						}, 300);
+					}, 300)
+				)
+		);
+	},
+	hideUlSelectMenuListContainer(index01) {
+		$$('.ulSelectMenuListContainer').forEach(
+			(ul, index02) =>
+				void (
+					index01 !== index02 &&
+					((ul.style.opacity = 0),
+					setTimeout(() => {
+						ul.style.display = 'none';
+					}, 300))
+				)
+		);
+	},
+	showSectionSelectMenuContainer() {
 		setTimeout(() => {
 			$('.sectionSelectMenuContainer').style.display = 'flex';
 			setTimeout(() => {
 				$('.sectionSelectMenuContainer').style.opacity = 1;
-			}, 10);
+			}, 0);
 		}, 300);
 	},
-	hideSelectMenuContainer() {
+	hideSectionSelectMenuContainer() {
 		$('.sectionSelectMenuContainer').style.opacity = 0;
 		setTimeout(() => {
 			$('.sectionSelectMenuContainer').style.display = 'none';

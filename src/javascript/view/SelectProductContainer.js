@@ -2,6 +2,7 @@ import FooterKioskContainer from '../components/FooterKioskContainer.js';
 import NavKioskContainer from '../components/NavKioskContainer.js';
 import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
+import { spacingString } from '../utils/StringTool.js';
 
 export default Object.create({
 	printFooterKioskContainer() {
@@ -120,127 +121,119 @@ export default Object.create({
 	printUlSelectedProductListContainer() {
 		return objElement.createElement('UL').setClassName('ulSelectedProductListContainer').complete();
 	},
-	printDivSelectedMenuWrapperContainer() {
-		return objElement.createElement('DIV').setClassName('divSelectedMenuWrapperContainer').complete();
+	printDivSelectedProductWrapperContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductWrapperContainer').complete();
 	},
-	appendDivSelectedMenuWrapperContainer() {
-		const divSelectedMenuWrapperContainer = this.printDivSelectedMenuWrapperContainer();
+	appendDivSelectedProductWrapperContainer() {
+		const divSelectedProductWrapperContainer = this.printDivSelectedProductWrapperContainer();
 		const ulSelectedProductListContainer = this.printUlSelectedProductListContainer();
 		const divPayWrapperContainer = this.appendDivPayWrapperContainer();
 		const fragment = document.createDocumentFragment();
 
 		fragment.append(ulSelectedProductListContainer, divPayWrapperContainer);
 
-		divSelectedMenuWrapperContainer.appendChild(fragment);
+		divSelectedProductWrapperContainer.appendChild(fragment);
 
-		return divSelectedMenuWrapperContainer;
+		return divSelectedProductWrapperContainer;
 	},
-	printLiSelectMenuImageItem({ productImage }) {
-		return objElement.createElement('LI').setClassName('liSelectMenuImageItem').setAttribute('style', `background-image: url(${productImage})`).complete();
+	printLiSelectProductImageItem({ productImage }) {
+		return objElement.createElement('LI').setClassName('liSelectProductImageItem').setAttribute('style', `background-image: url(${productImage})`).complete();
 	},
-	printLiSelectMenuNameItem({ productName }) {
-		return objElement.createElement('LI', productName).setClassName('liSelectMenuNameItem').complete();
+	printLiSelectProductNameItem({ productName }) {
+		return objElement.createElement('LI', productName).setClassName('liSelectProductNameItem').complete();
 	},
-	printLiSelectMenuPriceItem({ productPrice }) {
-		return objElement.createElement('LI', productPrice).setClassName('liSelectMenuPriceItem').complete();
+	printLiSelectProductPriceItem({ productPrice }) {
+		return objElement.createElement('LI', productPrice).setClassName('liSelectProductPriceItem').complete();
 	},
-	printLiSelectMenuItems(product) {
+	printLiSelectProductItems(product) {
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(this.printLiSelectMenuImageItem(product), this.printLiSelectMenuNameItem(product), this.printLiSelectMenuPriceItem(product));
+		fragment.append(this.printLiSelectProductImageItem(product), this.printLiSelectProductNameItem(product), this.printLiSelectProductPriceItem(product));
 
 		return fragment;
 	},
-	printUlSelectMenuItemContainer() {
-		return objElement.createElement('UL').setClassName('ulSelectMenuItemContainer').complete();
+	printUlSelectProductItemContainer() {
+		return objElement.createElement('UL').setClassName('ulSelectProductItemContainer').complete();
 	},
-	printUlSelectMenuItemContainers(category) {
+	printUlSelectProductItemContainers(category) {
 		const fragment = document.createDocumentFragment();
 
-		Controller.getAllMenuInfo()
-			.allMenu.filter(({ productCategory }) => productCategory === category)
+		Controller.allProductsInfo().filter(({ productCategory }) => productCategory === category)
 			.forEach(product => {
-				const ulSelectMenuItemContainer = this.printUlSelectMenuItemContainer();
+				const ulSelectProductItemContainer = this.printUlSelectProductItemContainer();
 
-				ulSelectMenuItemContainer.appendChild(this.printLiSelectMenuItems(product));
-				fragment.appendChild(ulSelectMenuItemContainer);
+				ulSelectProductItemContainer.appendChild(this.printLiSelectProductItems(product));
+				fragment.appendChild(ulSelectProductItemContainer);
 			});
 
 		return fragment;
 	},
-	printUlSelectMenuListContainer() {
-		return objElement.createElement('UL').setClassName('ulSelectMenuListContainer').complete();
+	printUlSelectProductListContainer() {
+		return objElement.createElement('UL').setClassName('ulSelectProductListContainer').complete();
 	},
-	printUlSelectMenuListContainers() {
+	printUlSelectProductListContainers() {
 		const fragment = document.createDocumentFragment();
 
-		Controller.getAllMenuInfo().productCategory.forEach(category => {
-			const ulSelectMenuListContainer = this.printUlSelectMenuListContainer();
+		Controller.allProductCategoriesInfo().forEach(category => {
+			const ulSelectProductListContainer = this.printUlSelectProductListContainer();
 
-			ulSelectMenuListContainer.appendChild(this.printUlSelectMenuItemContainers(category));
+			ulSelectProductListContainer.appendChild(this.printUlSelectProductItemContainers(category));
 
-			fragment.appendChild(ulSelectMenuListContainer);
+			fragment.appendChild(ulSelectProductListContainer);
 		});
 
 		return fragment;
 	},
-	printUlSelectMenuWrapperContainer() {
-		return objElement.createElement('UL').setClassName('ulSelectMenuWrapperContainer').complete();
+	printUlSelectProductWrapperContainer() {
+		return objElement.createElement('UL').setClassName('ulSelectProductWrapperContainer').complete();
 	},
-	printLiSelectMenuCategoryItem(category) {
-		return objElement.createElement('LI', category).setClassName('liSelectMenuCategoryItem').complete();
+	printLiSelectProductCategoryItem(category) {
+		return objElement.createElement('LI', category).setClassName('liSelectProductCategoryItem').complete();
 	},
-	printLiSelectMenuCategoryItems() {
+	printLiSelectProductCategoryItems() {
 		const fragment = document.createDocumentFragment();
-		Controller.getAllMenuInfo()
-			.productCategory.map(category =>
-				category
-					.split('')
-					.map(str => str.replace(/[A-Z]/, ' ' + str))
-					.map((str, index) => (index ? str : str.toUpperCase()))
-					.join('')
-			)
-			.forEach(category => void fragment.append(this.printLiSelectMenuCategoryItem(category)));
+		Controller.allProductCategoriesInfo().map(category => spacingString(category))
+			.forEach(category => void fragment.append(this.printLiSelectProductCategoryItem(category)));
 
 		return fragment;
 	},
-	printUlSelectMenuCategoryContainer() {
-		return objElement.createElement('UL').setClassName('ulSelectMenuCategoryContainer').complete();
+	printUlSelectProductCategoryContainer() {
+		return objElement.createElement('UL').setClassName('ulSelectProductCategoryContainer').complete();
 	},
 	printNavKioskContainer() {
 		return NavKioskContainer.setup();
 	},
-	printSectionSelectMenuContainer() {
-		return objElement.createElement('SECTION').setClassName('sectionSelectMenuContainer').complete();
+	printSectionSelectProductContainer() {
+		return objElement.createElement('SECTION').setClassName('sectionSelectProductContainer').complete();
 	},
 	setup() {
-		const sectionSelectMenuContainer = this.printSectionSelectMenuContainer();
+		const sectionSelectProductContainer = this.printSectionSelectProductContainer();
 		const navKioskContainer = this.printNavKioskContainer();
-		const ulSelectMenuCategoryContainer = this.printUlSelectMenuCategoryContainer();
-		const liSelectMenuCategoryItems = this.printLiSelectMenuCategoryItems();
-		const ulSelectMenuWrapperContainer = this.printUlSelectMenuWrapperContainer();
-		const ulSelectMenuListContainers = this.printUlSelectMenuListContainers();
-		const divSelectedMenuWrapperContainer = this.appendDivSelectedMenuWrapperContainer();
+		const ulSelectProductCategoryContainer = this.printUlSelectProductCategoryContainer();
+		const liSelectProductCategoryItems = this.printLiSelectProductCategoryItems();
+		const ulSelectProductWrapperContainer = this.printUlSelectProductWrapperContainer();
+		const ulSelectProductListContainers = this.printUlSelectProductListContainers();
+		const divSelectedProductWrapperContainer = this.appendDivSelectedProductWrapperContainer();
 		const footerKioskContainer = this.printFooterKioskContainer();
 		const fragment = document.createDocumentFragment();
 
-		ulSelectMenuCategoryContainer.appendChild(liSelectMenuCategoryItems);
+		ulSelectProductCategoryContainer.appendChild(liSelectProductCategoryItems);
 
-		ulSelectMenuWrapperContainer.appendChild(ulSelectMenuListContainers);
+		ulSelectProductWrapperContainer.appendChild(ulSelectProductListContainers);
 
-		fragment.append(navKioskContainer, ulSelectMenuCategoryContainer, ulSelectMenuWrapperContainer, divSelectedMenuWrapperContainer, footerKioskContainer);
+		fragment.append(navKioskContainer, ulSelectProductCategoryContainer, ulSelectProductWrapperContainer, divSelectedProductWrapperContainer, footerKioskContainer);
 
-		sectionSelectMenuContainer.appendChild(fragment);
+		sectionSelectProductContainer.appendChild(fragment);
 
-		return sectionSelectMenuContainer;
+		return sectionSelectProductContainer;
 	},
 	init() {},
-	changeBackgroundColorLiSelectMenuCategoryItem(target) {
-		$$('.liSelectMenuCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
+	changeBackgroundColorLiSelectProductCategoryItem(target) {
+		$$('.liSelectProductCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
 		target.style.backgroundColor = '#193c36';
 	},
-	showUlSelectMenuListContainer(index01) {
-		$$('.ulSelectMenuListContainer').forEach(
+	showUlSelectProductListContainer(index01) {
+		$$('.ulSelectProductListContainer').forEach(
 			(ul, index02) =>
 				void (
 					index01 === index02 &&
@@ -253,8 +246,8 @@ export default Object.create({
 				)
 		);
 	},
-	hideUlSelectMenuListContainer(index01) {
-		$$('.ulSelectMenuListContainer').forEach(
+	hideUlSelectProductListContainer(index01) {
+		$$('.ulSelectProductListContainer').forEach(
 			(ul, index02) =>
 				void (
 					index01 !== index02 &&
@@ -265,21 +258,21 @@ export default Object.create({
 				)
 		);
 	},
-	showSectionSelectMenuContainer() {
+	showSectionSelectProductContainer() {
 		setTimeout(() => {
-			$('.sectionSelectMenuContainer').style.display = 'flex';
+			$('.sectionSelectProductContainer').style.display = 'flex';
 			setTimeout(() => {
-				$('.sectionSelectMenuContainer').style.opacity = 1;
+				$('.sectionSelectProductContainer').style.opacity = 1;
 			}, 0);
 		}, 300);
 	},
-	hideSectionSelectMenuContainer() {
-		$('.sectionSelectMenuContainer').style.opacity = 0;
+	hideSectionSelectProductContainer() {
+		$('.sectionSelectProductContainer').style.opacity = 0;
 		setTimeout(() => {
-			$('.sectionSelectMenuContainer').style.display = 'none';
+			$('.sectionSelectProductContainer').style.display = 'none';
 		}, 300);
 	},
-	printSectionMenuOptionContainer() {},
-	showSelectMenuOptionContainer() {},
-	hideSelectMenuOptionContainer() {},
+	printSectionProductOptionContainer() {},
+	showSelectProductOptionContainer() {},
+	hideSelectProductOptionContainer() {},
 });

@@ -11,7 +11,7 @@ export default Object.create({
 	printLiSlideItems() {
 		const fragment = document.createDocumentFragment();
 
-		Controller.getSlideImageInfo().imageUrl.forEach(imageUrl => void fragment.append(this.printLiSlideItem(imageUrl)));
+		Controller.slideImageInfo().forEach(imageUrl => void fragment.append(this.printLiSlideItem(imageUrl)));
 
 		return fragment;
 	},
@@ -49,7 +49,7 @@ export default Object.create({
 		$$('.liSlideItem')[0].style.width = 0;
 		setTimeout(() => {
 			$$('.liSlideItem')[0]?.remove();
-			$('.ulSlideContainer')?.appendChild(this.printLiSlideItem(Controller.getSlideImageInfo().imageUrl[this.orderHandler]));
+			$('.ulSlideContainer')?.appendChild(this.printLiSlideItem(Controller.slideImageInfo()[this.orderHandler]));
 			this.orderHandler++;
 			this.orderHandler = this.orderHandler < 3 ? this.orderHandler : 0;
 			setTimeout(() => {

@@ -31,6 +31,7 @@
 			}
 			h2.h2IntroGreeting {
 				font-family: 'Times New Roman', Times, serif;
+				letter-spacing: 0.05vw;
 				font-size: 2.5vw;
 				color: #fafafa;
 			}
@@ -65,6 +66,7 @@
 				left: 50%;
 				transform: translate(-50%, -50%);
 				font-family: 'Times New Roman', Times, serif;
+				letter-spacing: 0.05vw;
 				text-shadow: rgba(#0a0a0a, 0.7) 0.1vw 0.1vw 0.3vw;
 				font-weight: bolder;
 				font-size: 5vw;
@@ -105,6 +107,7 @@
 					@include flexRow();
 					background-color: transparent;
 					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
 					font-weight: bolder;
 					text-shadow: rgba(#0a0a0a, 0.5) 0.1vw 0.1vw 0.3vw;
 					color: #fafafa;
@@ -119,7 +122,231 @@
 				}
 			}
 		}
-		section.sectionSelectMenuContainer {
+		section.sectionSelectProductContainer {
+			width: 100%;
+			height: 100%;
+			@include flexRow();
+			display: none;
+			opacity: 0;
+			transition: all 300ms ease-in-out;
+			position: relative;
+			padding-top: 8vw;
+			padding-bottom: 8vw;
+			background-color: #fafafa;
+			nav.navKioskContainer {
+				// 부모요소가 padding-top: 8vw, position: relative를 가지고 있어야함.
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 7vw;
+				@include flexRow();
+				justify-content: space-between;
+				padding: 0 2vw;
+				h1.h1NavKioskTitle {
+					margin-top: 1vw;
+					font-size: 5.5vw;
+					font-weight: bolder;
+					font-family: 'Archivo Black', sans-serif;
+					color: #174841;
+					cursor: pointer;
+				}
+				.divKioskTimer {
+					font-size: 2.7vw;
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-weight: bold;
+					color: #174841;
+				}
+			}
+			ul.ulSelectProductCategoryContainer {
+				width: 20%;
+				height: 100%;
+				@include flexCol();
+				justify-content: flex-start;
+				padding-left: 2vw;
+				li.liSelectProductCategoryItem {
+					width: 100%;
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					color: #fafafa;
+					font-size: 1.8vw;
+					font-weight: bold;
+					text-align: center;
+					padding: 1.5vw 0;
+					background-color: #16584e;
+					transition: all 300ms ease-in-out;
+					margin-bottom: 0.5vw;
+					cursor: pointer;
+				}
+				li.liSelectProductCategoryItem:nth-child(1) {
+					background-color: #193c36;
+				}
+			}
+			ul.ulSelectProductWrapperContainer {
+				width: 57%;
+				height: 100%;
+				overflow: hidden;
+				ul.ulSelectProductListContainer {
+					width: 100%;
+					max-height: 100%;
+					flex-wrap: wrap;
+					display: none;
+					transition: all 300ms ease-in-out;
+					opacity: 0;
+					justify-content: flex-start;
+					align-items: flex-start;
+					padding-left: 2vw;
+					overflow: auto;
+					ul.ulSelectProductItemContainer {
+						width: 10vw;
+						height: 14vw;
+						margin-right: 1vw;
+						margin-bottom: 1vw;
+						@include flexCol();
+						cursor: pointer;
+						li {
+							width: 100%;
+							text-align: center;
+						}
+						li.liSelectProductImageItem {
+							height: 10vw;
+							background-position: 50% 50%;
+							background-repeat: no-repeat;
+							background-size: cover;
+							margin-bottom: 0.3vw;
+						}
+						li.liSelectProductNameItem {
+							font-family: 'Times New Roman', Times, serif;
+							letter-spacing: 0.05vw;
+							font-size: 1.5vw;
+							color: #0a0a0a;
+							margin-bottom: 0.5vw;
+						}
+						li.liSelectProductPriceItem {
+							font-family: 'Times New Roman', Times, serif;
+							letter-spacing: 0.05vw;
+							font-size: 1.3vw;
+							color: #0a0a0a;
+						}
+					}
+				}
+				ul.ulSelectProductListContainer::-webkit-scrollbar {
+					display: none;
+				}
+				ul.ulSelectProductListContainer:nth-child(1) {
+					display: flex;
+					opacity: 1;
+				}
+			}
+			.divSelectedProductWrapperContainer {
+				width: 23%;
+				height: 100%;
+				@include flexCol();
+				padding-right: 2vw;
+				padding-left: 1vw;
+				ul.ulSelectedProductListContainer {
+					width: 100%;
+					height: 60%;
+					border: 1px solid black;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					overflow: auto;
+				}
+				.divPayWrapperContainer {
+					width: 100%;
+					height: 40%;
+					@include flexCol();
+					.divPayInfoContainer {
+						width: 100%;
+						height: 45%;
+						padding-bottom: 2%;
+						.divTotalNumberContainer {
+							@include flexRow();
+							width: 100%;
+							height: 50%;
+							span {
+								font-family: 'Times New Roman', Times, serif;
+								letter-spacing: 0.05vw;
+								font-weight: bold;
+							}
+							span.spanTotalNumberText {
+								font-size: 2.3vw;
+								text-align: left;
+								width: 80%;
+							}
+							span.spanTotalNumberValue {
+								font-size: 2.2vw;
+								width: 20%;
+								text-align: right;
+							}
+						}
+						.divTotalAmountContainer {
+							@include flexRow();
+							width: 100%;
+							height: 50%;
+							span {
+								font-size: 2.2vw;
+								font-weight: bold;
+								font-family: 'Times New Roman', Times, serif;
+								letter-spacing: 0.05vw;
+							}
+							span.spanTotalAmountText {
+								text-align: left;
+								width: 60%;
+							}
+							span.spanTotalAmountValue {
+								text-align: right;
+								width: 40%;
+							}
+						}
+					}
+					button {
+						width: 100%;
+						height: 25%;
+						font-family: 'Times New Roman', Times, serif;
+						letter-spacing: 0.05vw;
+						font-size: 2.5vw;
+						font-weight: bolder;
+						color: #fafafa;
+						transition: all 300ms ease-in-out;
+						cursor: pointer;
+					}
+					button.buttonPay {
+						background-color: #172d29;
+						margin-bottom: 5%;
+					}
+					button.buttonCancel {
+						background-color: #cf3131;
+					}
+				}
+			}
+			footer.footerKioskContainer {
+				// 부모요소가 padding-bottom: 8vw, position: relative를 가지고 있어야함.
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+				height: 8vw;
+				@include flexCol();
+				background-color: #172d29;
+				border-top: 1vw solid #fafafa;
+				div {
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-size: 1.5vw;
+					color: #fafafa;
+				}
+				.divEmail {
+					margin-bottom: 1.5vw;
+				}
+				.divContactMe {
+					font-size: 1.1vw;
+				}
+			}
+		}
+		section.sectionOptionContainer {
 			width: 100%;
 			height: 100%;
 			@include flexRow();
@@ -151,161 +378,116 @@
 				.divKioskTimer {
 					font-size: 2.7vw;
 					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
 					font-weight: bold;
 					color: #174841;
 				}
 			}
-			ul.ulSelectMenuCategoryContainer {
-				width: 20%;
+			.divOptionWrapperContainer {
+				// border: 1px solid black;
+				width: 50%;
 				height: 100%;
 				@include flexCol();
-				justify-content: flex-start;
 				padding-left: 2vw;
-				li.liSelectMenuCategoryItem {
+				padding-bottom: 1vw;
+				.divOptionCustomContainer {
 					width: 100%;
-					font-family: 'Times New Roman', Times, serif;
-					color: #fafafa;
-					font-size: 1.8vw;
-					font-weight: bold;
-					text-align: center;
-					padding: 1.5vw 0;
-					background-color: #16584e;
-					transition: all 300ms ease-in-out;
-					margin-bottom: 0.5vw;
-					cursor: pointer;
-				}
-				li.liSelectMenuCategoryItem:nth-child(1) {
-					background-color: #193c36;
-				}
-			}
-			ul.ulSelectMenuWrapperContainer {
-				width: 57%;
-				height: 100%;
-				overflow: hidden;
-				ul.ulSelectMenuListContainer {
-					width: 100%;
-					max-height: 100%;
-					flex-wrap: wrap;
-					display: none;
-					transition: all 300ms ease-in-out;
-					opacity: 0;
-					justify-content: flex-start;
+					height: 100%;
+					@include flexCol();
 					align-items: flex-start;
-					padding-left: 2vw;
-					overflow: auto;
-					ul.ulSelectMenuItemContainer {
-						width: 10vw;
-						height: 14vw;
-						margin-right: 1vw;
-						margin-bottom: 1vw;
-						@include flexCol();
-						cursor: pointer;
+					overflow: hidden;
+					h4 {
+						color: #172d29;
+						font-size: 1.7vw;
+						font-family: 'Times New Roman', Times, serif;
+						letter-spacing: 0.05vw;
+						font-weight: bolder;
+						margin-bottom: 0.5vw;
+					}
+					ul {
+						width: 100%;
+						padding-left: 2vw;
+						@include flexRow();
+						justify-content: flex-start;
+						padding-bottom: 1vw;
 						li {
+							font-family: 'Times New Roman', Times, serif;
 							width: 100%;
-							text-align: center;
-						}
-						li.liSelectMenuImageItem {
-							height: 10vw;
-							background-position: 50% 50%;
-							background-repeat: no-repeat;
-							background-size: cover;
-							margin-bottom: 0.3vw;
-						}
-						li.liSelectMenuNameItem {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.5vw;
-							color: #0a0a0a;
-							margin-bottom: 0.5vw;
-						}
-						li.liSelectMenuPriceItem {
-							font-family: 'Times New Roman', Times, serif;
+							letter-spacing: 0.05vw;
 							font-size: 1.3vw;
-							color: #0a0a0a;
+							background-color: #1e8d7c;
+							padding: 0.4vw 1vw;
+							text-align: center;
+							margin-right: 0.1vw;
+							color: #fafafa;
+							cursor: pointer;
+							transition: all 300ms ease-in-out;
+						}
+						li:last-child {
+							margin-right: 0;
 						}
 					}
-				}
-				ul.ulSelectMenuListContainer::-webkit-scrollbar {
-					display: none;
-				}
-				ul.ulSelectMenuListContainer:nth-child(1) {
-					display: flex;
-					opacity: 1;
+					ul:last-child {
+						margin-bottom: 0;
+						// padding-bottom: 0;
+					}
+					ul.ulOptionSizeContainer li:first-child {
+						background-color: #193c36;
+					}
+					ul.ulOptionEspressoShotContainer li:first-child {
+						background-color: #193c36;
+					}
+					ul.ulOptionIceContainer li:first-child {
+						background-color: #193c36;
+					}
 				}
 			}
-			.divSelectedMenuWrapperContainer {
-				width: 23%;
+			.divProductWrapperContainer {
+				width: 50%;
 				height: 100%;
 				@include flexCol();
-				padding-right: 2vw;
-				padding-left: 1vw;
-				ul.ulSelectedProductListContainer {
-					width: 100%;
-					height: 60%;
-					border: 1px solid black;
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					overflow: auto;
+				padding: 0 2vw;
+				// border: 1px solid black;
+				.divProductImage {
+					width: 20vw;
+					height: 20vw;
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					background-size: cover;
 				}
-				.divPayWrapperContainer {
+				h3.h3ProductName {
+					padding-top: 1.5vw;
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-size: 1.9vw;
+					font-weight: bolder;
+					padding-bottom: 0.5vw;
+				}
+				.divProductCategory {
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-weight: bolder;
+					font-size: 1.4vw;
+					padding-bottom: 1.5vw;
+				}
+				.divOptionButtonContainer {
 					width: 100%;
-					height: 40%;
-					@include flexCol();
-					.divPayInfoContainer {
-						width: 100%;
-						height: 45%;
-						padding-bottom: 2%;
-						.divTotalNumberContainer {
-							@include flexRow();
-							width: 100%;
-							height: 50%;
-							span {
-								font-family: 'Times New Roman', Times, serif;
-								font-weight: bold;
-							}
-							span.spanTotalNumberText {
-								font-size: 2.3vw;
-								text-align: left;
-								width: 80%;
-							}
-							span.spanTotalNumberValue {
-								font-size: 2.2vw;
-								width: 20%;
-								text-align: right;
-							}
-						}
-						.divTotalAmountContainer {
-							@include flexRow();
-							width: 100%;
-							height: 50%;
-							span {
-								font-size: 2.2vw;
-								font-weight: bold;
-								font-family: 'Times New Roman', Times, serif;
-							}
-							span.spanTotalAmountText {
-								text-align: left;
-								width: 60%;
-							}
-							span.spanTotalAmountValue {
-								text-align: right;
-								width: 40%;
-							}
-						}
-					}
+					height: 4.5vw;
+					@include flexRow();
+					justify-content: space-between;
 					button {
-						width: 100%;
-						height: 25%;
+						width: 50%;
+						height: 100%;
 						font-family: 'Times New Roman', Times, serif;
-						font-size: 2.5vw;
+						letter-spacing: 0.05vw;
 						font-weight: bolder;
+						font-size: 2vw;
 						color: #fafafa;
-						transition: all 300ms ease-in-out;
 						cursor: pointer;
+						transition: all 300ms ease-in-out;
 					}
-					button.buttonPay {
+					button.buttonAddToCart {
 						background-color: #172d29;
-						margin-bottom: 5%;
 					}
 					button.buttonCancel {
 						background-color: #cf3131;
@@ -324,6 +506,7 @@
 				border-top: 1vw solid #fafafa;
 				div {
 					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
 					font-size: 1.5vw;
 					color: #fafafa;
 				}

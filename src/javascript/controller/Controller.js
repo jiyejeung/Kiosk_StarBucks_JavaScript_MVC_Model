@@ -2,12 +2,12 @@ import { $, $$ } from '../utils/ElementTool.js';
 import IntroContainer from '../view/IntroContainer.js';
 import SlideContainer from '../view/SlideContainer.js';
 import TakeOutContainer from '../view/TakeOutContainer.js';
-import TakeOutInfo from '../model/TakeOutInfo.js';
 import SlideImageInfo from '../model/SlideImageInfo.js';
-import AllMenuInfo from '../model/AllMenuInfo.js';
+import AllProductsInfo from '../model/AllProductsInfo.js';
 import UserInfo from '../model/UserInfo.js';
-import SelectMenuContainer from '../view/SelectMenuContainer.js';
-import CurrentUserInfo from '../model/CurrentUserInfo.js';
+import SelectProductContainer from '../view/SelectProductContainer.js';
+import SelectOptionContainer from '../view/SelectOptionContainer.js';
+import AllOptionsInfo from '../model/AllOptionsInfo.js';
 
 export default {
 	init() {},
@@ -16,10 +16,8 @@ export default {
 
 		await SlideImageInfo.getImageUrl()
 			.then(() => void fragment.append(IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup()))
-			.then(() => AllMenuInfo.getAllMenu())
-			.then(() => fragment);
-
-		await AllMenuInfo.getAllMenu().then(fragment.append(SelectMenuContainer.setup()));
+			.then(() => AllProductsInfo.getAllProducts())
+			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup()));
 
 		return fragment;
 	},
@@ -33,35 +31,45 @@ export default {
 	},
 	/* in SectionTakeOutContainer */
 	updateTakeOutValue({ currentTarget }) {
-		TakeOutInfo.takeOut = currentTarget.textContent;
+		UserInfo.userInfo.takeOut = currentTarget.textContent;
 	},
 	clickButtonTakeOut() {
-		$('.buttonTakeOut')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectMenuContainer.showSectionSelectMenuContainer()));
+		$('.buttonTakeOut')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectProductContainer.showSectionSelectProductContainer()));
 	},
 	clickButtonStore() {
-		$('.buttonStore')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectMenuContainer.showSectionSelectMenuContainer()));
+		$('.buttonStore')?.addEventListener('click', e => void (TakeOutContainer.hideSectionTakeOutContainer(), this.updateTakeOutValue(e), SelectProductContainer.showSectionSelectProductContainer()));
 	},
-	/* in SectionSelectMenuContainer */
-	clickLiSelectMenuCategoryItem() {
-		$$('.liSelectMenuCategoryItem')?.forEach(
+	/* in SectionSelectProductContainer */
+	clickLiSelectProductCategoryItem() {
+		$$('.liSelectProductCategoryItem')?.forEach(
 			(li, index) =>
 				void li?.addEventListener(
 					'click',
 					({ target }) =>
-						void (SelectMenuContainer.changeBackgroundColorLiSelectMenuCategoryItem(target), SelectMenuContainer.hideUlSelectMenuListContainer(index), SelectMenuContainer.showUlSelectMenuListContainer(index))
+						void (SelectProductContainer.changeBackgroundColorLiSelectProductCategoryItem(target),
+						SelectProductContainer.hideUlSelectProductListContainer(index),
+						SelectProductContainer.showUlSelectProductListContainer(index))
 				)
 		);
 	},
-	mouseoverLiSelectMenuCategoryItem() {
-		$$('.liSelectMenuCategoryItem')?.forEach(
+	mouseoverLiSelectProductCategoryItem() {
+		$$('.liSelectProductCategoryItem')?.forEach(
 			li => void li?.addEventListener('mouseover', ({ target }) => void (getComputedStyle(target).backgroundColor === 'rgb(22, 88, 78)' && (target.style.backgroundColor = '#193c35')))
 		);
 	},
-	mouseoutLiSelectMenuCategoryItem() {
-		$$('.liSelectMenuCategoryItem')?.forEach(li => void li?.addEventListener('mouseout', ({ target }) => void (getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (li.style.backgroundColor = '#16584e'))));
+	mouseoutLiSelectProductCategoryItem() {
+		$$('.liSelectProductCategoryItem')?.forEach(
+			li => void li?.addEventListener('mouseout', ({ target }) => void (getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (li.style.backgroundColor = '#16584e')))
+		);
 	},
-	clickUlSelectMenuItemContainer() {
-		$$('.ulSelectMenuItemContainer')?.forEach(ul => void ul?.addEventListener('click', ({ currentTarget }) => void SelectMenuContainer.hideSectionSelectMenuContainer()));
+	clickUlSelectProductItemContainer() {
+		$$('.ulSelectProductItemContainer')?.forEach(
+			ul =>
+				void ul?.addEventListener(
+					'click',
+					({ currentTarget }) => void (SelectProductContainer.hideSectionSelectProductContainer(), UserInfo.setSelectedProduct(currentTarget.querySelector('.liSelectProductNameItem').textContent))
+				)
+		);
 	},
 	clickButtonCancel() {
 		$('.buttonCancel')?.addEventListener('click', () => void this.init());
@@ -71,29 +79,49 @@ export default {
 	},
 	click() {},
 	click() {},
-	getSlideImageInfo() {
-		return SlideImageInfo;
+
+	/* Start SlideImageInfo Data */
+	slideImageInfo() {
+		return SlideImageInfo.imageUrl;
 	},
-	getTakeOutInfo() {
-		return TakeOutInfo;
+
+	/* Start AllProductsInfo Data */
+	allProductsInfo() {
+		return AllProductsInfo.allProducts;
 	},
-	getAllMenuInfo() {
-		return AllMenuInfo;
+	allProductCategoriesInfo() {
+		return AllProductsInfo.allProductCategories;
 	},
+
+	/* Start AllOptionsInfo Data */
+	espressoShotInfo() {
+		return AllOptionsInfo.espressoShotOptions;
+	},
+	espressoRoastOptionsInfo() {
+		return AllOptionsInfo.espressoRoastOptions;
+	},
+	sizeOptionsInfo() {
+		return AllOptionsInfo.sizeOptions;
+	},
+	syrupOptionsInfo() {
+		return AllOptionsInfo.syrupOptions;
+	},
+	iceOptionsInfo() {
+		return AllOptionsInfo.iceOptions;
+	},
+
+	/* Start UserInfo Data */
 	getUserInfo() {
 		return UserInfo;
-	},
-	getCurrentUserInfo() {
-		return CurrentUserInfo;
 	},
 	main() {
 		this.clickSectionIntroContainer();
 		this.clickSectionSlideContainer();
 		this.clickButtonTakeOut();
 		this.clickButtonStore();
-		this.clickLiSelectMenuCategoryItem();
-		this.mouseoverLiSelectMenuCategoryItem();
-		this.mouseoutLiSelectMenuCategoryItem();
-		this.clickUlSelectMenuItemContainer();
+		this.clickLiSelectProductCategoryItem();
+		this.mouseoverLiSelectProductCategoryItem();
+		this.mouseoutLiSelectProductCategoryItem();
+		this.clickUlSelectProductItemContainer();
 	},
 };

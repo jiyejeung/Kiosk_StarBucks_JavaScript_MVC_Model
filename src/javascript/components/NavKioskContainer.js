@@ -17,6 +17,6 @@ export default Object.create({
 		return objElement.createElement('H1', 'STARBUCKS').setClassName('h1NavKioskTitle').complete();
 	},
 	printDivKioskTimer() {
-		return objElement.createElement('DIV', '120').setClassName('divKioskTimer').complete();
+		return objElement.createElement('DIV', '05:00').setClassName('divKioskTimer').complete();
 	},
 });

@@ -94,6 +94,9 @@ export default {
 	},
 
 	/* Start AllOptionsInfo Data */
+	allOptions(){
+		return Object.keys(AllOptionsInfo)
+	},
 	espressoShotInfo() {
 		return AllOptionsInfo.espressoShotOptions;
 	},

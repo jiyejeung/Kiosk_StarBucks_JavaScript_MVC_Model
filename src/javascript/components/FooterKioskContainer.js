@@ -5,7 +5,7 @@ export default Object.create({
 		return objElement.createElement('DIV', 'Email: jiyejeung@gmail.com').setClassName('divEmail').complete();
 	},
 	printDivContactMe() {
-		return objElement.createElement('DIV', "This website was made just for portfolio. If you any have question, don't hesitate and send me a message please!").setClassName('divContactMe').complete();
+		return objElement.createElement('DIV', "This website was created as part of my portfolio. If you have any questions, please don't hesitate to send me a message!").setClassName('divContactMe').complete();
 	},
 	printFooterKioskContainer() {
 		return objElement.createElement('footer').setClassName('footerKioskContainer').complete();

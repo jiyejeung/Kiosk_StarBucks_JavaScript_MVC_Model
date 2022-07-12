@@ -28,13 +28,15 @@ export default Object.create({
 	},
 	appendDivProductWrapperContainer() {
 		const divProductWrapperContainer = this.printDivProductWrapperContainer();
+		const divProductImageContainer = this.printDivProductImageContainer();
 		const divProductImage = this.printDivProductImage();
 		const h3ProductName = this.printH3ProductName();
 		const divProductCategory = this.printDivProductCategory();
-    const divOptionButtonContainer = this.appendDivOptionButtonContainer();
+		const divOptionButtonContainer = this.appendDivOptionButtonContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(divProductImage, h3ProductName, divProductCategory, divOptionButtonContainer);
+		divProductImageContainer.appendChild(divProductImage);
+		fragment.append(divProductImageContainer, h3ProductName, divProductCategory, divOptionButtonContainer);
 
 		divProductWrapperContainer.appendChild(fragment);
 
@@ -53,10 +55,13 @@ export default Object.create({
 		// return objElement.createElement('DIV', spacingString(productName)).setClassName('.divProductName').complete();
 		return objElement.createElement('H3', 'Blonde Vanilla Double Shot Macchiato').setClassName('h3ProductName').complete();
 	},
+	printDivProductImageContainer() {
+		return objElement.createElement('DIV').setClassName('divProductImageContainer').complete();
+	},
 	printDivProductImage(productImage) {
 		return objElement.createElement('DIV').setClassName('divProductImage').setAttribute('style', 'background-image:url(./images/example.jpg)').complete();
 	},
-  appendDivOptionButtonContainer() {
+	appendDivOptionButtonContainer() {
 		const divOptionButtonContainer = this.printDivOptionButtonContainer();
 		const buttonAddToCart = this.printButtonAddToCart();
 		const buttonCancel = this.printButtonCancel();
@@ -77,44 +82,86 @@ export default Object.create({
 	printButtonCancel() {
 		return objElement.createElement('BUTTON', 'Cancel').setClassName('buttonCancel').complete();
 	},
+	//
 	appendDivOptionWrapperContainer() {
 		const divOptionWrapperContainer = this.printDivOptionWrapperContainer();
-		const divOptionCustomWrapperContainer = this.appendDivOptionCustomContainer();
-		
-		divOptionWrapperContainer.appendChild(divOptionCustomWrapperContainer);
+		const ulOptionListContainer = this.appendUlOptionListContainer();
+		const divOptionCustomContainer = this.appendDivOptionCustomContainer();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(ulOptionListContainer, divOptionCustomContainer);
+
+		divOptionWrapperContainer.appendChild(fragment);
 
 		return divOptionWrapperContainer;
 	},
 	printDivOptionWrapperContainer() {
 		return objElement.createElement('DIV').setClassName('divOptionWrapperContainer').complete();
 	},
-	appendDivOptionCustomContainer() {
-		const divOptionCustomContainer = this.printDivOptionCustomContainer();
-		const h4OptionSize = this.printH4OptionSize();
-		const ulOptionSizeContainer = this.appendUlOptionSizeContainer();
-		const h4OptionEspressoRoast = this.printH4OptionEspressoRoast();
-		const ulOptionEspressoRoastContainer = this.appendUlOptionEspressoRoastContainer();
-		const h4OptionEspressoShot = this.printH4OptionEspressoShot();
-		const ulOptionEspressoShotContainer = this.appendUlOptionEspressoShotContainer();
-		const h4OptionSyrup = this.printH4OptionSyrup();
-		const ulOptionSyrupContainer = this.appendUlOptionSyrupContainer();
-		const h4OptionIce = this.printH4OptionIce();
-		const ulOptionIceContainer = this.appendUlOptionIceContainer();
-
+	appendUlOptionListContainer() {
+		const ulOptionListContainer = this.printUlOptionListContainer();
+		const ulDefaultOption = this.appendUlDefaultOptionContainer();
+		const ulAdditionalOption = this.appendUlAdditionalOptionContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(
-			h4OptionSize,
-			ulOptionSizeContainer,
-			h4OptionEspressoRoast,
-			ulOptionEspressoRoastContainer,
-			h4OptionEspressoShot,
-			ulOptionEspressoShotContainer,
-			h4OptionSyrup,
-			ulOptionSyrupContainer,
-			h4OptionIce,
-			ulOptionIceContainer
-		);
+		fragment.append(ulDefaultOption, ulAdditionalOption);
+
+		ulOptionListContainer.appendChild(fragment);
+
+		return ulOptionListContainer;
+	},
+	printUlOptionListContainer() {
+		return objElement.createElement('UL').setClassName('ulOptionListContainer').complete();
+	},
+	appendUlDefaultOptionContainer() {
+		const ulDefaultOptionContainer = this.printUlDefaultOption();
+		const liSizeOption = this.printLiSizeOption();
+		const liIceOption = this.printLiIceOption();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(liSizeOption, liIceOption);
+
+		ulDefaultOptionContainer.appendChild(fragment);
+
+		return ulDefaultOptionContainer;
+	},
+	printUlDefaultOption() {
+		return objElement.createElement('UL', 'Default Options').setClassName('ulDefaultOptionContainer').complete();
+	},
+	printLiSizeOption() {
+		return objElement.createElement('LI', 'Size').setClassName('liSizeOption').complete();
+	},
+	printLiIceOption() {
+		return objElement.createElement('LI', 'Ice').setClassName('liIceOption').complete();
+	},
+	appendUlAdditionalOptionContainer() {
+		const ulAdditionalOption = this.printUlAdditionalOptionContainer();
+		const liEspressoOption = this.printLiEspressoOption();
+		const liSyrupOption = this.printLiSyrupOption();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(liEspressoOption, liSyrupOption);
+
+		ulAdditionalOption.appendChild(fragment);
+
+		return ulAdditionalOption;
+	},
+	printUlAdditionalOptionContainer() {
+		return objElement.createElement('UL', 'Detail Options').setClassName('ulAdditionalOptionContainer').complete();
+	},
+	printLiEspressoOption() {
+		return objElement.createElement('Li', 'Espresso').setClassName('liEspressoOption').complete();
+	},
+	printLiSyrupOption() {
+		return objElement.createElement('Li', 'Syrup').setClassName('liSyrupOption').complete();
+	},
+	appendDivOptionCustomContainer() {
+		const divOptionCustomContainer = this.printDivOptionCustomContainer();
+		const divDefaultOptionContainer = this.appendDivDefaultOptionContainer();
+		const divAdditionalOptionContainer = this.appendDivAdditionalOptionContainer();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(divDefaultOptionContainer, divAdditionalOptionContainer);
 
 		divOptionCustomContainer.appendChild(fragment);
 
@@ -123,98 +170,118 @@ export default Object.create({
 	printDivOptionCustomContainer() {
 		return objElement.createElement('DIV').setClassName('divOptionCustomContainer').complete();
 	},
-	printH4OptionSize() {
-		return objElement.createElement('H4', 'Size Options').setClassName('h4OptionSize').complete();
-	},
-	appendUlOptionSizeContainer() {
-		const ulOptionSizeContainer = this.printUlOptionSizeContainer();
+	appendDivDefaultOptionContainer() {
+		const divDefaultOptionContainer = this.printDivDefaultOptionContainer();
+		const divSizeOptionContainer = this.appendDivSizeOptionContainer();
+		const divIceOptionContainer = this.appendDivIceOptionContainer();
 		const fragment = document.createDocumentFragment();
 
-		Controller.sizeOptionsInfo().forEach(size => void fragment.appendChild(this.printLiOptionSize(size)));
+		fragment.append(divSizeOptionContainer, divIceOptionContainer);
 
-		ulOptionSizeContainer.appendChild(fragment);
-		return ulOptionSizeContainer;
+		divDefaultOptionContainer.appendChild(fragment);
+
+		return divDefaultOptionContainer;
 	},
-	printUlOptionSizeContainer() {
-		return objElement.createElement('UL').setClassName('ulOptionSizeContainer').complete();
+	printDivDefaultOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divDefaultOptionContainer').complete();
 	},
-	printLiOptionSize(size) {
-		return objElement.createElement('LI', spacingString(size)).setClassName('liOptionSize').complete();
-	},
-	printH4OptionEspressoRoast() {
-		return objElement.createElement('H4', 'Espresso Roast Options').setClassName('h4OptionEspressoRoast').complete();
-	},
-	appendUlOptionEspressoRoastContainer() {
-		const ulOptionEspressoRoastContainer = this.printUlOptionEspressoRoastContainer();
+	appendDivSizeOptionContainer() {
+		const divSizeOptionContainer = this.printDivSizeOptionContainer();
+		const H4SizeOption = this.printH4SizeOption();
+		const ulSizeListWrapperContainer = this.appendUlSizeListWrapperContainer();
 		const fragment = document.createDocumentFragment();
 
-		Controller.espressoRoastOptionsInfo().forEach(espressoRoast => void fragment.appendChild(this.printLiOptionEspressoRoast(espressoRoast)));
+		fragment.append(H4SizeOption, ulSizeListWrapperContainer);
 
-		ulOptionEspressoRoastContainer.appendChild(fragment);
-		return ulOptionEspressoRoastContainer;
+		divSizeOptionContainer.appendChild(fragment);
+
+		return divSizeOptionContainer;
 	},
-	printUlOptionEspressoRoastContainer() {
-		return objElement.createElement('UL').setClassName('ulOptionEspressoRoastContainer').complete();
+	printDivSizeOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divSizeOptionContainer').complete();
 	},
-	printLiOptionEspressoRoast(espressoRoast) {
-		return objElement.createElement('LI', spacingString(espressoRoast)).setClassName('liOptionEspressoRoast').complete();
+	printH4SizeOption() {
+		return objElement.createElement('H4', 'Size Options').setClassName('H4SizeOption').complete();
 	},
-	// ====
-	printH4OptionEspressoShot() {
-		return objElement.createElement('H4', 'Espresso Shot Options').setClassName('h4OptionEspressoShot').complete();
-	},
-	appendUlOptionEspressoShotContainer() {
-		const ulOptionEspressoShotContainer = this.printUlOptionEspressoShotContainer();
+	appendUlSizeListWrapperContainer() {
+		const ulSizeListWrapperContainer = this.printUlSizeListWrapperContainer();
+		const ulShortContainer = this.appendUlSizeListContainer('Short', '(8 fl oz)');
+		const ulTallContainer = this.appendUlSizeListContainer('Tall', '(12 fl oz)');
+		const ulGrandeContainer = this.appendUlSizeListContainer('Grande', '(16 fl oz)');
+		const ulVentiContainer = this.appendUlSizeListContainer('Venti', '(20 fl oz)');
 		const fragment = document.createDocumentFragment();
 
-		Controller.espressoShotInfo().forEach(espressoShot => void fragment.appendChild(this.printLiOptionEspressoShot(espressoShot)));
+		fragment.append(ulShortContainer, ulTallContainer, ulGrandeContainer, ulVentiContainer);
 
-		ulOptionEspressoShotContainer.appendChild(fragment);
+		ulSizeListWrapperContainer.appendChild(fragment);
 
-		return ulOptionEspressoShotContainer;
+		return ulSizeListWrapperContainer;
 	},
-	printUlOptionEspressoShotContainer() {
-		return objElement.createElement('UL').setClassName('ulOptionEspressoShotContainer').complete();
+	printUlSizeListWrapperContainer() {
+		return objElement.createElement('UL').setClassName('ulSizeListWrapperContainer').complete();
 	},
-	printLiOptionEspressoShot(espressoShot) {
-		return objElement.createElement('LI', spacingString(espressoShot)).setClassName('liOptionEspressoShot').complete();
-	},
-	// ====
-	printH4OptionSyrup() {
-		return objElement.createElement('H4', 'Syrup Options').setClassName('h4OptionSyrup').complete();
-	},
-	appendUlOptionSyrupContainer() {
-		const ulOptionSyrupContainer = this.printUlOptionSyrupContainer();
+	appendUlSizeListContainer(size, measurement) {
+		const ulSizeListContainer = this.printUlSizeListContainer();
+		const liCoffeeCup = this.printLiCoffeeCup();
+		const liSize = this.printLiSize(size);
+		const liMeasurement = this.printLiMeasurement(measurement);
 		const fragment = document.createDocumentFragment();
 
-		Controller.syrupOptionsInfo().forEach(syrup => void fragment.appendChild(this.printLiOptionSyrup(syrup)));
+		fragment.append(liCoffeeCup, liSize, liMeasurement);
 
-		ulOptionSyrupContainer.appendChild(fragment);
-		return ulOptionSyrupContainer;
+		ulSizeListContainer.appendChild(fragment);
+
+		return ulSizeListContainer;
 	},
-	printUlOptionSyrupContainer() {
-		return objElement.createElement('UL').setClassName('ulOptionSyrupContainer').complete();
+	printUlSizeListContainer() {
+		return objElement.createElement('UL').setClassName('ulSizeListContainer').complete();
 	},
-	printLiOptionSyrup(syrup) {
-		return objElement.createElement('LI', spacingString(syrup)).setClassName('liOptionSyrup').complete();
+	printLiSize(size) {
+		return objElement.createElement('LI', size).setClassName('liSize').complete();
 	},
-	printH4OptionIce() {
-		return objElement.createElement('H4', 'Ice Options').setClassName('h4OptionIce').complete();
+	printLiMeasurement(measurement) {
+		return objElement.createElement('LI', measurement).setClassName('liMeasurement').complete();
 	},
-	appendUlOptionIceContainer() {
-		const ulOptionIceContainer = this.printUlOptionIceContainer();
+	printLiCoffeeCup() {
+		return objElement.createElement('Li').setClassName('liCoffeeCup').setAttribute('style', 'background-image: url("./images/coffeeCup.png")').complete();
+	},
+	appendDivIceOptionContainer() {
+		const divIceOptionContainer = this.printDivIceOptionContainer();
 		const fragment = document.createDocumentFragment();
 
-		Controller.iceOptionsInfo().forEach(ice => void fragment.appendChild(this.printLiOptionIce(ice)));
+		fragment.append();
 
-		ulOptionIceContainer.appendChild(fragment);
-		return ulOptionIceContainer;
+		divIceOptionContainer.appendChild(fragment);
+
+		return divIceOptionContainer;
 	},
-	printUlOptionIceContainer() {
-		return objElement.createElement('UL').setClassName('ulOptionIceContainer').complete();
+	printDivIceOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divIceOptionContainer').complete();
 	},
-	printLiOptionIce(ice) {
-		return objElement.createElement('LI', spacingString(ice)).setClassName('liOptionIce').complete();
+	appendDivAdditionalOptionContainer() {
+		const divAdditionalOptionContainer = this.printDivAdditionalOptionContainer();
+		const fragment = document.createDocumentFragment();
+
+		// fragment.append();
+
+		divAdditionalOptionContainer.appendChild(fragment);
+
+		return divAdditionalOptionContainer;
+	},
+	printDivAdditionalOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divAdditionalOptionContainer').complete();
+	},
+	print() {
+		return objElement.createElement('').setClassName('').complete();
+	},
+	print() {
+		return objElement.createElement('').setClassName('').complete();
+	},
+	print() {
+		return objElement.createElement('').setClassName('').complete();
+	},
+	print() {
+		return objElement.createElement('').setClassName('').complete();
 	},
 	// complete ===============
 	printFooterKioskContainer() {

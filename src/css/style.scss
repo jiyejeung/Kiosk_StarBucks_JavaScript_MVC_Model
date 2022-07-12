@@ -385,99 +385,221 @@
 			}
 			.divOptionWrapperContainer {
 				// border: 1px solid black;
-				width: 50%;
+				width: 60%;
 				height: 100%;
-				@include flexCol();
+				@include flexRow();
 				padding-left: 2vw;
-				padding-bottom: 1vw;
-				.divOptionCustomContainer {
-					width: 100%;
+				// border: 1px solid black;
+				ul.ulOptionListContainer {
+					border: 1px solid black;
+					width: 22%;
 					height: 100%;
-					@include flexCol();
-					align-items: flex-start;
-					overflow: hidden;
-					h4 {
-						color: #172d29;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					padding-top: 1vw;
+					li.liDefaultOption {
+					}
+					ul.ulDefaultOptionContainer {
 						font-size: 1.7vw;
 						font-family: 'Times New Roman', Times, serif;
-						letter-spacing: 0.05vw;
 						font-weight: bolder;
-						margin-bottom: 0.5vw;
-					}
-					ul {
-						width: 100%;
-						padding-left: 2vw;
-						@include flexRow();
-						justify-content: flex-start;
-						padding-bottom: 1vw;
+						padding-bottom: 0.5vw;
+						cursor: pointer;
+						margin-bottom: 1vw;
+						line-height: 3vw;
 						li {
+							margin-left: 2vw;
 							font-family: 'Times New Roman', Times, serif;
-							width: 100%;
-							letter-spacing: 0.05vw;
 							font-size: 1.3vw;
-							background-color: #1e8d7c;
-							padding: 0.4vw 1vw;
-							text-align: center;
-							margin-right: 0.1vw;
-							color: #fafafa;
-							cursor: pointer;
-							transition: all 300ms ease-in-out;
+							line-height: normal;
+							font-weight: normal;
+							position: relative;
 						}
-						li:last-child {
-							margin-right: 0;
+						li::before {
+							position: absolute;
+							background-color: #0a0a0a;
+							width: 7px;
+							height: 2px;
+							content: '';
+							top: 50%;
+							left: -15px;
 						}
 					}
-					ul:last-child {
-						margin-bottom: 0;
-						// padding-bottom: 0;
+					ul.ulAdditionalOptionContainer {
+						font-size: 1.7vw;
+						font-family: 'Times New Roman', Times, serif;
+						font-weight: bolder;
+						cursor: pointer;
+						line-height: 3vw;
+						li {
+							margin-left: 2vw;
+							line-height: normal;
+							font-weight: normal;
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.3vw;
+							position: relative;
+						}
+						li::before {
+							position: absolute;
+							background-color: #0a0a0a;
+							width: 7px;
+							height: 2px;
+							content: '';
+							top: 50%;
+							left: -15px;
+						}
 					}
-					ul.ulOptionSizeContainer li:first-child {
-						background-color: #193c36;
+				}
+				.divOptionCustomContainer {
+					border: 1px solid black;
+					width: 78%;
+					height: 100%;
+					position: relative;
+					.divDefaultOptionContainer {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						transition: all 300ms ease-in-out;
+						padding-left: 1.3vw;
+						padding-top: 1.5vw;
+						.divSizeOptionContainer {
+							width: 100%;
+							height: 40%;
+							border: 1px solid black;
+							h4 {
+								font-size: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-weight: bold;
+								height: 25%;
+							}
+							ul.ulSizeListWrapperContainer {
+								width: 100%;
+								height: 75%;
+								@include flexRow();
+								ul.ulSizeListContainer {
+									width: 25%;
+									height: 100%;
+									@include flexCol();
+									border: 1px solid black;
+									li {
+										font-family: 'Times New Roman', Times, serif;
+									}
+									li.liCoffeeCup:nth-child(1) {
+										width: 100%;
+										background-position: 50% 50%;
+										background-repeat: no-repeat;
+										background-size: contain;
+										height: 45%;
+										margin-top: 15%;
+									}
+									li.liSize {
+										@include flexRow();
+										margin-top: 5%;
+										height: 20%;
+										font-size: 1.5vw;
+										// border: 1px solid black;
+									}
+									li.liMeasurement {
+										@include flexRow();
+										font-size: 1.3vw;
+										height: 15%;
+									}
+								}
+								ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
+									width: 100%;
+									background-position: 50% 50%;
+									background-repeat: no-repeat;
+									background-size: contain;
+									height: 50%;
+									margin-top: 10%;
+								}
+								ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
+									width: 100%;
+									background-position: 50% 50%;
+									background-repeat: no-repeat;
+									background-size: contain;
+									height: 55%;
+									margin-top: 5%;
+								}
+								ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
+									width: 100%;
+									background-position: 50% 50%;
+									background-repeat: no-repeat;
+									background-size: contain;
+									height: 60%;
+									margin-top: 0;
+								}
+							}
+						}
+						.divIceOptionContainer {
+							width: 100%;
+							height: 60%;
+							border: 1px solid black;
+						}
 					}
-					ul.ulOptionEspressoShotContainer li:first-child {
-						background-color: #193c36;
-					}
-					ul.ulOptionIceContainer li:first-child {
-						background-color: #193c36;
+					.divAdditionalOptionContainer {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						display: none;
+						opacity: 0;
+						transition: all 300ms ease-in-out;
 					}
 				}
 			}
 			.divProductWrapperContainer {
-				width: 50%;
+				width: 40%;
 				height: 100%;
 				@include flexCol();
 				padding: 0 2vw;
-				// border: 1px solid black;
-				.divProductImage {
-					width: 20vw;
-					height: 20vw;
-					background-position: 50% 50%;
-					background-repeat: no-repeat;
-					background-size: cover;
+				border: 1px solid black;
+				.divProductImageContainer {
+					width: 100%;
+					height: 60%;
+					border: 1px solid black;
+					@include flexRow();
+					padding-bottom: 1%;
+					// align-items: flex-start;
+					.divProductImage {
+						width: 40%;
+						padding-bottom: 40%;
+						background-position: 50% 50%;
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
 				}
 				h3.h3ProductName {
-					padding-top: 1.5vw;
+					@include flexRow();
+					height: 10%;
+					border: 1px solid black;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
 					font-size: 1.9vw;
 					font-weight: bolder;
-					padding-bottom: 0.5vw;
 				}
 				.divProductCategory {
+					@include flexRow();
+					border: 1px solid black;
+					height: 10%;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
 					font-weight: bolder;
 					font-size: 1.4vw;
-					padding-bottom: 1.5vw;
 				}
 				.divOptionButtonContainer {
 					width: 100%;
-					height: 4.5vw;
+					height: 20%;
 					@include flexRow();
 					justify-content: space-between;
+					border: 1px solid black;
 					button {
 						width: 50%;
-						height: 100%;
+						height: 70%;
 						font-family: 'Times New Roman', Times, serif;
 						letter-spacing: 0.05vw;
 						font-weight: bolder;

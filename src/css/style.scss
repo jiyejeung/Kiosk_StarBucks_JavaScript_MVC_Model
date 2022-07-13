@@ -389,22 +389,32 @@
 				height: 100%;
 				@include flexRow();
 				padding-left: 2vw;
+				align-items: flex-start;
 				// border: 1px solid black;
 				ul.ulOptionListContainer {
-					border: 1px solid black;
-					width: 22%;
-					height: 100%;
+					// border: 1px solid black;
+					width: 25%;
+					// height: 100%;
 					display: flex;
 					flex-direction: column;
 					justify-content: flex-start;
-					padding-top: 1vw;
-					li.liDefaultOption {
+					position: relative;
+					li.liWrapperContainer {
+						width: 100%;
+						position: absolute;
+						height: 45%;
+						border: 1px solid black;
+						left: 0;
+						top: 55%;
+						// top: 0%;
 					}
 					ul.ulDefaultOptionContainer {
+						// border: 1px solid black;
+						padding-left: 1vw;
 						font-size: 1.7vw;
 						font-family: 'Times New Roman', Times, serif;
 						font-weight: bolder;
-						padding-bottom: 0.5vw;
+						padding-bottom: 0.8vw;
 						cursor: pointer;
 						margin-bottom: 1vw;
 						line-height: 3vw;
@@ -428,9 +438,12 @@
 					}
 					ul.ulAdditionalOptionContainer {
 						font-size: 1.7vw;
+						padding-left: 1vw;
+						// border: 1px solid black;
 						font-family: 'Times New Roman', Times, serif;
 						font-weight: bolder;
 						cursor: pointer;
+						padding-bottom: 0.8vw;
 						line-height: 3vw;
 						li {
 							margin-left: 2vw;
@@ -452,8 +465,8 @@
 					}
 				}
 				.divOptionCustomContainer {
-					border: 1px solid black;
-					width: 78%;
+					// border: 1px solid black;
+					width: 75%;
 					height: 100%;
 					position: relative;
 					.divDefaultOptionContainer {
@@ -461,94 +474,182 @@
 						top: 0;
 						left: 0;
 						width: 100%;
-						height: 100%;
+						height: 80%;
+						// border: 1px solid black;
 						transition: all 300ms ease-in-out;
-						padding-left: 1.3vw;
-						padding-top: 1.5vw;
+						padding-left: 2vw;
+						padding-top: 0.5vw;
 						.divSizeOptionContainer {
 							width: 100%;
-							height: 40%;
-							border: 1px solid black;
+							height: 49%;
+							margin-bottom: 2%;
+							// border: 1px solid black;
 							h4 {
 								font-size: 2vw;
 								font-family: 'Times New Roman', Times, serif;
-								font-weight: bold;
-								height: 25%;
+								font-weight: bolder;
+								height: 17.5%;
+								padding-left: 2vw;
+								margin-bottom: 2%;
 							}
 							ul.ulSizeListWrapperContainer {
 								width: 100%;
 								height: 75%;
 								@include flexRow();
 								ul.ulSizeListContainer {
+									// margin-bottom: 5%;
+									// padding-bottom: 25%;
+									// border: 1px solid black;
 									width: 25%;
 									height: 100%;
 									@include flexCol();
-									border: 1px solid black;
+									margin-right: 2%;
+									cursor: pointer;
 									li {
 										font-family: 'Times New Roman', Times, serif;
 									}
-									li.liCoffeeCup:nth-child(1) {
+									li.liCoffeeCup {
 										width: 100%;
 										background-position: 50% 50%;
 										background-repeat: no-repeat;
 										background-size: contain;
-										height: 45%;
-										margin-top: 15%;
+										height: 40%;
+										margin-top: 20%;
+										margin-bottom: 5%;
 									}
 									li.liSize {
 										@include flexRow();
-										margin-top: 5%;
-										height: 20%;
-										font-size: 1.5vw;
+										align-items: flex-end;
+										height: 17.5%;
+										font-size: 1.4vw;
 										// border: 1px solid black;
 									}
 									li.liMeasurement {
 										@include flexRow();
-										font-size: 1.3vw;
-										height: 15%;
+										font-size: 1.1vw;
+										height: 12.5%;
+										margin-bottom: 4%;
+									}
+								}
+								ul.ulSizeListContainer:nth-child(1) {
+									background-color: #16584e;
+									li {
+										color: #fafafa;
 									}
 								}
 								ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
-									width: 100%;
-									background-position: 50% 50%;
-									background-repeat: no-repeat;
-									background-size: contain;
+									height: 45%;
+									margin-top: 15%;
+								}
+								ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
 									height: 50%;
 									margin-top: 10%;
 								}
-								ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
-									width: 100%;
-									background-position: 50% 50%;
-									background-repeat: no-repeat;
-									background-size: contain;
-									height: 55%;
-									margin-top: 5%;
-								}
-								ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
-									width: 100%;
-									background-position: 50% 50%;
-									background-repeat: no-repeat;
-									background-size: contain;
-									height: 60%;
-									margin-top: 0;
+								ul.ulSizeListContainer:nth-child(4) {
+									// background-color: #16584e;
+									margin-right: 0%;
+									li.liCoffeeCup {
+										height: 55%;
+										margin-top: 5%;
+									}
 								}
 							}
 						}
 						.divIceOptionContainer {
 							width: 100%;
-							height: 60%;
-							border: 1px solid black;
+							height: 49%;
+							// border: 1px solid black;
+							h4.h4IceOption {
+								font-size: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-weight: bolder;
+								height: 17.5%;
+								padding-left: 2vw;
+								margin-bottom: 2%;
+							}
+							ul.ulIceListWrapperContainer {
+								width: 100%;
+								height: 75%;
+								@include flexRow();
+								ul.ulIceListContainer {
+									width: 25%;
+									height: 100%;
+									@include flexCol();
+									// border: 1px solid black;
+									margin-right: 2%;
+									cursor: pointer;
+									li.liIceCube {
+										width: 100%;
+										background-position: 50% 50%;
+										background-repeat: no-repeat;
+										background-size: contain;
+										height: 45%;
+										margin-top: 20%;
+										margin-bottom: 5%;
+									}
+									li.liIce {
+										@include flexRow();
+										align-items: flex-end;
+										height: 20%;
+										font-size: 1.4vw;
+										font-family: 'Times New Roman', Times, serif;
+										// border: 1px solid black;
+										margin-bottom: 5%;
+									}
+								}
+								ul.ulIceListContainer:nth-child(1) {
+									background-color: #16584e;
+									li {
+										color: #fafafa;
+									}
+								}
+								ul.ulIceListContainer:nth-child(2) li.liIceCube {
+									height: 50%;
+									margin-top: 15%;
+								}
+								ul.ulIceListContainer:nth-child(3) li.liIceCube {
+									height: 55%;
+									margin-top: 10%;
+								}
+								ul.ulIceListContainer:nth-child(4) {
+									margin-right: 0%;
+									// background-color: #16584e;
+									li.liIceCube {
+										height: 60%;
+										margin-top: 5%;
+										margin-right: 0%;
+									}
+								}
+							}
 						}
 					}
+					
 					.divAdditionalOptionContainer {
 						position: absolute;
 						top: 0;
 						left: 0;
 						width: 100%;
-						height: 100%;
+						height: 80%;
 						display: none;
 						opacity: 0;
 						transition: all 300ms ease-in-out;
+					}
+					.divPriceContainer {
+						// border: 1px solid black;
+						width: 100%;
+						height: 20%;
+						bottom: 0;
+						left: 0;
+						position: absolute;
+						@include flexRow();
+						justify-content: space-between;
+						padding-left: 50%;
+						padding-right: 3%;
+						span {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 2.5vw;
+							font-weight: bolder;
+						}
 					}
 				}
 			}
@@ -557,26 +658,26 @@
 				height: 100%;
 				@include flexCol();
 				padding: 0 2vw;
-				border: 1px solid black;
+				// border: 1px solid black;
 				.divProductImageContainer {
 					width: 100%;
 					height: 60%;
-					border: 1px solid black;
+					// border: 1px solid black;
 					@include flexRow();
 					padding-bottom: 1%;
 					// align-items: flex-start;
 					.divProductImage {
-						width: 40%;
-						padding-bottom: 40%;
+						width: 90%;
+						height: 90%;
 						background-position: 50% 50%;
 						background-repeat: no-repeat;
-						background-size: cover;
+						background-size: contain;
 					}
 				}
 				h3.h3ProductName {
 					@include flexRow();
 					height: 10%;
-					border: 1px solid black;
+					// border: 1px solid black;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
 					font-size: 1.9vw;
@@ -584,7 +685,7 @@
 				}
 				.divProductCategory {
 					@include flexRow();
-					border: 1px solid black;
+					// border: 1px solid black;
 					height: 10%;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
@@ -596,7 +697,7 @@
 					height: 20%;
 					@include flexRow();
 					justify-content: space-between;
-					border: 1px solid black;
+					// border: 1px solid black;
 					button {
 						width: 50%;
 						height: 70%;

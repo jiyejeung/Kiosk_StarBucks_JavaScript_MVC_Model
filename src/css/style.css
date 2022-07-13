@@ -573,21 +573,29 @@ body {
     justify-content: center;
     align-items: center;
     padding-left: 2vw;
+    align-items: flex-start;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer {
-    border: 1px solid black;
-    width: 22%;
-    height: 100%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-top: 1vw;
+    position: relative;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperContainer {
+    width: 100%;
+    position: absolute;
+    height: 45%;
+    border: 1px solid black;
+    left: 0;
+    top: 55%;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer {
+    padding-left: 1vw;
     font-size: 1.7vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
-    padding-bottom: 0.5vw;
+    padding-bottom: 0.8vw;
     cursor: pointer;
     margin-bottom: 1vw;
     line-height: 3vw;
@@ -611,9 +619,11 @@ body {
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer {
     font-size: 1.7vw;
+    padding-left: 1vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
     cursor: pointer;
+    padding-bottom: 0.8vw;
     line-height: 3vw;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li {
@@ -634,8 +644,7 @@ body {
     left: -15px;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer {
-    border: 1px solid black;
-    width: 78%;
+    width: 75%;
     height: 100%;
     position: relative;
   }
@@ -644,21 +653,23 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 80%;
     transition: all 300ms ease-in-out;
-    padding-left: 1.3vw;
-    padding-top: 1.5vw;
+    padding-left: 2vw;
+    padding-top: 0.5vw;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer {
     width: 100%;
-    height: 40%;
-    border: 1px solid black;
+    height: 49%;
+    margin-bottom: 2%;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer h4 {
     font-size: 2vw;
     font-family: "Times New Roman", Times, serif;
-    font-weight: bold;
-    height: 25%;
+    font-weight: bolder;
+    height: 17.5%;
+    padding-left: 2vw;
+    margin-bottom: 2%;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer {
     width: 100%;
@@ -675,74 +686,160 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    margin-right: 2%;
+    cursor: pointer;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li {
     font-family: "Times New Roman", Times, serif;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liCoffeeCup:nth-child(1) {
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liCoffeeCup {
     width: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 45%;
-    margin-top: 15%;
+    height: 40%;
+    margin-top: 20%;
+    margin-bottom: 5%;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liSize {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
-    height: 20%;
-    font-size: 1.5vw;
+    align-items: flex-end;
+    height: 17.5%;
+    font-size: 1.4vw;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liMeasurement {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    font-size: 1.3vw;
-    height: 15%;
+    font-size: 1.1vw;
+    height: 12.5%;
+    margin-bottom: 4%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) {
+    background-color: #16584e;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) li {
+    color: #fafafa;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
-    width: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
+    height: 45%;
+    margin-top: 15%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
     height: 50%;
     margin-top: 10%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
-    width: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) {
+    margin-right: 0%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
     height: 55%;
     margin-top: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer {
+    width: 100%;
+    height: 49%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer h4.h4IceOption {
+    font-size: 2vw;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bolder;
+    height: 17.5%;
+    padding-left: 2vw;
+    margin-bottom: 2%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer {
+    width: 100%;
+    height: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2%;
+    cursor: pointer;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIceCube {
     width: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
-    height: 60%;
-    margin-top: 0;
+    height: 45%;
+    margin-top: 20%;
+    margin-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer {
-    width: 100%;
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIce {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-end;
+    height: 20%;
+    font-size: 1.4vw;
+    font-family: "Times New Roman", Times, serif;
+    margin-bottom: 5%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) {
+    background-color: #16584e;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) li {
+    color: #fafafa;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(2) li.liIceCube {
+    height: 50%;
+    margin-top: 15%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(3) li.liIceCube {
+    height: 55%;
+    margin-top: 10%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(4) {
+    margin-right: 0%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(4) li.liIceCube {
     height: 60%;
-    border: 1px solid black;
+    margin-top: 5%;
+    margin-right: 0%;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: none;
     opacity: 0;
     transition: all 300ms ease-in-out;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer {
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 50%;
+    padding-right: 3%;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5vw;
+    font-weight: bolder;
   }
   #app section.sectionOptionContainer .divProductWrapperContainer {
     width: 40%;
@@ -752,12 +849,10 @@ body {
     justify-content: center;
     align-items: center;
     padding: 0 2vw;
-    border: 1px solid black;
   }
   #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer {
     width: 100%;
     height: 60%;
-    border: 1px solid black;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -765,11 +860,11 @@ body {
     padding-bottom: 1%;
   }
   #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer .divProductImage {
-    width: 40%;
-    padding-bottom: 40%;
+    width: 90%;
+    height: 90%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
   }
   #app section.sectionOptionContainer .divProductWrapperContainer h3.h3ProductName {
     display: flex;
@@ -777,7 +872,6 @@ body {
     justify-content: center;
     align-items: center;
     height: 10%;
-    border: 1px solid black;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-size: 1.9vw;
@@ -788,7 +882,6 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
     height: 10%;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
@@ -803,7 +896,6 @@ body {
     justify-content: center;
     align-items: center;
     justify-content: space-between;
-    border: 1px solid black;
   }
   #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button {
     width: 50%;

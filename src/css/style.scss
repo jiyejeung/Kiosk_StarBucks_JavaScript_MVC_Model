@@ -390,7 +390,6 @@
 				@include flexRow();
 				padding-left: 2vw;
 				align-items: flex-start;
-				// border: 1px solid black;
 				ul.ulOptionListContainer {
 					// border: 1px solid black;
 					width: 25%;
@@ -475,6 +474,8 @@
 						left: 0;
 						width: 100%;
 						height: 80%;
+						@include flexCol();
+						display: none;
 						// border: 1px solid black;
 						transition: all 300ms ease-in-out;
 						padding-left: 2vw;
@@ -497,6 +498,7 @@
 								height: 75%;
 								@include flexRow();
 								ul.ulSizeListContainer {
+									border: 1px solid black;
 									// margin-bottom: 5%;
 									// padding-bottom: 25%;
 									// border: 1px solid black;
@@ -575,7 +577,7 @@
 									width: 25%;
 									height: 100%;
 									@include flexCol();
-									// border: 1px solid black;
+									border: 1px solid black;
 									margin-right: 2%;
 									cursor: pointer;
 									li.liIceCube {
@@ -623,32 +625,190 @@
 							}
 						}
 					}
-					
 					.divAdditionalOptionContainer {
+						// border: 1px solid coral;
 						position: absolute;
 						top: 0;
 						left: 0;
 						width: 100%;
 						height: 80%;
-						display: none;
-						opacity: 0;
+						@include flexCol();
 						transition: all 300ms ease-in-out;
+						padding-left: 2vw;
+						padding-top: 0.5vw;
+						transition: all 300ms ease-in-out;
+						// display: none;
+						// opacity: 0;
+						.divEspressoOptionContainer {
+							// border: 1px solid black;
+							width: 100%;
+							margin-bottom: 2%;
+							height: 45%;
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							align-items: flex-start;
+							h4.h4EspressoOption {
+								font-size: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-weight: bolder;
+								padding-left: 2vw;
+								height: 33.33333%;
+							}
+							ul.ulEspressoRoastOptionContainer {
+								width: 100%;
+								display: flex;
+								justify-content: space-between;
+								align-items: flex-start;
+								height: 33.33333%;
+								// border: 1px solid black;
+								li {
+									font-size: 1.6vw;
+									padding: 0.5vw 1.2vw;
+									font-family: 'Times New Roman', Times, serif;
+									border: 1px solid black;
+								}
+								li:nth-child(1) {
+									background-color: #174841;
+									color: #fafafa;
+								}
+							}
+							ul.ulEspressoShotContainer {
+								width: 100%;
+								@include flexRow();
+								// border: 1px solid black;
+								height: 33.33333%;
+								li {
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bold;
+									font-size: 1.8vw;
+									button {
+										font-size: 2vw;
+										width: 2.6vw;
+										height: 2.6vw;
+										background-color: #174841;
+										color: #fafafa;
+										@include flexRow();
+									}
+								}
+								li:nth-child(1) {
+									margin-right: 3vw;
+									button {
+										padding-bottom: 15%;
+									}
+								}
+								li:nth-child(3) {
+									margin-left: 3vw;
+									button {
+										padding-bottom: 5%;
+										// padding-left: 20%;
+									}
+								}
+							}
+						}
+						.divSyrupOptionContainer {
+							width: 100%;
+							height: 45%;
+							// border: 1px solid black;
+							display: flex;
+							flex-direction: column;
+							justify-content: space-between;
+							align-items: flex-start;
+							h4.h4SyrupOption {
+								font-size: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-weight: bolder;
+								padding-left: 2vw;
+								height: 33.33333%;
+							}
+							ul.ulSyrupOptionContainer {
+								width: 100%;
+								height: 33.33333%;
+								display: flex;
+								justify-content: space-between;
+								align-items: flex-start;
+								// border: 1px solid black;
+								li {
+									font-size: 1.6vw;
+									padding: 0.5vw 1.2vw;
+									font-family: 'Times New Roman', Times, serif;
+									border: 1px solid black;
+								}
+								li:nth-child(1) {
+									background-color: #174841;
+									color: #fafafa;
+								}
+							}
+							ul.ulSyrupContainer {
+								width: 100%;
+								@include flexRow();
+								// border: 1px solid black;
+								height: 33.33333%;
+								li {
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bold;
+									font-size: 1.8vw;
+									button {
+										font-size: 2vw;
+										width: 2.6vw;
+										height: 2.6vw;
+										background-color: #174841;
+										color: #fafafa;
+										@include flexRow();
+									}
+								}
+								li:nth-child(1) {
+									margin-right: 3vw;
+									button {
+										padding-bottom: 15%;
+									}
+								}
+								li:nth-child(3) {
+									margin-left: 3vw;
+									button {
+										padding-bottom: 5%;
+										// padding-left: 20%;
+									}
+								}
+							}
+						}
+						.divPriceOptionContainer {
+							width: 100%;
+							@include flexRow();
+							justify-content: flex-start;
+							height: 10%;
+							align-items: flex-end;
+							// border: 1px solid black;
+							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.6vw;
+								font-weight: bold;
+								padding-right: 3%;
+							}
+							span:nth-child(1) {
+								padding-right: 5vw;
+							}
+						}
 					}
 					.divPriceContainer {
 						// border: 1px solid black;
 						width: 100%;
-						height: 20%;
+						height: 14%;
+						margin-bottom: 2.5%;
 						bottom: 0;
 						left: 0;
 						position: absolute;
 						@include flexRow();
-						justify-content: space-between;
-						padding-left: 50%;
-						padding-right: 3%;
+						justify-content: flex-start;
+						padding-left: 1.5vw;
+						border: 1px solid black;
 						span {
 							font-family: 'Times New Roman', Times, serif;
 							font-size: 2.5vw;
 							font-weight: bolder;
+						}
+						span:nth-child(1) {
+							margin-right: 5vw;
 						}
 					}
 				}

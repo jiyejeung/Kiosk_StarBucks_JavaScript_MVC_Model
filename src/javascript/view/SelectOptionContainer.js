@@ -255,9 +255,12 @@ export default Object.create({
 	// not yet!!!
 	appendDivAdditionalOptionContainer() {
 		const divAdditionalOptionContainer = this.printDivAdditionalOptionContainer();
+		const divEspressoOptionContainer = this.appendDivEspressoOptionContainer();
+		const divSyrupOptionContainer = this.appendDivSyrupOptionContainer();
+		const divPriceOptionContainer = this.appendDivPriceOptionContainer();
 		const fragment = document.createDocumentFragment();
 
-		// fragment.append();
+		fragment.append(divEspressoOptionContainer, divSyrupOptionContainer, divPriceOptionContainer);
 
 		divAdditionalOptionContainer.appendChild(fragment);
 
@@ -266,6 +269,174 @@ export default Object.create({
 	printDivAdditionalOptionContainer() {
 		return objElement.createElement('DIV').setClassName('divAdditionalOptionContainer').complete();
 	},
+	appendDivEspressoOptionContainer() {
+		const divEspressoOptionContainer = this.printDivEspressoOptionContainer();
+		const h4EspressoOption = this.printH4EspressoOption();
+		const ulEspressoOptionContainer = this.appendUlEspressoOptionContainer();
+		const ulEspressoShotContainer = this.appendUlEspressoShotContainer();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(h4EspressoOption, ulEspressoOptionContainer, ulEspressoShotContainer);
+
+		divEspressoOptionContainer.appendChild(fragment);
+
+		return divEspressoOptionContainer;
+	},
+	printDivEspressoOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divEspressoOptionContainer').complete();
+	},
+	printH4EspressoOption() {
+		return objElement.createElement('H4', 'Espresso Options').setClassName('h4EspressoOption').complete();
+	},
+	appendUlEspressoOptionContainer() {
+		const ulEspressoOptionContainer = this.printUlEspressoOptionContainer();
+		const fragment = document.createDocumentFragment();
+
+		Controller.espressoRoastOptionsInfo().forEach(espressoRoast => void fragment.appendChild(this.printLiEspressoRoastOption(spacingString(espressoRoast))));
+
+		ulEspressoOptionContainer.appendChild(fragment);
+
+		return ulEspressoOptionContainer;
+	},
+	printUlEspressoOptionContainer() {
+		return objElement.createElement('UL').setClassName('ulEspressoRoastOptionContainer').complete();
+	},
+	printLiEspressoRoastOption(espressoRoast) {
+		return objElement.createElement('LI', espressoRoast).setClassName('liEspressoRoastOption').complete();
+	},
+	appendUlEspressoShotContainer() {
+		const ulEspressoShotContainer = this.printUlEspressoShotContainer();
+		const liEspressoShotButtonAddContainer = this.printLiEspressoShotCount();
+		const liEspressoShotButtonMinusContainer = this.printLiEspressoShotCount();
+		const liEspressoShotTextContainer = this.printLiEspressoShotCount();
+		const buttonAddEspressoShot = this.printButtonCalcEspressoShot('+');
+		const buttonMinusEspressoShot = this.printButtonCalcEspressoShot('-');
+		const spanEspressoShotText = this.printSpanEspressoShotText();
+		const spanEspressoShotCount = this.printSpanEspressoShotCount();
+		const fragment = document.createDocumentFragment();
+
+		liEspressoShotButtonAddContainer.appendChild(buttonAddEspressoShot);
+		liEspressoShotButtonMinusContainer.appendChild(buttonMinusEspressoShot);
+		liEspressoShotTextContainer.append(spanEspressoShotText, spanEspressoShotCount);
+
+		fragment.append(liEspressoShotButtonMinusContainer, liEspressoShotTextContainer, liEspressoShotButtonAddContainer);
+
+		ulEspressoShotContainer.appendChild(fragment);
+
+		return ulEspressoShotContainer;
+	},
+	printUlEspressoShotContainer() {
+		return objElement.createElement('UL').setClassName('ulEspressoShotContainer').complete();
+	},
+	printLiEspressoShotCount() {
+		return objElement.createElement('LI').complete();
+	},
+	printButtonCalcEspressoShot(symbol) {
+		return objElement.createElement('BUTTON', symbol).setClassName('buttonCalcEspressoShot').complete();
+	},
+	printSpanEspressoShotText() {
+		return objElement.createElement('SPAN', 'Count: ').setClassName('spanEspressoShotText').complete();
+	},
+	printSpanEspressoShotCount() {
+		return objElement.createElement('SPAN', '0').setClassName('spanEspressoShotCount').complete();
+	},
+	appendDivPriceOptionContainer() {
+		const divPriceOptionContainer = this.printDivPriceOptionContainer();
+		const spanOptionPriceText = this.printSpanOptionPriceText();
+		const spanOptionPrice = this.printSpanOptionPrice();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(spanOptionPriceText, spanOptionPrice);
+
+		divPriceOptionContainer.appendChild(fragment);
+
+		return divPriceOptionContainer;
+	},
+	printDivPriceOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divPriceOptionContainer').complete();
+	},
+	printSpanOptionPriceText() {
+		return objElement.createElement('SPAN', 'Additional Fee: ').setClassName('spanOptionPriceText').complete();
+	},
+	printSpanOptionPrice() {
+		return objElement.createElement('SPAN', '0').setClassName('spanOptionPrice').complete();
+	},
+	// ===
+	appendDivSyrupOptionContainer() {
+		const divSyrupOptionContainer = this.printDivSyrupOptionContainer();
+		const h4SyrupOption = this.printH4SyrupOption();
+		const ulSyrupOptionContainer = this.appendUlSyrupOptionContainer();
+		const ulSyrupContainer = this.appendUlSyrupContainer();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(h4SyrupOption, ulSyrupOptionContainer, ulSyrupContainer);
+
+		divSyrupOptionContainer.appendChild(fragment);
+
+		return divSyrupOptionContainer;
+	},
+	printDivSyrupOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divSyrupOptionContainer').complete();
+	},
+
+	// copied start
+	printH4SyrupOption() {
+		return objElement.createElement('H4', 'Syrup Options').setClassName('h4SyrupOption').complete();
+	},
+	appendUlSyrupOptionContainer() {
+		const ulSyrupOptionContainer = this.printUlSyrupOptionContainer();
+		const fragment = document.createDocumentFragment();
+
+		Controller.syrupOptionsInfo().forEach(syrup => void fragment.appendChild(this.printLiSyrup(spacingString(syrup))));
+
+		ulSyrupOptionContainer.appendChild(fragment);
+
+		return ulSyrupOptionContainer;
+	},
+	printUlSyrupOptionContainer() {
+		return objElement.createElement('UL').setClassName('ulSyrupOptionContainer').complete();
+	},
+	printLiSyrup(syrup) {
+		return objElement.createElement('LI', syrup).setClassName('liSyrupOption').complete();
+	},
+	appendUlSyrupContainer() {
+		const ulSyrupContainer = this.printUlSyrupContainer();
+		const liSyrupButtonAddContainer = this.printLiSyrupCount();
+		const liSyrupButtonMinusContainer = this.printLiSyrupCount();
+		const liSyrupTextContainer = this.printLiSyrupCount();
+		const buttonAddSyrup = this.printButtonCalcSyrup('+');
+		const buttonMinusSyrup = this.printButtonCalcSyrup('-');
+		const spanSyrupText = this.printSpanSyrupText();
+		const spanSyrupCount = this.printSpanSyrupCount();
+		const fragment = document.createDocumentFragment();
+
+		liSyrupButtonAddContainer.appendChild(buttonAddSyrup);
+		liSyrupButtonMinusContainer.appendChild(buttonMinusSyrup);
+		liSyrupTextContainer.append(spanSyrupText, spanSyrupCount);
+
+		fragment.append(liSyrupButtonMinusContainer, liSyrupTextContainer, liSyrupButtonAddContainer);
+
+		ulSyrupContainer.appendChild(fragment);
+
+		return ulSyrupContainer;
+	},
+	printUlSyrupContainer() {
+		return objElement.createElement('UL').setClassName('ulSyrupContainer').complete();
+	},
+	printLiSyrupCount() {
+		return objElement.createElement('LI').complete();
+	},
+	printButtonCalcSyrup(symbol) {
+		return objElement.createElement('BUTTON', symbol).setClassName('buttonCalcSyrup').complete();
+	},
+	printSpanSyrupText() {
+		return objElement.createElement('SPAN', 'Count: ').setClassName('spanSyrupText').complete();
+	},
+	printSpanSyrupCount() {
+		return objElement.createElement('SPAN', '0').setClassName('spanSyrupCount').complete();
+	},
+
+	// copied end
 	// not yet!! end==
 	appendDivPriceContainer() {
 		const divPriceContainer = this.printDivPriceContainer();
@@ -283,7 +454,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divPriceContainer').complete();
 	},
 	printSpanPriceText() {
-		return objElement.createElement('SPAN', 'Price: ').setClassName('spanPriceText').complete();
+		return objElement.createElement('SPAN', 'Total Price: ').setClassName('spanPriceText').complete();
 	},
 	printSpanPrice(price = addComma(6200)) {
 		return objElement.createElement('SPAN', price).setClassName('spanPrice').complete();

@@ -12,7 +12,64 @@
 		width: 100%;
 		height: 100%;
 		@include flexRow();
-		background-color: #172d29;
+		transition: all 300ms ease-in-out;
+		position: relative;
+		nav.navKioskContainer {
+			// 부모요소가 padding-top: 8vw, position: relative를 가지고 있어야함.
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 7vw;
+			@include flexRow();
+			justify-content: space-between;
+			padding: 0 2vw;
+			z-index: 10;
+			display: none;
+			opacity: 0;
+			transition: all 300ms ease-in-out;
+			h1.h1NavKioskTitle {
+				margin-top: 1vw;
+				font-size: 5.5vw;
+				font-weight: bolder;
+				font-family: 'Archivo Black', sans-serif;
+				color: #174841;
+				cursor: pointer;
+			}
+			.divKioskTimer {
+				font-size: 2.7vw;
+				font-family: 'Times New Roman', Times, serif;
+				letter-spacing: 0.05vw;
+				font-weight: bold;
+				color: #174841;
+			}
+		}
+		footer.footerKioskContainer {
+			// 부모요소가 padding-bottom: 8vw, position: relative를 가지고 있어야함.
+			z-index: 10;
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			height: 8vw;
+			@include flexCol();
+			display: none;
+			opacity: 0;
+			background-color: #172d29;
+			border-top: 1vw solid #fafafa;
+			div {
+				font-family: 'Times New Roman', Times, serif;
+				letter-spacing: 0.05vw;
+				font-size: 1.5vw;
+				color: #fafafa;
+			}
+			.divEmail {
+				margin-bottom: 1.5vw;
+			}
+			.divContactMe {
+				font-size: 1.1vw;
+			}
+		}
 		section.sectionIntroContainer {
 			width: 100%;
 			height: 100%;
@@ -20,8 +77,11 @@
 			font-size: 5vw;
 			background-color: #172d29;
 			transition: all 300ms ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
 			// for Test
-			display: none;
+			// display: none;
 			cursor: pointer;
 			h1.h1IntroTitle {
 				font-size: 8vw;
@@ -44,7 +104,9 @@
 			height: 100%;
 			overflow: hidden;
 			background-color: #172d29;
-			position: relative;
+			position: absolute;
+			top: 0;
+			left: 0;
 			cursor: pointer;
 			ul.ulSlideContainer {
 				width: 300vw;
@@ -84,11 +146,10 @@
 			display: none;
 			opacity: 0;
 			transition: all 300ms ease-in-out;
-			position: relative;
+			position: absolute;
+			top: 0;
+			left: 0;
 			.divWrapperTakeOutContainer {
-				position: absolute;
-				top: 0;
-				left: 0;
 				width: 100%;
 				height: 100%;
 				background-color: #0a0a0a;
@@ -129,36 +190,12 @@
 			display: none;
 			opacity: 0;
 			transition: all 300ms ease-in-out;
-			position: relative;
+			position: absolute;
+			top: 0;
+			left: 0;
 			padding-top: 8vw;
 			padding-bottom: 8vw;
 			background-color: #fafafa;
-			nav.navKioskContainer {
-				// 부모요소가 padding-top: 8vw, position: relative를 가지고 있어야함.
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 7vw;
-				@include flexRow();
-				justify-content: space-between;
-				padding: 0 2vw;
-				h1.h1NavKioskTitle {
-					margin-top: 1vw;
-					font-size: 5.5vw;
-					font-weight: bolder;
-					font-family: 'Archivo Black', sans-serif;
-					color: #174841;
-					cursor: pointer;
-				}
-				.divKioskTimer {
-					font-size: 2.7vw;
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-weight: bold;
-					color: #174841;
-				}
-			}
 			ul.ulSelectProductCategoryContainer {
 				width: 20%;
 				height: 100%;
@@ -322,65 +359,54 @@
 					}
 				}
 			}
-			footer.footerKioskContainer {
-				// 부모요소가 padding-bottom: 8vw, position: relative를 가지고 있어야함.
-				position: absolute;
-				width: 100%;
-				bottom: 0;
-				left: 0;
-				height: 8vw;
-				@include flexCol();
-				background-color: #172d29;
-				border-top: 1vw solid #fafafa;
-				div {
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-size: 1.5vw;
-					color: #fafafa;
-				}
-				.divEmail {
-					margin-bottom: 1.5vw;
-				}
-				.divContactMe {
-					font-size: 1.1vw;
-				}
-			}
 		}
 		section.sectionOptionContainer {
 			width: 100%;
 			height: 100%;
 			@include flexRow();
-			// display: none;
-			// opacity: 0;
+			display: none;
+			opacity: 0;
 			transition: all 300ms ease-in-out;
 			position: relative;
 			padding-top: 8vw;
 			padding-bottom: 8vw;
 			background-color: #fafafa;
-			nav.navKioskContainer {
-				// 부모요소가 padding-top: 8vw, position: relative를 가지고 있어야함.
+			.divDisabledWrapperOptionModalContainer {
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 7vw;
+				height: 100vh;
+				background-color: coral;
 				@include flexRow();
-				justify-content: space-between;
-				padding: 0 2vw;
-				h1.h1NavKioskTitle {
-					margin-top: 1vw;
-					font-size: 5.5vw;
-					font-weight: bolder;
-					font-family: 'Archivo Black', sans-serif;
-					color: #174841;
-					cursor: pointer;
-				}
-				.divKioskTimer {
-					font-size: 2.7vw;
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-weight: bold;
-					color: #174841;
+				z-index: 30;
+				transition: all 300ms ease-in-out;
+				background-color: rgba(#000000, 0.2);
+				display: none;
+				opacity: 0;
+				.divDisabledOptionModalContainer {
+					background-color: rgba(#000000, 0.7);
+					@include flexRow();
+					position: relative;
+					width: 80%;
+					height: 70%;
+					h2.H2DisabledOptionText {
+						font-family: 'Times New Roman', Times, serif;
+						color: #fafafa;
+						font-weight: bold;
+						font-size: 1.9vw;
+					}
+					.divHideDisabledWrapperOptionModalContainer {
+						width: 3vw;
+						height: 3vw;
+						background-size: cover;
+						background-repeat: no-repeat;
+						background-position: 50% 50%;
+						position: absolute;
+						top: 2vw;
+						right: 2vw;
+						cursor: pointer;
+					}
 				}
 			}
 			.divOptionWrapperContainer {
@@ -401,11 +427,24 @@
 					li.liWrapperContainer {
 						width: 100%;
 						position: absolute;
-						height: 45%;
+						height: 46%;
 						border: 1px solid black;
 						left: 0;
-						top: 55%;
-						// top: 0%;
+						// top: 54%;
+						background-color: rgba(#000000, 0.2);
+						opacity: 0.2;
+						top: 0%;
+						cursor: pointer;
+						transition: all 300ms ease-in-out;
+					}
+					li.liWrapperDisabledContainer {
+						width: 100%;
+						height: 50%;
+						position: absolute;
+						bottom: 0%;
+						left: 0;
+						z-index: 20;
+						cursor: pointer;
 					}
 					ul.ulDefaultOptionContainer {
 						// border: 1px solid black;
@@ -475,7 +514,7 @@
 						width: 100%;
 						height: 80%;
 						@include flexCol();
-						display: none;
+						// display: none;
 						// border: 1px solid black;
 						transition: all 300ms ease-in-out;
 						padding-left: 2vw;
@@ -499,19 +538,18 @@
 								@include flexRow();
 								ul.ulSizeListContainer {
 									border: 1px solid black;
-									// margin-bottom: 5%;
-									// padding-bottom: 25%;
-									// border: 1px solid black;
 									width: 25%;
 									height: 100%;
 									@include flexCol();
 									margin-right: 2%;
+									transition: all 300ms ease-in-out;
 									cursor: pointer;
 									li {
+										transition: all 300ms ease-in-out;
 										font-family: 'Times New Roman', Times, serif;
 									}
 									li.liCoffeeCup {
-										width: 100%;
+										width: 60%;
 										background-position: 50% 50%;
 										background-repeat: no-repeat;
 										background-size: contain;
@@ -522,7 +560,7 @@
 									li.liSize {
 										@include flexRow();
 										align-items: flex-end;
-										height: 17.5%;
+										height: 15.5%;
 										font-size: 1.4vw;
 										// border: 1px solid black;
 									}
@@ -540,10 +578,12 @@
 									}
 								}
 								ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
+									width: 67.5%;
 									height: 45%;
 									margin-top: 15%;
 								}
 								ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
+									width: 75%;
 									height: 50%;
 									margin-top: 10%;
 								}
@@ -551,6 +591,7 @@
 									// background-color: #16584e;
 									margin-right: 0%;
 									li.liCoffeeCup {
+										width: 82.5%;
 										height: 55%;
 										margin-top: 5%;
 									}
@@ -579,9 +620,13 @@
 									@include flexCol();
 									border: 1px solid black;
 									margin-right: 2%;
+									transition: all 300ms ease-in-out;
 									cursor: pointer;
+									li {
+										transition: all 300ms ease-in-out;
+									}
 									li.liIceCube {
-										width: 100%;
+										width: 60%;
 										background-position: 50% 50%;
 										background-repeat: no-repeat;
 										background-size: contain;
@@ -606,17 +651,19 @@
 									}
 								}
 								ul.ulIceListContainer:nth-child(2) li.liIceCube {
+									width: 67.5%;
 									height: 50%;
 									margin-top: 15%;
 								}
 								ul.ulIceListContainer:nth-child(3) li.liIceCube {
+									width: 75%;
 									height: 55%;
 									margin-top: 10%;
 								}
 								ul.ulIceListContainer:nth-child(4) {
 									margin-right: 0%;
-									// background-color: #16584e;
 									li.liIceCube {
+										width: 82.5%;
 										height: 60%;
 										margin-top: 5%;
 										margin-right: 0%;
@@ -637,7 +684,7 @@
 						padding-left: 2vw;
 						padding-top: 0.5vw;
 						transition: all 300ms ease-in-out;
-						// display: none;
+						display: none;
 						// opacity: 0;
 						.divEspressoOptionContainer {
 							// border: 1px solid black;
@@ -661,12 +708,14 @@
 								justify-content: space-between;
 								align-items: flex-start;
 								height: 33.33333%;
+								cursor: pointer;
 								// border: 1px solid black;
 								li {
 									font-size: 1.6vw;
 									padding: 0.5vw 1.2vw;
 									font-family: 'Times New Roman', Times, serif;
 									border: 1px solid black;
+									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
 									background-color: #174841;
@@ -689,6 +738,7 @@
 										background-color: #174841;
 										color: #fafafa;
 										@include flexRow();
+										cursor: pointer;
 									}
 								}
 								li:nth-child(1) {
@@ -729,10 +779,12 @@
 								align-items: flex-start;
 								// border: 1px solid black;
 								li {
+									cursor: pointer;
 									font-size: 1.6vw;
 									padding: 0.5vw 1.2vw;
 									font-family: 'Times New Roman', Times, serif;
 									border: 1px solid black;
+									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
 									background-color: #174841;
@@ -755,6 +807,7 @@
 										background-color: #174841;
 										color: #fafafa;
 										@include flexRow();
+										cursor: pointer;
 									}
 								}
 								li:nth-child(1) {
@@ -791,17 +844,16 @@
 						}
 					}
 					.divPriceContainer {
-						// border: 1px solid black;
 						width: 100%;
 						height: 14%;
-						margin-bottom: 2.5%;
+						// margin-bottom: 1vw;
 						bottom: 0;
 						left: 0;
 						position: absolute;
 						@include flexRow();
 						justify-content: flex-start;
 						padding-left: 1.5vw;
-						border: 1px solid black;
+						border-top: 1px solid black;
 						span {
 							font-family: 'Times New Roman', Times, serif;
 							font-size: 2.5vw;
@@ -872,32 +924,9 @@
 					button.buttonAddToCart {
 						background-color: #172d29;
 					}
-					button.buttonCancel {
+					button.buttonCancelAddingToCart {
 						background-color: #cf3131;
 					}
-				}
-			}
-			footer.footerKioskContainer {
-				// 부모요소가 padding-bottom: 8vw, position: relative를 가지고 있어야함.
-				position: absolute;
-				width: 100%;
-				bottom: 0;
-				left: 0;
-				height: 8vw;
-				@include flexCol();
-				background-color: #172d29;
-				border-top: 1vw solid #fafafa;
-				div {
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-size: 1.5vw;
-					color: #fafafa;
-				}
-				.divEmail {
-					margin-bottom: 1.5vw;
-				}
-				.divContactMe {
-					font-size: 1.1vw;
 				}
 			}
 		}

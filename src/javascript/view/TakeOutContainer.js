@@ -26,12 +26,10 @@ export default Object.create({
 		return objElement.createElement('BUTTON', content).setClassName(className).complete();
 	},
 	showSectionTakeOutContainer() {
+		$('.sectionTakeOutContainer').style.display = 'flex';
 		setTimeout(() => {
-			$('.sectionTakeOutContainer').style.display = 'flex';
-			setTimeout(() => {
-				$('.sectionTakeOutContainer').style.opacity = 1;
-			}, 0);
-		}, 300);
+			$('.sectionTakeOutContainer').style.opacity = 1;
+		}, 0);
 	},
 	hideSectionTakeOutContainer() {
 		$('.sectionTakeOutContainer').style.opacity = 0;

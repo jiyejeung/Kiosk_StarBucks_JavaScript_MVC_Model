@@ -24,13 +24,11 @@ export default Object.create({
 	orderHandler: 0,
 	slideHandler: true,
 	showSectionContainer() {
+		$('.sectionSlideContainer').style.display = 'inline-block';
 		setTimeout(() => {
-			$('.sectionSlideContainer').style.display = 'inline-block';
-			setTimeout(() => {
-				$('.sectionSlideContainer').style.opacity = 1;
-				this.startSlideAutomatically();
-			}, 10);
-		}, 300);
+			$('.sectionSlideContainer').style.opacity = 1;
+			this.startSlideAutomatically();
+		}, 0);
 	},
 	hideSectionContainer() {
 		$('.sectionSlideContainer').style.opacity = 0;

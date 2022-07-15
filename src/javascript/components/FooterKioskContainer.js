@@ -1,4 +1,4 @@
-import { objElement } from '../utils/ElementTool.js';
+import { $, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
 	printDivEmail() {
@@ -18,5 +18,17 @@ export default Object.create({
 		footerKioskContainer.append(divEmail, divContactMe);
 
 		return footerKioskContainer;
+	},
+	showFooterKioskContainer() {
+		$('.footerKioskContainer').style.display = 'flex';
+		setTimeout(() => {
+			$('.footerKioskContainer').style.opacity = 1;
+		}, 0);
+	},
+	hideFooterKioskContainer() {
+		$('.footerKioskContainer').style.opacity = 1;
+		setTimeout(() => {
+			$('.footerKioskContainer').style.display = 'none';
+		}, 300);
 	},
 });

@@ -10,3 +10,9 @@ export const spacingString = string =>
 		.map(string => string.replace(/[A-Z]/, ' ' + string))
 		.map((string, index) => (index ? string : string.toUpperCase()))
 		.join('');
+
+export const subSpacingString = string =>
+	string
+		.split(' ')
+		.map((string, index) => (index ? string : string.toLowerCase()))
+		.join('');

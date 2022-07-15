@@ -3,33 +3,63 @@ import Controller from '../controller/Controller.js';
 export default Object.create({
 	userInfo: { name: '', couponUsing: 'no', couponCount: 0, takeOut: '' },
 	selectedProduct: {},
-	getSelectedProductInfo() {},
-	setSelectedProduct(selectedProductName) {
+	selectedProducts: [],
+	initSelectedProduct(selectedProductName) {
 		this.selectedProduct = Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName);
-		console.log(this.selectedProduct);
+		this.selectedProduct.id = Date.now();
 	},
-	selectedProducts: [
-		// {
-		// 	id: 1,
-		// 	productName: 'example01',
-		// 	productPrice: '4,000',
-		// 	productCategory: 'recommendation',
-		// 	productSize: 'Short',
-		// 	productEspressoShot: '1',
-		// 	productSyrup: { vanillaSyrup: 1, hazelnutSyrup: 0, caramelSyrup: 0 },
-		// 	ice: 'none',
-		// },
-		// {
-		// 	id: 2,
-		// 	productName: 'example02',
-		// 	productPrice: '3,000',
-		// 	productCategory: 'recommendation',
-		// 	productSize: 'Grande',
-		// 	productEspressoShot: '1',
-		// 	productSyrup: { vanillaSyrup: 1, hazelnutSyrup: 0, caramelSyrup: 0 },
-		// 	ice: 'Default',
-		// },
-	],
+	setSelectedProductCount(productCountValue) {
+		this.selectedProduct.productCount = productCountValue;
+	},
+	setSelectedProductPrice(productPriceValue) {
+		this.selectedProduct.productPrice = productPriceValue;
+	},
+	setSelectedProductAdditionalFee() {
+		const sizePrice = Controller.optionPriceInfo().size[this.selectedProduct.productSize];
+		const espressoPrice = Controller.optionPriceInfo().espresso * this.selectedProduct.productEspressoShot;
+		const syrupPrice = Controller.optionPriceInfo().syrup * this.selectedProduct.productSyrupCount;
+		
+		this.selectedProduct.productAdditionalFee = sizePrice + espressoPrice + syrupPrice;
+	},
+	setSelectedProductSize(productSizeValue) {
+		this.selectedProduct.productSize = productSizeValue;
+	},
+	setSelectedProductEspressoShot(productEspressoShotValue) {
+		this.selectedProduct.productEspressoShot = productEspressoShotValue;
+	},
+	setSelectedProductEspressoRoast(productEspressoRoastValue) {
+		this.selectedProduct.productEspressoRoast = productEspressoRoastValue;
+	},
+	setSelectedProductSyrup(productSyrupValue) {
+		this.selectedProduct.productSyrup = productSyrupValue;
+	},
+	setSelectedProductSyrupCount(productSyrupCountValue) {
+		this.selectedProduct.productSyrupCount = productSyrupCountValue;
+	},
+	setSelectedProductIce(productIceValue) {
+		this.selectedProduct.productIce = productIceValue;
+	},
+	confirmSelectedProductNotEspresso() {
+		return this.selectedProduct.productEspressoRoast === 'notEspresso';
+	},
+	confirmSelectedProductCountMax() {
+		return this.selectedProduct.productCount < 99;
+	},
+	confirmSelectedProductCountMin() {
+		return this.selectedProduct.productCount > 1;
+	},
+	confirmSelectedProductEspressoShotMax() {
+		return this.selectedProduct.productEspressoShot < 3;
+	},
+	confirmSelectedProductEspressoShotMin() {
+		return this.selectedProduct.productEspressoShot > 0;
+	},
+	confirmSelectedProductSyrupCountMax() {
+		return this.selectedProduct.productSyrupCount < 3;
+	},
+	confirmSelectedProductSyrupCountMin() {
+		return this.selectedProduct.productSyrupCount > 0;
+	},
 	// addSelectedProducts() {
 	// 	this.confirmBakery() && this.confirmExistSameName() && this.selectedProducts.push({ ...this.selectedProduct });
 	// },

@@ -1,13 +1,8 @@
-import FooterKioskContainer from '../components/FooterKioskContainer.js';
-import NavKioskContainer from '../components/NavKioskContainer.js';
 import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
 import { spacingString } from '../utils/StringTool.js';
 
 export default Object.create({
-	printFooterKioskContainer() {
-		return FooterKioskContainer.setup();
-	},
 	printButtonCancel() {
 		return objElement.createElement('BUTTON', 'CANCEL').setClassName('buttonCancel').complete();
 	},
@@ -158,7 +153,8 @@ export default Object.create({
 	printUlSelectProductItemContainers(category) {
 		const fragment = document.createDocumentFragment();
 
-		Controller.allProductsInfo().filter(({ productCategory }) => productCategory === category)
+		Controller.allProductsInfo()
+			.filter(({ productCategory }) => productCategory === category)
 			.forEach(product => {
 				const ulSelectProductItemContainer = this.printUlSelectProductItemContainer();
 
@@ -192,7 +188,8 @@ export default Object.create({
 	},
 	printLiSelectProductCategoryItems() {
 		const fragment = document.createDocumentFragment();
-		Controller.allProductCategoriesInfo().map(category => spacingString(category))
+		Controller.allProductCategoriesInfo()
+			.map(category => spacingString(category))
 			.forEach(category => void fragment.append(this.printLiSelectProductCategoryItem(category)));
 
 		return fragment;
@@ -200,28 +197,23 @@ export default Object.create({
 	printUlSelectProductCategoryContainer() {
 		return objElement.createElement('UL').setClassName('ulSelectProductCategoryContainer').complete();
 	},
-	printNavKioskContainer() {
-		return NavKioskContainer.setup();
-	},
 	printSectionSelectProductContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionSelectProductContainer').complete();
 	},
 	setup() {
 		const sectionSelectProductContainer = this.printSectionSelectProductContainer();
-		const navKioskContainer = this.printNavKioskContainer();
 		const ulSelectProductCategoryContainer = this.printUlSelectProductCategoryContainer();
 		const liSelectProductCategoryItems = this.printLiSelectProductCategoryItems();
 		const ulSelectProductWrapperContainer = this.printUlSelectProductWrapperContainer();
 		const ulSelectProductListContainers = this.printUlSelectProductListContainers();
 		const divSelectedProductWrapperContainer = this.appendDivSelectedProductWrapperContainer();
-		const footerKioskContainer = this.printFooterKioskContainer();
 		const fragment = document.createDocumentFragment();
 
 		ulSelectProductCategoryContainer.appendChild(liSelectProductCategoryItems);
 
 		ulSelectProductWrapperContainer.appendChild(ulSelectProductListContainers);
 
-		fragment.append(navKioskContainer, ulSelectProductCategoryContainer, ulSelectProductWrapperContainer, divSelectedProductWrapperContainer, footerKioskContainer);
+		fragment.append(ulSelectProductCategoryContainer, ulSelectProductWrapperContainer, divSelectedProductWrapperContainer);
 
 		sectionSelectProductContainer.appendChild(fragment);
 
@@ -259,12 +251,10 @@ export default Object.create({
 		);
 	},
 	showSectionSelectProductContainer() {
+		$('.sectionSelectProductContainer').style.display = 'flex';
 		setTimeout(() => {
-			$('.sectionSelectProductContainer').style.display = 'flex';
-			setTimeout(() => {
-				$('.sectionSelectProductContainer').style.opacity = 1;
-			}, 0);
-		}, 300);
+			$('.sectionSelectProductContainer').style.opacity = 1;
+		}, 0);
 	},
 	hideSectionSelectProductContainer() {
 		$('.sectionSelectProductContainer').style.opacity = 0;

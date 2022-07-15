@@ -1,7 +1,14 @@
 export default Object.freeze({
-	espressoShotOptions: ['default', '+OneShot', '+TwoShot', '+ThreeShot'],
+	sizeOptions: [
+		{ size: 'short', measurement: 8 },
+		{ size: 'tall', measurement: 12 },
+		{ size: 'grande', measurement: 16 },
+		{ size: 'venti', measurement: 20 },
+	],
+	defaultOptions: ['size', 'ice'],
+	detailedOptions: ['espresso', 'syrup'],
 	espressoRoastOptions: ['signatureRoast', 'blondeRoast', 'decafRoast'],
-	sizeOptions: ['short', 'tall', 'grande', 'venti'],
 	syrupOptions: ['vanillaSyrup', 'hazelnutSyrup', 'caramelSyrup'],
-	iceOptions: ['default', 'lightIce', 'ice', 'extraIce'],
+	iceOptions: ['noIce', 'lightIce', 'ice', 'extraIce'],
+	optionPrice: { size: { short: 0, tall: 500, grande: 1000, venti: 1500 }, syrup: 200, espresso: 500 },
 });

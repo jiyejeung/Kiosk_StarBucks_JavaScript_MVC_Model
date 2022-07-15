@@ -512,7 +512,7 @@
 						top: 0;
 						left: 0;
 						width: 100%;
-						height: 80%;
+						height: 70%;
 						@include flexCol();
 						// display: none;
 						// border: 1px solid black;
@@ -678,7 +678,7 @@
 						top: 0;
 						left: 0;
 						width: 100%;
-						height: 80%;
+						height: 83%;
 						@include flexCol();
 						transition: all 300ms ease-in-out;
 						padding-left: 2vw;
@@ -690,34 +690,45 @@
 							// border: 1px solid black;
 							width: 100%;
 							margin-bottom: 2%;
-							height: 45%;
+							height: 40%;
 							display: flex;
 							flex-direction: column;
-							justify-content: space-between;
+							justify-content: flex-start;
 							align-items: flex-start;
 							h4.h4EspressoOption {
 								font-size: 2vw;
 								font-family: 'Times New Roman', Times, serif;
 								font-weight: bolder;
 								padding-left: 2vw;
-								height: 33.33333%;
+								padding-bottom: 2vh;
 							}
 							ul.ulEspressoRoastOptionContainer {
 								width: 100%;
 								display: flex;
-								justify-content: space-between;
-								align-items: flex-start;
-								height: 33.33333%;
+								padding-bottom: 3vh;
+								// justify-content: space-between;
+								// align-items: flex-start;
+								// height: 33.33333%;
 								cursor: pointer;
 								// border: 1px solid black;
 								li {
-									font-size: 1.6vw;
-									padding: 0.5vw 1.2vw;
+									font-size: 1.5vw;
+									padding: 0.5vw 0vw;
+									width: 33.33333%;
+									@include flexRow();
 									font-family: 'Times New Roman', Times, serif;
 									border: 1px solid black;
+									border-left: none;
+									border-right: none;
 									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
+									background-color: #174841;
+									color: #fafafa;
+								}
+								li:nth-child(2) {
+									border-left: 1px solid black;
+									border-right: 1px solid black;
 									background-color: #174841;
 									color: #fafafa;
 								}
@@ -726,11 +737,11 @@
 								width: 100%;
 								@include flexRow();
 								// border: 1px solid black;
-								height: 33.33333%;
+								// height: 33.33333%;
 								li {
 									font-family: 'Times New Roman', Times, serif;
 									font-weight: bold;
-									font-size: 1.8vw;
+									font-size: 1.6vw;
 									button {
 										font-size: 2vw;
 										width: 2.6vw;
@@ -758,35 +769,46 @@
 						}
 						.divSyrupOptionContainer {
 							width: 100%;
-							height: 45%;
+							height: 50%;
 							// border: 1px solid black;
 							display: flex;
 							flex-direction: column;
-							justify-content: space-between;
+							justify-content: flex-start;
 							align-items: flex-start;
 							h4.h4SyrupOption {
 								font-size: 2vw;
 								font-family: 'Times New Roman', Times, serif;
 								font-weight: bolder;
 								padding-left: 2vw;
-								height: 33.33333%;
+								padding-bottom: 2vh;
 							}
 							ul.ulSyrupOptionContainer {
 								width: 100%;
-								height: 33.33333%;
+								// height: 33.33333%;
 								display: flex;
-								justify-content: space-between;
-								align-items: flex-start;
+								padding-bottom: 3vh;
+								// justify-content: space-between;
+								// align-items: flex-start;
 								// border: 1px solid black;
 								li {
 									cursor: pointer;
-									font-size: 1.6vw;
-									padding: 0.5vw 1.2vw;
+									font-size: 1.5vw;
+									padding: 0.5vw 0vw;
+									width: 33.33333%;
+									@include flexRow();
 									font-family: 'Times New Roman', Times, serif;
 									border: 1px solid black;
+									border-left: none;
+									border-right: none;
 									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
+									background-color: #174841;
+									color: #fafafa;
+								}
+								li:nth-child(2) {
+									border-left: 1px solid black;
+									border-right: 1px solid black;
 									background-color: #174841;
 									color: #fafafa;
 								}
@@ -795,11 +817,11 @@
 								width: 100%;
 								@include flexRow();
 								// border: 1px solid black;
-								height: 33.33333%;
+								// height: 33.33333%;
 								li {
 									font-family: 'Times New Roman', Times, serif;
 									font-weight: bold;
-									font-size: 1.8vw;
+									font-size: 1.6vw;
 									button {
 										font-size: 2vw;
 										width: 2.6vw;
@@ -825,26 +847,32 @@
 								}
 							}
 						}
-						.divPriceOptionContainer {
-							width: 100%;
-							@include flexRow();
-							justify-content: flex-start;
-							height: 10%;
-							align-items: flex-end;
-							// border: 1px solid black;
-							span {
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.6vw;
-								font-weight: bold;
-								padding-right: 3%;
-							}
-							span:nth-child(1) {
-								padding-right: 5vw;
-							}
+					}
+					.divPriceOptionContainer {
+						width: 95.4%;
+						margin-left: 2vw;
+						@include flexRow();
+						justify-content: flex-start;
+						// height: 10%;
+						position: absolute;
+						left: 0;
+						bottom: 18%;
+						align-items: flex-end;
+						// border: 1px solid black;
+						padding-left: 2vw;
+						span {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.9vw;
+							font-weight: bold;
+							padding-right: 3%;
+						}
+						span:nth-child(1) {
+							padding-right: 5vw;
 						}
 					}
 					.divPriceContainer {
-						width: 100%;
+						width: 95.4%;
+						margin-left: 2vw;
 						height: 14%;
 						// margin-bottom: 1vw;
 						bottom: 0;

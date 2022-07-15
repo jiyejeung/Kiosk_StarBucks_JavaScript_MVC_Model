@@ -10,6 +10,7 @@ import SelectOptionContainer from '../view/SelectOptionContainer.js';
 import AllOptionsInfo from '../model/AllOptionsInfo.js';
 import NavKioskContainer from '../components/NavKioskContainer.js';
 import FooterKioskContainer from '../components/FooterKioskContainer.js';
+import { subSpacingString } from '../utils/StringTool.js';
 
 export default {
 	init() {},
@@ -100,10 +101,8 @@ export default {
 		$$('.ulSelectProductItemContainer')?.forEach(ul =>
 			ul?.addEventListener('click', ({ currentTarget }) => {
 				UserInfo.initSelectedProduct(currentTarget.querySelector('.liSelectProductNameItem').textContent);
-				SelectProductContainer.hideSectionSelectProductContainer();
-				SelectOptionContainer.showSectionSelectOptionContainer();
 				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				
+				UserInfo.confirmSelectedProductNotEspresso() && SelectOptionContainer.blockDetailedOption();
 			})
 		);
 	},
@@ -122,17 +121,38 @@ export default {
 		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => SelectOptionContainer.hideDivDisabledWrapperOptionModalContainer());
 	},
 	clickUlSizeListContainer() {
-		$$('.ulSizeListContainer').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickUlSizeListContainer(currentTarget)));
+		$$('.ulSizeListContainer').forEach(ul =>
+			ul?.addEventListener('click', ({ currentTarget }) => {
+				this.setSelectedProductSize(subSpacingString(currentTarget.querySelector('.liSize').textContent));
+				this.setSelectedProductAdditionalFee();
+				SelectOptionContainer.onClickUlSizeListContainer(currentTarget);
+			})
+		);
 		//
 	},
 	clickUlIceListContainer() {
-		$$('.ulIceListContainer').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickUlIceListContainer(currentTarget)));
+		$$('.ulIceListContainer').forEach(ul =>
+			ul?.addEventListener('click', ({ currentTarget }) => {
+				this.setSelectedProductIce(subSpacingString(currentTarget.querySelector('.liIce').textContent));
+				SelectOptionContainer.onClickUlIceListContainer();
+			})
+		);
 	},
 	clickLiEspressoRoastOption() {
-		$$('.liEspressoRoastOption').forEach(li => li?.addEventListener('click', ({ target }) => SelectOptionContainer.onClickLiEspressoRoastOption(target)));
+		$$('.liEspressoRoastOption').forEach(li =>
+			li?.addEventListener('click', ({ target }) => {
+				this.setSelectedProductEspressoRoast(subSpacingString(target.textContent));
+				SelectOptionContainer.onClickLiEspressoRoastOption();
+			})
+		);
 	},
 	clickLiSyrupOption() {
-		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li => li?.addEventListener('click', ({ target }) => SelectOptionContainer.onClickLiSyrupOption(target)));
+		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li =>
+			li?.addEventListener('click', ({ target }) => {
+				this.setSelectedProductSyrup(subSpacingString(target.textContent));
+				SelectOptionContainer.onClickLiSyrupOption(target);
+			})
+		);
 	},
 	clickButtonCalcEspressoShot() {
 		$$('.buttonCalcEspressoShot').forEach(button => button?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickButtonCalcEspressoShot(currentTarget)));
@@ -143,6 +163,8 @@ export default {
 	clickButtonAddToCart() {
 		$('.buttonAddToCart').addEventListener('click', () => {
 			SelectOptionContainer.hideSectionSelectOptionContainer();
+			this.addSelectedProduct();
+			console.log(this.selectedProductsInfo());
 			SelectProductContainer.showSectionSelectProductContainer();
 		});
 	},
@@ -198,6 +220,12 @@ export default {
 	},
 	selectedProductInfo() {
 		return UserInfo.selectedProduct;
+	},
+	selectedProductsInfo() {
+		return UserInfo.selectedProducts;
+	},
+	addSelectedProduct() {
+		UserInfo.addSelectedProduct();
 	},
 	setSelectedProductCount(productCountValue) {
 		UserInfo.setSelectedProductCount(productCountValue);

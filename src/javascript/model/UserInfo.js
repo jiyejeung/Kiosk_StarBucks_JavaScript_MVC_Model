@@ -4,8 +4,11 @@ export default Object.create({
 	userInfo: { name: '', couponUsing: 'no', couponCount: 0, takeOut: '' },
 	selectedProduct: {},
 	selectedProducts: [],
+	addSelectedProduct() {
+		this.selectedProducts.push({ ...this.selectedProduct });
+	},
 	initSelectedProduct(selectedProductName) {
-		this.selectedProduct = Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName);
+		this.selectedProduct = { ...Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName) };
 		this.selectedProduct.id = Date.now();
 	},
 	setSelectedProductCount(productCountValue) {
@@ -18,7 +21,7 @@ export default Object.create({
 		const sizePrice = Controller.optionPriceInfo().size[this.selectedProduct.productSize];
 		const espressoPrice = Controller.optionPriceInfo().espresso * this.selectedProduct.productEspressoShot;
 		const syrupPrice = Controller.optionPriceInfo().syrup * this.selectedProduct.productSyrupCount;
-		
+
 		this.selectedProduct.productAdditionalFee = sizePrice + espressoPrice + syrupPrice;
 	},
 	setSelectedProductSize(productSizeValue) {

@@ -27,14 +27,10 @@ export default Object.create({
 	},
 	showSectionTakeOutContainer() {
 		$('.sectionTakeOutContainer').style.display = 'flex';
-		setTimeout(() => {
-			$('.sectionTakeOutContainer').style.opacity = 1;
-		}, 0);
+		setTimeout(() => ($('.sectionTakeOutContainer').style.opacity = 1), 0);
 	},
 	hideSectionTakeOutContainer() {
 		$('.sectionTakeOutContainer').style.opacity = 0;
-		setTimeout(() => {
-			$('.sectionTakeOutContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.sectionTakeOutContainer').style.display = 'none'), 300);
 	},
 });

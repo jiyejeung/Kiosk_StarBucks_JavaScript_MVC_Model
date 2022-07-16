@@ -1,6 +1,8 @@
 import { $, objElement } from '../utils/ElementTool.js';
+import { convertTime } from '../utils/NumberTool.js';
 
 export default Object.create({
+	init() {},
 	setup() {
 		const navKioskContainer = this.printNavKioskContainer();
 		const h1NavTitle = this.printH1NavTitle();
@@ -20,15 +22,16 @@ export default Object.create({
 		return objElement.createElement('DIV', '05:00').setClassName('divKioskTimer').complete();
 	},
 	showNavKioskContainer() {
-			$('.navKioskContainer').style.display = 'flex';
-			setTimeout(() => {
-				$('.navKioskContainer').style.opacity = 1;
-			}, 0);
+		$('.navKioskContainer').style.display = 'flex';
+		setTimeout(() => ($('.navKioskContainer').style.opacity = 1), 0);
 	},
 	hideNavKioskContainer() {
 		$('.navKioskContainer').style.opacity = 1;
-		setTimeout(() => {
-			$('.navKioskContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.navKioskContainer').style.display = 'none'), 300);
 	},
+	setDivKioskTimer(time) {
+		$('.divKioskTimer').textContent = convertTime(time);
+	},
+	startTimer() {},
+	stopTimer() {},
 });

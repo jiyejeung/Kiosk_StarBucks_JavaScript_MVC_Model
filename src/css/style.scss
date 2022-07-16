@@ -224,7 +224,11 @@
 				width: 57%;
 				height: 100%;
 				overflow: hidden;
+				position: relative;
 				ul.ulSelectProductListContainer {
+					position: absolute;
+					left: 0;
+					top: 0;
 					width: 100%;
 					max-height: 100%;
 					flex-wrap: wrap;
@@ -235,9 +239,11 @@
 					align-items: flex-start;
 					padding-left: 2vw;
 					overflow: auto;
+					// border: 1px solid black;
 					ul.ulSelectProductItemContainer {
-						width: 10vw;
-						height: 14vw;
+						border: 1px solid black;
+						width: 17.25vw;
+						height: 20vw;
 						margin-right: 1vw;
 						margin-bottom: 1vw;
 						@include flexCol();
@@ -247,18 +253,23 @@
 							text-align: center;
 						}
 						li.liSelectProductImageItem {
-							height: 10vw;
+							height: 13vw;
+							width: 13vw;
 							background-position: 50% 50%;
 							background-repeat: no-repeat;
 							background-size: cover;
-							margin-bottom: 0.3vw;
+							margin-bottom: 0.4vw;
 						}
 						li.liSelectProductNameItem {
+							@include flexRow();
+							line-height: 1.5vw;
+							height: 3.7vw;
+							// align-items: flex-end;
+							// border: 1px solid black;
 							font-family: 'Times New Roman', Times, serif;
 							letter-spacing: 0.05vw;
-							font-size: 1.5vw;
+							font-size: 1.3vw;
 							color: #0a0a0a;
-							margin-bottom: 0.5vw;
 						}
 						li.liSelectProductPriceItem {
 							font-family: 'Times New Roman', Times, serif;
@@ -285,11 +296,136 @@
 				ul.ulSelectedProductListContainer {
 					width: 100%;
 					height: 60%;
-					border: 1px solid black;
+					border-top: 1px solid black;
+					border-bottom: 1px solid black;
 					display: flex;
 					flex-direction: column;
 					justify-content: flex-start;
-					overflow: auto;
+					overflow: scroll;
+					// margin-bottom: 5%;
+					ul.ulSelectedProductItemContainer {
+						width: 100%;
+						height: 6vw;
+						border-top: 1px solid black;
+						@include flexCol();
+						margin-bottom: 0.6vw;
+						transition: all 300ms ease-in-out;
+						li.liItemId {
+							display: none;
+						}
+						li.liItemName {
+							width: 100%;
+							height: 2vw;
+							@include flexRow();
+							justify-content: flex-start;
+							padding-left: 2%;
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.15vw;
+							font-weight: bold;
+							padding-top: 1%;
+						}
+						li.liWrapperItemContainer {
+							width: 100%;
+							height: 2vw;
+							@include flexRow();
+							// border: 1px solid black;
+							span {
+								height: 100%;
+								@include flexRow();
+							}
+							span.spanItemPrice {
+								width: 70%;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.15vw;
+								padding-left: 5%;
+								padding-bottom: 1%;
+								// @include flexRow();
+								// justify-content: flex-start;
+							}
+							span.spanItemMinusCountContainer {
+								width: 10%;
+								display: flex;
+								justify-content: flex-start;
+								align-items: flex-start;
+								button {
+									@include flexRow();
+									width: 1.7vw;
+									height: 1.7vw;
+									background-color: #172d29;
+									cursor: pointer;
+									div.divMinusImageContainer {
+										width: 95%;
+										height: 95%;
+										background-image: url(../../images/minus.png);
+										background-position: 50% 50%;
+										background-repeat: no-repeat;
+										background-size: contain;
+									}
+								}
+							}
+							span.spanItemCount {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1vw;
+								width: 10%;
+								font-size: 1.2vw;
+								padding-bottom: 1%;
+							}
+							span.spanItemAddCountContainer {
+								width: 10%;
+								display: flex;
+								justify-content: flex-end;
+								align-items: flex-start;
+								button {
+									@include flexRow();
+									background-color: #172d29;
+									cursor: pointer;
+									width: 1.7vw;
+									height: 1.7vw;
+									div.divAddImageContainer {
+										background-image: url(../../images/plus.png);
+										width: 95%;
+										height: 95%;
+										background-position: 50% 50%;
+										background-repeat: no-repeat;
+										background-size: contain;
+									}
+								}
+							}
+						}
+						li.liItemButtonContainer {
+							width: 100%;
+							height: 2vw;
+							@include flexRow();
+							button.buttonItemOption {
+								width: 50%;
+								height: 100%;
+								@include flexRow();
+								background-color: #172d29;
+								color: #fafafa;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.1vw;
+								font-weight: bold;
+								cursor: pointer;
+							}
+							button.buttonItemDelete {
+								width: 50%;
+								height: 100%;
+								@include flexRow();
+								background-color: #cf3131;
+								color: #fafafa;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.1vw;
+								font-weight: bold;
+								cursor: pointer;
+							}
+						}
+					}
+					ul.ulSelectedProductItemContainer:nth-child(1) {
+						border-top: none;
+					}
+				}
+				ul.ulSelectedProductListContainer::-webkit-scrollbar {
+					display: none;
 				}
 				.divPayWrapperContainer {
 					width: 100%;
@@ -300,6 +436,7 @@
 						height: 45%;
 						padding-bottom: 2%;
 						.divTotalNumberContainer {
+							padding-top: 5%;
 							@include flexRow();
 							width: 100%;
 							height: 50%;
@@ -309,13 +446,13 @@
 								font-weight: bold;
 							}
 							span.spanTotalNumberText {
-								font-size: 2.3vw;
+								font-size: 2.05vw;
 								text-align: left;
-								width: 80%;
+								width: 70%;
 							}
 							span.spanTotalNumberValue {
-								font-size: 2.2vw;
-								width: 20%;
+								font-size: 2vw;
+								width: 30%;
 								text-align: right;
 							}
 						}
@@ -323,19 +460,20 @@
 							@include flexRow();
 							width: 100%;
 							height: 50%;
+							padding-top: 2.5%;
 							span {
-								font-size: 2.2vw;
+								font-size: 2vw;
 								font-weight: bold;
 								font-family: 'Times New Roman', Times, serif;
 								letter-spacing: 0.05vw;
 							}
 							span.spanTotalAmountText {
 								text-align: left;
-								width: 60%;
+								width: 40%;
 							}
 							span.spanTotalAmountValue {
 								text-align: right;
-								width: 40%;
+								width: 60%;
 							}
 						}
 					}
@@ -353,6 +491,7 @@
 					button.buttonPay {
 						background-color: #172d29;
 						margin-bottom: 5%;
+						cursor: not-allowed;
 					}
 					button.buttonCancel {
 						background-color: #cf3131;
@@ -385,7 +524,7 @@
 				display: none;
 				opacity: 0;
 				.divDisabledOptionModalContainer {
-					background-color: rgba(#000000, 0.7);
+					background-color: rgba(#202020, 0.95);
 					@include flexRow();
 					position: relative;
 					width: 80%;

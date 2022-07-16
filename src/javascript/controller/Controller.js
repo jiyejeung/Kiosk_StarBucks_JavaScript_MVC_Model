@@ -11,6 +11,7 @@ import AllOptionsInfo from '../model/AllOptionsInfo.js';
 import NavKioskContainer from '../components/NavKioskContainer.js';
 import FooterKioskContainer from '../components/FooterKioskContainer.js';
 import { subSpacingString } from '../utils/StringTool.js';
+import Timer from '../utils/Timer.js';
 
 export default {
 	init() {},
@@ -57,8 +58,10 @@ export default {
 		$('.buttonTakeOut')?.addEventListener('click', e => {
 			this.updateTakeOutValue(e);
 			this.changeBackgroundWhite();
+			Timer.startTimer();
+			this.startTimer();
 			TakeOutContainer.hideSectionTakeOutContainer();
-			SelectProductContainer.showSectionSelectProductContainer();
+			SelectProductContainer.onClickButtonTakeOut();
 			NavKioskContainer.showNavKioskContainer();
 			FooterKioskContainer.showFooterKioskContainer();
 		});
@@ -67,8 +70,10 @@ export default {
 		$('.buttonStore')?.addEventListener('click', e => {
 			this.updateTakeOutValue(e);
 			this.changeBackgroundWhite();
+			Timer.startTimer();
+			this.startTimer();
 			TakeOutContainer.hideSectionTakeOutContainer();
-			SelectProductContainer.showSectionSelectProductContainer();
+			SelectProductContainer.onClickButtonStore();
 			NavKioskContainer.showNavKioskContainer();
 			FooterKioskContainer.showFooterKioskContainer();
 		});
@@ -77,9 +82,7 @@ export default {
 	clickLiSelectProductCategoryItem() {
 		$$('.liSelectProductCategoryItem')?.forEach((li, index) =>
 			li?.addEventListener('click', ({ target }) => {
-				SelectProductContainer.changeBackgroundColorLiSelectProductCategoryItem(target);
-				SelectProductContainer.hideUlSelectProductListContainer(index);
-				SelectProductContainer.showUlSelectProductListContainer(index);
+				SelectProductContainer.onClickLiSelectProductCategoryItem(target, index);
 			})
 		);
 	},
@@ -100,14 +103,62 @@ export default {
 	clickUlSelectProductItemContainer() {
 		$$('.ulSelectProductItemContainer')?.forEach(ul =>
 			ul?.addEventListener('click', ({ currentTarget }) => {
-				UserInfo.initSelectedProduct(currentTarget.querySelector('.liSelectProductNameItem').textContent);
+				UserInfo.initSelectedProduct(subSpacingString(currentTarget.querySelector('.liSelectProductNameItem').textContent));
 				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				UserInfo.confirmSelectedProductNotEspresso() && SelectOptionContainer.blockDetailedOption();
+				Timer.stopTimer();
 			})
 		);
 	},
+	clickButtonPay() {
+		$('.divPayWrapperContainer .buttonPay').addEventListener('click', () => {
+			if (UserInfo.confirmEmptySelectedProducts()) {
+				SelectProductContainer.onClickButtonPay();
+				Timer.stopTimer();
+			}
+		});
+	},
 	clickButtonCancel() {
 		$('.buttonCancel')?.addEventListener('click', () => void this.init());
+	},
+	// important
+	clickButtonItemMinusCount() {
+		$$('.buttonItemMinusCount').forEach(div =>
+			div?.addEventListener('click', ({ currentTarget }) => {
+				const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
+				const [countValue, priceValue] = UserInfo.setSelectedProductMinusCount(id);
+
+				SelectProductContainer.onClickButtonItemMinusCount(countValue, priceValue, currentTarget);
+			})
+		);
+	},
+	clickButtonItemAddCount() {
+		$$('.buttonItemAddCount').forEach(div =>
+			div?.addEventListener('click', ({ currentTarget }) => {
+				const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
+				const [countValue, priceValue] = UserInfo.setSelectedProductAddCount(id);
+
+				SelectProductContainer.onClickButtonItemAddCount(countValue, priceValue, currentTarget);
+			})
+		);
+	},
+	clickButtonItemOption() {
+		$$('.buttonItemOption').forEach(button =>
+			button?.addEventListener('click', ({ currentTarget }) => {
+				const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
+
+				SelectProductContainer.onClickButtonItemOption(UserInfo.pickSelectedProduct(id));
+			})
+		);
+	},
+	clickButtonItemDelete() {
+		$$('.buttonItemDelete').forEach(button =>
+			button?.addEventListener('click', ({ currentTarget }) => {
+				const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
+
+				UserInfo.deleteSelectedProduct(id);
+				SelectProductContainer.onClickButtonItemDelete(currentTarget, UserInfo.confirmEmptySelectedProducts());
+			})
+		);
 	},
 
 	/* in SectionSelectOptionContainer */
@@ -115,10 +166,10 @@ export default {
 		$$('.ulOptionListContainer ul').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickUlOptionListContainer(currentTarget)));
 	},
 	clickLiWrapperDisabledContainer() {
-		$('.liWrapperDisabledContainer')?.addEventListener('click', () => SelectOptionContainer.showDivDisabledWrapperOptionModalContainer());
+		$('.liWrapperDisabledContainer')?.addEventListener('click', () => SelectOptionContainer.onClickLiWrapperDisabledContainer());
 	},
 	clickDivHideDisabledWrapperOptionModalContainer() {
-		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => SelectOptionContainer.hideDivDisabledWrapperOptionModalContainer());
+		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => SelectOptionContainer.onClickDivHideDisabledWrapperOptionModalContainer());
 	},
 	clickUlSizeListContainer() {
 		$$('.ulSizeListContainer').forEach(ul =>
@@ -128,7 +179,6 @@ export default {
 				SelectOptionContainer.onClickUlSizeListContainer(currentTarget);
 			})
 		);
-		//
 	},
 	clickUlIceListContainer() {
 		$$('.ulIceListContainer').forEach(ul =>
@@ -162,19 +212,38 @@ export default {
 	},
 	clickButtonAddToCart() {
 		$('.buttonAddToCart').addEventListener('click', () => {
-			SelectOptionContainer.hideSectionSelectOptionContainer();
+			SelectOptionContainer.onClickButtonAddToCart();
 			this.addSelectedProduct();
-			console.log(this.selectedProductsInfo());
-			SelectProductContainer.showSectionSelectProductContainer();
+			Timer.restartTimer();
+			Timer.startTimer();
+			this.startTimer();
+			SelectProductContainer.onClickButtonAddToCart(UserInfo.confirmEmptySelectedProducts());
+			this.clickButtonItemMinusCount();
+			this.clickButtonItemAddCount();
+			this.clickButtonItemOption();
+			this.clickButtonItemDelete();
 		});
 	},
 	clickButtonCancelAddingToCart() {
 		$('.buttonCancelAddingToCart').addEventListener('click', () => {
-			SelectOptionContainer.hideSectionSelectOptionContainer();
-			SelectProductContainer.showSectionSelectProductContainer();
+			SelectOptionContainer.onClickButtonCancelAddingToCart();
+			SelectProductContainer.onClickButtonCancelAddingToCart();
+			Timer.restartTimer();
+			Timer.startTimer();
+			this.startTimer();
 		});
 	},
-
+	startTimer() {
+		Timer.handler &&
+			setTimeout(() => {
+				NavKioskContainer.setDivKioskTimer(Timer.limitedSeconds);
+				this.startTimer();
+			}, 1000);
+	},
+	initTimer() {
+		Timer.resetTimer();
+		NavKioskContainer.setDivKioskTimer(300);
+	},
 	/* Start SlideImageInfo Data */
 	slideImageInfo() {
 		return SlideImageInfo.imageUrl;
@@ -223,6 +292,12 @@ export default {
 	},
 	selectedProductsInfo() {
 		return UserInfo.selectedProducts;
+	},
+	totalAmountValue() {
+		return UserInfo.totalAmountValue();
+	},
+	totalNumberValue() {
+		return UserInfo.totalNumberValue();
 	},
 	addSelectedProduct() {
 		UserInfo.addSelectedProduct();
@@ -284,6 +359,7 @@ export default {
 		this.mouseoverLiSelectProductCategoryItem();
 		this.mouseoutLiSelectProductCategoryItem();
 		this.clickUlSelectProductItemContainer();
+		this.clickButtonCancel();
 		this.clickUlOptionListContainer();
 		this.clickLiWrapperDisabledContainer();
 		this.clickDivHideDisabledWrapperOptionModalContainer();

@@ -387,8 +387,12 @@ body {
     width: 57%;
     height: 100%;
     overflow: hidden;
+    position: relative;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     max-height: 100%;
     flex-wrap: wrap;
@@ -401,8 +405,9 @@ body {
     overflow: auto;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer {
-    width: 10vw;
-    height: 14vw;
+    border: 1px solid black;
+    width: 17.25vw;
+    height: 20vw;
     margin-right: 1vw;
     margin-bottom: 1vw;
     display: flex;
@@ -416,18 +421,24 @@ body {
     text-align: center;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductImageItem {
-    height: 10vw;
+    height: 13vw;
+    width: 13vw;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 0.3vw;
+    margin-bottom: 0.4vw;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5vw;
+    height: 3.7vw;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     color: #0a0a0a;
-    margin-bottom: 0.5vw;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem {
     font-family: "Times New Roman", Times, serif;
@@ -455,11 +466,159 @@ body {
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer {
     width: 100%;
     height: 60%;
-    border: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    overflow: auto;
+    overflow: scroll;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer {
+    width: 100%;
+    height: 6vw;
+    border-top: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.6vw;
+    transition: all 300ms ease-in-out;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemId {
+    display: none;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemName {
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 2%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.15vw;
+    font-weight: bold;
+    padding-top: 1%;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer {
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemPrice {
+    width: 70%;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.15vw;
+    padding-left: 5%;
+    padding-bottom: 1%;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer {
+    width: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1.7vw;
+    height: 1.7vw;
+    background-color: #172d29;
+    cursor: pointer;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button div.divMinusImageContainer {
+    width: 95%;
+    height: 95%;
+    background-image: url(../../images/minus.png);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemCount {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1vw;
+    width: 10%;
+    font-size: 1.2vw;
+    padding-bottom: 1%;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer {
+    width: 10%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #172d29;
+    cursor: pointer;
+    width: 1.7vw;
+    height: 1.7vw;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button div.divAddImageContainer {
+    background-image: url(../../images/plus.png);
+    width: 95%;
+    height: 95%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer {
+    width: 100%;
+    height: 2vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemOption {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #172d29;
+    color: #fafafa;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.1vw;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemDelete {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #cf3131;
+    color: #fafafa;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.1vw;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer:nth-child(1) {
+    border-top: none;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer::-webkit-scrollbar {
+    display: none;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer {
     width: 100%;
@@ -475,6 +634,7 @@ body {
     padding-bottom: 2%;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer {
+    padding-top: 5%;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -488,13 +648,13 @@ body {
     font-weight: bold;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberText {
-    font-size: 2.3vw;
+    font-size: 2.05vw;
     text-align: left;
-    width: 80%;
+    width: 70%;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberValue {
-    font-size: 2.2vw;
-    width: 20%;
+    font-size: 2vw;
+    width: 30%;
     text-align: right;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer {
@@ -504,20 +664,21 @@ body {
     align-items: center;
     width: 100%;
     height: 50%;
+    padding-top: 2.5%;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span {
-    font-size: 2.2vw;
+    font-size: 2vw;
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountText {
     text-align: left;
-    width: 60%;
+    width: 40%;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountValue {
     text-align: right;
-    width: 40%;
+    width: 60%;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button {
     width: 100%;
@@ -533,6 +694,7 @@ body {
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonPay {
     background-color: #172d29;
     margin-bottom: 5%;
+    cursor: not-allowed;
   }
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonCancel {
     background-color: #cf3131;
@@ -570,7 +732,7 @@ body {
     opacity: 0;
   }
   #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(32, 32, 32, 0.95);
     display: flex;
     flex-direction: row;
     justify-content: center;

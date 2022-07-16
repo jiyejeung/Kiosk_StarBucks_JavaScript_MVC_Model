@@ -555,51 +555,35 @@ export default Object.create({
 	// events
 	showSectionSelectOptionContainer() {
 		$('.sectionOptionContainer').style.display = 'flex';
-		setTimeout(() => {
-			$('.sectionOptionContainer').style.opacity = 1;
-		}, 0);
+		setTimeout(() => ($('.sectionOptionContainer').style.opacity = 1), 0);
 	},
 	hideSectionSelectOptionContainer() {
 		$('.sectionOptionContainer').style.opacity = 0;
-		setTimeout(() => {
-			$('.sectionOptionContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.sectionOptionContainer').style.display = 'none'), 300);
 	},
 	showDivDisabledWrapperOptionModalContainer() {
 		$('.divDisabledWrapperOptionModalContainer').style.display = 'flex';
-		setTimeout(() => {
-			$('.divDisabledWrapperOptionModalContainer').style.opacity = '1';
-		}, 0);
+		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.opacity = '1'), 0);
 	},
 	hideDivDisabledWrapperOptionModalContainer() {
 		$('.divDisabledWrapperOptionModalContainer').style.opacity = '0';
-		setTimeout(() => {
-			$('.divDisabledWrapperOptionModalContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.display = 'none'), 300);
 	},
 	showDefaultOptionContainer() {
 		$('.divDefaultOptionContainer').style.display = 'flex';
-		setTimeout(() => {
-			$('.divDefaultOptionContainer').style.opacity = 1;
-		}, 0);
+		setTimeout(() => ($('.divDefaultOptionContainer').style.opacity = 1), 0);
 	},
 	hideDefaultOptionContainer() {
 		$('.divDefaultOptionContainer').style.opacity = 0;
-		setTimeout(() => {
-			$('.divDefaultOptionContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.divDefaultOptionContainer').style.display = 'none'), 300);
 	},
 	showAdditionalOptionContainer() {
 		$('.divAdditionalOptionContainer').style.display = 'flex';
-		setTimeout(() => {
-			$('.divAdditionalOptionContainer').style.opacity = 1;
-		}, 0);
+		setTimeout(() => ($('.divAdditionalOptionContainer').style.opacity = 1), 0);
 	},
 	hideAdditionalOptionContainer() {
 		$('.divAdditionalOptionContainer').style.opacity = 0;
-		setTimeout(() => {
-			$('.divAdditionalOptionContainer').style.display = 'none';
-		}, 300);
+		setTimeout(() => ($('.divAdditionalOptionContainer').style.display = 'none'), 300);
 	},
 	blockDetailedOption() {
 		$('.liWrapperDisabledContainer').style.display = 'inline-block';
@@ -628,6 +612,7 @@ export default Object.create({
 		this.showDefaultOptionContainer();
 		this.accessDetailedOption();
 		this.showSectionSelectOptionContainer();
+		Controller.confirmSelectedProductNotEspresso() && this.blockDetailedOption();
 	},
 	onClickUlOptionListContainer({ className }) {
 		if (Controller.selectedProductInfo().productEspressoRoast === 'notEspresso') return; // modal
@@ -643,6 +628,12 @@ export default Object.create({
 				this.toggleLiWrapperContainer(false);
 				break;
 		}
+	},
+	onClickLiWrapperDisabledContainer() {
+		this.showDivDisabledWrapperOptionModalContainer();
+	},
+	onClickDivHideDisabledWrapperOptionModalContainer() {
+		this.hideDivDisabledWrapperOptionModalContainer();
 	},
 	onClickUlSizeListContainer() {
 		this.setUlSize();
@@ -706,8 +697,12 @@ export default Object.create({
 				break;
 		}
 	},
-
-	// initialize
+	onClickButtonAddToCart() {
+		this.hideSectionSelectOptionContainer();
+	},
+	onClickButtonCancelAddingToCart() {
+		this.hideSectionSelectOptionContainer();
+	},
 	setH3Name() {
 		$('.h3ProductName').textContent = spacingString(Controller.selectedProductInfo().productName);
 	},

@@ -4,7 +4,7 @@
 		{
 			"id": 1,
 			"productCount": 1,
-			"productName": "example01",
+			"productName": "blondeVanillaDoubleShotMacchiato",
 			"productPrice": 1000,
 			"productAdditionalFee": 0,
 			"productCategory": "recommendation",
@@ -19,7 +19,7 @@
 		{
 			"id": 2,
 			"productCount": 1,
-			"productName": "example02",
+			"productName": "BarbecueChickenCheeseCiabatta",
 			"productPrice": 1000,
 			"productAdditionalFee": 0,
 			"productCategory": "recommendation",

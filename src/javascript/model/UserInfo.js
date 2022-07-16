@@ -5,14 +5,65 @@ export default Object.create({
 	selectedProduct: {},
 	selectedProducts: [],
 	addSelectedProduct() {
-		this.selectedProducts.push({ ...this.selectedProduct });
+		const handler = this.selectedProducts.some(
+			selectedProduct =>
+				selectedProduct.productName === this.selectedProduct.productName &&
+				selectedProduct.productSize === this.selectedProduct.productSize &&
+				selectedProduct.productIce === this.selectedProduct.productIce &&
+				selectedProduct.productEspressoShot === this.selectedProduct.productEspressoShot &&
+				selectedProduct.productEspressoRoast === this.selectedProduct.productEspressoRoast &&
+				selectedProduct.productSyrup === this.selectedProduct.productSyrup &&
+				selectedProduct.productSyrup === this.selectedProduct.productSyrup
+		);
+		if (handler)
+			this.selectedProducts.map(selectedProduct => {
+				selectedProduct.productName === this.selectedProduct.productName &&
+					selectedProduct.productSize === this.selectedProduct.productSize &&
+					selectedProduct.productIce === this.selectedProduct.productIce &&
+					selectedProduct.productEspressoShot === this.selectedProduct.productEspressoShot &&
+					selectedProduct.productEspressoRoast === this.selectedProduct.productEspressoRoast &&
+					selectedProduct.productSyrup === this.selectedProduct.productSyrup &&
+					selectedProduct.productSyrup === this.selectedProduct.productSyrup &&
+					selectedProduct.productCount++;
+			});
+		else this.selectedProducts.push({ ...this.selectedProduct });
+	},
+	pickSelectedProduct(selectedProductId) {
+		return this.selectedProducts.find(({ id }) => id === selectedProductId);
+	},
+	deleteSelectedProduct(selectedProductId) {
+		this.selectedProducts = this.selectedProducts.filter(selectedProduct => selectedProduct.id != selectedProductId);
 	},
 	initSelectedProduct(selectedProductName) {
 		this.selectedProduct = { ...Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName) };
 		this.selectedProduct.id = Date.now();
 	},
-	setSelectedProductCount(productCountValue) {
-		this.selectedProduct.productCount = productCountValue;
+	initSelectedProducts() {
+		this.selectedProducts = [];
+	},
+	totalAmountValue() {
+		return this.selectedProducts.reduce((pre, cur) => pre + cur.productCount * (cur.productPrice + cur.productAdditionalFee), 0);
+	},
+	totalNumberValue() {
+		return this.selectedProducts.reduce((pre, cur) => pre + cur.productCount, 0);
+	},
+	setSelectedProductAddCount(productId) {
+		const selectedProduct = { ...this.selectedProducts.find(({ id }) => id === productId) };
+
+		selectedProduct.productCount = selectedProduct.productCount < 99 ? selectedProduct.productCount + 1 : selectedProduct.productCount;
+
+		this.selectedProducts = this.selectedProducts.map(selectedProductInfo => (selectedProductInfo.id == productId ? { ...selectedProduct } : selectedProductInfo));
+
+		return [selectedProduct.productCount, selectedProduct.productPrice + selectedProduct.productAdditionalFee];
+	},
+	setSelectedProductMinusCount(productId) {
+		const selectedProduct = { ...this.selectedProducts.find(({ id }) => id === productId) };
+
+		selectedProduct.productCount = selectedProduct.productCount > 1 ? selectedProduct.productCount - 1 : selectedProduct.productCount;
+
+		this.selectedProducts = this.selectedProducts.map(selectedProductInfo => (selectedProductInfo.id == productId ? { ...selectedProduct } : selectedProductInfo));
+
+		return [selectedProduct.productCount, selectedProduct.productPrice + selectedProduct.productAdditionalFee];
 	},
 	setSelectedProductPrice(productPriceValue) {
 		this.selectedProduct.productPrice = productPriceValue;
@@ -41,6 +92,9 @@ export default Object.create({
 	},
 	setSelectedProductIce(productIceValue) {
 		this.selectedProduct.productIce = productIceValue;
+	},
+	confirmEmptySelectedProducts() {
+		return this.selectedProducts.length;
 	},
 	confirmSelectedProductNotEspresso() {
 		return this.selectedProduct.productEspressoRoast === 'notEspresso';

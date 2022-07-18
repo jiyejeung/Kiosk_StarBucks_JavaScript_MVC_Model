@@ -1,5 +1,5 @@
 export default Object.create({
-	limitedSeconds: 300,
+	limitedSeconds: 180,
 	handler: true,
 	startTimer() {
 		setTimeout(() => {
@@ -22,7 +22,7 @@ export default Object.create({
 		this.handler = false;
 		setTimeout(() => {
 			this.resetTimer();
-			this.limitedSeconds = 300;
+			this.limitedSeconds = 180;
 		}, 1000);
 	},
 });

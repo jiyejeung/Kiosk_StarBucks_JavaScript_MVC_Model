@@ -51,12 +51,12 @@
 			width: 100%;
 			bottom: 0;
 			left: 0;
-			height: 8vw;
+			height: 7vw;
 			@include flexCol();
 			display: none;
 			opacity: 0;
 			background-color: #172d29;
-			border-top: 1vw solid #fafafa;
+			// border-top: 1vw solid #fafafa;
 			div {
 				font-family: 'Times New Roman', Times, serif;
 				letter-spacing: 0.05vw;
@@ -81,7 +81,7 @@
 			top: 0;
 			left: 0;
 			// for Test
-			// display: none;
+			display: none;
 			cursor: pointer;
 			h1.h1IntroTitle {
 				font-size: 8vw;
@@ -506,7 +506,7 @@
 			display: none;
 			opacity: 0;
 			transition: all 300ms ease-in-out;
-			position: relative;
+			position: absolute;
 			padding-top: 8vw;
 			padding-bottom: 8vw;
 			background-color: #fafafa;
@@ -1095,6 +1095,99 @@
 						background-color: #cf3131;
 					}
 				}
+			}
+		}
+		section.sectionReviewOrderContainer {
+			width: 100%;
+			height: 100%;
+			@include flexRow();
+			align-items: flex-start;
+			transition: all 300ms ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
+			// padding-top: 8vw;
+			// padding-bottom: 7vw;
+			// background-color: #fafafa;
+			// display: none;
+			// opacity: 0;
+			.divSimpleReviewOrderContainer {
+				width: 40%;
+				height: 100%;
+				@include flexCol();
+				background-color: #1e3932;
+				padding: 0 2vw;
+				.divSimpleReviewOrderCountContainer {
+					margin-bottom: 1vw;
+					font-family: 'Times New Roman', Times, serif;
+					span {
+						color: #fafafa;
+						font-size: 2vw;
+					}
+				}
+				.divSimpleReviewOrderTotalPriceContainer {
+					font-family: 'Times New Roman', Times, serif;
+					span {
+						color: #fafafa;
+						font-size: 1.3vw;
+					}
+				}
+			}
+			.divDetailedReviewOrderContainer {
+				width: 60%;
+				height: 100%;
+				@include flexCol();
+				justify-content: flex-start;
+				padding: 2vw;
+				overflow: scroll;
+				.divDetailedReviewOrderSelectedProductInfoContainer {
+					width: 70%;
+					height: 5vw;
+					border: 1px solid black;
+					border-radius: 1vw;
+					background-color: #cacaca;
+					margin-bottom: 1.5vw;
+					@include flexRow();
+					.divDetailedReviewOrderSelectedProductImageWrapperContainer {
+						width: 30%;
+						height: 100%;
+						border: 1px solid black;
+						.divDetailedReviewOrderSelectedProductImageContainer {
+							background-position: 50% 50%;
+							background-repeat: no-repeat;
+							background-size: cover;
+							width: 3vw;
+							height: 3vw;
+						}
+					}
+					// start2
+					.divDetailedReviewOrderSelectedProductOptionWrapperContainer {
+						width: 70%;
+						height: 100%;
+						font-family: 'Times New Roman', Times, serif;
+						color: #0a0a0a;
+						@include flexCol();
+						span.spanDetailedReviewOrderSelectedProductName {
+							font-weight: bold;
+							font-size: 1.8vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductOptions {
+							font-size: 1.2vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductPrice {
+							font-size: 1.3vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductCount {
+							font-size: 1.3vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductTotalPrice {
+							font-size: 1.6vw;
+						}
+					}
+				}
+			}
+			.divDetailedReviewOrderContainer::-webkit-scrollbar {
+				display: none;
 			}
 		}
 	}

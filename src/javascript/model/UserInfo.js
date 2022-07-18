@@ -1,7 +1,7 @@
 import Controller from '../controller/Controller.js';
 
 export default Object.create({
-	userInfo: { name: '', couponUsing: 'no', couponCount: 0, takeOut: '' },
+	userInfo: { pointUsing: 'no', takeOut: '' },
 	selectedProduct: {},
 	selectedProducts: [],
 	addSelectedProduct() {

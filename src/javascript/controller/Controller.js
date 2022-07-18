@@ -1,4 +1,5 @@
 import { $, $$ } from '../utils/ElementTool.js';
+import { subSpacingString } from '../utils/StringTool.js';
 import IntroContainer from '../view/IntroContainer.js';
 import SlideContainer from '../view/SlideContainer.js';
 import TakeOutContainer from '../view/TakeOutContainer.js';
@@ -10,8 +11,8 @@ import SelectOptionContainer from '../view/SelectOptionContainer.js';
 import AllOptionsInfo from '../model/AllOptionsInfo.js';
 import NavKioskContainer from '../components/NavKioskContainer.js';
 import FooterKioskContainer from '../components/FooterKioskContainer.js';
-import { subSpacingString } from '../utils/StringTool.js';
 import Timer from '../utils/Timer.js';
+import ReviewOrderContainer from '../view/ReviewOrderContainer.js';
 
 export default {
 	init() {},
@@ -21,7 +22,7 @@ export default {
 		await SlideImageInfo.getImageUrl()
 			.then(() => fragment.append(NavKioskContainer.setup(), IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup(), FooterKioskContainer.setup()))
 			.then(() => AllProductsInfo.getAllProducts())
-			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup()));
+			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup(), ReviewOrderContainer.setup()));
 
 		return fragment;
 	},
@@ -110,9 +111,10 @@ export default {
 		);
 	},
 	clickButtonPay() {
-		$('.divPayWrapperContainer .buttonPay').addEventListener('click', () => {
+		$('.buttonPay')?.addEventListener('click', () => {
 			if (UserInfo.confirmEmptySelectedProducts()) {
 				SelectProductContainer.onClickButtonPay();
+				ReviewOrderContainer.onClickButtonPay();
 				Timer.stopTimer();
 			}
 		});
@@ -359,6 +361,7 @@ export default {
 		this.mouseoverLiSelectProductCategoryItem();
 		this.mouseoutLiSelectProductCategoryItem();
 		this.clickUlSelectProductItemContainer();
+		this.clickButtonPay();
 		this.clickButtonCancel();
 		this.clickUlOptionListContainer();
 		this.clickLiWrapperDisabledContainer();

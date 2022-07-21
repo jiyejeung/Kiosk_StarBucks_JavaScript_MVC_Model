@@ -4,6 +4,9 @@ export default Object.create({
 	userInfo: { pointUsing: 'no', takeOut: '' },
 	selectedProduct: {},
 	selectedProducts: [],
+	initSelectedProducts() {
+		this.selectedProducts = [];
+	},
 	addSelectedProduct() {
 		const handler = this.selectedProducts.some(
 			selectedProduct =>
@@ -37,9 +40,6 @@ export default Object.create({
 	initSelectedProduct(selectedProductName) {
 		this.selectedProduct = { ...Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName) };
 		this.selectedProduct.id = Date.now();
-	},
-	initSelectedProducts() {
-		this.selectedProducts = [];
 	},
 	totalAmountValue() {
 		return this.selectedProducts.reduce((pre, cur) => pre + cur.productCount * (cur.productPrice + cur.productAdditionalFee), 0);

@@ -81,7 +81,7 @@
 			top: 0;
 			left: 0;
 			// for Test
-			display: none;
+			// display: none;
 			cursor: pointer;
 			h1.h1IntroTitle {
 				font-size: 8vw;
@@ -1109,8 +1109,77 @@
 			// padding-top: 8vw;
 			// padding-bottom: 7vw;
 			// background-color: #fafafa;
-			// display: none;
-			// opacity: 0;
+			display: none;
+			opacity: 0;
+
+			.divDetailedReviewOrderContainer {
+				width: 60%;
+				height: 100%;
+				@include flexCol();
+				justify-content: flex-start;
+				padding: 2vw;
+				overflow: auto;
+				.divDetailedReviewOrderSelectedProductInfoContainer {
+					width: 80%;
+					height: 12vw;
+					// border: 1px solid black;
+					border-radius: 1vw;
+					background-color: #ededed;
+					margin-bottom: 1.5vw;
+					@include flexRow();
+					.divDetailedReviewOrderSelectedProductImageWrapperContainer {
+						width: 25%;
+						height: 12vw;
+						// border: 1px solid black;
+						@include flexRow();
+						.divDetailedReviewOrderSelectedProductImageContainer {
+							background-position: 50% 50%;
+							background-repeat: no-repeat;
+							background-size: cover;
+							width: 8vw;
+							height: 8vw;
+						}
+					}
+					// start2
+					.divDetailedReviewOrderSelectedProductOptionWrapperContainer {
+						width: 75%;
+						height: 100%;
+						font-family: 'Times New Roman', Times, serif;
+						color: #0a0a0a;
+						@include flexCol();
+						align-items: flex-start;
+						span {
+							@include flexRow();
+						}
+						span.spanDetailedReviewOrderSelectedProductName {
+							padding-top: 0.5vw;
+							font-weight: bold;
+							font-size: 1.8vw;
+							height: 30%;
+						}
+						span.spanDetailedReviewOrderSelectedProductOptions {
+							height: 10%;
+							font-size: 1vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductPrice {
+							height: 10%;
+							font-size: 1vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductCount {
+							height: 10%;
+							font-size: 1vw;
+						}
+						span.spanDetailedReviewOrderSelectedProductTotalPrice {
+							height: 40%;
+							font-size: 1.4vw;
+							padding-bottom: 0.6vw;
+						}
+					}
+				}
+			}
+			.divDetailedReviewOrderContainer::-webkit-scrollbar {
+				display: none;
+			}
 			.divSimpleReviewOrderContainer {
 				width: 40%;
 				height: 100%;
@@ -1132,62 +1201,22 @@
 						font-size: 1.3vw;
 					}
 				}
-			}
-			.divDetailedReviewOrderContainer {
-				width: 60%;
-				height: 100%;
-				@include flexCol();
-				justify-content: flex-start;
-				padding: 2vw;
-				overflow: scroll;
-				.divDetailedReviewOrderSelectedProductInfoContainer {
-					width: 70%;
-					height: 5vw;
-					border: 1px solid black;
-					border-radius: 1vw;
-					background-color: #cacaca;
-					margin-bottom: 1.5vw;
+				.divSimpleReviewOrderButtonContainer {
+					margin: 2vw 0;
+					margin-top: 5vw;
 					@include flexRow();
-					.divDetailedReviewOrderSelectedProductImageWrapperContainer {
-						width: 30%;
-						height: 100%;
-						border: 1px solid black;
-						.divDetailedReviewOrderSelectedProductImageContainer {
-							background-position: 50% 50%;
-							background-repeat: no-repeat;
-							background-size: cover;
-							width: 3vw;
-							height: 3vw;
-						}
-					}
-					// start2
-					.divDetailedReviewOrderSelectedProductOptionWrapperContainer {
-						width: 70%;
-						height: 100%;
+					button {
 						font-family: 'Times New Roman', Times, serif;
-						color: #0a0a0a;
-						@include flexCol();
-						span.spanDetailedReviewOrderSelectedProductName {
-							font-weight: bold;
-							font-size: 1.8vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductOptions {
-							font-size: 1.2vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductPrice {
-							font-size: 1.3vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductCount {
-							font-size: 1.3vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductTotalPrice {
-							font-size: 1.6vw;
-						}
+						font-weight: bold;
+						font-size: 2.5vw;
+					}
+					button:nth-child(1) {
+						margin-right: 1vw;
+					}
+					button:nth-child(2) {
+						margin-left: 1vw;
 					}
 				}
-			}
-			.divDetailedReviewOrderContainer::-webkit-scrollbar {
-				display: none;
 			}
 		}
 	}

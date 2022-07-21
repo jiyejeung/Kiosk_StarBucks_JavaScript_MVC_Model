@@ -1,3 +1,4 @@
+import Controller from '../controller/Controller.js';
 import { $, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
 import { spacingString } from '../utils/StringTool.js';
@@ -6,11 +7,11 @@ export default Object.create({
 	init() {},
 	setup() {
 		const sectionReviewOrderContainer = this.printSectionReviewOrderContainer();
+		const divDetailedReviewOrderContainer = this.printDivDetailedReviewOrderContainer();
 		const divSimpleReviewOrderContainer = this.appendDivSimpleReviewOrderContainer();
-		const divDetailedReviewOrderContainer = this.appendDivDetailedReviewOrderContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(divSimpleReviewOrderContainer, divDetailedReviewOrderContainer);
+		fragment.append(divDetailedReviewOrderContainer, divSimpleReviewOrderContainer);
 
 		sectionReviewOrderContainer.appendChild(fragment);
 
@@ -30,6 +31,9 @@ export default Object.create({
 		divSimpleReviewOrderContainer.appendChild(fragment);
 
 		return divSimpleReviewOrderContainer;
+	},
+	printDivDetailedReviewOrderContainer() {
+		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderContainer').complete();
 	},
 	printDivSimpleReviewOrderContainer() {
 		return objElement.createElement('DIV').setClassName('divSimpleReviewOrderContainer').complete();
@@ -76,30 +80,37 @@ export default Object.create({
 	printSpanSimpleReviewOrderTotalPrice(totalPrice = 0) {
 		return objElement.createElement('SPAN', addComma(totalPrice)).setClassName('spanSimpleReviewOrderTotalPrice').complete();
 	},
-	appendDivDetailedReviewOrderContainer() {
-		const divDetailedReviewOrderContainer = this.printDivDetailedReviewOrderContainer();
+	appendDivSimpleReviewOrderButtonContainer() {},
+	printDivSimpleReviewOrderButtonContainer() {},
+	printButtonSimpleReviewOrderPay() {},
+	printButtonSimpleReviewOrderBack() {},
+	// ==== createDivDetailedReview
+	createDivDetailedReviewOrderSelectedProductInfoContainer() {
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		Controller.selectedProductsInfo().forEach(selectedProduct => fragment.append(this.appendDivDetailedReviewOrderSelectedProductInfoContainer(selectedProduct)));
 
-		divDetailedReviewOrderContainer.appendChild(fragment);
-
-		return divDetailedReviewOrderContainer;
+		$('.divDetailedReviewOrderContainer').append(fragment);
 	},
-	printDivDetailedReviewOrderContainer() {
-		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderContainer').complete();
-	},
-	appendDivDetailedReviewOrderSelectedProductInfoContainer() {
+	appendDivDetailedReviewOrderSelectedProductInfoContainer(selectedProduct) {
+		const divDetailedReviewOrderSelectedProductInfoContainer = this.printDivDetailedReviewOrderSelectedProductInfoContainer();
+		const divDetailedReviewOrderSelectedProductImageWrapperContainer = this.appendDivDetailedReviewOrderSelectedProductImageWrapperContainer(selectedProduct);
+		const divDetailedReviewOrderSelectedProductOptionWrapperContainer = this.appendDivDetailedReviewOrderSelectedProductOptionWrapperContainer(selectedProduct);
 		const fragment = document.createDocumentFragment();
-		fragment.append();
+
+		fragment.append(divDetailedReviewOrderSelectedProductImageWrapperContainer, divDetailedReviewOrderSelectedProductOptionWrapperContainer);
+
+		divDetailedReviewOrderSelectedProductInfoContainer.appendChild(fragment);
+
+		return divDetailedReviewOrderSelectedProductInfoContainer;
 	},
-	// start!!
 	printDivDetailedReviewOrderSelectedProductInfoContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductInfoContainer').complete();
 	},
-	appendDivDetailedReviewOrderSelectedProductImageWrapperContainer() {
+	// ===
+	appendDivDetailedReviewOrderSelectedProductImageWrapperContainer({ productImage }) {
 		const divDetailedReviewOrderSelectedProductImageWrapperContainer = this.printDivDetailedReviewOrderSelectedProductImageWrapperContainer();
-		const divDetailedReviewOrderSelectedProductImageContainer = this.printDivDetailedReviewOrderSelectedProductImageContainer();
+		const divDetailedReviewOrderSelectedProductImageContainer = this.printDivDetailedReviewOrderSelectedProductImageContainer(productImage);
 
 		divDetailedReviewOrderSelectedProductImageWrapperContainer.appendChild(divDetailedReviewOrderSelectedProductImageContainer);
 
@@ -108,31 +119,52 @@ export default Object.create({
 	printDivDetailedReviewOrderSelectedProductImageWrapperContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageWrapperContainer').complete();
 	},
-	printDivDetailedReviewOrderSelectedProductImageContainer(imageUrl) {
-		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageContainer').setAttribute('style', `background-image: url(${imageUrl})`).complete();
+	printDivDetailedReviewOrderSelectedProductImageContainer(productImage) {
+		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageContainer').setAttribute('style', `background-image: url(${productImage})`).complete();
 	},
 	// start2
-	appendDivDetailedReviewOrderSelectedProductOptionWrapperContainer() {
+	appendDivDetailedReviewOrderSelectedProductOptionWrapperContainer({ productName, productSize, productIce, productPrice, productAdditionalFee, productCount }) {
 		const fragment = document.createDocumentFragment();
-		fragment.append();
+		const divDetailedReviewOrderSelectedProductOptionWrapperContainer = this.printDivDetailedReviewOrderSelectedProductOptionWrapperContainer();
+
+		fragment.append(
+			this.printSpanDetailedReviewOrderSelectedProductName(productName),
+			this.printSpanDetailedReviewOrderSelectedProductOption(productSize, productIce),
+			this.printSpanDetailedReviewOrderSelectedProductPrice(productPrice, productAdditionalFee),
+			this.printSpanDetailedReviewOrderSelectedProductCount(productCount),
+			this.printSpanDetailedReviewOrderSelectedProductTotalPrice(productPrice, productAdditionalFee, productCount)
+		);
+
+		divDetailedReviewOrderSelectedProductOptionWrapperContainer.appendChild(fragment);
+
+		return divDetailedReviewOrderSelectedProductOptionWrapperContainer;
 	},
 	printDivDetailedReviewOrderSelectedProductOptionWrapperContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductOptionWrapperContainer').complete();
 	},
-	printSpanDetailedReviewOrderSelectedProductName(productName) {
-		return objElement.createElement('', spacingString(productName)).setClassName('').complete();
+	printSpanDetailedReviewOrderSelectedProductName(productName = 'Product Name') {
+		return objElement.createElement('SPAN', spacingString(productName)).setClassName('spanDetailedReviewOrderSelectedProductName').complete();
 	},
-	printSpanDetailedReviewOrderSelectedProductOption(productSize, productIce) {
-		return objElement.createElement('', spacingString()).setClassName('').complete();
+	printSpanDetailedReviewOrderSelectedProductOption(productSize = 'Short', productIce = 'No Ice') {
+		return objElement
+			.createElement('SPAN', `${spacingString(productSize)}, ${spacingString(productIce)}`)
+			.setClassName('spanDetailedReviewOrderSelectedProductOptions')
+			.complete();
 	},
-	printSpanDetailedReviewOrderSelectedProductPrice() {
-		return objElement.createElement('', spacingString()).setClassName('').complete();
+	printSpanDetailedReviewOrderSelectedProductPrice(productPrice = 1000, productAdditionalFee = 300) {
+		return objElement
+			.createElement('SPAN', `Product Price: ${addComma(productPrice + productAdditionalFee)}`)
+			.setClassName('spanDetailedReviewOrderSelectedProductPrice')
+			.complete();
 	},
-	printSpanDetailedReviewOrderSelectedProductCount() {
-		return objElement.createElement('', spacingString()).setClassName('').complete();
+	printSpanDetailedReviewOrderSelectedProductCount(productCount = 1) {
+		return objElement.createElement('SPAN', `Count: ${productCount}`).setClassName('spanDetailedReviewOrderSelectedProductCount').complete();
 	},
-	printSpanDetailedReviewOrderSelectedProductTotalPrice() {
-		return objElement.createElement('', spacingString()).setClassName('').complete();
+	printSpanDetailedReviewOrderSelectedProductTotalPrice(productPrice = 1000, productAdditionalFee = 300, productCount = 1) {
+		return objElement
+			.createElement('SPAN', `Total: ${addComma((productPrice + productAdditionalFee) * productCount)}`)
+			.setClassName('spanDetailedReviewOrderSelectedProductTotalPrice')
+			.complete();
 	},
 	showSectionReviewOrderContainer() {
 		$('.sectionReviewOrderContainer').style.display = 'flex';
@@ -142,7 +174,16 @@ export default Object.create({
 		$('.sectionReviewOrderContainer').style.opacity = 0;
 		setTimeout(() => ($('.sectionReviewOrderContainer').style.display = 'none'), 300);
 	},
+	setSpanSimpleReviewOrderCount() {
+		$('.spanSimpleReviewOrderCount').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + cur.productCount, 0));
+	},
+	setSpanSimpleReviewOrderTotalPrice() {
+		$('.spanSimpleReviewOrderTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
 	onClickButtonPay() {
 		this.showSectionReviewOrderContainer();
+		this.createDivDetailedReviewOrderSelectedProductInfoContainer();
+		this.setSpanSimpleReviewOrderCount();
+		this.setSpanSimpleReviewOrderTotalPrice();
 	},
 });

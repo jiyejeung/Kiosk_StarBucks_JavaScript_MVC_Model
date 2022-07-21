@@ -225,7 +225,6 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    display: none;
     cursor: pointer;
   }
   #app section.sectionIntroContainer h1.h1IntroTitle {
@@ -1346,6 +1345,88 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    display: none;
+    opacity: 0;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2vw;
+    overflow: auto;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer {
+    width: 80%;
+    height: 12vw;
+    border-radius: 1vw;
+    background-color: #ededed;
+    margin-bottom: 1.5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer {
+    width: 25%;
+    height: 12vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer .divDetailedReviewOrderSelectedProductImageContainer {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 8vw;
+    height: 8vw;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer {
+    width: 75%;
+    height: 100%;
+    font-family: "Times New Roman", Times, serif;
+    color: #0a0a0a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: flex-start;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductName {
+    padding-top: 0.5vw;
+    font-weight: bold;
+    font-size: 1.8vw;
+    height: 30%;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductOptions {
+    height: 10%;
+    font-size: 1vw;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductPrice {
+    height: 10%;
+    font-size: 1vw;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductCount {
+    height: 10%;
+    font-size: 1vw;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductTotalPrice {
+    height: 40%;
+    font-size: 1.4vw;
+    padding-bottom: 0.6vw;
+  }
+  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer::-webkit-scrollbar {
+    display: none;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer {
     width: 40%;
@@ -1372,69 +1453,24 @@ body {
     color: #fafafa;
     font-size: 1.3vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer {
-    width: 60%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 2vw;
-    overflow: scroll;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer {
-    width: 70%;
-    height: 5vw;
-    border: 1px solid black;
-    border-radius: 1vw;
-    background-color: #cacaca;
-    margin-bottom: 1.5vw;
+  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer {
+    margin: 2vw 0;
+    margin-top: 5vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer {
-    width: 30%;
-    height: 100%;
-    border: 1px solid black;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer .divDetailedReviewOrderSelectedProductImageContainer {
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 3vw;
-    height: 3vw;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer {
-    width: 70%;
-    height: 100%;
+  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button {
     font-family: "Times New Roman", Times, serif;
-    color: #0a0a0a;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductName {
     font-weight: bold;
-    font-size: 1.8vw;
+    font-size: 2.5vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductOptions {
-    font-size: 1.2vw;
+  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(1) {
+    margin-right: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductPrice {
-    font-size: 1.3vw;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductCount {
-    font-size: 1.3vw;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductTotalPrice {
-    font-size: 1.6vw;
-  }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer::-webkit-scrollbar {
-    display: none;
+  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(2) {
+    margin-left: 1vw;
   }
 }
 @media (min-width: 758px) and (max-width: 1024px) {

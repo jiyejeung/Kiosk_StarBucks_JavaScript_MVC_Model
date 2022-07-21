@@ -115,6 +115,8 @@ export default {
 			if (UserInfo.confirmEmptySelectedProducts()) {
 				SelectProductContainer.onClickButtonPay();
 				ReviewOrderContainer.onClickButtonPay();
+				NavKioskContainer.hideNavKioskContainer();
+				FooterKioskContainer.hideFooterKioskContainer();
 				Timer.stopTimer();
 			}
 		});

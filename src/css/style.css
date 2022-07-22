@@ -186,6 +186,7 @@ body {
     color: #174841;
   }
   #app footer.footerKioskContainer {
+    transition: all 300ms ease-in-out;
     z-index: 10;
     position: absolute;
     width: 100%;
@@ -1340,7 +1341,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    align-items: flex-start;
+    justify-content: flex-start;
     transition: all 300ms ease-in-out;
     position: absolute;
     top: 0;
@@ -1437,9 +1438,14 @@ body {
     align-items: center;
     background-color: #1e3932;
     padding: 0 2vw;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: all 300ms ease-in-out;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer {
     margin-bottom: 1vw;
+    margin-left: 0.5vw;
     font-family: "Times New Roman", Times, serif;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer span {
@@ -1447,6 +1453,7 @@ body {
     font-size: 2vw;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer {
+    margin-left: 0.5vw;
     font-family: "Times New Roman", Times, serif;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer span {
@@ -1455,22 +1462,46 @@ body {
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer {
     margin: 2vw 0;
-    margin-top: 5vw;
+    margin-top: 3vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 2vw;
+    width: 35%;
+    padding: 0.5vw;
+    padding-bottom: 0.6vw;
+    cursor: pointer;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(1) {
+    margin-left: 0.5vw;
     margin-right: 1vw;
+    background-color: #ededed;
+    color: #0a0a0a;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(2) {
+    background-color: #cf3131;
+    color: #fafafa;
     margin-left: 1vw;
+  }
+  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #1e3932;
+    padding: 0 2vw;
+    position: absolute;
+    top: 0;
+    right: -40vw;
+    transition: all 300ms ease-in-out;
   }
 }
 @media (min-width: 758px) and (max-width: 1024px) {

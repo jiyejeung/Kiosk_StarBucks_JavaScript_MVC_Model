@@ -1,5 +1,5 @@
 import Controller from '../controller/Controller.js';
-import { $, objElement } from '../utils/ElementTool.js';
+import { $, $$, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
 import { spacingString } from '../utils/StringTool.js';
 
@@ -24,9 +24,10 @@ export default Object.create({
 		const divSimpleReviewOrderContainer = this.printDivSimpleReviewOrderContainer();
 		const divSimpleReviewOrderCountContainer = this.appendDivSimpleReviewOrderCountContainer();
 		const divSimpleReviewOrderTotalPriceContainer = this.appendDivSimpleReviewOrderTotalPriceContainer();
+		const divSimpleReviewOrderButtonContainer = this.appendDivSimpleReviewOrderButtonContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(divSimpleReviewOrderCountContainer, divSimpleReviewOrderTotalPriceContainer);
+		fragment.append(divSimpleReviewOrderCountContainer, divSimpleReviewOrderTotalPriceContainer, divSimpleReviewOrderButtonContainer);
 
 		divSimpleReviewOrderContainer.appendChild(fragment);
 
@@ -80,11 +81,36 @@ export default Object.create({
 	printSpanSimpleReviewOrderTotalPrice(totalPrice = 0) {
 		return objElement.createElement('SPAN', addComma(totalPrice)).setClassName('spanSimpleReviewOrderTotalPrice').complete();
 	},
-	appendDivSimpleReviewOrderButtonContainer() {},
-	printDivSimpleReviewOrderButtonContainer() {},
-	printButtonSimpleReviewOrderPay() {},
-	printButtonSimpleReviewOrderBack() {},
+	appendDivSimpleReviewOrderButtonContainer() {
+		const divSimpleReviewOrderButtonContainer = this.printDivSimpleReviewOrderButtonContainer();
+		const buttonSimpleReviewOrderPay = this.printButtonSimpleReviewOrderPay();
+		const buttonSimpleReviewOrderBack = this.printButtonSimpleReviewOrderBack();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(buttonSimpleReviewOrderPay, buttonSimpleReviewOrderBack);
+
+		divSimpleReviewOrderButtonContainer.appendChild(fragment);
+
+		return divSimpleReviewOrderButtonContainer;
+	},
+	printDivSimpleReviewOrderButtonContainer() {
+		return objElement.createElement('DIV').setClassName('divSimpleReviewOrderButtonContainer').complete();
+	},
+	printButtonSimpleReviewOrderPay() {
+		return objElement.createElement('BUTTON', 'PAY').setClassName('buttonSimpleReviewOrderPay').complete();
+	},
+	printButtonSimpleReviewOrderBack() {
+		return objElement.createElement('BUTTON', 'BACK').setClassName('buttonSimpleReviewOrderBack').complete();
+	},
+	appendDivSimpleReviewOrderCouponContainer() {},
+	printDivSimpleReviewOrderCouponContainer(){},
+	printH3SimpleReviewOrderCouponText(){},
+
+
 	// ==== createDivDetailedReview
+	initDivDetailedReviewOrderContainer() {
+		$$('.divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer').forEach(div => void div.remove());
+	},
 	createDivDetailedReviewOrderSelectedProductInfoContainer() {
 		const fragment = document.createDocumentFragment();
 
@@ -182,8 +208,15 @@ export default Object.create({
 	},
 	onClickButtonPay() {
 		this.showSectionReviewOrderContainer();
+		this.initDivDetailedReviewOrderContainer();
 		this.createDivDetailedReviewOrderSelectedProductInfoContainer();
 		this.setSpanSimpleReviewOrderCount();
 		this.setSpanSimpleReviewOrderTotalPrice();
+	},
+	onClickButtonSimpleReviewOrderPay() {
+		this.hideSectionReviewOrderContainer();
+	},
+	onClickButtonSimpleReviewOrderBack() {
+		this.hideSectionReviewOrderContainer();
 	},
 });

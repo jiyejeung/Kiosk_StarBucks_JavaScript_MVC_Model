@@ -24,7 +24,7 @@ export default Object.create({
 		setTimeout(() => ($('.footerKioskContainer').style.opacity = 1), 0);
 	},
 	hideFooterKioskContainer() {
-		$('.footerKioskContainer').style.opacity = 1;
+		$('.footerKioskContainer').style.opacity = 0;
 		setTimeout(() => ($('.footerKioskContainer').style.display = 'none'), 300);
 	},
 });

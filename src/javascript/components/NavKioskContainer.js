@@ -26,7 +26,7 @@ export default Object.create({
 		setTimeout(() => ($('.navKioskContainer').style.opacity = 1), 0);
 	},
 	hideNavKioskContainer() {
-		$('.navKioskContainer').style.opacity = 1;
+		$('.navKioskContainer').style.opacity = 0;
 		setTimeout(() => ($('.navKioskContainer').style.display = 'none'), 300);
 	},
 	setDivKioskTimer(time) {

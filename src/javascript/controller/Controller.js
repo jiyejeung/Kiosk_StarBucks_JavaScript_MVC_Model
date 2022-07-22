@@ -237,6 +237,24 @@ export default {
 			this.startTimer();
 		});
 	},
+
+	/* in SectionReviewOrderContainer */
+
+	clickButtonSimpleReviewOrderPay() {
+		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => ReviewOrderContainer.onClickButtonSimpleReviewOrderPay());
+	},
+	clickButtonSimpleReviewOrderBack() {
+		$('.buttonSimpleReviewOrderBack').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonSimpleReviewOrderBack();
+			Timer.restartTimer();
+			Timer.startTimer();
+			this.startTimer();
+			NavKioskContainer.showNavKioskContainer();
+			FooterKioskContainer.showFooterKioskContainer();
+			SelectProductContainer.onClickButtonSimpleReviewOrderBack();
+		});
+	},
+
 	startTimer() {
 		Timer.handler &&
 			setTimeout(() => {
@@ -376,5 +394,7 @@ export default {
 		this.clickButtonCalcSyrup();
 		this.clickButtonAddToCart();
 		this.clickButtonCancelAddingToCart();
+		this.clickButtonSimpleReviewOrderPay();
+		this.clickButtonSimpleReviewOrderBack();
 	},
 };

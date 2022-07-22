@@ -385,6 +385,9 @@ export default Object.create({
 	onClickButtonCancelAddingToCart() {
 		this.showSectionSelectProductContainer();
 	},
+	onClickButtonSimpleReviewOrderBack() {
+		this.showSectionSelectProductContainer();
+	},
 	setSpanTotalAmountValue(totalAmountValue) {
 		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
 	},

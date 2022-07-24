@@ -241,7 +241,9 @@ export default {
 	/* in SectionReviewOrderContainer */
 
 	clickButtonSimpleReviewOrderPay() {
-		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => ReviewOrderContainer.onClickButtonSimpleReviewOrderPay());
+		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
+		});
 	},
 	clickButtonSimpleReviewOrderBack() {
 		$('.buttonSimpleReviewOrderBack').addEventListener('click', () => {
@@ -253,6 +255,42 @@ export default {
 			FooterKioskContainer.showFooterKioskContainer();
 			SelectProductContainer.onClickButtonSimpleReviewOrderBack();
 		});
+	},
+	clickButtonShowCoupon() {
+		$('.buttonShowCoupon').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonShowCoupon();
+		});
+	},
+	clickButtonShowOrder() {
+		$('.buttonShowOrder').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonShowOrder();
+		});
+	},
+	clickButtonCouponSearching() {
+		$$('.buttonCouponSearching').forEach(button =>
+			button.addEventListener('click', ({ currentTarget }) => {
+				ReviewOrderContainer.onClickButtonCouponSearching(currentTarget);
+			})
+		);
+	},
+	clickButtonCouponBack() {
+		$('.buttonCouponBack').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonCouponBack();
+		});
+	},
+	clickButtonCouponComplete() {
+		$('.buttonCouponComplete').addEventListener('click', () => {
+			if (this.confirmPhoneNumber()) {
+				UserInfo.getUserInfo($('.inputPhoneNumber').value)
+					.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
+					.catch(err => console.log(err));
+			} else {
+				ReviewOrderContainer.onClickButtonCouponComplete(false);
+			}
+		});
+	},
+	confirmPhoneNumber() {
+		return $('.inputPhoneNumber').value.length === 13;
 	},
 
 	startTimer() {
@@ -396,5 +434,10 @@ export default {
 		this.clickButtonCancelAddingToCart();
 		this.clickButtonSimpleReviewOrderPay();
 		this.clickButtonSimpleReviewOrderBack();
+		this.clickButtonShowCoupon();
+		this.clickButtonShowOrder();
+		this.clickButtonCouponSearching();
+		this.clickButtonCouponBack();
+		this.clickButtonCouponComplete();
 	},
 };

@@ -1112,7 +1112,35 @@
 			// background-color: #fafafa;
 			display: none;
 			opacity: 0;
-
+			overflow: hidden;
+			button.buttonShowCoupon {
+				position: absolute;
+				z-index: 20;
+				top: 2vw;
+				left: 60vw;
+				font-family: 'Times New Roman', Times, serif;
+				margin-left: 4vw;
+				font-size: 1.3vw;
+				padding: 0.5vw 1.5vw;
+				color: #0a0a0a;
+				transition: all 300ms ease-in-out;
+				background-color: #fafafa;
+				cursor: pointer;
+			}
+			button.buttonShowOrder {
+				position: absolute;
+				z-index: 20;
+				top: 2vw;
+				left: 100vw;
+				font-family: 'Times New Roman', Times, serif;
+				margin-left: 4vw;
+				font-size: 1.3vw;
+				padding: 0.5vw 1.5vw;
+				color: #0a0a0a;
+				transition: all 300ms ease-in-out;
+				background-color: #fafafa;
+				cursor: pointer;
+			}
 			.divDetailedReviewOrderContainer {
 				width: 60%;
 				height: 100%;
@@ -1189,7 +1217,7 @@
 				padding: 0 2vw;
 				position: absolute;
 				top: 0;
-				right: 0;
+				right: 0vw;
 				transition: all 300ms ease-in-out;
 				.divSimpleReviewOrderCountContainer {
 					margin-bottom: 1vw;
@@ -1226,7 +1254,7 @@
 					button:nth-child(1) {
 						margin-left: 0.5vw;
 						margin-right: 1vw;
-						background-color: #ededed;
+						background-color: #fafafa;
 						color: #0a0a0a;
 					}
 					button:nth-child(2) {
@@ -1246,16 +1274,136 @@
 				top: 0;
 				right: -40vw;
 				transition: all 300ms ease-in-out;
-				h3.h3SimpleReviewOrderCouponText {
-				}
-				divSimpleReviewOrderCouponSearchingWrapperContainer {
-					.divSimpleReviewOrderCouponSearchingContainer {
-						h4.h4SimpleReviewOrderCouponSearchingText {
+				.divOrderCouponWrapperContainer {
+					// 만들어야함
+					position: relative;
+					width: 100%;
+					height: 100%;
+					.divSearchingCouponContainer {
+						// 만들어야함
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						transition: all 300ms ease-in-out;
+						@include flexCol();
+						.divSimpleReviewOrderCouponSearchingWrapperContainer {
+							padding-left: 0.5vw;
+							width: 90%;
+							@include flexCol();
+							.divSimpleReviewOrderCouponSearchingContainer {
+								margin-bottom: 2vw;
+								@include flexCol();
+								h4.h4CouponSearchingText {
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bold;
+									font-size: 2.5vw;
+									color: #fafafa;
+									margin-bottom: 2vw;
+								}
+								input.inputPhoneNumber {
+									width: 100%;
+									height: 4vw;
+									font-size: 2vw;
+									padding: 0 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-style: italic;
+									color: #0a0a0a;
+									margin-bottom: 2vw;
+								}
+								.divCouponSearchingButtonContainer {
+									width: 100%;
+									height: 11vw;
+									display: flex;
+									flex-wrap: wrap;
+									justify-content: space-between;
+									button {
+										width: 5vw;
+										height: 5vw;
+										font-size: 1.8vw;
+										font-family: 'Times New Roman', Times, serif;
+										cursor: pointer;
+									}
+									button:nth-child(11) {
+										font-size: 1.5vw;
+										color: #fafafa;
+										background-color: #cf3131;
+									}
+									button:nth-child(12) {
+										background-color: #16584e;
+										color: #fafafa;
+										font-size: 1.5vw;
+									}
+								}
+							}
+							.divSimpleReviewOrderCouponSearchingCompleteContainer {
+								width: 100%;
+								@include flexRow();
+								justify-content: flex-end;
+								span.spanCouponSearchingCompleteText {
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bold;
+									font-size: 2vw;
+									color: #fafafa;
+									margin-bottom: 1.3vw;
+									margin-right: 1vw;
+								}
+								span.spanCouponSearchingCompleteResult {
+									font-family: 'Times New Roman', Times, serif;
+									display: inline-block;
+									font-weight: bold;
+									font-size: 2vw;
+									text-align: right;
+									color: #fafafa;
+									margin-bottom: 1.3vw;
+								}
+							}
+							span.spanCouponSearchingFailed {
+								margin-top: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.8vw;
+								color: #fafafa;
+							}
 						}
-						
 					}
-					.divSimpleReviewOrderCouponSearchingCompleteContainer {
-						h4.h4SimpleReviewOrderCouponSearchingCompleteText {
+					.divResultCouponContainer {
+						// 만들어야함
+						position: absolute;
+						top: 0;
+						left: 40vw;
+						width: 100%;
+						height: 100%;
+						transition: all 300ms ease-in-out;
+						@include flexCol();
+						opacity: 0;
+						display: none;
+						h4.h4UsingPoint {
+							font-family: 'Times New Roman', Times, serif;
+							font-weight: bold;
+							font-size: 2.5vw;
+							color: #fafafa;
+							margin-bottom: 2vw;
+						}
+						.divUsingPointTotalPriceContainer {
+							span {
+							}
+						}
+						.divUsingPointTotalPointContainer {
+							span {
+							}
+						}
+						.divUsingPointUsingPointContainer {
+							span {
+							}
+						}
+						.divUsingPointButtonUsingPointContainer {
+							button {
+							}
+						}
+						.divUsingPointPayContainer {
+							button {
+							}
 						}
 					}
 				}

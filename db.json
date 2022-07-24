@@ -753,15 +753,15 @@
 		}
 	],
 	"userInfo": [
-		{ "id": 1, "userPhoneNumber": "010-4820-1962", "point": 1325429 },
-		{ "id": 2, "userPhoneNumber": "010-2324-2332", "point": 2346789 },
-		{ "id": 3, "userPhoneNumber": "010-4697-1962", "point": 5237842 },
-		{ "id": 4, "userPhoneNumber": "010-9689-2332", "point": 3475681 },
-		{ "id": 5, "userPhoneNumber": "010-0000-0000", "point": 9890108 },
-		{ "id": 6, "userPhoneNumber": "010-1111-1111", "point": 1133247 },
-		{ "id": 7, "userPhoneNumber": "010-2222-2222", "point": 3298920 },
-		{ "id": 8, "userPhoneNumber": "010-3333-3333", "point": 4823901 },
-		{ "id": 9, "userPhoneNumber": "010-4444-4444", "point": 9538290 },
-		{ "id": 10, "userPhoneNumber": "010-5555-5555", "point": 1020349 }
+		{ "id": 1, "phoneNumber": "010-4820-1962", "point": 1325429 },
+		{ "id": 2, "phoneNumber": "010-2324-2332", "point": 2346789 },
+		{ "id": 3, "phoneNumber": "010-4697-1962", "point": 5237842 },
+		{ "id": 4, "phoneNumber": "010-9689-2332", "point": 3475681 },
+		{ "id": 5, "phoneNumber": "010-0000-0000", "point": 9890108 },
+		{ "id": 6, "phoneNumber": "010-1111-1111", "point": 1133247 },
+		{ "id": 7, "phoneNumber": "010-2222-2222", "point": 3298920 },
+		{ "id": 8, "phoneNumber": "010-3333-3333", "point": 4823901 },
+		{ "id": 9, "phoneNumber": "010-4444-4444", "point": 9538290 },
+		{ "id": 10, "phoneNumber": "010-5555-5555", "point": 1020349 }
 	]
 }

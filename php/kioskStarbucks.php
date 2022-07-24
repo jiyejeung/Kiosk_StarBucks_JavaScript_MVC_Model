@@ -62,6 +62,25 @@
     mysqli_close($dbHandler);
   };
   if ($_GET['allUsersInfo'] === 'setupAllUsersInfo') {
-    $sqlQuery = 'SELECT * FROM `allUsersInfo`';
+    $phoneNumber = $_GET['phoneNumber'];
+    $sqlQuery = 'SELECT * FROM `allUsersInfo` WHERE phoneNumber = "'.$phoneNumber.'"';
+    
+    if (!$records = mysqli_query($dbHandler, $sqlQuery)) {
+      echo '<script>console.log("SQL Syntax Error...")</script>';
+      exit;
+    }
+    if (!mysqli_num_rows($records)) {
+      echo '<script>console.log("There is no any data...")</script>';
+      exit;
+    }
+
+    $userInfo = [
+      'phoneNumber' => $records['phoneNumber'],
+      'point' => $records['point'],
+    ];
+
+    echo json_encode($userInfo);
+    mysqli_free_result($records);
+    mysqli_close($dbHandler);
   };
 ?>

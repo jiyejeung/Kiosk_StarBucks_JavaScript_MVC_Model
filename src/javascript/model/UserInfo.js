@@ -1,7 +1,17 @@
 import Controller from '../controller/Controller.js';
 
 export default Object.create({
-	userInfo: { pointUsing: 'no', takeOut: '' },
+	userInfo: { id: 10, phoneNumber: '010-5555-5555', point: 1020349 },
+	async getUserInfo(phoneNumber) {
+		this.userInfo = {};
+
+		await fetch(`http://localhost:3000/userInfo?phoneNumber=${phoneNumber}`)
+			.then(res => res.json())
+			.then(res => (this.userInfo = res[0]))
+			.catch(err => console.log(err));
+
+		return this.userInfo;
+	},
 	selectedProduct: {},
 	selectedProducts: [],
 	initSelectedProducts() {

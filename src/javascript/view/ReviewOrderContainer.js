@@ -242,9 +242,11 @@ export default Object.create({
 	},
 	appendDivUsingPointTotalPriceContainer() {
 		const divUsingPointTotalPriceContainer = this.printDivUsingPointTotalPriceContainer();
+		const printSpanUsingPointTotalPriceText = this.printSpanUsingPointTotalPriceText();
+		const printSpanUsingPointTotalPrice = this.printSpanUsingPointTotalPrice();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(printSpanUsingPointTotalPriceText, printSpanUsingPointTotalPrice);
 
 		divUsingPointTotalPriceContainer.appendChild(fragment);
 
@@ -253,11 +255,19 @@ export default Object.create({
 	printDivUsingPointTotalPriceContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointTotalPriceContainer').complete();
 	},
+	printSpanUsingPointTotalPriceText() {
+		return objElement.createElement('SPAN', 'Total: ').setClassName('spanUsingPointTotalPriceText').complete();
+	},
+	printSpanUsingPointTotalPrice() {
+		return objElement.createElement('SPAN').setClassName('spanUsingPointTotalPrice').complete();
+	},
 	appendDivUsingPointTotalPointContainer() {
 		const divUsingPointTotalPointContainer = this.printDivUsingPointTotalPointContainer();
+		const spanUsingPointTotalPointText = this.printSpanUsingPointTotalPointText();
+		const spanUsingPointTotalPoint = this.printSpanUsingPointTotalPoint();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(spanUsingPointTotalPointText, spanUsingPointTotalPoint);
 
 		divUsingPointTotalPointContainer.appendChild(fragment);
 
@@ -266,11 +276,19 @@ export default Object.create({
 	printDivUsingPointTotalPointContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointTotalPointContainer').complete();
 	},
+	printSpanUsingPointTotalPointText() {
+		return objElement.createElement('SPAN', 'Total Point: ').setClassName('spanUsingPointTotalPointText').complete();
+	},
+	printSpanUsingPointTotalPoint() {
+		return objElement.createElement('SPAN').setClassName('spanUsingPointTotalPoint').complete();
+	},
 	appendDivUsingPointUsingPointContainer() {
 		const divUsingPointUsingPointContainer = this.printDivUsingPointUsingPointContainer();
+		const spanUsingPointUsingPointText = this.printSpanUsingPointUsingPointText();
+		const spanUsingPointUsingPoint = this.printSpanUsingPointUsingPoint();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(spanUsingPointUsingPointText, spanUsingPointUsingPoint);
 
 		divUsingPointUsingPointContainer.appendChild(fragment);
 
@@ -279,11 +297,19 @@ export default Object.create({
 	printDivUsingPointUsingPointContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointUsingPointContainer').complete();
 	},
+	printSpanUsingPointUsingPointText() {
+		return objElement.createElement('SPAN', 'Using Point: ').setClassName('spanUsingPointUsingPointText').complete();
+	},
+	printSpanUsingPointUsingPoint() {
+		return objElement.createElement('SPAN', '0').setClassName('spanUsingPointUsingPoint').complete();
+	},
 	appendDivUsingPointButtonUsingPointContainer() {
 		const divUsingPointButtonUsingPointContainer = this.printDivUsingPointButtonUsingPointContainer();
+		const buttonUsingPointFiveThousand = this.printButtonUsingPointFiveThousand();
+		const buttonUsingPointFull = this.printButtonUsingPointFull();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(buttonUsingPointFiveThousand, buttonUsingPointFull);
 
 		divUsingPointButtonUsingPointContainer.appendChild(fragment);
 
@@ -292,11 +318,19 @@ export default Object.create({
 	printDivUsingPointButtonUsingPointContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointButtonUsingPointContainer').complete();
 	},
+	printButtonUsingPointFiveThousand() {
+		return objElement.createElement('BUTTON', 'Use 5,000 points').setClassName('buttonUsingPointFiveThousand').complete();
+	},
+	printButtonUsingPointFull() {
+		return objElement.createElement('BUTTON', 'Use full points').setClassName('buttonUsingPointFull').complete();
+	},
 	appendDivUsingPointPayContainer() {
 		const divUsingPointPayContainer = this.printDivUsingPointPayContainer();
+		const buttonUsingPointAndPay = this.printButtonUsingPointAndPay();
+		const buttonUsingPointCancel = this.printButtonUsingPointCancel();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(buttonUsingPointAndPay, buttonUsingPointCancel);
 
 		divUsingPointPayContainer.appendChild(fragment);
 
@@ -304,6 +338,12 @@ export default Object.create({
 	},
 	printDivUsingPointPayContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointPayContainer').complete();
+	},
+	printButtonUsingPointAndPay() {
+		return objElement.createElement('BUTTON', 'PAY').setClassName('buttonUsingPointAndPay').complete();
+	},
+	printButtonUsingPointCancel() {
+		return objElement.createElement('BUTTON', 'CANCEL').setClassName('buttonUsingPointCancel').complete();
 	},
 	//=============
 
@@ -433,7 +473,23 @@ export default Object.create({
 	initInputPhoneNumber() {
 		$('.inputPhoneNumber').value = '010-';
 	},
-
+	showDivSearchingCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = '0';
+		$('.divResultCouponContainer').style.left = '40vw';
+	},
+	showDivResultCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = '-40vw';
+		$('.divResultCouponContainer').style.left = '0';
+	},
+	setSpanUsingPointTotalPrice() {
+		$('.spanUsingPointTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
+	setSpanUsingPointTotalPoint(totalPoint) {
+		$('.spanUsingPointTotalPoint').textContent = totalPoint;
+	},
+	setSpanUsingPointUsingPoint(usingPoint) {
+		$('.spanUsingPointUsingPoint').textContent = usingPoint;
+	},
 	onClickButtonPay() {
 		this.initInputPhoneNumber();
 		this.showSectionReviewOrderContainer();
@@ -484,13 +540,15 @@ export default Object.create({
 	onClickButtonCouponComplete(userInfo) {
 		switch (typeof userInfo) {
 			case 'object':
-				console.log(userInfo);
+				this.showDivResultCouponContainer();
+				this.setSpanUsingPointTotalPrice();
+				this.setSpanUsingPointTotalPoint(addComma(userInfo.point));
 				break;
 			case 'undefined':
-				console.log(userInfo);
+				$('.spanCouponSearchingFailed').textContent = 'There is no information about the registered number!';
 				break;
 			case 'boolean':
-				console.log(userInfo);
+				$('.spanCouponSearchingFailed').textContent = 'Please enter the 13th digit of your cell phone!';
 				break;
 		}
 	},

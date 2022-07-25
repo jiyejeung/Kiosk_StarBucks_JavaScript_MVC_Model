@@ -1536,6 +1536,7 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer {
     position: absolute;
@@ -1633,7 +1634,7 @@ body {
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed {
     margin-top: 2vw;
     font-family: "Times New Roman", Times, serif;
-    font-size: 1.8vw;
+    font-size: 1.5vw;
     color: #fafafa;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer {
@@ -1647,8 +1648,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    opacity: 0;
-    display: none;
   }
   #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer h4.h4UsingPoint {
     font-family: "Times New Roman", Times, serif;

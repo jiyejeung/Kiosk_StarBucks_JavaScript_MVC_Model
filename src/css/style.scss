@@ -1279,6 +1279,7 @@
 					position: relative;
 					width: 100%;
 					height: 100%;
+					overflow: hidden;
 					.divSearchingCouponContainer {
 						// 만들어야함
 						position: absolute;
@@ -1362,7 +1363,7 @@
 							span.spanCouponSearchingFailed {
 								margin-top: 2vw;
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.8vw;
+								font-size: 1.5vw;
 								color: #fafafa;
 							}
 						}
@@ -1376,8 +1377,6 @@
 						height: 100%;
 						transition: all 300ms ease-in-out;
 						@include flexCol();
-						opacity: 0;
-						display: none;
 						h4.h4UsingPoint {
 							font-family: 'Times New Roman', Times, serif;
 							font-weight: bold;

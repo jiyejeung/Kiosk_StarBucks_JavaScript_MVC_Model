@@ -1274,6 +1274,7 @@
 				top: 0;
 				right: -40vw;
 				transition: all 300ms ease-in-out;
+				overflow: hidden;
 				.divOrderCouponWrapperContainer {
 					// 만들어야함
 					position: relative;
@@ -1377,31 +1378,83 @@
 						height: 100%;
 						transition: all 300ms ease-in-out;
 						@include flexCol();
+						padding-left: 0.5vw;
 						h4.h4UsingPoint {
+							width: 100%;
 							font-family: 'Times New Roman', Times, serif;
-							font-weight: bold;
-							font-size: 2.5vw;
+							font-weight: normal;
+							font-size: 2vw;
 							color: #fafafa;
 							margin-bottom: 2vw;
+							text-align: center;
 						}
 						.divUsingPointTotalPriceContainer {
+							margin-bottom: 1vw;
 							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.4vw;
+								color: #fafafa;
 							}
 						}
 						.divUsingPointTotalPointContainer {
+							margin-bottom: 1vw;
 							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.4vw;
+								color: #fafafa;
 							}
 						}
 						.divUsingPointUsingPointContainer {
+							margin-bottom: 1vw;
 							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.4vw;
+								color: #fafafa;
+							}
+						}
+						.divUsingPointEstimatedPaymentContainer {
+							margin-bottom: 2vw;
+							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.4vw;
+								color: #fafafa;
 							}
 						}
 						.divUsingPointButtonUsingPointContainer {
+							width: 100%;
+							@include flexCol();
+							margin-bottom: 5vw;
 							button {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.5vw;
+								color: #0a0a0a;
+								padding: 0.5vw 0;
+								cursor: pointer;
+								width: 45%;
+								margin-bottom: 1vw;
 							}
 						}
 						.divUsingPointPayContainer {
+							width: 100%;
+							@include flexRow();
+							margin-bottom: 3vw;
 							button {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 2vw;
+								font-weight: bold;
+								width: 40%;
+								padding: 0.6vw 0;
+								cursor: pointer;
+							}
+							button:nth-child(1) {
+								margin-right: 1vw;
+								background-color: #fafafa;
+								color: #0a0a0a;
+							}
+							button:nth-child(2) {
+								background-color: #cf3131;
+								color: #fafafa;
+								margin-left: 1vw;
 							}
 						}
 					}

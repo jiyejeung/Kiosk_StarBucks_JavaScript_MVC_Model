@@ -1,7 +1,7 @@
 import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
-import { spacingString } from '../utils/StringTool.js';
+import { spacingString, subComma } from '../utils/StringTool.js';
 
 export default Object.create({
 	init() {},
@@ -226,9 +226,18 @@ export default Object.create({
 		const divUsingPointUsingPointContainer = this.appendDivUsingPointUsingPointContainer();
 		const divUsingPointButtonUsingPointContainer = this.appendDivUsingPointButtonUsingPointContainer();
 		const divUsingPointPayContainer = this.appendDivUsingPointPayContainer();
+		const divUsingPointEstimatedPaymentContainer = this.appendDivUsingPointEstimatedPaymentContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(h4UsingPoint, divUsingPointTotalPriceContainer, divUsingPointTotalPointContainer, divUsingPointUsingPointContainer, divUsingPointButtonUsingPointContainer, divUsingPointPayContainer);
+		fragment.append(
+			h4UsingPoint,
+			divUsingPointTotalPriceContainer,
+			divUsingPointTotalPointContainer,
+			divUsingPointUsingPointContainer,
+			divUsingPointEstimatedPaymentContainer,
+			divUsingPointButtonUsingPointContainer,
+			divUsingPointPayContainer
+		);
 
 		divResultCouponContainer.appendChild(fragment);
 
@@ -238,7 +247,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divResultCouponContainer').complete();
 	},
 	printH4UsingPoint() {
-		return objElement.createElement('H4', 'Using Point').setClassName('h4UsingPoint').complete();
+		return objElement.createElement('H4', 'Thank you for using STARBUCKS').setClassName('h4UsingPoint').complete();
 	},
 	appendDivUsingPointTotalPriceContainer() {
 		const divUsingPointTotalPriceContainer = this.printDivUsingPointTotalPriceContainer();
@@ -256,7 +265,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divUsingPointTotalPriceContainer').complete();
 	},
 	printSpanUsingPointTotalPriceText() {
-		return objElement.createElement('SPAN', 'Total: ').setClassName('spanUsingPointTotalPriceText').complete();
+		return objElement.createElement('SPAN', 'Total Price: ').setClassName('spanUsingPointTotalPriceText').complete();
 	},
 	printSpanUsingPointTotalPrice() {
 		return objElement.createElement('SPAN').setClassName('spanUsingPointTotalPrice').complete();
@@ -277,7 +286,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divUsingPointTotalPointContainer').complete();
 	},
 	printSpanUsingPointTotalPointText() {
-		return objElement.createElement('SPAN', 'Total Point: ').setClassName('spanUsingPointTotalPointText').complete();
+		return objElement.createElement('SPAN', 'Total Points: ').setClassName('spanUsingPointTotalPointText').complete();
 	},
 	printSpanUsingPointTotalPoint() {
 		return objElement.createElement('SPAN').setClassName('spanUsingPointTotalPoint').complete();
@@ -298,18 +307,40 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divUsingPointUsingPointContainer').complete();
 	},
 	printSpanUsingPointUsingPointText() {
-		return objElement.createElement('SPAN', 'Using Point: ').setClassName('spanUsingPointUsingPointText').complete();
+		return objElement.createElement('SPAN', 'Points to use: ').setClassName('spanUsingPointUsingPointText').complete();
 	},
 	printSpanUsingPointUsingPoint() {
 		return objElement.createElement('SPAN', '0').setClassName('spanUsingPointUsingPoint').complete();
 	},
+	appendDivUsingPointEstimatedPaymentContainer() {
+		const divUsingPointEstimatedPaymentContainer = this.printDivUsingPointEstimatedPaymentContainer();
+		const spanUsingPointEstimatedPaymentText = this.printSpanUsingPointEstimatedPaymentText();
+		const spanUsingPointEstimatedPayment = this.printSpanUsingPointEstimatedPayment();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(spanUsingPointEstimatedPaymentText, spanUsingPointEstimatedPayment);
+
+		divUsingPointEstimatedPaymentContainer.appendChild(fragment);
+
+		return divUsingPointEstimatedPaymentContainer;
+	},
+	printDivUsingPointEstimatedPaymentContainer() {
+		return objElement.createElement('DIV').setClassName('divUsingPointEstimatedPaymentContainer').complete();
+	},
+	printSpanUsingPointEstimatedPaymentText() {
+		return objElement.createElement('SPAN', 'Estimated payment: ').setClassName('spanUsingPointEstimatedPaymentText').complete();
+	},
+	printSpanUsingPointEstimatedPayment() {
+		return objElement.createElement('SPAN', '0').setClassName('spanUsingPointEstimatedPayment').complete();
+	},
 	appendDivUsingPointButtonUsingPointContainer() {
 		const divUsingPointButtonUsingPointContainer = this.printDivUsingPointButtonUsingPointContainer();
+		const buttonUsingPointNot = this.printButtonUsingPointNot();
 		const buttonUsingPointFiveThousand = this.printButtonUsingPointFiveThousand();
 		const buttonUsingPointFull = this.printButtonUsingPointFull();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(buttonUsingPointFiveThousand, buttonUsingPointFull);
+		fragment.append(buttonUsingPointNot, buttonUsingPointFiveThousand, buttonUsingPointFull);
 
 		divUsingPointButtonUsingPointContainer.appendChild(fragment);
 
@@ -317,6 +348,9 @@ export default Object.create({
 	},
 	printDivUsingPointButtonUsingPointContainer() {
 		return objElement.createElement('DIV').setClassName('divUsingPointButtonUsingPointContainer').complete();
+	},
+	printButtonUsingPointNot() {
+		return objElement.createElement('BUTTON', 'Do not use points').setClassName('buttonUsingPointNot').complete();
 	},
 	printButtonUsingPointFiveThousand() {
 		return objElement.createElement('BUTTON', 'Use 5,000 points').setClassName('buttonUsingPointFiveThousand').complete();
@@ -490,6 +524,12 @@ export default Object.create({
 	setSpanUsingPointUsingPoint(usingPoint) {
 		$('.spanUsingPointUsingPoint').textContent = usingPoint;
 	},
+	setSpanUsingPointEstimatedPayment() {
+		$('.spanUsingPointEstimatedPayment').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
+	setSpanUsingPointUsingPoint() {
+		$('.spanUsingPointUsingPoint').textContent = '0';
+	},
 	onClickButtonPay() {
 		this.initInputPhoneNumber();
 		this.showSectionReviewOrderContainer();
@@ -531,6 +571,23 @@ export default Object.create({
 		$('.inputPhoneNumber').value.length < maxLength && ($('.inputPhoneNumber').value += currentTarget.textContent);
 		$('.inputPhoneNumber').value.length === middleLength && ($('.inputPhoneNumber').value += '-');
 	},
+	onKeyupInputPhoneNumber(event) {
+		const maxLength = 13;
+		const firstLength = 3;
+		const middleLength = 8;
+		const zeroKeyCode = 48;
+		const nineKeyCode = 57;
+		const enterKeyCode = 13;
+		const backSpaceKeyCode = 8;
+
+		if (event.keyCode >= zeroKeyCode && event.keyCode <= nineKeyCode && event.currentTarget.value.length <= maxLength) {
+			(event.currentTarget.value.length === firstLength || event.currentTarget.value.length === middleLength) && (event.currentTarget.value += '-');
+		} else if (event.keyCode === enterKeyCode) {
+			Controller.couponComplete();
+		} else if (event.keyCode === backSpaceKeyCode) {
+			this.onClickButtonCouponBack();
+		}
+	},
 	onClickButtonCouponBack() {
 		const minLength = 4;
 		const arrInputPhoneNumberValue = $('.inputPhoneNumber').value.split('');
@@ -543,6 +600,7 @@ export default Object.create({
 				this.showDivResultCouponContainer();
 				this.setSpanUsingPointTotalPrice();
 				this.setSpanUsingPointTotalPoint(addComma(userInfo.point));
+				this.setSpanUsingPointEstimatedPayment();
 				break;
 			case 'undefined':
 				$('.spanCouponSearchingFailed').textContent = 'There is no information about the registered number!';
@@ -552,4 +610,32 @@ export default Object.create({
 				break;
 		}
 	},
+	onClickButtonUsingPointNot() {
+		this.setSpanUsingPointUsingPoint();
+		this.setSpanUsingPointTotalPrice();
+		this.setSpanUsingPointTotalPoint(addComma(Controller.userInfo().point));
+		this.setSpanUsingPointEstimatedPayment();
+	},
+	plusFiveThousandPoints() {
+		const totalPrice = subComma($('.spanUsingPointTotalPrice').textContent);
+		const totalPoints = subComma($('.spanUsingPointTotalPoint').textContent);
+		const usingPoints = subComma($('.spanUsingPointUsingPoint').textContent);
+		const estimatedPayment = subComma($('.spanUsingEstimatedPayment').textContent);
+
+		if (totalPoints > 5000 && estimatedPayment > 5000) {
+			$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - 5000);
+			$('.spanUsingPointUsingPoint').textContent = addComma(usingPoints + 5000);
+			$('.spanUsingPointEstimatedPayment').textContent = addComma(estimatedPayment - 5000);
+		} else if (totalPoints > 5000 && estimatedPayment < 5000) {
+		} else if (totalPoints < 5000 && estimatedPayment < totalPoints) {
+			$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - estimatedPayment);
+			$('.spanUsingPointUsingPoint').textContent = addComma(totalPrice - estimatedPayment);
+			$('.spanUsingPointEstimatedPayment').textContent = '0';
+		} else if (totalPoints < 5000 && estimatedPayment > totalPoints) {
+		}
+	},
+	onClickButtonUsingPointFiveThousand() {},
+	onClickButtonUsingPointFull() {},
+	onClickButtonUsingPointAndPay() {},
+	onClickButtonUsingPointCancel() {},
 });

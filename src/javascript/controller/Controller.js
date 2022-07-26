@@ -240,6 +240,15 @@ export default {
 
 	/* in SectionReviewOrderContainer */
 
+	couponComplete() {
+		if (this.confirmPhoneNumber()) {
+			UserInfo.getUserInfo($('.inputPhoneNumber').value)
+				.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
+				.catch(err => console.log(err));
+		} else {
+			ReviewOrderContainer.onClickButtonCouponComplete(false);
+		}
+	},
 	clickButtonSimpleReviewOrderPay() {
 		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
@@ -273,20 +282,43 @@ export default {
 			})
 		);
 	},
+	keydownInputPhoneNumber() {
+		$('.inputPhoneNumber').addEventListener('keydown', event => !(event.keyCode >= 48 && event.keyCode <= 57) && event.preventDefault());
+	},
+	keyupInputPhoneNumber() {
+		$('.inputPhoneNumber').addEventListener('keyup', event => ReviewOrderContainer.onKeyupInputPhoneNumber(event));
+	},
 	clickButtonCouponBack() {
 		$('.buttonCouponBack').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonCouponBack();
 		});
 	},
 	clickButtonCouponComplete() {
-		$('.buttonCouponComplete').addEventListener('click', () => {
-			if (this.confirmPhoneNumber()) {
-				UserInfo.getUserInfo($('.inputPhoneNumber').value)
-					.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
-					.catch(err => console.log(err));
-			} else {
-				ReviewOrderContainer.onClickButtonCouponComplete(false);
-			}
+		$('.buttonCouponComplete').addEventListener('click', () => this.couponComplete());
+	},
+	clickButtonUsingPointNot() {
+		$('buttonUsingPointNot').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonUsingPointNot();
+		});
+	},
+	clickButtonUsingPointFiveThousand() {
+		$('buttonUsingPointFiveThousand').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonUsingPointFiveThousand();
+		});
+	},
+	clickButtonUsingPointFull() {
+		$('buttonUsingPointFull').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonUsingPointFull();
+		});
+	},
+	clickButtonUsingPointAndPay() {
+		$('buttonUsingPointAndPay').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonUsingPointAndPay();
+		});
+	},
+	clickButtonUsingPointCancel() {
+		$('buttonUsingPointCancel').addEventListener('click', () => {
+			ReviewOrderContainer.onClickButtonUsingPointCancel();
 		});
 	},
 	confirmPhoneNumber() {
@@ -437,6 +469,8 @@ export default {
 		this.clickButtonShowCoupon();
 		this.clickButtonShowOrder();
 		this.clickButtonCouponSearching();
+		this.keydownInputPhoneNumber();
+		this.keyupInputPhoneNumber();
 		this.clickButtonCouponBack();
 		this.clickButtonCouponComplete();
 	},

@@ -616,26 +616,47 @@ export default Object.create({
 		this.setSpanUsingPointTotalPoint(addComma(Controller.userInfo().point));
 		this.setSpanUsingPointEstimatedPayment();
 	},
-	plusFiveThousandPoints() {
+	onClickButtonUsingPointFiveThousand() {
 		const totalPrice = subComma($('.spanUsingPointTotalPrice').textContent);
 		const totalPoints = subComma($('.spanUsingPointTotalPoint').textContent);
 		const usingPoints = subComma($('.spanUsingPointUsingPoint').textContent);
-		const estimatedPayment = subComma($('.spanUsingEstimatedPayment').textContent);
+		const estimatedPayment = subComma($('.spanUsingPointEstimatedPayment').textContent);
 
 		if (totalPoints > 5000 && estimatedPayment > 5000) {
 			$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - 5000);
 			$('.spanUsingPointUsingPoint').textContent = addComma(usingPoints + 5000);
 			$('.spanUsingPointEstimatedPayment').textContent = addComma(estimatedPayment - 5000);
 		} else if (totalPoints > 5000 && estimatedPayment < 5000) {
-		} else if (totalPoints < 5000 && estimatedPayment < totalPoints) {
 			$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - estimatedPayment);
-			$('.spanUsingPointUsingPoint').textContent = addComma(totalPrice - estimatedPayment);
-			$('.spanUsingPointEstimatedPayment').textContent = '0';
-		} else if (totalPoints < 5000 && estimatedPayment > totalPoints) {
+			$('.spanUsingPointUsingPoint').textContent = addComma(totalPrice);
+			$('.spanUsingPointEstimatedPayment').textContent = addComma(0);
+		} else if (totalPoints < 5000 && estimatedPayment > 5000) {
+			$('.spanUsingPointTotalPoint').textContent = addComma(0);
+			$('.spanUsingPointUsingPoint').textContent = addComma(usingPoints + totalPoints);
+			$('.spanUsingPointEstimatedPayment').textContent = addComma(estimatedPayment - usingPoints);
+		} else if (totalPoints < 5000 && estimatedPayment < 5000 && totalPoints > estimatedPayment) {
+			$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - estimatedPayment);
+			$('.spanUsingPointUsingPoint').textContent = addComma(totalPrice);
+			$('.spanUsingPointEstimatedPayment').textContent = addComma(0);
+		} else if (totalPoints < 5000 && estimatedPayment < 5000 && totalPoints < estimatedPayment) {
+			$('.spanUsingPointTotalPoint').textContent = addComma(0);
+			$('.spanUsingPointUsingPoint').textContent = addComma(usingPoints + totalPoints);
+			$('.spanUsingPointEstimatedPayment').textContent = addComma(totalPrice - usingPoints + totalPoints);
 		}
 	},
-	onClickButtonUsingPointFiveThousand() {},
-	onClickButtonUsingPointFull() {},
-	onClickButtonUsingPointAndPay() {},
-	onClickButtonUsingPointCancel() {},
+	onClickButtonUsingPointFull() {
+		const totalPrice = Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0);
+		const totalPoints = Controller.userInfo().point;
+
+		$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - totalPrice > 0 ? totalPoints - totalPrice : 0);
+		$('.spanUsingPointUsingPoint').textContent = addComma(totalPoints > totalPrice ? totalPrice : totalPrice - totalPoints);
+		$('.spanUsingPointEstimatedPayment').textContent = addComma(totalPrice - totalPoints > 0 ? totalPrice - totalPoints : 0);
+	},
+	onClickButtonUsingPointAndPay() {
+		this.hideSectionReviewOrderContainer();
+	},
+	onClickButtonUsingPointCancel() {
+		// this.init();
+		this.hideSectionReviewOrderContainer();
+	},
 });

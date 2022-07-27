@@ -13,6 +13,7 @@ import NavKioskContainer from '../components/NavKioskContainer.js';
 import FooterKioskContainer from '../components/FooterKioskContainer.js';
 import Timer from '../utils/Timer.js';
 import ReviewOrderContainer from '../view/ReviewOrderContainer.js';
+import PayContainer from '../view/PayContainer.js';
 
 export default {
 	init() {},
@@ -22,7 +23,7 @@ export default {
 		await SlideImageInfo.getImageUrl()
 			.then(() => fragment.append(NavKioskContainer.setup(), IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup(), FooterKioskContainer.setup()))
 			.then(() => AllProductsInfo.getAllProducts())
-			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup(), ReviewOrderContainer.setup()));
+			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup(), ReviewOrderContainer.setup(), PayContainer.setup()));
 
 		return fragment;
 	},
@@ -297,34 +298,34 @@ export default {
 		$('.buttonCouponComplete').addEventListener('click', () => this.couponComplete());
 	},
 	clickButtonUsingPointNot() {
-		$('buttonUsingPointNot').addEventListener('click', () => {
+		$('.buttonUsingPointNot').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointNot();
 		});
 	},
 	clickButtonUsingPointFiveThousand() {
-		$('buttonUsingPointFiveThousand').addEventListener('click', () => {
+		$('.buttonUsingPointFiveThousand').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointFiveThousand();
 		});
 	},
 	clickButtonUsingPointFull() {
-		$('buttonUsingPointFull').addEventListener('click', () => {
+		$('.buttonUsingPointFull').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointFull();
 		});
 	},
 	clickButtonUsingPointAndPay() {
-		$('buttonUsingPointAndPay').addEventListener('click', () => {
+		$('.buttonUsingPointAndPay').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointAndPay();
+			PayContainer.onClickButtonUsingPointAndPay()
 		});
 	},
 	clickButtonUsingPointCancel() {
-		$('buttonUsingPointCancel').addEventListener('click', () => {
+		$('.buttonUsingPointCancel').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointCancel();
 		});
 	},
 	confirmPhoneNumber() {
 		return $('.inputPhoneNumber').value.length === 13;
 	},
-
 	startTimer() {
 		Timer.handler &&
 			setTimeout(() => {
@@ -473,5 +474,10 @@ export default {
 		this.keyupInputPhoneNumber();
 		this.clickButtonCouponBack();
 		this.clickButtonCouponComplete();
+		this.clickButtonUsingPointNot();
+		this.clickButtonUsingPointFiveThousand();
+		this.clickButtonUsingPointFull();
+		this.clickButtonUsingPointAndPay();
+		this.clickButtonUsingPointCancel();
 	},
 };

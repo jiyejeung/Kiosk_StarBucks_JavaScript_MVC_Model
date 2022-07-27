@@ -1461,6 +1461,22 @@
 				}
 			}
 		}
+		section.sectionPayContainer {
+			width: 100%;
+			height: 100%;
+			@include flexRow();
+			transition: all 300ms ease-in-out;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			opacity: 0;
+			overflow: hidden;
+			font-family: 'Times New Roman', Times, serif;
+			font-size: 3vw;
+			background-color: #1e3932;
+			color: #fafafa;
+		}
 	}
 }
 

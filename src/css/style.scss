@@ -33,7 +33,7 @@
 				font-size: 5.5vw;
 				font-weight: bolder;
 				font-family: 'Archivo Black', sans-serif;
-				color: #174841;
+				color: $Green;
 				cursor: pointer;
 			}
 			.divKioskTimer {
@@ -41,7 +41,7 @@
 				font-family: 'Times New Roman', Times, serif;
 				letter-spacing: 0.05vw;
 				font-weight: bold;
-				color: #174841;
+				color: $Green;
 			}
 		}
 		footer.footerKioskContainer {
@@ -56,13 +56,13 @@
 			@include flexCol();
 			display: none;
 			opacity: 0;
-			background-color: #172d29;
-			// border-top: 1vw solid #fafafa;
+			background-color: $darkGreen;
+			// border-top: 1vw solid $white;
 			div {
 				font-family: 'Times New Roman', Times, serif;
 				letter-spacing: 0.05vw;
 				font-size: 1.5vw;
-				color: #fafafa;
+				color: $white;
 			}
 			.divEmail {
 				margin-bottom: 1.5vw;
@@ -76,7 +76,7 @@
 			height: 100%;
 			@include flexCol();
 			font-size: 5vw;
-			background-color: #172d29;
+			background-color: $darkGreen;
 			transition: all 300ms ease-in-out;
 			position: absolute;
 			top: 0;
@@ -87,14 +87,14 @@
 			h1.h1IntroTitle {
 				font-size: 8vw;
 				font-weight: bolder;
-				color: #fafafa;
+				color: $white;
 				margin-bottom: 2.5vw;
 			}
 			h2.h2IntroGreeting {
 				font-family: 'Times New Roman', Times, serif;
 				letter-spacing: 0.05vw;
 				font-size: 2.5vw;
-				color: #fafafa;
+				color: $white;
 			}
 		}
 		section.sectionSlideContainer {
@@ -104,7 +104,7 @@
 			width: 100vw;
 			height: 100%;
 			overflow: hidden;
-			background-color: #172d29;
+			background-color: $darkGreen;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -120,7 +120,7 @@
 					background-position: 50% 50%;
 					background-repeat: no-repeat;
 					background-size: cover;
-					transition: all 1000ms ease-in-out;
+					transition: all 500ms ease-in-out;
 				}
 			}
 			h3.h3SlideTouchText {
@@ -130,10 +130,10 @@
 				transform: translate(-50%, -50%);
 				font-family: 'Times New Roman', Times, serif;
 				letter-spacing: 0.05vw;
-				text-shadow: rgba(#0a0a0a, 0.7) 0.1vw 0.1vw 0.3vw;
+				text-shadow: rgba($black, 0.7) 0.1vw 0.1vw 0.3vw;
 				font-weight: bolder;
 				font-size: 5vw;
-				color: #fafafa;
+				color: $white;
 			}
 		}
 		section.sectionTakeOutContainer {
@@ -153,7 +153,7 @@
 			.divWrapperTakeOutContainer {
 				width: 100%;
 				height: 100%;
-				background-color: #0a0a0a;
+				background-color: $black;
 				opacity: 0.2;
 				@include flexCol();
 			}
@@ -171,8 +171,8 @@
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
 					font-weight: bolder;
-					text-shadow: rgba(#0a0a0a, 0.5) 0.1vw 0.1vw 0.3vw;
-					color: #fafafa;
+					text-shadow: rgba($black, 0.5) 0.1vw 0.1vw 0.3vw;
+					color: $white;
 					font-size: 6vw;
 					cursor: pointer;
 				}
@@ -196,7 +196,7 @@
 			left: 0;
 			padding-top: 8vw;
 			padding-bottom: 8vw;
-			background-color: #fafafa;
+			background-color: $white;
 			ul.ulSelectProductCategoryContainer {
 				width: 20%;
 				height: 100%;
@@ -207,18 +207,18 @@
 					width: 100%;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
-					color: #fafafa;
+					color: $white;
 					font-size: 1.8vw;
 					font-weight: bold;
 					text-align: center;
 					padding: 1.5vw 0;
-					background-color: #16584e;
+					background-color: $littleBrightGreen;
 					transition: all 300ms ease-in-out;
 					margin-bottom: 0.5vw;
 					cursor: pointer;
 				}
 				li.liSelectProductCategoryItem:nth-child(1) {
-					background-color: #193c36;
+					background-color: $littleDarkGreen;
 				}
 			}
 			ul.ulSelectProductWrapperContainer {
@@ -240,9 +240,9 @@
 					align-items: flex-start;
 					padding-left: 2vw;
 					overflow: auto;
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					ul.ulSelectProductItemContainer {
-						border: 1px solid black;
+						border: 1px solid$black;
 						width: 17.25vw;
 						height: 20vw;
 						margin-right: 1vw;
@@ -266,17 +266,17 @@
 							line-height: 1.5vw;
 							height: 3.7vw;
 							// align-items: flex-end;
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							font-family: 'Times New Roman', Times, serif;
 							letter-spacing: 0.05vw;
 							font-size: 1.3vw;
-							color: #0a0a0a;
+							color: $black;
 						}
 						li.liSelectProductPriceItem {
 							font-family: 'Times New Roman', Times, serif;
 							letter-spacing: 0.05vw;
 							font-size: 1.3vw;
-							color: #0a0a0a;
+							color: $black;
 						}
 					}
 				}
@@ -297,8 +297,8 @@
 				ul.ulSelectedProductListContainer {
 					width: 100%;
 					height: 60%;
-					border-top: 1px solid black;
-					border-bottom: 1px solid black;
+					border-top: 1px solid$black;
+					border-bottom: 1px solid$black;
 					display: flex;
 					flex-direction: column;
 					justify-content: flex-start;
@@ -307,7 +307,7 @@
 					ul.ulSelectedProductItemContainer {
 						width: 100%;
 						height: 6vw;
-						border-top: 1px solid black;
+						border-top: 1px solid$black;
 						@include flexCol();
 						margin-bottom: 0.6vw;
 						transition: all 300ms ease-in-out;
@@ -329,7 +329,7 @@
 							width: 100%;
 							height: 2vw;
 							@include flexRow();
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							span {
 								height: 100%;
 								@include flexRow();
@@ -352,7 +352,7 @@
 									@include flexRow();
 									width: 1.7vw;
 									height: 1.7vw;
-									background-color: #172d29;
+									background-color: $darkGreen;
 									cursor: pointer;
 									div.divMinusImageContainer {
 										width: 95%;
@@ -378,7 +378,7 @@
 								align-items: flex-start;
 								button {
 									@include flexRow();
-									background-color: #172d29;
+									background-color: $darkGreen;
 									cursor: pointer;
 									width: 1.7vw;
 									height: 1.7vw;
@@ -401,8 +401,8 @@
 								width: 50%;
 								height: 100%;
 								@include flexRow();
-								background-color: #172d29;
-								color: #fafafa;
+								background-color: $darkGreen;
+								color: $white;
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.1vw;
 								font-weight: bold;
@@ -412,8 +412,8 @@
 								width: 50%;
 								height: 100%;
 								@include flexRow();
-								background-color: #cf3131;
-								color: #fafafa;
+								background-color: $red;
+								color: $white;
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.1vw;
 								font-weight: bold;
@@ -485,17 +485,17 @@
 						letter-spacing: 0.05vw;
 						font-size: 2.5vw;
 						font-weight: bolder;
-						color: #fafafa;
+						color: $white;
 						transition: all 300ms ease-in-out;
 						cursor: pointer;
 					}
 					button.buttonPay {
-						background-color: #172d29;
+						background-color: $darkGreen;
 						margin-bottom: 5%;
 						cursor: not-allowed;
 					}
 					button.buttonCancel {
-						background-color: #cf3131;
+						background-color: $red;
 					}
 				}
 			}
@@ -510,29 +510,28 @@
 			position: absolute;
 			padding-top: 8vw;
 			padding-bottom: 8vw;
-			background-color: #fafafa;
+			background-color: $white;
 			.divDisabledWrapperOptionModalContainer {
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100vh;
-				background-color: coral;
 				@include flexRow();
 				z-index: 30;
 				transition: all 300ms ease-in-out;
-				background-color: rgba(#000000, 0.2);
+				background-color: rgba($black, 0.2);
 				display: none;
 				opacity: 0;
 				.divDisabledOptionModalContainer {
-					background-color: rgba(#202020, 0.95);
+					background-color: rgba($modalBackgroundColor, 0.95);
 					@include flexRow();
 					position: relative;
 					width: 80%;
 					height: 70%;
 					h2.H2DisabledOptionText {
 						font-family: 'Times New Roman', Times, serif;
-						color: #fafafa;
+						color: $white;
 						font-weight: bold;
 						font-size: 1.9vw;
 					}
@@ -550,14 +549,14 @@
 				}
 			}
 			.divOptionWrapperContainer {
-				// border: 1px solid black;
+				// border: 1px solid$black;
 				width: 60%;
 				height: 100%;
 				@include flexRow();
 				padding-left: 2vw;
 				align-items: flex-start;
 				ul.ulOptionListContainer {
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					width: 25%;
 					// height: 100%;
 					display: flex;
@@ -568,10 +567,10 @@
 						width: 100%;
 						position: absolute;
 						height: 46%;
-						border: 1px solid black;
+						border: 1px solid$black;
 						left: 0;
 						// top: 54%;
-						background-color: rgba(#000000, 0.2);
+						background-color: rgba($black, 0.2);
 						opacity: 0.2;
 						top: 0%;
 						cursor: pointer;
@@ -587,7 +586,7 @@
 						cursor: pointer;
 					}
 					ul.ulDefaultOptionContainer {
-						// border: 1px solid black;
+						// border: 1px solid$black;
 						padding-left: 1vw;
 						font-size: 1.7vw;
 						font-family: 'Times New Roman', Times, serif;
@@ -606,7 +605,7 @@
 						}
 						li::before {
 							position: absolute;
-							background-color: #0a0a0a;
+							background-color: $black;
 							width: 7px;
 							height: 2px;
 							content: '';
@@ -617,7 +616,7 @@
 					ul.ulAdditionalOptionContainer {
 						font-size: 1.7vw;
 						padding-left: 1vw;
-						// border: 1px solid black;
+						// border: 1px solid$black;
 						font-family: 'Times New Roman', Times, serif;
 						font-weight: bolder;
 						cursor: pointer;
@@ -633,7 +632,7 @@
 						}
 						li::before {
 							position: absolute;
-							background-color: #0a0a0a;
+							background-color: $black;
 							width: 7px;
 							height: 2px;
 							content: '';
@@ -643,7 +642,7 @@
 					}
 				}
 				.divOptionCustomContainer {
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					width: 75%;
 					height: 100%;
 					position: relative;
@@ -655,7 +654,7 @@
 						height: 70%;
 						@include flexCol();
 						// display: none;
-						// border: 1px solid black;
+						// border: 1px solid$black;
 						transition: all 300ms ease-in-out;
 						padding-left: 2vw;
 						padding-top: 0.5vw;
@@ -663,7 +662,7 @@
 							width: 100%;
 							height: 49%;
 							margin-bottom: 2%;
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							h4 {
 								font-size: 2vw;
 								font-family: 'Times New Roman', Times, serif;
@@ -677,7 +676,7 @@
 								height: 75%;
 								@include flexRow();
 								ul.ulSizeListContainer {
-									border: 1px solid black;
+									border: 1px solid$black;
 									width: 25%;
 									height: 100%;
 									@include flexCol();
@@ -702,7 +701,7 @@
 										align-items: flex-end;
 										height: 15.5%;
 										font-size: 1.4vw;
-										// border: 1px solid black;
+										// border: 1px solid$black;
 									}
 									li.liMeasurement {
 										@include flexRow();
@@ -712,9 +711,9 @@
 									}
 								}
 								ul.ulSizeListContainer:nth-child(1) {
-									background-color: #16584e;
+									background-color: $littleBrightGreen;
 									li {
-										color: #fafafa;
+										color: $white;
 									}
 								}
 								ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
@@ -728,7 +727,7 @@
 									margin-top: 10%;
 								}
 								ul.ulSizeListContainer:nth-child(4) {
-									// background-color: #16584e;
+									// background-color: $littleBrightGreen;
 									margin-right: 0%;
 									li.liCoffeeCup {
 										width: 82.5%;
@@ -741,7 +740,7 @@
 						.divIceOptionContainer {
 							width: 100%;
 							height: 49%;
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							h4.h4IceOption {
 								font-size: 2vw;
 								font-family: 'Times New Roman', Times, serif;
@@ -758,7 +757,7 @@
 									width: 25%;
 									height: 100%;
 									@include flexCol();
-									border: 1px solid black;
+									border: 1px solid$black;
 									margin-right: 2%;
 									transition: all 300ms ease-in-out;
 									cursor: pointer;
@@ -780,14 +779,14 @@
 										height: 20%;
 										font-size: 1.4vw;
 										font-family: 'Times New Roman', Times, serif;
-										// border: 1px solid black;
+										// border: 1px solid$black;
 										margin-bottom: 5%;
 									}
 								}
 								ul.ulIceListContainer:nth-child(1) {
-									background-color: #16584e;
+									background-color: $littleBrightGreen;
 									li {
-										color: #fafafa;
+										color: $white;
 									}
 								}
 								ul.ulIceListContainer:nth-child(2) li.liIceCube {
@@ -827,7 +826,7 @@
 						display: none;
 						// opacity: 0;
 						.divEspressoOptionContainer {
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							width: 100%;
 							margin-bottom: 2%;
 							height: 40%;
@@ -850,33 +849,33 @@
 								// align-items: flex-start;
 								// height: 33.33333%;
 								cursor: pointer;
-								// border: 1px solid black;
+								// border: 1px solid$black;
 								li {
 									font-size: 1.5vw;
 									padding: 0.5vw 0vw;
 									width: 33.33333%;
 									@include flexRow();
 									font-family: 'Times New Roman', Times, serif;
-									border: 1px solid black;
+									border: 1px solid$black;
 									border-left: none;
 									border-right: none;
 									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
-									background-color: #174841;
-									color: #fafafa;
+									background-color: $Green;
+									color: $white;
 								}
 								li:nth-child(2) {
-									border-left: 1px solid black;
-									border-right: 1px solid black;
-									background-color: #174841;
-									color: #fafafa;
+									border-left: 1px solid$black;
+									border-right: 1px solid$black;
+									background-color: $Green;
+									color: $white;
 								}
 							}
 							ul.ulEspressoShotContainer {
 								width: 100%;
 								@include flexRow();
-								// border: 1px solid black;
+								// border: 1px solid$black;
 								// height: 33.33333%;
 								li {
 									font-family: 'Times New Roman', Times, serif;
@@ -886,8 +885,8 @@
 										font-size: 2vw;
 										width: 2.6vw;
 										height: 2.6vw;
-										background-color: #174841;
-										color: #fafafa;
+										background-color: $Green;
+										color: $white;
 										@include flexRow();
 										cursor: pointer;
 									}
@@ -910,7 +909,7 @@
 						.divSyrupOptionContainer {
 							width: 100%;
 							height: 50%;
-							// border: 1px solid black;
+							// border: 1px solid$black;
 							display: flex;
 							flex-direction: column;
 							justify-content: flex-start;
@@ -929,7 +928,7 @@
 								padding-bottom: 3vh;
 								// justify-content: space-between;
 								// align-items: flex-start;
-								// border: 1px solid black;
+								// border: 1px solid$black;
 								li {
 									cursor: pointer;
 									font-size: 1.5vw;
@@ -937,26 +936,26 @@
 									width: 33.33333%;
 									@include flexRow();
 									font-family: 'Times New Roman', Times, serif;
-									border: 1px solid black;
+									border: 1px solid$black;
 									border-left: none;
 									border-right: none;
 									transition: all 300ms ease-in-out;
 								}
 								li:nth-child(1) {
-									background-color: #174841;
-									color: #fafafa;
+									background-color: $Green;
+									color: $white;
 								}
 								li:nth-child(2) {
-									border-left: 1px solid black;
-									border-right: 1px solid black;
-									background-color: #174841;
-									color: #fafafa;
+									border-left: 1px solid$black;
+									border-right: 1px solid$black;
+									background-color: $Green;
+									color: $white;
 								}
 							}
 							ul.ulSyrupContainer {
 								width: 100%;
 								@include flexRow();
-								// border: 1px solid black;
+								// border: 1px solid$black;
 								// height: 33.33333%;
 								li {
 									font-family: 'Times New Roman', Times, serif;
@@ -966,8 +965,8 @@
 										font-size: 2vw;
 										width: 2.6vw;
 										height: 2.6vw;
-										background-color: #174841;
-										color: #fafafa;
+										background-color: $Green;
+										color: $white;
 										@include flexRow();
 										cursor: pointer;
 									}
@@ -998,7 +997,7 @@
 						left: 0;
 						bottom: 18%;
 						align-items: flex-end;
-						// border: 1px solid black;
+						// border: 1px solid$black;
 						padding-left: 2vw;
 						span {
 							font-family: 'Times New Roman', Times, serif;
@@ -1021,7 +1020,7 @@
 						@include flexRow();
 						justify-content: flex-start;
 						padding-left: 1.5vw;
-						border-top: 1px solid black;
+						border-top: 1px solid$black;
 						span {
 							font-family: 'Times New Roman', Times, serif;
 							font-size: 2.5vw;
@@ -1038,11 +1037,11 @@
 				height: 100%;
 				@include flexCol();
 				padding: 0 2vw;
-				// border: 1px solid black;
+				// border: 1px solid$black;
 				.divProductImageContainer {
 					width: 100%;
 					height: 60%;
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					@include flexRow();
 					padding-bottom: 1%;
 					// align-items: flex-start;
@@ -1057,7 +1056,7 @@
 				h3.h3ProductName {
 					@include flexRow();
 					height: 10%;
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
 					font-size: 1.9vw;
@@ -1065,7 +1064,7 @@
 				}
 				.divProductCategory {
 					@include flexRow();
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					height: 10%;
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
@@ -1077,7 +1076,7 @@
 					height: 20%;
 					@include flexRow();
 					justify-content: space-between;
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					button {
 						width: 50%;
 						height: 70%;
@@ -1085,15 +1084,15 @@
 						letter-spacing: 0.05vw;
 						font-weight: bolder;
 						font-size: 2vw;
-						color: #fafafa;
+						color: $white;
 						cursor: pointer;
 						transition: all 300ms ease-in-out;
 					}
 					button.buttonAddToCart {
-						background-color: #172d29;
+						background-color: $darkGreen;
 					}
 					button.buttonCancelAddingToCart {
-						background-color: #cf3131;
+						background-color: $red;
 					}
 				}
 			}
@@ -1107,9 +1106,6 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			// padding-top: 8vw;
-			// padding-bottom: 7vw;
-			// background-color: #fafafa;
 			display: none;
 			opacity: 0;
 			overflow: hidden;
@@ -1122,9 +1118,9 @@
 				margin-left: 4vw;
 				font-size: 1.3vw;
 				padding: 0.5vw 1.5vw;
-				color: #0a0a0a;
+				color: $black;
 				transition: all 300ms ease-in-out;
-				background-color: #fafafa;
+				background-color: $white;
 				cursor: pointer;
 			}
 			button.buttonShowOrder {
@@ -1136,9 +1132,9 @@
 				margin-left: 4vw;
 				font-size: 1.3vw;
 				padding: 0.5vw 1.5vw;
-				color: #0a0a0a;
+				color: $black;
 				transition: all 300ms ease-in-out;
-				background-color: #fafafa;
+				background-color: $white;
 				cursor: pointer;
 			}
 			.divDetailedReviewOrderContainer {
@@ -1151,15 +1147,15 @@
 				.divDetailedReviewOrderSelectedProductInfoContainer {
 					width: 80%;
 					height: 12vw;
-					// border: 1px solid black;
+					// border: 1px solid$black;
 					border-radius: 1vw;
-					background-color: #ededed;
+					background-color: $brightGray;
 					margin-bottom: 1.5vw;
 					@include flexRow();
 					.divDetailedReviewOrderSelectedProductImageWrapperContainer {
 						width: 25%;
 						height: 12vw;
-						// border: 1px solid black;
+						// border: 1px solid$black;
 						@include flexRow();
 						.divDetailedReviewOrderSelectedProductImageContainer {
 							background-position: 50% 50%;
@@ -1174,7 +1170,7 @@
 						width: 75%;
 						height: 100%;
 						font-family: 'Times New Roman', Times, serif;
-						color: #0a0a0a;
+						color: $black;
 						@include flexCol();
 						align-items: flex-start;
 						span {
@@ -1213,7 +1209,7 @@
 				width: 40%;
 				height: 100%;
 				@include flexCol();
-				background-color: #1e3932;
+				background-color: $darkGreen;
 				padding: 0 2vw;
 				position: absolute;
 				top: 0;
@@ -1224,7 +1220,7 @@
 					margin-left: 0.5vw;
 					font-family: 'Times New Roman', Times, serif;
 					span {
-						color: #fafafa;
+						color: $white;
 						font-size: 2vw;
 					}
 				}
@@ -1232,7 +1228,7 @@
 					margin-left: 0.5vw;
 					font-family: 'Times New Roman', Times, serif;
 					span {
-						color: #fafafa;
+						color: $white;
 						font-size: 1.3vw;
 					}
 				}
@@ -1254,12 +1250,12 @@
 					button:nth-child(1) {
 						margin-left: 0.5vw;
 						margin-right: 1vw;
-						background-color: #fafafa;
-						color: #0a0a0a;
+						background-color: $white;
+						color: $black;
 					}
 					button:nth-child(2) {
-						background-color: #cf3131;
-						color: #fafafa;
+						background-color: $red;
+						color: $white;
 						margin-left: 1vw;
 					}
 				}
@@ -1268,7 +1264,7 @@
 				width: 40%;
 				height: 100%;
 				@include flexCol();
-				background-color: #1e3932;
+				background-color: $darkGreen;
 				padding: 0 2vw;
 				position: absolute;
 				top: 0;
@@ -1301,7 +1297,7 @@
 									font-family: 'Times New Roman', Times, serif;
 									font-weight: bold;
 									font-size: 2.5vw;
-									color: #fafafa;
+									color: $white;
 									margin-bottom: 2vw;
 								}
 								input.inputPhoneNumber {
@@ -1311,7 +1307,7 @@
 									padding: 0 2vw;
 									font-family: 'Times New Roman', Times, serif;
 									font-style: italic;
-									color: #0a0a0a;
+									color: $black;
 									margin-bottom: 2vw;
 								}
 								.divCouponSearchingButtonContainer {
@@ -1329,12 +1325,12 @@
 									}
 									button:nth-child(11) {
 										font-size: 1.5vw;
-										color: #fafafa;
-										background-color: #cf3131;
+										color: $white;
+										background-color: $red;
 									}
 									button:nth-child(12) {
-										background-color: #16584e;
-										color: #fafafa;
+										background-color: $littleBrightGreen;
+										color: $white;
 										font-size: 1.5vw;
 									}
 								}
@@ -1347,7 +1343,7 @@
 									font-family: 'Times New Roman', Times, serif;
 									font-weight: bold;
 									font-size: 2vw;
-									color: #fafafa;
+									color: $white;
 									margin-bottom: 1.3vw;
 									margin-right: 1vw;
 								}
@@ -1357,7 +1353,7 @@
 									font-weight: bold;
 									font-size: 2vw;
 									text-align: right;
-									color: #fafafa;
+									color: $white;
 									margin-bottom: 1.3vw;
 								}
 							}
@@ -1365,7 +1361,7 @@
 								margin-top: 2vw;
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.5vw;
-								color: #fafafa;
+								color: $white;
 							}
 						}
 					}
@@ -1384,7 +1380,7 @@
 							font-family: 'Times New Roman', Times, serif;
 							font-weight: normal;
 							font-size: 2vw;
-							color: #fafafa;
+							color: $white;
 							margin-bottom: 2vw;
 							text-align: center;
 						}
@@ -1393,7 +1389,7 @@
 							span {
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.4vw;
-								color: #fafafa;
+								color: $white;
 							}
 						}
 						.divUsingPointTotalPointContainer {
@@ -1401,7 +1397,7 @@
 							span {
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.4vw;
-								color: #fafafa;
+								color: $white;
 							}
 						}
 						.divUsingPointUsingPointContainer {
@@ -1409,7 +1405,7 @@
 							span {
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.4vw;
-								color: #fafafa;
+								color: $white;
 							}
 						}
 						.divUsingPointEstimatedPaymentContainer {
@@ -1417,7 +1413,7 @@
 							span {
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.4vw;
-								color: #fafafa;
+								color: $white;
 							}
 						}
 						.divUsingPointButtonUsingPointContainer {
@@ -1427,7 +1423,7 @@
 							button {
 								font-family: 'Times New Roman', Times, serif;
 								font-size: 1.5vw;
-								color: #0a0a0a;
+								color: $black;
 								padding: 0.5vw 0;
 								cursor: pointer;
 								width: 45%;
@@ -1448,12 +1444,12 @@
 							}
 							button:nth-child(1) {
 								margin-right: 1vw;
-								background-color: #fafafa;
-								color: #0a0a0a;
+								background-color: $white;
+								color: $black;
 							}
 							button:nth-child(2) {
-								background-color: #cf3131;
-								color: #fafafa;
+								background-color: $red;
+								color: $white;
 								margin-left: 1vw;
 							}
 						}
@@ -1474,8 +1470,14 @@
 			overflow: hidden;
 			font-family: 'Times New Roman', Times, serif;
 			font-size: 3vw;
-			background-color: #1e3932;
-			color: #fafafa;
+			background-color: $darkGreen;
+			color: $white;
+			h2.h2PayComplete {
+			}
+			h3.h3PayTotalPrice {
+			}
+			h3.h3PayPointsToBeAccumulated {
+			}
 		}
 	}
 }

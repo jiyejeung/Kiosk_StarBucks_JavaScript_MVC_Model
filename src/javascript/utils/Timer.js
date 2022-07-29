@@ -5,12 +5,13 @@ export default Object.create({
 		setTimeout(() => {
 			if (this.handler) {
 				this.confirmTimer();
-				this.handler && (this.limitedSeconds--, this.startTimer());
+				this.limitedSeconds -= 0.1;
+				this.startTimer();
 			}
-		}, 1000);
+		}, 100);
 	},
 	confirmTimer() {
-		this.limitedSeconds <= 0 && this.stopTimer();
+		this.limitedSeconds <= 0 && this.resetTimer();
 	},
 	restartTimer() {
 		this.handler = true;
@@ -21,8 +22,8 @@ export default Object.create({
 	resetTimer() {
 		this.handler = false;
 		setTimeout(() => {
-			this.resetTimer();
+			this.restartTimer();
 			this.limitedSeconds = 180;
-		}, 1000);
+		}, 300);
 	},
 });

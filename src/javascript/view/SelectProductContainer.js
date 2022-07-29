@@ -4,7 +4,16 @@ import { addComma } from '../utils/NumberTool.js';
 import { spacingString } from '../utils/StringTool.js';
 
 export default Object.create({
-	init() {},
+	init() {
+		this.hideSectionSelectProductContainer();
+		setTimeout(() => {
+			this.initLiSelectProductCategoryItem();
+			this.initUlSelectProductListContainer();
+			this.initSpanTotalNumberValue();
+			this.initSpanTotalAmountValue();
+			this.removeUlSelectedProductListContainer();
+		}, 300);
+	},
 	setup() {
 		const sectionSelectProductContainer = this.printSectionSelectProductContainer();
 		const ulSelectProductCategoryContainer = this.appendUlSelectProductCategoryContainer();
@@ -301,12 +310,47 @@ export default Object.create({
 	printButtonPay() {
 		return objElement.createElement('BUTTON', 'PAY').setClassName('buttonPay').complete();
 	},
+	initLiSelectProductCategoryItem() {
+		$$('.liSelectProductCategoryItem').forEach(li => void (li.style.backgroundColor = '#16584e'));
+		$('.liSelectProductCategoryItem').style.backgroundColor = '#193c36';
+	},
+	initUlSelectProductListContainer() {
+		$$('.ulSelectProductListContainer').forEach(ul => {
+			ul.style.display = 'none';
+			ul.style.opacity = 0;
+			ul.scrollTop = 0;
+		});
+		$('.ulSelectProductListContainer').style.display = 'flex';
+		$('.ulSelectProductListContainer').style.opacity = 1;
+	},
+	initSpanTotalNumberValue() {
+		$('.spanTotalNumberValue').textContent = 0;
+	},
+	initSpanTotalAmountValue() {
+		$('.spanTotalAmountValue').textContent = 0;
+	},
+	setSpanTotalAmountValue(totalAmountValue) {
+		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
+	},
+	setSpanTotalNumberValue(totalNumberValue) {
+		$('.spanTotalNumberValue').textContent = addComma(totalNumberValue);
+	},
+	setButtonPay(handler) {
+		if (handler) $('.divPayWrapperContainer .buttonPay').style.cursor = 'pointer';
+		else $('.divPayWrapperContainer .buttonPay').style.cursor = 'not-allowed';
+	},
 	changeBackgroundColorLiSelectProductCategoryItem(target) {
 		$$('.liSelectProductCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
 		target.style.backgroundColor = '#193c36';
 	},
 	showUlSelectProductListContainer(index01) {
-		$$('.ulSelectProductListContainer').forEach((ul, index02) => index01 === index02 && ((ul.style.display = 'flex'), setTimeout(() => (ul.style.opacity = 1), 300)));
+		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
+			if (index01 === index02) {
+				ul.style.display = 'flex';
+				ul.scrollTop = 0;
+				setTimeout(() => (ul.style.opacity = 1), 300);
+			}
+		});
 	},
 	hideUlSelectProductListContainer(index01) {
 		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
@@ -387,15 +431,5 @@ export default Object.create({
 	},
 	onClickButtonSimpleReviewOrderBack() {
 		this.showSectionSelectProductContainer();
-	},
-	setSpanTotalAmountValue(totalAmountValue) {
-		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
-	},
-	setSpanTotalNumberValue(totalNumberValue) {
-		$('.spanTotalNumberValue').textContent = addComma(totalNumberValue);
-	},
-	setButtonPay(handler) {
-		if (handler) $('.divPayWrapperContainer .buttonPay').style.cursor = 'pointer';
-		else $('.divPayWrapperContainer .buttonPay').style.cursor = 'not-allowed';
 	},
 });

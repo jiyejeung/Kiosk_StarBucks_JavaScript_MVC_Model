@@ -4,7 +4,17 @@ import { addComma } from '../utils/NumberTool.js';
 import { spacingString, subComma } from '../utils/StringTool.js';
 
 export default Object.create({
-	init() {},
+	init() {
+		this.hideSectionReviewOrderContainer();
+		setTimeout(() => {
+			this.initButtonShowCoupon();
+			this.initButtonShowOrder();
+			this.initDivSimpleReviewOrderContainer();
+			this.initDivSimpleReviewOrderCouponContainer();
+			this.initDivSearchingCouponContainer();
+			this.initDivResultCouponContainer();
+		}, 300);
+	},
 	setup() {
 		const sectionReviewOrderContainer = this.printSectionReviewOrderContainer();
 		const buttonShowCoupon = this.printButtonShowCoupon();
@@ -466,6 +476,26 @@ export default Object.create({
 			.setClassName('spanDetailedReviewOrderSelectedProductTotalPrice')
 			.complete();
 	},
+	initButtonShowCoupon() {
+		$('.buttonShowCoupon').style.left = '60vw';
+	},
+	initButtonShowOrder() {
+		$('.buttonShowOrder').style.left = '100vw';
+		$('.buttonShowOrder').style.display = 'inline-block';
+		$('.buttonShowOrder').style.opacity = 1;
+	},
+	initDivSimpleReviewOrderContainer() {
+		$('.divSimpleReviewOrderContainer').style.right = 0;
+	},
+	initDivSimpleReviewOrderCouponContainer() {
+		$('.divSimpleReviewOrderCouponContainer').style.right = '-40vw';
+	},
+	initDivSearchingCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = 0;
+	},
+	initDivResultCouponContainer() {
+		$('.divResultCouponContainer').style.left = '40vw';
+	},
 	showSectionReviewOrderContainer() {
 		$('.sectionReviewOrderContainer').style.display = 'flex';
 		setTimeout(() => ($('.sectionReviewOrderContainer').style.opacity = 1), 0);
@@ -514,6 +544,10 @@ export default Object.create({
 	showDivResultCouponContainer() {
 		$('.divSearchingCouponContainer').style.left = '-40vw';
 		$('.divResultCouponContainer').style.left = '0';
+	},
+	hideNoneButtonShowOrder() {
+		$('.buttonShowOrder').style.opacity = 0;
+		setTimeout(() => ($('.buttonShowOrder').display = 'none'), 300);
 	},
 	setSpanUsingPointTotalPrice() {
 		$('.spanUsingPointTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
@@ -580,8 +614,14 @@ export default Object.create({
 		const enterKeyCode = 13;
 		const backSpaceKeyCode = 8;
 
-		if (event.keyCode >= zeroKeyCode && event.keyCode <= nineKeyCode && event.currentTarget.value.length <= maxLength) {
+		if (event.keyCode >= zeroKeyCode && event.keyCode <= nineKeyCode) {
 			(event.currentTarget.value.length === firstLength || event.currentTarget.value.length === middleLength) && (event.currentTarget.value += '-');
+			if (event.currentTarget.value.length > maxLength) {
+				const inputPhoneNumberValue = event.currentTarget.value.split('');
+
+				inputPhoneNumberValue.pop();
+				event.currentTarget.value = inputPhoneNumberValue.join('');
+			}
 		} else if (event.keyCode === enterKeyCode) {
 			Controller.couponComplete();
 		} else if (event.keyCode === backSpaceKeyCode) {
@@ -601,6 +641,7 @@ export default Object.create({
 				this.setSpanUsingPointTotalPrice();
 				this.setSpanUsingPointTotalPoint(addComma(userInfo.point));
 				this.setSpanUsingPointEstimatedPayment();
+				this.hideNoneButtonShowOrder();
 				break;
 			case 'undefined':
 				$('.spanCouponSearchingFailed').textContent = 'There is no information about the registered number!';
@@ -653,10 +694,6 @@ export default Object.create({
 		$('.spanUsingPointEstimatedPayment').textContent = addComma(totalPrice - totalPoints > 0 ? totalPrice - totalPoints : 0);
 	},
 	onClickButtonUsingPointAndPay() {
-		this.hideSectionReviewOrderContainer();
-	},
-	onClickButtonUsingPointCancel() {
-		// this.init();
 		this.hideSectionReviewOrderContainer();
 	},
 });

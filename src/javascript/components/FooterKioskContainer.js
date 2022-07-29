@@ -1,6 +1,9 @@
 import { $, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
+	init() {
+		this.hideFooterKioskContainer();
+	},
 	setup() {
 		const footerKioskContainer = this.printFooterKioskContainer();
 		const divEmail = this.printDivEmail();

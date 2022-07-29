@@ -1,7 +1,7 @@
 import Controller from '../controller/Controller.js';
 
 export default Object.create({
-	userInfo: { id: 10, phoneNumber: '010-5555-5555', point: 1020349 },
+	userInfo: {},
 	async getUserInfo(phoneNumber) {
 		this.userInfo = {};
 
@@ -11,6 +11,16 @@ export default Object.create({
 			.catch(err => console.log(err));
 
 		return this.userInfo;
+	},
+	updateUserInfo(updatedPoint) {
+		this.userInfo = { ...this.userInfo, point: updatedPoint };
+	},
+	postUserInfo({ id, name, phoneNumber, point } = this.userInfo) {
+		fetch('http://localhost:3000/userInfo', {
+			method: 'POST',
+			headers: { 'content-type': 'application/json' },
+			body: JSON.stringify({ id, name, phoneNumber, point }),
+		});
 	},
 	selectedProduct: {},
 	selectedProducts: [],

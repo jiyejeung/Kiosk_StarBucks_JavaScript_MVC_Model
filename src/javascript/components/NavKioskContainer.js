@@ -2,7 +2,10 @@ import { $, objElement } from '../utils/ElementTool.js';
 import { convertTime } from '../utils/NumberTool.js';
 
 export default Object.create({
-	init() {},
+	init() {
+		this.hideNavKioskContainer();
+		setTimeout(() => this.setDivKioskTimer(180), 300);
+	},
 	setup() {
 		const navKioskContainer = this.printNavKioskContainer();
 		const h1NavTitle = this.printH1NavTitle();
@@ -30,8 +33,6 @@ export default Object.create({
 		setTimeout(() => ($('.navKioskContainer').style.display = 'none'), 300);
 	},
 	setDivKioskTimer(time) {
-		$('.divKioskTimer').textContent = convertTime(time);
+		$('.divKioskTimer').textContent = convertTime(parseInt(time));
 	},
-	startTimer() {},
-	stopTimer() {},
 });

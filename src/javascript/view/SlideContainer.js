@@ -2,6 +2,12 @@ import Controller from '../controller/Controller.js';
 import { $, $$, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
+	init() {
+		this.slideHandler = true;
+		this.orderHandler = 0;
+		this.removeLiSlideItems();
+		this.createLiSlideItems();
+	},
 	setup() {
 		const sectionSlideContainer = this.printSectionSlideContainer();
 		const ulSlideContainer = this.printUlSlideContainer();
@@ -12,13 +18,6 @@ export default Object.create({
 		sectionSlideContainer.append(ulSlideContainer, h3SlideTouchText);
 
 		return sectionSlideContainer;
-	},
-	init() {
-		this.hideSectionContainer();
-		this.slideAutomatically = true;
-		this.orderHandler = 0;
-		this.removeLiSlideItems();
-		this.createLiSlideItems();
 	},
 	orderHandler: 0,
 	slideHandler: true,
@@ -43,29 +42,29 @@ export default Object.create({
 	},
 	showSectionContainer() {
 		$('.sectionSlideContainer').style.display = 'inline-block';
-		this.startSlideAutomatically();
 		setTimeout(() => ($('.sectionSlideContainer').style.opacity = 1), 0);
 	},
 	hideSectionContainer() {
 		$('.sectionSlideContainer').style.opacity = 0;
 		setTimeout(() => {
 			$('.sectionSlideContainer').style.display = 'none';
-			$('.ulSlideContainer').remove();
 			this.slideHandler = false;
 		}, 300);
 	},
 	startSlideAutomatically() {
-		setTimeout(() => this.slideHandler && this.slideAutomatically(), 4000);
+		setTimeout(() => this.slideHandler && this.slideAutomatically(), 2500);
 	},
 	slideAutomatically() {
-		$$('.liSlideItem')[0].style.width = 0;
-		setTimeout(() => {
-			$$('.liSlideItem')[0]?.remove();
-			$('.ulSlideContainer')?.appendChild(this.printLiSlideItem(Controller.slideImageInfo()[this.orderHandler]));
-			this.orderHandler++;
-			this.orderHandler = this.orderHandler < 3 ? this.orderHandler : 0;
-			setTimeout(() => this.slideHandler && this.slideAutomatically(), 4000);
-		}, 1000);
+		if (this.slideHandler) {
+			$$('.liSlideItem')[0].style.width = 0;
+			setTimeout(() => {
+				$$('.liSlideItem')[0]?.remove();
+				$('.ulSlideContainer')?.appendChild(this.printLiSlideItem(Controller.slideImageInfo()[this.orderHandler]));
+				this.orderHandler++;
+				this.orderHandler = this.orderHandler < 3 ? this.orderHandler : 0;
+				setTimeout(() => this.slideHandler && this.slideAutomatically(), 3000);
+			}, 500);
+		}
 	},
 	removeLiSlideItems() {
 		$$('.liSlideItem').forEach(li => void li.remove());

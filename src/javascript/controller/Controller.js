@@ -16,7 +16,20 @@ import ReviewOrderContainer from '../view/ReviewOrderContainer.js';
 import PayContainer from '../view/PayContainer.js';
 
 export default {
-	init() {},
+	init() {
+		Timer.resetTimer();
+		IntroContainer.init();
+		SlideContainer.init();
+		TakeOutContainer.init();
+		NavKioskContainer.init();
+		FooterKioskContainer.init();
+		SelectProductContainer.init();
+		SelectOptionContainer.init();
+		ReviewOrderContainer.init();
+		PayContainer.init();
+
+		UserInfo.initSelectedProducts();
+	},
 	async setup() {
 		const fragment = document.createDocumentFragment();
 
@@ -43,6 +56,7 @@ export default {
 		$('.sectionIntroContainer')?.addEventListener('click', () => {
 			IntroContainer.hideSectionIntroContainer();
 			SlideContainer.showSectionContainer();
+			setTimeout(() => SlideContainer.startSlideAutomatically(), 300);
 		});
 	},
 	/* in SectionSlideContainer */
@@ -253,6 +267,7 @@ export default {
 	clickButtonSimpleReviewOrderPay() {
 		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
+			PayContainer.onClickButtonSimpleReviewOrderPay();
 		});
 	},
 	clickButtonSimpleReviewOrderBack() {
@@ -315,13 +330,11 @@ export default {
 	clickButtonUsingPointAndPay() {
 		$('.buttonUsingPointAndPay').addEventListener('click', () => {
 			ReviewOrderContainer.onClickButtonUsingPointAndPay();
-			PayContainer.onClickButtonUsingPointAndPay()
+			PayContainer.onClickButtonUsingPointAndPay();
 		});
 	},
 	clickButtonUsingPointCancel() {
-		$('.buttonUsingPointCancel').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonUsingPointCancel();
-		});
+		$('.buttonUsingPointCancel').addEventListener('click', () => void this.init());
 	},
 	confirmPhoneNumber() {
 		return $('.inputPhoneNumber').value.length === 13;
@@ -444,6 +457,7 @@ export default {
 		return UserInfo.confirmSelectedProductSyrupCountMin();
 	},
 	main() {
+		this.clickH1NavKioskTitle();
 		this.clickSectionIntroContainer();
 		this.clickSectionSlideContainer();
 		this.clickButtonTakeOut();

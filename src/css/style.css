@@ -265,7 +265,7 @@ body {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    transition: all 1000ms ease-in-out;
+    transition: all 500ms ease-in-out;
   }
   #app section.sectionSlideContainer h3.h3SlideTouchText {
     position: absolute;
@@ -405,7 +405,7 @@ body {
     overflow: auto;
   }
   #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer {
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     width: 17.25vw;
     height: 20vw;
     margin-right: 1vw;
@@ -466,8 +466,8 @@ body {
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer {
     width: 100%;
     height: 60%;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+    border-top: 1px solid #0a0a0a;
+    border-bottom: 1px solid #0a0a0a;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -476,7 +476,7 @@ body {
   #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer {
     width: 100%;
     height: 6vw;
-    border-top: 1px solid black;
+    border-top: 1px solid #0a0a0a;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -720,14 +720,13 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: coral;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     z-index: 30;
     transition: all 300ms ease-in-out;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(10, 10, 10, 0.2);
     display: none;
     opacity: 0;
   }
@@ -779,9 +778,9 @@ body {
     width: 100%;
     position: absolute;
     height: 46%;
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(10, 10, 10, 0.2);
     opacity: 0.2;
     top: 0%;
     cursor: pointer;
@@ -890,7 +889,7 @@ body {
     align-items: center;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer {
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     width: 25%;
     height: 100%;
     display: flex;
@@ -983,7 +982,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     margin-right: 2%;
     transition: all 300ms ease-in-out;
     cursor: pointer;
@@ -1083,7 +1082,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Times New Roman", Times, serif;
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     border-left: none;
     border-right: none;
     transition: all 300ms ease-in-out;
@@ -1093,8 +1092,8 @@ body {
     color: #fafafa;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(2) {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #0a0a0a;
+    border-right: 1px solid #0a0a0a;
     background-color: #174841;
     color: #fafafa;
   }
@@ -1164,7 +1163,7 @@ body {
     justify-content: center;
     align-items: center;
     font-family: "Times New Roman", Times, serif;
-    border: 1px solid black;
+    border: 1px solid #0a0a0a;
     border-left: none;
     border-right: none;
     transition: all 300ms ease-in-out;
@@ -1174,8 +1173,8 @@ body {
     color: #fafafa;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(2) {
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+    border-left: 1px solid #0a0a0a;
+    border-right: 1px solid #0a0a0a;
     background-color: #174841;
     color: #fafafa;
   }
@@ -1251,7 +1250,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     padding-left: 1.5vw;
-    border-top: 1px solid black;
+    border-top: 1px solid #0a0a0a;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span {
     font-family: "Times New Roman", Times, serif;
@@ -1465,7 +1464,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1e3932;
+    background-color: #172d29;
     padding: 0 2vw;
     position: absolute;
     top: 0;
@@ -1525,7 +1524,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #1e3932;
+    background-color: #172d29;
     padding: 0 2vw;
     position: absolute;
     top: 0;
@@ -1751,7 +1750,7 @@ body {
     overflow: hidden;
     font-family: "Times New Roman", Times, serif;
     font-size: 3vw;
-    background-color: #1e3932;
+    background-color: #172d29;
     color: #fafafa;
   }
 }

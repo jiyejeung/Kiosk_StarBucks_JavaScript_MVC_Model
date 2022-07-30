@@ -15,12 +15,12 @@ export default Object.create({
 	updateUserInfo(updatedPoint) {
 		this.userInfo = { ...this.userInfo, point: updatedPoint };
 	},
-	postUserInfo({ id, name, phoneNumber, point } = this.userInfo) {
-		fetch('http://localhost:3000/userInfo', {
-			method: 'POST',
+	postUserInfo({ id, point } = this.userInfo) {
+		fetch(`http://localhost:3000/userInfo/${id}`, {
+			method: 'PATCH',
 			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify({ id, name, phoneNumber, point }),
-		});
+			body: JSON.stringify({ id, point }),
+		}).catch(err => console.log(err));
 	},
 	selectedProduct: {},
 	selectedProducts: [],

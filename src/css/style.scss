@@ -1460,7 +1460,7 @@
 		section.sectionPayContainer {
 			width: 100%;
 			height: 100%;
-			@include flexRow();
+			@include flexCol();
 			transition: all 300ms ease-in-out;
 			position: absolute;
 			top: 0;
@@ -1468,15 +1468,49 @@
 			display: none;
 			opacity: 0;
 			overflow: hidden;
-			font-family: 'Times New Roman', Times, serif;
-			font-size: 3vw;
 			background-color: $darkGreen;
 			color: $white;
+			.divPayReviewContainer {
+				// width: 100%;
+				@include flexCol();
+				transition: all 300ms ease-in-out;
+				opacity: 0;
+				display: none;
+				h2.h2PayInputCard {
+					transition: all 300ms ease-in-out;
+					font-family: 'Times New Roman', Times, serif;
+					color: $white;
+					font-weight: bold;
+					font-size: 4vw;
+					opacity: 0;
+					display: none;
+					margin-bottom: 2vw;
+				}
+				h3.h3PayTotalPrice {
+					transition: all 300ms ease-in-out;
+					font-family: 'Times New Roman', Times, serif;
+					color: $white;
+					font-size: 2vw;
+					display: none;
+					margin-bottom: 2vw;
+				}
+				h3.h3PayPointsToBeAccumulated {
+					transition: all 300ms ease-in-out;
+					font-family: 'Times New Roman', Times, serif;
+					color: $white;
+					font-size: 2vw;
+					display: none;
+					margin-bottom: 2vw;
+				}
+			}
 			h2.h2PayComplete {
-			}
-			h3.h3PayTotalPrice {
-			}
-			h3.h3PayPointsToBeAccumulated {
+				transition: all 300ms ease-in-out;
+				font-family: 'Times New Roman', Times, serif;
+				color: $white;
+				font-weight: bold;
+				font-size: 3vw;
+				opacity: 0;
+				display: none;
 			}
 		}
 	}

@@ -4,8 +4,8 @@ export default Object.create({
 	startTimer() {
 		setTimeout(() => {
 			if (this.handler) {
+				this.limitedSeconds = (this.limitedSeconds - 0.1).toFixed(1) > 0 ? (this.limitedSeconds - 0.1).toFixed(1) : 0;
 				this.confirmTimer();
-				this.limitedSeconds -= 0.1;
 				this.startTimer();
 			}
 		}, 100);

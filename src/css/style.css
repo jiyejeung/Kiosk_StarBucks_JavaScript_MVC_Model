@@ -1738,7 +1738,7 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     transition: all 300ms ease-in-out;
@@ -1748,10 +1748,52 @@ body {
     display: none;
     opacity: 0;
     overflow: hidden;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 3vw;
     background-color: #172d29;
     color: #fafafa;
+  }
+  #app section.sectionPayContainer .divPayReviewContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease-in-out;
+    opacity: 0;
+    display: none;
+  }
+  #app section.sectionPayContainer .divPayReviewContainer h2.h2PayInputCard {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 4vw;
+    opacity: 0;
+    display: none;
+    margin-bottom: 2vw;
+  }
+  #app section.sectionPayContainer .divPayReviewContainer h3.h3PayTotalPrice {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-size: 2vw;
+    display: none;
+    margin-bottom: 2vw;
+  }
+  #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeAccumulated {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-size: 2vw;
+    display: none;
+    margin-bottom: 2vw;
+  }
+  #app section.sectionPayContainer h2.h2PayComplete {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 3vw;
+    opacity: 0;
+    display: none;
   }
 }
 @media (min-width: 758px) and (max-width: 1024px) {

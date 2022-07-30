@@ -1,23 +1,25 @@
 import Controller from '../controller/Controller.js';
 import { $, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
+import { subComma } from '../utils/StringTool.js';
 
 export default Object.create({
-	timer: 4,
 	init() {
 		this.hideSectionPayContainer();
 		setTimeout(() => {
-			this.timer = 4;
-			this.initFirstH2PayComplete();
-			this.initH3PayTotalPrice();
-			this.initH3PayPointsToBeAccumulated();
+			this.hideDivPayReviewContainer();
+			this.hideH2PayInputCard();
+			this.hideH3PayTotalPrice();
+			this.hideH2PayComplete();
 		}, 300);
 	},
 	setup() {
 		const sectionPayContainer = this.printSectionPayContainer();
+		const divPayReviewContainer = this.appendDivPayReviewContainer();
+		const h2PayComplete = this.printH2PayComplete();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append();
+		fragment.append(divPayReviewContainer, h2PayComplete);
 
 		sectionPayContainer.appendChild(fragment);
 
@@ -26,47 +28,29 @@ export default Object.create({
 	printSectionPayContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionPayContainer').complete();
 	},
-	printH2PayComplete() {
-		return objElement.createElement('H2', 'Please input your credit card.').setClassName('h2PayComplete').complete();
+	appendDivPayReviewContainer() {
+		const divPayReviewContainer = this.printDivPayReviewContainer();
+		const h2PayInputCard = this.printH2PayInputCard();
+		const h3PayTotalPrice = this.printH3PayTotalPrice();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(h2PayInputCard, h3PayTotalPrice);
+
+		divPayReviewContainer.appendChild(fragment);
+
+		return divPayReviewContainer;
+	},
+	printDivPayReviewContainer() {
+		return objElement.createElement('DIV').setClassName('divPayReviewContainer').complete();
+	},
+	printH2PayInputCard() {
+		return objElement.createElement('H2', 'Please input your credit card.').setClassName('h2PayInputCard').complete();
 	},
 	printH3PayTotalPrice() {
 		return objElement.createElement('H3').setClassName('h3PayTotalPrice').complete();
 	},
-	printH3PayPointsToBeAccumulated() {
-		return objElement.createElement('H3').setClassName('h3PayPointsToBeAccumulated').complete();
-	},
-	initFirstH2PayComplete() {
-		$('.h2PayComplete').textContent = 'Please input your credit card.';
-	},
-	initSecondH2PayComplete() {
-		$('.h2PayComplete').textContent = 'Thank you for using STARBUCKS.';
-	},
-	initH3PayTotalPrice() {
-		$('.h3PayTotalPrice').style.display = 'none';
-		$('.h3PayTotalPrice').textContent = 'Total Price: 0';
-	},
-	initH3PayPointsToBeAccumulated() {
-		$('.h3PayPointsToBeAccumulated').style.display = 'none';
-		$('.h3PayPointsToBeAccumulated').textContent = 'Points To Be Accumulated: 0';
-	},
-	setH3PayTotalPrice(totalPrice) {
-		$('.h3PayTotalPrice').style.display = 'inline-block';
-		$('.h3PayTotalPrice').textContent = `Total Price: ${addComma(totalPrice)}`;
-	},
-	setH3PayPointsToBeAccumulated(points) {
-		$('.h3PayPointsToBeAccumulated').style.display = 'inline-block';
-		$('.h3PayPointsToBeAccumulated').textContent = `Points To Be Accumulated: ${addComma(points)}`;
-	},
-	startTimer() {
-		if (this.timer) {
-			setTimeout(() => {
-				this.timer--;
-				this.startTimer();
-			}, 1000);
-		} else {
-			$('.sectionPayContainer').textContent = 'Thank you for using STARBUCKS';
-			setTimeout(() => Controller.init(), 3000);
-		}
+	printH2PayComplete() {
+		return objElement.createElement('H2', '스타벅스를 이용해 주셔서 진심으로 감사 드립니다.').setClassName('h2PayComplete').complete();
 	},
 	showSectionPayContainer() {
 		$('.sectionPayContainer').style.display = 'flex';
@@ -76,16 +60,94 @@ export default Object.create({
 		$('.sectionPayContainer').style.opacity = 0;
 		setTimeout(() => ($('.sectionPayContainer').style.display = 'none'), 300);
 	},
-	onClickButtonUsingPointAndPay() {
-		this.showSectionPayContainer();
-		setTimeout(() => {
-			this.startTimer();
-		}, 300);
+	showDivPayReviewContainer() {
+		$('.divPayReviewContainer').style.display = 'flex';
+		setTimeout(() => ($('.divPayReviewContainer').style.opacity = 1), 0);
 	},
-	onClickButtonSimpleReviewOrderPay() {
+	hideDivPayReviewContainer() {
+		$('.divPayReviewContainer').style.opacity = 0;
+		setTimeout(() => ($('.divPayReviewContainer').style.display = 'none'), 300);
+	},
+	showH2PayInputCard() {
+		$('.h2PayInputCard').style.display = 'block';
+		setTimeout(() => ($('.h2PayInputCard').style.opacity = 1), 0);
+	},
+	hideH2PayInputCard() {
+		$('.h2PayInputCard').style.opacity = 0;
+		setTimeout(() => ($('.h2PayInputCard').style.display = 'none'), 300);
+	},
+	showH3PayTotalPrice() {
+		$('.h3PayTotalPrice').style.display = 'block';
+	},
+	hideH3PayTotalPrice() {
+		$('.h3PayTotalPrice').style.display = 'none';
+	},
+	showH2PayComplete() {
+		$('.h2PayComplete').style.display = 'block';
+		setTimeout(() => ($('.h2PayComplete').style.opacity = 1), 0);
+	},
+	hideH2PayComplete() {
+		$('.h2PayComplete').style.opacity = 0;
+		setTimeout(() => ($('.h2PayComplete').style.display = 'none'), 300);
+	},
+	setH3PayTotalPrice(totalPrice) {
+		$('.h3PayTotalPrice').style.display = 'block';
+		$('.h3PayTotalPrice').textContent = `Total Price: ${totalPrice}`;
+	},
+	setH2PayComplete(points) {
+		$('.h2PayComplete').textContent = `${points}포인트가 적립되었습니다. 스타벅스를 이용해 주셔서 진심으로 감사드립니다.`;
+	},
+	setH2PayCompleteDirectly() {
+		$('.h2PayComplete').textContent = '스타벅스를 이용해 주셔서 진심으로 감사드립니다.';
+	},
+	hideDivPayReviewContainerDirectly() {
+		$('.divPayReviewContainer').display = 'none';
+	},
+	onClickButtonSimpleReviewOrderPay(totalPrice) {
+		this.setH3PayTotalPrice(totalPrice);
+		this.setH2PayComplete(totalPrice);
+		this.showH2PayInputCard();
+		this.showH3PayTotalPrice();
+		this.showDivPayReviewContainer();
+		this.hideH2PayComplete();
 		this.showSectionPayContainer();
 		setTimeout(() => {
-			this.startTimer();
-		}, 300);
+			this.hideDivPayReviewContainer();
+			setTimeout(() => this.showH2PayComplete(), 300);
+			setTimeout(() => Controller.init(), 5000);
+		}, 5000);
+	},
+	onClickButtonUsingPointAndPay() {
+		const estimatedPayment = subComma($('.spanUsingPointEstimatedPayment').textContent);
+		const currentPoints = subComma($('.spanUsingPointTotalPoint').textContent);
+		const pointsToBeAccumulated = parseInt(estimatedPayment * 0.1);
+		const totalPoints = currentPoints + pointsToBeAccumulated;
+		if (estimatedPayment) {
+			this.showSectionPayContainer();
+			this.showDivPayReviewContainer();
+			this.setH3PayTotalPrice(addComma(estimatedPayment));
+			this.setH2PayComplete(addComma(pointsToBeAccumulated));
+			this.showH2PayInputCard();
+			this.showH3PayTotalPrice();
+			setTimeout(() => {
+				this.hideDivPayReviewContainer();
+				setTimeout(() => {
+					this.showH2PayComplete();
+					Controller.updateUserInfo(totalPoints)
+						.then(() => Controller.postUserInfo())
+						.then(() => setTimeout(() => Controller.init(), 5000))
+						.catch(err => console.log(err));
+				}, 300);
+			}, 5000);
+		} else {
+			this.showSectionPayContainer();
+			this.hideDivPayReviewContainerDirectly();
+			this.setH2PayCompleteDirectly();
+			this.showH2PayComplete();
+			Controller.updateUserInfo(totalPoints)
+				.then(() => Controller.postUserInfo())
+				.then(() => setTimeout(() => Controller.init(), 5000))
+				.catch(err => console.log(err));
+		}
 	},
 });

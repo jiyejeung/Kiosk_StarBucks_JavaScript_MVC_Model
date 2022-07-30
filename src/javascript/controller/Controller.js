@@ -266,8 +266,9 @@ export default {
 	},
 	clickButtonSimpleReviewOrderPay() {
 		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => {
+			const totalPrice = $('.spanSimpleReviewOrderTotalPrice').textContent;
 			ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
-			PayContainer.onClickButtonSimpleReviewOrderPay();
+			PayContainer.onClickButtonSimpleReviewOrderPay(totalPrice);
 		});
 	},
 	clickButtonSimpleReviewOrderBack() {
@@ -340,11 +341,14 @@ export default {
 		return $('.inputPhoneNumber').value.length === 13;
 	},
 	startTimer() {
-		Timer.handler &&
+		if (Timer.handler || Timer.limitedSeconds > 0) {
 			setTimeout(() => {
 				NavKioskContainer.setDivKioskTimer(Timer.limitedSeconds);
 				this.startTimer();
-			}, 1000);
+			}, 100);
+		} else {
+			this.init();
+		}
 	},
 	initTimer() {
 		Timer.resetTimer();
@@ -392,6 +396,12 @@ export default {
 	/* Start UserInfo Data */
 	userInfo() {
 		return UserInfo.userInfo;
+	},
+	async updateUserInfo(updatedPoint) {
+		await UserInfo.updateUserInfo(updatedPoint);
+	},
+	postUserInfo() {
+		UserInfo.postUserInfo();
 	},
 	selectedProductInfo() {
 		return UserInfo.selectedProduct;

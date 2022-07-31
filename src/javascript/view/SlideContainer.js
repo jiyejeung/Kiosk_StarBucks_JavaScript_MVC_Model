@@ -1,13 +1,23 @@
-import Controller from '../controller/Controller.js';
+// utils
 import { $, $$, objElement } from '../utils/ElementTool.js';
 
+// controller
+import Controller from '../controller/Controller.js';
+
 export default Object.create({
+	// handler properties
+	orderHandler: 0,
+	slideHandler: true,
+
+	// init method
 	init() {
 		this.slideHandler = true;
 		this.orderHandler = 0;
 		this.removeLiSlideItems();
 		this.createLiSlideItems();
 	},
+
+	// setup method
 	setup() {
 		const sectionSlideContainer = this.printSectionSlideContainer();
 		const ulSlideContainer = this.printUlSlideContainer();
@@ -19,8 +29,8 @@ export default Object.create({
 
 		return sectionSlideContainer;
 	},
-	orderHandler: 0,
-	slideHandler: true,
+
+	// print methods
 	printSectionSlideContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionSlideContainer').complete();
 	},
@@ -40,6 +50,17 @@ export default Object.create({
 	printLiSlideItem(imageUrl) {
 		return objElement.createElement('LI').setClassName('liSlideItem').setAttribute('style', `background-image: url(${imageUrl})`).complete();
 	},
+
+	// event callback methods
+	onClickSectionIntroContainer() {
+		this.showSectionContainer();
+		setTimeout(() => this.startSlideAutomatically(), 300);
+	},
+	onClickSectionSlideContainer() {
+		this.hideSectionContainer();
+	},
+
+	// action methods
 	showSectionContainer() {
 		$('.sectionSlideContainer').style.display = 'inline-block';
 		setTimeout(() => ($('.sectionSlideContainer').style.opacity = 1), 0);
@@ -50,9 +71,6 @@ export default Object.create({
 			$('.sectionSlideContainer').style.display = 'none';
 			this.slideHandler = false;
 		}, 300);
-	},
-	startSlideAutomatically() {
-		setTimeout(() => this.slideHandler && this.slideAutomatically(), 2500);
 	},
 	slideAutomatically() {
 		if (this.slideHandler) {
@@ -66,17 +84,13 @@ export default Object.create({
 			}, 500);
 		}
 	},
-	removeLiSlideItems() {
-		$$('.liSlideItem').forEach(li => void li.remove());
+	startSlideAutomatically() {
+		setTimeout(() => this.slideHandler && this.slideAutomatically(), 2500);
 	},
 	createLiSlideItems() {
 		$('.ulSlideContainer').appendChild(this.printLiSlideItems());
 	},
-	onClickSectionIntroContainer() {
-		this.showSectionContainer();
-		setTimeout(() => this.startSlideAutomatically(), 300);
-	},
-	onClickSectionSlideContainer() {
-		this.hideSectionContainer();
+	removeLiSlideItems() {
+		$$('.liSlideItem').forEach(li => void li.remove());
 	},
 });

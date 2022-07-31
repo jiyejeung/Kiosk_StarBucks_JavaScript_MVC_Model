@@ -1,12 +1,18 @@
-import Controller from '../controller/Controller.js';
+// utils
 import { $, $$, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
 import { spacingString } from '../utils/StringTool.js';
 
+// controller
+import Controller from '../controller/Controller.js';
+
 export default Object.create({
+	// init method
 	init() {
 		this.hideSectionSelectOptionContainer();
 	},
+
+	// setup method
 	setup() {
 		const sectionSelectOptionContainer = this.printSectionSelectOptionContainer();
 		const divDisabledWrapperOptionModalContainer = this.appendDivDisabledWrapperOptionModalContainer();
@@ -20,6 +26,8 @@ export default Object.create({
 
 		return sectionSelectOptionContainer;
 	},
+
+	// print methods
 	printSectionSelectOptionContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionOptionContainer').complete();
 	},
@@ -226,7 +234,6 @@ export default Object.create({
 	printLiCoffeeCup(selectedCoffee) {
 		return objElement.createElement('Li').setClassName('liCoffeeCup').setAttribute('style', `background-image: url("./images/${selectedCoffee}.png")`).complete();
 	},
-	// start
 	appendDivIceOptionContainer() {
 		const divIceOptionContainer = this.printDivIceOptionContainer();
 		const h4IceOption = this.printH4IceOption();
@@ -245,7 +252,6 @@ export default Object.create({
 	printH4IceOption() {
 		return objElement.createElement('H4', 'Ice Options').setClassName('h4IceOption').complete();
 	},
-	// copied
 	appendUlIceListWrapperContainer() {
 		const ulIceListWrapperContainer = this.printUlIceListWrapperContainer();
 		const liWrapperDisabledNoIceContainer = this.printLiWrapperDisabledNoIceContainer();
@@ -298,7 +304,6 @@ export default Object.create({
 	printLiIceCube(selectedIce) {
 		return objElement.createElement('Li').setClassName('liIceCube').setAttribute('style', `background-image: url("./images/${selectedIce}.png")`).complete();
 	},
-	// not yet!!!
 	appendDivAdditionalOptionContainer() {
 		const divAdditionalOptionContainer = this.printDivAdditionalOptionContainer();
 		const divEspressoOptionContainer = this.appendDivEspressoOptionContainer();
@@ -385,8 +390,6 @@ export default Object.create({
 	printSpanEspressoShotCount() {
 		return objElement.createElement('SPAN', '0').setClassName('spanEspressoShotCount').complete();
 	},
-
-	// ===
 	appendDivSyrupOptionContainer() {
 		const divSyrupOptionContainer = this.printDivSyrupOptionContainer();
 		const h4SyrupOption = this.printH4SyrupOption();
@@ -403,8 +406,6 @@ export default Object.create({
 	printDivSyrupOptionContainer() {
 		return objElement.createElement('DIV').setClassName('divSyrupOptionContainer').complete();
 	},
-
-	// copied start
 	printH4SyrupOption() {
 		return objElement.createElement('H4', 'Syrup Options').setClassName('h4SyrupOption').complete();
 	},
@@ -460,9 +461,6 @@ export default Object.create({
 	printSpanSyrupCount() {
 		return objElement.createElement('SPAN', '0').setClassName('spanSyrupCount').complete();
 	},
-
-	// copied end
-	// not yet!! end==
 	appendDivPriceOptionContainer() {
 		const divPriceOptionContainer = this.printDivPriceOptionContainer();
 		const spanOptionPriceText = this.printSpanOptionPriceText();
@@ -505,10 +503,6 @@ export default Object.create({
 	printSpanPrice() {
 		return objElement.createElement('SPAN').setClassName('spanPrice').complete();
 	},
-	print() {
-		return objElement.createElement('').setClassName('').complete();
-	},
-	// complete ===============
 	appendDivProductWrapperContainer() {
 		const divProductWrapperContainer = this.printDivProductWrapperContainer();
 		const divProductImageContainer = this.printDivProductImageContainer();
@@ -562,63 +556,7 @@ export default Object.create({
 		return objElement.createElement('BUTTON', 'Cancel').setClassName('buttonCancelAddingToCart').complete();
 	},
 
-	// events
-	showSectionSelectOptionContainer() {
-		$('.sectionOptionContainer').style.display = 'flex';
-		setTimeout(() => ($('.sectionOptionContainer').style.opacity = 1), 0);
-	},
-	hideSectionSelectOptionContainer() {
-		$('.sectionOptionContainer').style.opacity = 0;
-		setTimeout(() => ($('.sectionOptionContainer').style.display = 'none'), 300);
-	},
-	showDivDisabledWrapperOptionModalContainer() {
-		$('.divDisabledWrapperOptionModalContainer').style.display = 'flex';
-		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.opacity = '1'), 0);
-	},
-	hideDivDisabledWrapperOptionModalContainer() {
-		$('.divDisabledWrapperOptionModalContainer').style.opacity = '0';
-		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.display = 'none'), 300);
-	},
-	showDefaultOptionContainer() {
-		$('.divDefaultOptionContainer').style.display = 'flex';
-		setTimeout(() => ($('.divDefaultOptionContainer').style.opacity = 1), 0);
-	},
-	hideDefaultOptionContainer() {
-		$('.divDefaultOptionContainer').style.opacity = 0;
-		setTimeout(() => ($('.divDefaultOptionContainer').style.display = 'none'), 300);
-	},
-	showAdditionalOptionContainer() {
-		$('.divAdditionalOptionContainer').style.display = 'flex';
-		setTimeout(() => ($('.divAdditionalOptionContainer').style.opacity = 1), 0);
-	},
-	hideAdditionalOptionContainer() {
-		$('.divAdditionalOptionContainer').style.opacity = 0;
-		setTimeout(() => ($('.divAdditionalOptionContainer').style.display = 'none'), 300);
-	},
-	blockDetailedOption() {
-		$('.liWrapperDisabledContainer').style.display = 'inline-block';
-	},
-	accessDetailedOption() {
-		$('.liWrapperDisabledContainer').style.display = 'none';
-	},
-	blockNoIceOption() {
-		$('.liWrapperDisabledNoIceContainer').style.display = 'block';
-	},
-	accessNoIceOption() {
-		$('.liWrapperDisabledNoIceContainer').style.display = 'none';
-	},
-	blockIceOption() {
-		$('.liWrapperDisabledIceContainer').style.display = 'block';
-	},
-	accessIceOption() {
-		$('.liWrapperDisabledIceContainer').style.display = 'none';
-	},
-	toggleLiWrapperContainer(handler = true) {
-		if (handler) $('.ulOptionListContainer .liWrapperContainer').style.top = '0%';
-		else $('.ulOptionListContainer .liWrapperContainer').style.top = '54%';
-	},
-	// ========================================================================================== //
-	// ========================================================================================== //
+	// event callback methods
 	onClickUlSelectProductItemContainer_Common() {
 		this.setH3Name();
 		this.setDivCategory();
@@ -728,7 +666,7 @@ export default Object.create({
 	onClickLiEspressoRoastOption() {
 		this.setLiEspressoRoast();
 	},
-	onClickLiSyrupOption(target) {
+	onClickLiSyrupOption() {
 		this.setLiSyrup();
 	},
 	onClickButtonCalcEspressoShot({ textContent }) {
@@ -785,6 +723,64 @@ export default Object.create({
 	onClickButtonCancelAddingToCart() {
 		this.hideSectionSelectOptionContainer();
 	},
+
+	// action methods
+	showSectionSelectOptionContainer() {
+		$('.sectionOptionContainer').style.display = 'flex';
+		setTimeout(() => ($('.sectionOptionContainer').style.opacity = 1), 0);
+	},
+	showDivDisabledWrapperOptionModalContainer() {
+		$('.divDisabledWrapperOptionModalContainer').style.display = 'flex';
+		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.opacity = '1'), 0);
+	},
+	showDefaultOptionContainer() {
+		$('.divDefaultOptionContainer').style.display = 'flex';
+		setTimeout(() => ($('.divDefaultOptionContainer').style.opacity = 1), 0);
+	},
+	showAdditionalOptionContainer() {
+		$('.divAdditionalOptionContainer').style.display = 'flex';
+		setTimeout(() => ($('.divAdditionalOptionContainer').style.opacity = 1), 0);
+	},
+	hideSectionSelectOptionContainer() {
+		$('.sectionOptionContainer').style.opacity = 0;
+		setTimeout(() => ($('.sectionOptionContainer').style.display = 'none'), 300);
+	},
+	hideDivDisabledWrapperOptionModalContainer() {
+		$('.divDisabledWrapperOptionModalContainer').style.opacity = '0';
+		setTimeout(() => ($('.divDisabledWrapperOptionModalContainer').style.display = 'none'), 300);
+	},
+	hideDefaultOptionContainer() {
+		$('.divDefaultOptionContainer').style.opacity = 0;
+		setTimeout(() => ($('.divDefaultOptionContainer').style.display = 'none'), 300);
+	},
+	hideAdditionalOptionContainer() {
+		$('.divAdditionalOptionContainer').style.opacity = 0;
+		setTimeout(() => ($('.divAdditionalOptionContainer').style.display = 'none'), 300);
+	},
+	accessDetailedOption() {
+		$('.liWrapperDisabledContainer').style.display = 'none';
+	},
+	accessNoIceOption() {
+		$('.liWrapperDisabledNoIceContainer').style.display = 'none';
+	},
+	accessIceOption() {
+		$('.liWrapperDisabledIceContainer').style.display = 'none';
+	},
+	blockDetailedOption() {
+		$('.liWrapperDisabledContainer').style.display = 'inline-block';
+	},
+	blockNoIceOption() {
+		$('.liWrapperDisabledNoIceContainer').style.display = 'block';
+	},
+	blockIceOption() {
+		$('.liWrapperDisabledIceContainer').style.display = 'block';
+	},
+	toggleLiWrapperContainer(handler = true) {
+		if (handler) $('.ulOptionListContainer .liWrapperContainer').style.top = '0%';
+		else $('.ulOptionListContainer .liWrapperContainer').style.top = '54%';
+	},
+
+	// customization methods
 	setH3Name() {
 		$('.h3ProductName').textContent = spacingString(Controller.selectedProductInfo().productName);
 	},

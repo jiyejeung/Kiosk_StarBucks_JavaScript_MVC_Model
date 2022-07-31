@@ -89,9 +89,6 @@ export default Object.create({
 
 		return [selectedProduct.productCount, selectedProduct.productPrice + selectedProduct.productAdditionalFee];
 	},
-	setSelectedProductPrice(productPriceValue) {
-		this.selectedProduct.productPrice = productPriceValue;
-	},
 	setSelectedProductAdditionalFee() {
 		const sizePrice = Controller.optionPriceInfo().size[this.selectedProduct.productSize];
 		const espressoPrice = Controller.optionPriceInfo().espresso * this.selectedProduct.productEspressoShot;
@@ -120,15 +117,6 @@ export default Object.create({
 	confirmEmptySelectedProducts() {
 		return this.selectedProducts.length;
 	},
-	confirmSelectedProductNotEspresso() {
-		return this.selectedProduct.productEspressoRoast === 'notEspresso';
-	},
-	confirmSelectedProductCountMax() {
-		return this.selectedProduct.productCount < 99;
-	},
-	confirmSelectedProductCountMin() {
-		return this.selectedProduct.productCount > 1;
-	},
 	confirmSelectedProductEspressoShotMax() {
 		return this.selectedProduct.productEspressoShot < 3;
 	},
@@ -141,29 +129,4 @@ export default Object.create({
 	confirmSelectedProductSyrupCountMin() {
 		return this.selectedProduct.productSyrupCount > 0;
 	},
-	// addSelectedProducts() {
-	// 	this.confirmBakery() && this.confirmExistSameName() && this.selectedProducts.push({ ...this.selectedProduct });
-	// },
-	// confirmExistSameName() {
-	// 	return this.selectedProducts.some(({ productName }) => productName === this.selectedProduct.productName);
-	// },
-	// confirmBakery() {
-	// 	return this.selectedProduct.productCategory === 'bakery';
-	// },
-	// addSelectedProductCount() {
-	// 	this.selectedProducts.map(selectedProduct => {
-	// 		if (selectedProduct.productName === this.selectedProduct.productName) {
-	// 			selectedProduct.productCount = selectedProduct.productCount === 99 ? selectedProduct.productName : selectedProduct.productCount + 1;
-	// 			return selectedProduct;
-	// 		} else return selectedProduct;
-	// 	});
-	// },
-	// subSelectedProductCount() {
-	// 	this.selectedProducts.map(selectedProduct => {
-	// 		if (selectedProduct.productName === this.selectedProduct.productName) {
-	// 			selectedProduct.productCount = selectedProduct.productCount === 99 ? selectedProduct.productName : selectedProduct.productCount + 1;
-	// 			return selectedProduct;
-	// 		} else return selectedProduct;
-	// 	});
-	// },
 });

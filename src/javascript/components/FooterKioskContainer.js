@@ -1,9 +1,13 @@
+// utils
 import { $, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
+	// initialize method
 	init() {
 		this.hideFooterKioskContainer();
 	},
+
+	// setup method
 	setup() {
 		const footerKioskContainer = this.printFooterKioskContainer();
 		const divEmail = this.printDivEmail();
@@ -13,6 +17,8 @@ export default Object.create({
 
 		return footerKioskContainer;
 	},
+
+	// print methods
 	printFooterKioskContainer() {
 		return objElement.createElement('footer').setClassName('footerKioskContainer').complete();
 	},
@@ -22,6 +28,16 @@ export default Object.create({
 	printDivContactMe() {
 		return objElement.createElement('DIV', "This website was created as part of my portfolio. If you have any questions, please don't hesitate to send me a message!").setClassName('divContactMe').complete();
 	},
+
+	// event callback methods
+	onClickButtonTakeOut() {
+		this.showFooterKioskContainer();
+	},
+	onClickButtonStore() {
+		this.showFooterKioskContainer();
+	},
+
+  // action methods
 	showFooterKioskContainer() {
 		$('.footerKioskContainer').style.display = 'flex';
 		setTimeout(() => ($('.footerKioskContainer').style.opacity = 1), 0);
@@ -29,11 +45,5 @@ export default Object.create({
 	hideFooterKioskContainer() {
 		$('.footerKioskContainer').style.opacity = 0;
 		setTimeout(() => ($('.footerKioskContainer').style.display = 'none'), 300);
-	},
-	onClickButtonTakeOut() {
-		this.showFooterKioskContainer();
-	},
-	onClickButtonStore() {
-		this.showFooterKioskContainer();
 	},
 });

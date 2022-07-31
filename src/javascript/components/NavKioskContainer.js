@@ -1,11 +1,15 @@
+// utils
 import { $, objElement } from '../utils/ElementTool.js';
 import { convertTime } from '../utils/NumberTool.js';
 
 export default Object.create({
+	// initialize method
 	init() {
 		this.hideNavKioskContainer();
 		setTimeout(() => this.setDivKioskTimer(180), 300);
 	},
+
+	// setup method
 	setup() {
 		const navKioskContainer = this.printNavKioskContainer();
 		const h1NavTitle = this.printH1NavTitle();
@@ -15,6 +19,8 @@ export default Object.create({
 
 		return navKioskContainer;
 	},
+
+	// print methods
 	printNavKioskContainer() {
 		return objElement.createElement('NAV').setClassName('navKioskContainer').complete();
 	},
@@ -24,6 +30,16 @@ export default Object.create({
 	printDivKioskTimer() {
 		return objElement.createElement('DIV', '03:00').setClassName('divKioskTimer').complete();
 	},
+
+	// event callback methods
+	onClickButtonTakeOut() {
+		this.showNavKioskContainer();
+	},
+	onClickButtonStore() {
+		this.showNavKioskContainer();
+	},
+
+	// action methods
 	showNavKioskContainer() {
 		$('.navKioskContainer').style.display = 'flex';
 		setTimeout(() => ($('.navKioskContainer').style.opacity = 1), 0);
@@ -32,13 +48,9 @@ export default Object.create({
 		$('.navKioskContainer').style.opacity = 0;
 		setTimeout(() => ($('.navKioskContainer').style.display = 'none'), 300);
 	},
+
+	// customization methods
 	setDivKioskTimer(time) {
 		$('.divKioskTimer').textContent = convertTime(parseInt(time));
-	},
-	onClickButtonTakeOut() {
-		this.showNavKioskContainer();
-	},
-	onClickButtonStore() {
-		this.showNavKioskContainer();
 	},
 });

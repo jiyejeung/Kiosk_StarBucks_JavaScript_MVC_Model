@@ -1,4 +1,7 @@
+// utils
 import { $ } from './utils/ElementTool.js';
+
+// controller
 import Controller from './controller/Controller.js';
 
 Controller.setup()

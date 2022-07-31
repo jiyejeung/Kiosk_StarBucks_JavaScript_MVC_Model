@@ -1,9 +1,13 @@
-import Controller from '../controller/Controller.js';
+// utils
 import { $, $$, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
-import { spacingString, subComma, subSpacingString } from '../utils/StringTool.js';
+import { spacingString } from '../utils/StringTool.js';
+
+// controller
+import Controller from '../controller/Controller.js';
 
 export default Object.create({
+	// init method
 	init() {
 		this.hideSectionSelectProductContainer();
 		setTimeout(() => {
@@ -11,9 +15,11 @@ export default Object.create({
 			this.initUlSelectProductListContainer();
 			this.initSpanTotalNumberValue();
 			this.initSpanTotalAmountValue();
-			this.removeUlSelectedProductListContainer();
+			this.initUlSelectedProductListContainer();
 		}, 300);
 	},
+
+	// setup method
 	setup() {
 		const sectionSelectProductContainer = this.printSectionSelectProductContainer();
 		const ulSelectProductCategoryContainer = this.appendUlSelectProductCategoryContainer();
@@ -30,6 +36,8 @@ export default Object.create({
 
 		return sectionSelectProductContainer;
 	},
+
+	// print methods
 	printSectionSelectProductContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionSelectProductContainer').complete();
 	},
@@ -121,13 +129,12 @@ export default Object.create({
 	printUlSelectedProductListContainer() {
 		return objElement.createElement('UL').setClassName('ulSelectedProductListContainer').complete();
 	},
-	// important!! start
-	appendUlSelectedProductItemContainer({ id, productName, productPrice, productAdditionalFee, productCount }) {
+	appendUlSelectedProductItemContainer({ id, productName, productPrice, productAdditionalFee, productCount, productType }) {
 		const ulSelectedProductItemContainer = this.printUlSelectedProductItemContainer();
 		const liItemId = this.printLiItemId(id);
 		const liItemName = this.printLiItemName(productName);
 		const liWrapperContainer = this.appendLiWrapperItemContainer((productPrice + productAdditionalFee) * productCount, productCount);
-		const liItemButtonContainer = this.appendLiItemButtonContainer();
+		const liItemButtonContainer = this.appendLiItemButtonContainer(productType);
 		const fragment = document.createDocumentFragment();
 
 		fragment.append(liItemId, liItemName, liWrapperContainer, liItemButtonContainer);
@@ -208,13 +215,19 @@ export default Object.create({
 	printDivAddImageContainer() {
 		return objElement.createElement('DIV').setClassName('divAddImageContainer').complete();
 	},
-	appendLiItemButtonContainer() {
+	appendLiItemButtonContainer(productType) {
 		const liItemButtonContainer = this.printLiItemButtonContainer();
 		const buttonItemOption = this.printButtonItemOption();
+		const buttonItemOption_bakeryAndAvocado = this.printButtonItemOption_bakeryAndAvocado();
 		const buttonItemDelete = this.printButtonItemDelete();
+		const buttonItemDelete_bakeryAndAvocado = this.printButtonItemDelete_bakeryAndAvocado();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(buttonItemOption, buttonItemDelete);
+		if (productType === 'bakery' || productType === 'avocado') {
+			fragment.append(buttonItemOption_bakeryAndAvocado, buttonItemDelete_bakeryAndAvocado);
+		} else {
+			fragment.append(buttonItemOption, buttonItemDelete);
+		}
 
 		liItemButtonContainer.appendChild(fragment);
 
@@ -226,10 +239,15 @@ export default Object.create({
 	printButtonItemOption() {
 		return objElement.createElement('BUTTON', 'Show Options').setClassName('buttonItemOption').complete();
 	},
+	printButtonItemOption_bakeryAndAvocado() {
+		return objElement.createElement('BUTTON', 'Show Options').setClassName('buttonItemOption').setAttribute('style', 'display: none').complete();
+	},
 	printButtonItemDelete() {
 		return objElement.createElement('BUTTON', 'Delete Item').setClassName('buttonItemDelete').complete();
 	},
-	// important!! end
+	printButtonItemDelete_bakeryAndAvocado() {
+		return objElement.createElement('BUTTON', 'Delete Item').setClassName('buttonItemDelete').setAttribute('style', 'width: 100%').complete();
+	},
 	appendDivPayWrapperContainer() {
 		const divPayWrapperContainer = this.printDivPayWrapperContainer();
 		const divPayInfoContainer = this.appendDivPayInfoContainer();
@@ -310,74 +328,8 @@ export default Object.create({
 	printButtonPay() {
 		return objElement.createElement('BUTTON', 'PAY').setClassName('buttonPay').complete();
 	},
-	initLiSelectProductCategoryItem() {
-		$$('.liSelectProductCategoryItem').forEach(li => void (li.style.backgroundColor = '#16584e'));
-		$('.liSelectProductCategoryItem').style.backgroundColor = '#193c36';
-	},
-	initUlSelectProductListContainer() {
-		$$('.ulSelectProductListContainer').forEach(ul => {
-			ul.style.display = 'none';
-			ul.style.opacity = 0;
-			ul.scrollTop = 0;
-		});
-		$('.ulSelectProductListContainer').style.display = 'flex';
-		$('.ulSelectProductListContainer').style.opacity = 1;
-	},
-	initSpanTotalNumberValue() {
-		$('.spanTotalNumberValue').textContent = 0;
-	},
-	initSpanTotalAmountValue() {
-		$('.spanTotalAmountValue').textContent = 0;
-	},
-	setSpanTotalAmountValue(totalAmountValue) {
-		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
-	},
-	setSpanTotalNumberValue(totalNumberValue) {
-		$('.spanTotalNumberValue').textContent = addComma(totalNumberValue);
-	},
-	setButtonPay(handler) {
-		if (handler) $('.divPayWrapperContainer .buttonPay').style.cursor = 'pointer';
-		else $('.divPayWrapperContainer .buttonPay').style.cursor = 'not-allowed';
-	},
-	changeBackgroundColorLiSelectProductCategoryItem(target) {
-		$$('.liSelectProductCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
-		target.style.backgroundColor = '#193c36';
-	},
-	showUlSelectProductListContainer(index01) {
-		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
-			if (index01 === index02) {
-				ul.style.display = 'flex';
-				ul.scrollTop = 0;
-				setTimeout(() => (ul.style.opacity = 1), 300);
-			}
-		});
-	},
-	hideUlSelectProductListContainer(index01) {
-		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
-			index01 !== index02 && ((ul.style.opacity = 0), setTimeout(() => (ul.style.display = 'none'), 300));
-		});
-	},
-	showSectionSelectProductContainer() {
-		$('.sectionSelectProductContainer').style.display = 'flex';
-		setTimeout(() => ($('.sectionSelectProductContainer').style.opacity = 1), 0);
-	},
-	hideSectionSelectProductContainer() {
-		$('.sectionSelectProductContainer').style.opacity = 0;
-		setTimeout(() => ($('.sectionSelectProductContainer').style.display = 'none'), 300);
-	},
-	removeUlSelectedProductListContainer() {
-		$$('.ulSelectedProductItemContainer').forEach(ul => ul.remove());
-	},
-	createUlSelectProductListContainer_BakeryAndAvocado(selectedProductInfo) {
-		$('.ulSelectedProductListContainer').appendChild(this.appendUlSelectedProductItemContainer(selectedProductInfo));
-	},
-	createUlSelectProductListContainer() {
-		const fragment = document.createDocumentFragment();
 
-		Controller.selectedProductsInfo().forEach(selectedProductInfo => fragment.appendChild(this.appendUlSelectedProductItemContainer(selectedProductInfo)));
-
-		$('.ulSelectedProductListContainer').appendChild(fragment);
-	},
+	// event callback methods
 	onClickButtonTakeOut() {
 		this.showSectionSelectProductContainer();
 	},
@@ -436,7 +388,7 @@ export default Object.create({
 	},
 	onClickButtonAddToCart(handlerEmptySelectedProducts) {
 		this.showSectionSelectProductContainer();
-		this.removeUlSelectedProductListContainer();
+		this.initUlSelectedProductListContainer();
 		this.createUlSelectProductListContainer();
 		this.setSpanTotalAmountValue(Controller.totalAmountValue());
 		this.setSpanTotalNumberValue(Controller.totalNumberValue());
@@ -447,6 +399,80 @@ export default Object.create({
 	},
 	onClickButtonSimpleReviewOrderBack() {
 		this.showSectionSelectProductContainer();
+	},
+
+	// action methods
+	showSectionSelectProductContainer() {
+		$('.sectionSelectProductContainer').style.display = 'flex';
+		setTimeout(() => ($('.sectionSelectProductContainer').style.opacity = 1), 0);
+	},
+	hideSectionSelectProductContainer() {
+		$('.sectionSelectProductContainer').style.opacity = 0;
+		setTimeout(() => ($('.sectionSelectProductContainer').style.display = 'none'), 300);
+	},
+	showUlSelectProductListContainer(index01) {
+		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
+			if (index01 === index02) {
+				ul.style.display = 'flex';
+				ul.scrollTop = 0;
+				setTimeout(() => (ul.style.opacity = 1), 300);
+			}
+		});
+	},
+	hideUlSelectProductListContainer(index01) {
+		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
+			index01 !== index02 && ((ul.style.opacity = 0), setTimeout(() => (ul.style.display = 'none'), 300));
+		});
+	},
+	changeBackgroundColorLiSelectProductCategoryItem(target) {
+		$$('.liSelectProductCategoryItem').forEach(li => void (li !== target && (li.style.backgroundColor = '#16584e')));
+		target.style.backgroundColor = '#193c36';
+	},
+	createUlSelectProductListContainer() {
+		const fragment = document.createDocumentFragment();
+
+		Controller.selectedProductsInfo().forEach(selectedProductInfo => fragment.appendChild(this.appendUlSelectedProductItemContainer(selectedProductInfo)));
+
+		$('.ulSelectedProductListContainer').appendChild(fragment);
+	},
+	createUlSelectProductListContainer_BakeryAndAvocado(selectedProductInfo) {
+		$('.ulSelectedProductListContainer').appendChild(this.appendUlSelectedProductItemContainer(selectedProductInfo));
+	},
+
+	// init methods
+	initLiSelectProductCategoryItem() {
+		$$('.liSelectProductCategoryItem').forEach(li => void (li.style.backgroundColor = '#16584e'));
+		$('.liSelectProductCategoryItem').style.backgroundColor = '#193c36';
+	},
+	initUlSelectProductListContainer() {
+		$$('.ulSelectProductListContainer').forEach(ul => {
+			ul.style.display = 'none';
+			ul.style.opacity = 0;
+			ul.scrollTop = 0;
+		});
+		$('.ulSelectProductListContainer').style.display = 'flex';
+		$('.ulSelectProductListContainer').style.opacity = 1;
+	},
+	initSpanTotalNumberValue() {
+		$('.spanTotalNumberValue').textContent = 0;
+	},
+	initSpanTotalAmountValue() {
+		$('.spanTotalAmountValue').textContent = 0;
+	},
+	initUlSelectedProductListContainer() {
+		$$('.ulSelectedProductItemContainer').forEach(ul => ul.remove());
+	},
+
+	// customization methods
+	setSpanTotalAmountValue(totalAmountValue) {
+		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
+	},
+	setSpanTotalNumberValue(totalNumberValue) {
+		$('.spanTotalNumberValue').textContent = addComma(totalNumberValue);
+	},
+	setButtonPay(handler) {
+		if (handler) $('.divPayWrapperContainer .buttonPay').style.cursor = 'pointer';
+		else $('.divPayWrapperContainer .buttonPay').style.cursor = 'not-allowed';
 	},
 	setSpanSelectedProductItem_BakeryAndAvocado({ productName, productPrice }) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {

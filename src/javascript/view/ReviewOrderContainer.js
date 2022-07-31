@@ -1,9 +1,13 @@
-import Controller from '../controller/Controller.js';
+// utils
 import { $, $$, objElement } from '../utils/ElementTool.js';
 import { addComma } from '../utils/NumberTool.js';
 import { spacingString, subComma } from '../utils/StringTool.js';
 
+// controller
+import Controller from '../controller/Controller.js';
+
 export default Object.create({
+	// init method
 	init() {
 		this.hideSectionReviewOrderContainer();
 		setTimeout(() => {
@@ -15,6 +19,8 @@ export default Object.create({
 			this.initDivResultCouponContainer();
 		}, 300);
 	},
+
+	// setup method
 	setup() {
 		const sectionReviewOrderContainer = this.printSectionReviewOrderContainer();
 		const buttonShowCoupon = this.printButtonShowCoupon();
@@ -30,6 +36,8 @@ export default Object.create({
 
 		return sectionReviewOrderContainer;
 	},
+
+	// print methods
 	printSectionReviewOrderContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionReviewOrderContainer').complete();
 	},
@@ -162,7 +170,6 @@ export default Object.create({
 	appendDivSimpleReviewOrderCouponSearchingWrapperContainer() {
 		const divSimpleReviewOrderCouponSearchingWrapperContainer = this.printDivSimpleReviewOrderCouponSearchingWrapperContainer();
 		const divSimpleReviewOrderCouponSearchingContainer = this.appendDivSimpleReviewOrderCouponSearchingContainer();
-		// const divSimpleReviewOrderCouponSearchingCompleteContainer = this.appendDivSimpleReviewOrderCouponSearchingCompleteContainer();
 		const spanCouponSearchingFailed = this.printSpanCouponSearchingFailed();
 		const fragment = document.createDocumentFragment();
 
@@ -227,7 +234,6 @@ export default Object.create({
 	printSpanCouponSearchingFailed() {
 		return objElement.createElement('SPAN', '').setClassName('spanCouponSearchingFailed').complete();
 	},
-	// now
 	appendDivResultCouponContainer() {
 		const divResultCouponContainer = this.printDivResultCouponContainer();
 		const h4UsingPoint = this.printH4UsingPoint();
@@ -389,19 +395,6 @@ export default Object.create({
 	printButtonUsingPointCancel() {
 		return objElement.createElement('BUTTON', 'CANCEL').setClassName('buttonUsingPointCancel').complete();
 	},
-	//=============
-
-	// ==== createDivDetailedReview
-	initDivDetailedReviewOrderContainer() {
-		$$('.divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer').forEach(div => void div.remove());
-	},
-	createDivDetailedReviewOrderSelectedProductInfoContainer() {
-		const fragment = document.createDocumentFragment();
-
-		Controller.selectedProductsInfo().forEach(selectedProduct => fragment.append(this.appendDivDetailedReviewOrderSelectedProductInfoContainer(selectedProduct)));
-
-		$('.divDetailedReviewOrderContainer').append(fragment);
-	},
 	appendDivDetailedReviewOrderSelectedProductInfoContainer(selectedProduct) {
 		const divDetailedReviewOrderSelectedProductInfoContainer = this.printDivDetailedReviewOrderSelectedProductInfoContainer();
 		const divDetailedReviewOrderSelectedProductImageWrapperContainer = this.appendDivDetailedReviewOrderSelectedProductImageWrapperContainer(selectedProduct);
@@ -417,7 +410,6 @@ export default Object.create({
 	printDivDetailedReviewOrderSelectedProductInfoContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductInfoContainer').complete();
 	},
-	// ===
 	appendDivDetailedReviewOrderSelectedProductImageWrapperContainer({ productImage }) {
 		const divDetailedReviewOrderSelectedProductImageWrapperContainer = this.printDivDetailedReviewOrderSelectedProductImageWrapperContainer();
 		const divDetailedReviewOrderSelectedProductImageContainer = this.printDivDetailedReviewOrderSelectedProductImageContainer(productImage);
@@ -432,7 +424,6 @@ export default Object.create({
 	printDivDetailedReviewOrderSelectedProductImageContainer(productImage) {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageContainer').setAttribute('style', `background-image: url(${productImage})`).complete();
 	},
-	// start2
 	appendDivDetailedReviewOrderSelectedProductOptionWrapperContainer({ productName, productSize, productIce, productPrice, productAdditionalFee, productCount }) {
 		const fragment = document.createDocumentFragment();
 		const divDetailedReviewOrderSelectedProductOptionWrapperContainer = this.printDivDetailedReviewOrderSelectedProductOptionWrapperContainer();
@@ -476,94 +467,8 @@ export default Object.create({
 			.setClassName('spanDetailedReviewOrderSelectedProductTotalPrice')
 			.complete();
 	},
-	initButtonShowCoupon() {
-		$('.buttonShowCoupon').style.left = '60vw';
-	},
-	initButtonShowOrder() {
-		$('.buttonShowOrder').style.left = '100vw';
-		$('.buttonShowOrder').style.display = 'inline-block';
-		$('.buttonShowOrder').style.opacity = 1;
-	},
-	initDivSimpleReviewOrderContainer() {
-		$('.divSimpleReviewOrderContainer').style.right = 0;
-	},
-	initDivSimpleReviewOrderCouponContainer() {
-		$('.divSimpleReviewOrderCouponContainer').style.right = '-40vw';
-	},
-	initDivSearchingCouponContainer() {
-		$('.divSearchingCouponContainer').style.left = 0;
-	},
-	initDivResultCouponContainer() {
-		$('.divResultCouponContainer').style.left = '40vw';
-	},
-	showSectionReviewOrderContainer() {
-		$('.sectionReviewOrderContainer').style.display = 'flex';
-		setTimeout(() => ($('.sectionReviewOrderContainer').style.opacity = 1), 0);
-	},
-	hideSectionReviewOrderContainer() {
-		$('.sectionReviewOrderContainer').style.opacity = 0;
-		setTimeout(() => ($('.sectionReviewOrderContainer').style.display = 'none'), 300);
-	},
-	showButtonShowCoupon() {
-		$('.buttonShowCoupon').style.left = '60vw';
-	},
-	showButtonShowOrder() {
-		$('.buttonShowOrder').style.left = '60vw';
-	},
-	hideButtonShowCoupon() {
-		$('.buttonShowCoupon').style.left = '100vw';
-	},
-	hideButtonShowOrder() {
-		$('.buttonShowOrder').style.left = '100vw';
-	},
-	showDivSimpleReviewOrderContainer() {
-		$('.divSimpleReviewOrderContainer').style.right = '0vw';
-	},
-	showDivSimpleReviewOrderCouponContainer() {
-		$('.divSimpleReviewOrderCouponContainer').style.right = '0vw';
-	},
-	hideDivSimpleReviewOrderContainer() {
-		$('.divSimpleReviewOrderContainer').style.right = '-40vw';
-	},
-	hideDivSimpleReviewOrderCouponContainer() {
-		$('.divSimpleReviewOrderCouponContainer').style.right = '-40vw';
-	},
-	setSpanSimpleReviewOrderCount() {
-		$('.spanSimpleReviewOrderCount').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + cur.productCount, 0));
-	},
-	setSpanSimpleReviewOrderTotalPrice() {
-		$('.spanSimpleReviewOrderTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
-	},
-	initInputPhoneNumber() {
-		$('.inputPhoneNumber').value = '010-';
-	},
-	showDivSearchingCouponContainer() {
-		$('.divSearchingCouponContainer').style.left = '0';
-		$('.divResultCouponContainer').style.left = '40vw';
-	},
-	showDivResultCouponContainer() {
-		$('.divSearchingCouponContainer').style.left = '-40vw';
-		$('.divResultCouponContainer').style.left = '0';
-	},
-	hideNoneButtonShowOrder() {
-		$('.buttonShowOrder').style.opacity = 0;
-		setTimeout(() => ($('.buttonShowOrder').display = 'none'), 300);
-	},
-	setSpanUsingPointTotalPrice() {
-		$('.spanUsingPointTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
-	},
-	setSpanUsingPointTotalPoint(totalPoint) {
-		$('.spanUsingPointTotalPoint').textContent = totalPoint;
-	},
-	setSpanUsingPointUsingPoint(usingPoint) {
-		$('.spanUsingPointUsingPoint').textContent = usingPoint;
-	},
-	setSpanUsingPointEstimatedPayment() {
-		$('.spanUsingPointEstimatedPayment').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
-	},
-	setSpanUsingPointUsingPoint() {
-		$('.spanUsingPointUsingPoint').textContent = '0';
-	},
+
+	// event callback methods
 	onClickButtonPay() {
 		this.initInputPhoneNumber();
 		this.showSectionReviewOrderContainer();
@@ -695,5 +600,109 @@ export default Object.create({
 	},
 	onClickButtonUsingPointAndPay() {
 		this.hideSectionReviewOrderContainer();
+	},
+
+	// action methods
+	showSectionReviewOrderContainer() {
+		$('.sectionReviewOrderContainer').style.display = 'flex';
+		setTimeout(() => ($('.sectionReviewOrderContainer').style.opacity = 1), 0);
+	},
+	hideSectionReviewOrderContainer() {
+		$('.sectionReviewOrderContainer').style.opacity = 0;
+		setTimeout(() => ($('.sectionReviewOrderContainer').style.display = 'none'), 300);
+	},
+	showButtonShowCoupon() {
+		$('.buttonShowCoupon').style.left = '60vw';
+	},
+	showButtonShowOrder() {
+		$('.buttonShowOrder').style.left = '60vw';
+	},
+	showDivSimpleReviewOrderContainer() {
+		$('.divSimpleReviewOrderContainer').style.right = '0vw';
+	},
+	showDivSimpleReviewOrderCouponContainer() {
+		$('.divSimpleReviewOrderCouponContainer').style.right = '0vw';
+	},
+	showDivSearchingCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = '0';
+		$('.divResultCouponContainer').style.left = '40vw';
+	},
+	showDivResultCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = '-40vw';
+		$('.divResultCouponContainer').style.left = '0';
+	},
+	hideButtonShowCoupon() {
+		$('.buttonShowCoupon').style.left = '100vw';
+	},
+	hideButtonShowOrder() {
+		$('.buttonShowOrder').style.left = '100vw';
+	},
+	hideDivSimpleReviewOrderContainer() {
+		$('.divSimpleReviewOrderContainer').style.right = '-40vw';
+	},
+	hideDivSimpleReviewOrderCouponContainer() {
+		$('.divSimpleReviewOrderCouponContainer').style.right = '-40vw';
+	},
+	hideNoneButtonShowOrder() {
+		$('.buttonShowOrder').style.opacity = 0;
+		setTimeout(() => ($('.buttonShowOrder').display = 'none'), 300);
+	},
+	createDivDetailedReviewOrderSelectedProductInfoContainer() {
+		const fragment = document.createDocumentFragment();
+
+		Controller.selectedProductsInfo().forEach(selectedProduct => fragment.append(this.appendDivDetailedReviewOrderSelectedProductInfoContainer(selectedProduct)));
+
+		$('.divDetailedReviewOrderContainer').append(fragment);
+	},
+
+	// init methods
+	initInputPhoneNumber() {
+		$('.inputPhoneNumber').value = '010-';
+	},
+	initDivDetailedReviewOrderContainer() {
+		$$('.divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer').forEach(div => void div.remove());
+	},
+	initButtonShowCoupon() {
+		$('.buttonShowCoupon').style.left = '60vw';
+	},
+	initButtonShowOrder() {
+		$('.buttonShowOrder').style.left = '100vw';
+		$('.buttonShowOrder').style.display = 'inline-block';
+		$('.buttonShowOrder').style.opacity = 1;
+	},
+	initDivSimpleReviewOrderContainer() {
+		$('.divSimpleReviewOrderContainer').style.right = 0;
+	},
+	initDivSimpleReviewOrderCouponContainer() {
+		$('.divSimpleReviewOrderCouponContainer').style.right = '-40vw';
+	},
+	initDivSearchingCouponContainer() {
+		$('.divSearchingCouponContainer').style.left = 0;
+	},
+	initDivResultCouponContainer() {
+		$('.divResultCouponContainer').style.left = '40vw';
+	},
+
+	// customization methods
+	setSpanSimpleReviewOrderCount() {
+		$('.spanSimpleReviewOrderCount').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + cur.productCount, 0));
+	},
+	setSpanSimpleReviewOrderTotalPrice() {
+		$('.spanSimpleReviewOrderTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
+	setSpanUsingPointTotalPrice() {
+		$('.spanUsingPointTotalPrice').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
+	setSpanUsingPointTotalPoint(totalPoint) {
+		$('.spanUsingPointTotalPoint').textContent = totalPoint;
+	},
+	setSpanUsingPointUsingPoint(usingPoint) {
+		$('.spanUsingPointUsingPoint').textContent = usingPoint;
+	},
+	setSpanUsingPointEstimatedPayment() {
+		$('.spanUsingPointEstimatedPayment').textContent = addComma(Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0));
+	},
+	setSpanUsingPointUsingPoint() {
+		$('.spanUsingPointUsingPoint').textContent = '0';
 	},
 });

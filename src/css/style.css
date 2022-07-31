@@ -142,6 +142,7 @@ table {
 body {
     width: 100%;
     height: 100vh;
+    background-color: #172d29;
   }
   #app {
     width: 100%;
@@ -152,6 +153,7 @@ body {
     align-items: center;
     transition: all 300ms ease-in-out;
     position: relative;
+    overflow: hidden;
   }
   #app nav.navKioskContainer {
     position: absolute;
@@ -1361,6 +1363,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     transition: all 300ms ease-in-out;
+    background-color: #fafafa;
     position: absolute;
     top: 0;
     left: 0;

@@ -1,21 +1,29 @@
+// utils
 import { $, $$ } from '../utils/ElementTool.js';
 import { spacingString, subSpacingString } from '../utils/StringTool.js';
+import Timer from '../utils/Timer.js';
+
+// components
+import NavKioskContainer from '../components/NavKioskContainer.js';
+import FooterKioskContainer from '../components/FooterKioskContainer.js';
+
+// view
 import IntroContainer from '../view/IntroContainer.js';
 import SlideContainer from '../view/SlideContainer.js';
 import TakeOutContainer from '../view/TakeOutContainer.js';
-import SlideImageInfo from '../model/SlideImageInfo.js';
-import AllProductsInfo from '../model/AllProductsInfo.js';
-import UserInfo from '../model/UserInfo.js';
 import SelectProductContainer from '../view/SelectProductContainer.js';
 import SelectOptionContainer from '../view/SelectOptionContainer.js';
-import AllOptionsInfo from '../model/AllOptionsInfo.js';
-import NavKioskContainer from '../components/NavKioskContainer.js';
-import FooterKioskContainer from '../components/FooterKioskContainer.js';
-import Timer from '../utils/Timer.js';
 import ReviewOrderContainer from '../view/ReviewOrderContainer.js';
 import PayContainer from '../view/PayContainer.js';
 
+// model
+import SlideImageInfo from '../model/SlideImageInfo.js';
+import AllProductsInfo from '../model/AllProductsInfo.js';
+import UserInfo from '../model/UserInfo.js';
+import AllOptionsInfo from '../model/AllOptionsInfo.js';
+
 export default {
+	// initialize function
 	init() {
 		Timer.resetTimer();
 		IntroContainer.init();
@@ -27,9 +35,10 @@ export default {
 		SelectOptionContainer.init();
 		ReviewOrderContainer.init();
 		PayContainer.init();
-
 		UserInfo.initSelectedProducts();
 	},
+
+	// setup function
 	async setup() {
 		const fragment = document.createDocumentFragment();
 
@@ -40,12 +49,25 @@ export default {
 
 		return fragment;
 	},
-	/* in NavKioskContainer */
+
+	/* in App */
+	startTimer() {
+		if (Timer.handler || Timer.limitedSeconds > 0) {
+			setTimeout(() => {
+				NavKioskContainer.setDivKioskTimer(Timer.limitedSeconds);
+				this.startTimer();
+			}, 100);
+		} else {
+			this.init();
+		}
+	},
+
+	/* in navKioskContainer */
 	clickH1NavKioskTitle() {
 		$$('.h1NavKioskTitle')?.forEach(h1 => h1?.addEventListener('click', () => void this.init()));
 	},
 
-	/* in SectionIntroContainer */
+	/* in sectionIntroContainer */
 	clickSectionIntroContainer() {
 		$('.sectionIntroContainer')?.addEventListener('click', () => void this.onClickSectionIntroContainer());
 	},
@@ -54,7 +76,7 @@ export default {
 		SlideContainer.onClickSectionIntroContainer();
 	},
 
-	/* in SectionSlideContainer */
+	/* in sectionSlideContainer */
 	clickSectionSlideContainer() {
 		$('.sectionSlideContainer')?.addEventListener('click', () => void this.onClickSectionSlideContainer());
 	},
@@ -63,7 +85,7 @@ export default {
 		TakeOutContainer.onClickSectionSlideContainer();
 	},
 
-	/* in SectionTakeOutContainer */
+	/* in sectionTakeOutContainer */
 	clickButtonTakeOut() {
 		$('.buttonTakeOut')?.addEventListener('click', event => void this.onClickButtonTakeOut(event));
 	},
@@ -92,29 +114,26 @@ export default {
 		FooterKioskContainer.onClickButtonStore();
 	},
 
-	/* in SectionSelectProductContainer */
+	/* in sectionSelectProductContainer */
 	clickLiSelectProductCategoryItem() {
-		$$('.liSelectProductCategoryItem')?.forEach((li, index) => li?.addEventListener('click', ({ target }) => void SelectProductContainer.onClickLiSelectProductCategoryItem(target, index)));
+		$$('.liSelectProductCategoryItem')?.forEach((li, index) => li?.addEventListener('click', ({ target }) => void this.onClickLiSelectProductCategoryItem(target, index)));
+	},
+	onClickLiSelectProductCategoryItem(target, index) {
+		SelectProductContainer.onClickLiSelectProductCategoryItem(target, index);
 	},
 
 	mouseoverLiSelectProductCategoryItem() {
-		$$('.liSelectProductCategoryItem')?.forEach(li =>
-			li?.addEventListener('mouseover', ({ target }) => {
-				if (getComputedStyle(target).backgroundColor === 'rgb(22, 88, 78)') {
-					target.style.backgroundColor = '#193c35';
-				}
-			})
-		);
+		$$('.liSelectProductCategoryItem')?.forEach(li => li?.addEventListener('mouseover', ({ target }) => void this.onMouseoverLiSelectProductCategoryItem(target)));
+	},
+	onMouseoverLiSelectProductCategoryItem(target) {
+		getComputedStyle(target).backgroundColor === 'rgb(22, 88, 78)' && (target.style.backgroundColor = '#193c35');
 	},
 
 	mouseoutLiSelectProductCategoryItem() {
-		$$('.liSelectProductCategoryItem')?.forEach(li =>
-			li?.addEventListener('mouseout', ({ target }) => {
-				if (getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)') {
-					li.style.backgroundColor = '#16584e';
-				}
-			})
-		);
+		$$('.liSelectProductCategoryItem')?.forEach(li => li?.addEventListener('mouseout', ({ target }) => void this.onMouseoutLiSelectProductCategoryItem(target)));
+	},
+	onMouseoutLiSelectProductCategoryItem(target) {
+		getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (li.style.backgroundColor = '#16584e');
 	},
 
 	clickUlSelectProductItemContainer() {
@@ -124,12 +143,6 @@ export default {
 		const productName = subSpacingString(currentTarget.querySelector('.liSelectProductNameItem').textContent);
 		const productType = AllProductsInfo.allProducts.find(productInfo => productInfo.productName === productName).productType;
 
-		// coldBrew는 noIce 선택 안되겠금 해야함. =>
-
-		// ice만 되는 애들은 noIce 선택 안되겠금 해야함.
-		// ice가 기본적으로 안되는 애들은 ice 선택 자체가 안되게 해야함.
-		// bakery는 ulSelectedProductContainer 안에 있는 showOptions가 display = none 이고, delete가 width 100% 되어야함.
-		// 차는 detailedOptions가 선택안되게 해야함.(아이스랑 크기 선택만 가능하겠금 해야함.)
 		switch (productType) {
 			case 'hotCoffee':
 				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
@@ -166,6 +179,11 @@ export default {
 				break;
 		}
 	},
+	onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType) {
+		UserInfo.initSelectedProduct(productName);
+		SelectOptionContainer.onClickUlSelectProductItemContainer(productType);
+		Timer.stopTimer();
+	},
 	onClickUlSelectProductItemContainer_BakeryAndAvocado(productName) {
 		const selectedProductInfo = UserInfo.initSelectedProduct(productName);
 		const handlerAlreadyExist = UserInfo.addSelectedProduct();
@@ -179,45 +197,28 @@ export default {
 			this.clickButtonItemDelete_BakeryAndAvocado(productName);
 		}
 	},
-	onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType) {
-		console.log(productName);
-		console.log(productType);
-		UserInfo.initSelectedProduct(productName);
-		SelectOptionContainer.onClickUlSelectProductItemContainer(productType);
-		Timer.stopTimer();
-	},
-	//
-	onClickUlSelectProductItemContainer_normalCoffee(productName) {
-		UserInfo.initSelectedProduct(productName);
-		SelectOptionContainer.onClickUlSelectProductItemContainer('normalCoffee');
-		Timer.stopTimer();
-	},
-	onClickUlSelectProductItemContainer_iceCoffee(productName) {
-		UserInfo.initSelectedProduct(productName);
-		SelectOptionContainer.onClickUlSelectProductItemContainer('iceCoffee');
-		Timer.stopTimer();
-	},
-	onClickUlSelectProductItemContainer_hotBeverageAndTea() {},
-	onClickUlSelectProductItemContainer_normalBeverageAndTea() {},
-	onClickUlSelectProductItemContainer_iceBeverageAndTea() {},
+
 	clickButtonPay() {
-		$('.buttonPay')?.addEventListener('click', () => {
-			if (UserInfo.confirmEmptySelectedProducts()) {
-				SelectProductContainer.onClickButtonPay();
-				ReviewOrderContainer.onClickButtonPay();
-				NavKioskContainer.hideNavKioskContainer();
-				FooterKioskContainer.hideFooterKioskContainer();
-				Timer.stopTimer();
-			}
-		});
+		$('.buttonPay')?.addEventListener('click', () => void this.onClickButtonPay());
 	},
+	onClickButtonPay() {
+		if (UserInfo.confirmEmptySelectedProducts()) {
+			SelectProductContainer.onClickButtonPay();
+			ReviewOrderContainer.onClickButtonPay();
+			NavKioskContainer.hideNavKioskContainer();
+			FooterKioskContainer.hideFooterKioskContainer();
+			Timer.stopTimer();
+		}
+	},
+
 	clickButtonCancel() {
 		$('.buttonCancel')?.addEventListener('click', () => void this.init());
 	},
-	// important
+
 	clickButtonItemMinusCount() {
 		$$('.buttonItemMinusCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemMinusCount(currentTarget)));
 	},
+
 	clickButtonItemMinusCount_BakeryAndAvocado(productName) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {
 			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
@@ -231,9 +232,11 @@ export default {
 
 		SelectProductContainer.onClickButtonItemMinusCount(countValue, priceValue, currentTarget);
 	},
+
 	clickButtonItemAddCount() {
 		$$('.buttonItemAddCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemAddCount(currentTarget)));
 	},
+
 	clickButtonItemAddCount_BakeryAndAvocado(productName) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {
 			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
@@ -247,6 +250,7 @@ export default {
 
 		SelectProductContainer.onClickButtonItemAddCount(countValue, priceValue, currentTarget);
 	},
+
 	clickButtonItemOption() {
 		$$('.buttonItemOption').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemOption(currentTarget)));
 	},
@@ -255,6 +259,7 @@ export default {
 
 		SelectProductContainer.onClickButtonItemOption(UserInfo.pickSelectedProduct(id));
 	},
+
 	clickButtonItemDelete() {
 		$$('.buttonItemDelete').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemDelete(currentTarget)));
 	},
@@ -272,88 +277,188 @@ export default {
 		SelectProductContainer.onClickButtonItemDelete(currentTarget, UserInfo.confirmEmptySelectedProducts());
 	},
 
-	/* in SectionSelectOptionContainer */
+	/* in sectionSelectOptionContainer */
 	clickUlOptionListContainer() {
-		$$('.ulOptionListContainer ul').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickUlOptionListContainer(currentTarget)));
+		$$('.ulOptionListContainer ul').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => void this.onClickUlOptionListContainer(currentTarget)));
 	},
+	onClickUlOptionListContainer(currentTarget) {
+		SelectOptionContainer.onClickUlOptionListContainer(currentTarget);
+	},
+
 	clickLiWrapperDisabledContainer() {
-		$('.liWrapperDisabledContainer')?.addEventListener('click', () => SelectOptionContainer.onClickLiWrapperDisabledContainer());
+		$('.liWrapperDisabledContainer')?.addEventListener('click', () => void this.onClickLiWrapperDisabledContainer());
 	},
+	onClickLiWrapperDisabledContainer() {
+		SelectOptionContainer.onClickLiWrapperDisabledContainer();
+	},
+
 	clickLiWrapperDisabledNoIceContainer() {
-		$('.liWrapperDisabledNoIceContainer')?.addEventListener('click', () => void SelectOptionContainer.onClickLiWrapperDisabledNoIceContainer());
+		$('.liWrapperDisabledNoIceContainer')?.addEventListener('click', () => void this.onClickLiWrapperDisabledNoIceContainer());
 	},
+	onClickLiWrapperDisabledNoIceContainer() {
+		SelectOptionContainer.onClickLiWrapperDisabledNoIceContainer();
+	},
+
 	clickLiWrapperDisabledIceContainer() {
-		$('.liWrapperDisabledIceContainer')?.addEventListener('click', () => void SelectOptionContainer.onClickLiWrapperDisabledIceContainer());
+		$('.liWrapperDisabledIceContainer')?.addEventListener('click', () => void this.onClickLiWrapperDisabledIceContainer());
 	},
+	onClickLiWrapperDisabledIceContainer() {
+		SelectOptionContainer.onClickLiWrapperDisabledIceContainer();
+	},
+
 	clickDivHideDisabledWrapperOptionModalContainer() {
-		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => SelectOptionContainer.onClickDivHideDisabledWrapperOptionModalContainer());
+		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => this.onClickDivHideDisabledWrapperOptionModalContainer());
 	},
+	onClickDivHideDisabledWrapperOptionModalContainer() {
+		SelectOptionContainer.onClickDivHideDisabledWrapperOptionModalContainer();
+	},
+
 	clickUlSizeListContainer() {
-		$$('.ulSizeListContainer').forEach(ul =>
-			ul?.addEventListener('click', ({ currentTarget }) => {
-				this.setSelectedProductSize(subSpacingString(currentTarget.querySelector('.liSize').textContent));
-				this.setSelectedProductAdditionalFee();
-				SelectOptionContainer.onClickUlSizeListContainer(currentTarget);
-			})
-		);
+		$$('.ulSizeListContainer').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => void this.onClickUlSizeListContainer(currentTarget)));
 	},
+	onClickUlSizeListContainer(currentTarget) {
+		const productSize = subSpacingString(currentTarget.querySelector('.liSize').textContent);
+		UserInfo.setSelectedProductSize(productSize);
+		UserInfo.setSelectedProductAdditionalFee();
+		SelectOptionContainer.onClickUlSizeListContainer(currentTarget);
+	},
+
 	clickUlIceListContainer() {
-		$$('.ulIceListContainer').forEach(ul =>
-			ul?.addEventListener('click', ({ currentTarget }) => {
-				this.setSelectedProductIce(subSpacingString(currentTarget.querySelector('.liIce').textContent));
-				SelectOptionContainer.onClickUlIceListContainer();
-			})
-		);
+		$$('.ulIceListContainer').forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => void this.onClickUlIceListContainer(currentTarget)));
 	},
+	onClickUlIceListContainer(currentTarget) {
+		const productIce = subSpacingString(currentTarget.querySelector('.liIce').textContent);
+		UserInfo.setSelectedProductIce(productIce);
+		SelectOptionContainer.onClickUlIceListContainer();
+	},
+
 	clickLiEspressoRoastOption() {
-		$$('.liEspressoRoastOption').forEach(li =>
-			li?.addEventListener('click', ({ target }) => {
-				this.setSelectedProductEspressoRoast(subSpacingString(target.textContent));
-				SelectOptionContainer.onClickLiEspressoRoastOption();
-			})
-		);
+		$$('.liEspressoRoastOption').forEach(li => li?.addEventListener('click', ({ target }) => void this.onClickLiEspressoRoastOption(target)));
 	},
+	onClickLiEspressoRoastOption(target) {
+		this.setSelectedProductEspressoRoast(subSpacingString(target.textContent));
+		SelectOptionContainer.onClickLiEspressoRoastOption();
+	},
+
 	clickLiSyrupOption() {
-		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li =>
-			li?.addEventListener('click', ({ target }) => {
-				this.setSelectedProductSyrup(subSpacingString(target.textContent));
-				SelectOptionContainer.onClickLiSyrupOption(target);
-			})
-		);
+		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li => li?.addEventListener('click', ({ target }) => this.onClickLiSyrupOption(target)));
 	},
+	onClickLiSyrupOption(target) {
+		this.setSelectedProductSyrup(subSpacingString(target.textContent));
+		SelectOptionContainer.onClickLiSyrupOption(target);
+	},
+
 	clickButtonCalcEspressoShot() {
-		$$('.buttonCalcEspressoShot').forEach(button => button?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickButtonCalcEspressoShot(currentTarget)));
+		$$('.buttonCalcEspressoShot').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonCalcEspressoShot(currentTarget)));
 	},
+	onClickButtonCalcEspressoShot(currentTarget) {
+		SelectOptionContainer.onClickButtonCalcEspressoShot(currentTarget);
+	},
+
 	clickButtonCalcSyrup() {
-		$$('.buttonCalcSyrup').forEach(button => button?.addEventListener('click', ({ currentTarget }) => SelectOptionContainer.onClickButtonCalcSyrup(currentTarget)));
+		$$('.buttonCalcSyrup').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonCalcSyrup(currentTarget)));
 	},
+	onClickButtonCalcSyrup(currentTarget) {
+		SelectOptionContainer.onClickButtonCalcSyrup(currentTarget);
+	},
+
 	clickButtonAddToCart() {
-		$('.buttonAddToCart').addEventListener('click', () => {
-			SelectOptionContainer.onClickButtonAddToCart();
-			this.addSelectedProduct();
-			Timer.restartTimer();
-			Timer.startTimer();
-			this.startTimer();
-			SelectProductContainer.onClickButtonAddToCart(UserInfo.confirmEmptySelectedProducts());
-			this.clickButtonItemMinusCount();
-			this.clickButtonItemAddCount();
-			this.clickButtonItemOption();
-			this.clickButtonItemDelete();
-		});
+		$('.buttonAddToCart').addEventListener('click', () => void this.onClickButtonAddToCart());
 	},
+	onClickButtonAddToCart() {
+		SelectOptionContainer.onClickButtonAddToCart();
+		this.addSelectedProduct();
+		Timer.restartTimer();
+		Timer.startTimer();
+		this.startTimer();
+		SelectProductContainer.onClickButtonAddToCart(UserInfo.confirmEmptySelectedProducts());
+		this.clickButtonItemMinusCount();
+		this.clickButtonItemAddCount();
+		this.clickButtonItemOption();
+		this.clickButtonItemDelete();
+	},
+
 	clickButtonCancelAddingToCart() {
-		$('.buttonCancelAddingToCart').addEventListener('click', () => {
-			SelectOptionContainer.onClickButtonCancelAddingToCart();
-			SelectProductContainer.onClickButtonCancelAddingToCart();
-			Timer.restartTimer();
-			Timer.startTimer();
-			this.startTimer();
-		});
+		$('.buttonCancelAddingToCart').addEventListener('click', () => void this.onClickButtonCancelAddingToCart());
+	},
+	onClickButtonCancelAddingToCart() {
+		SelectOptionContainer.onClickButtonCancelAddingToCart();
+		SelectProductContainer.onClickButtonCancelAddingToCart();
+		Timer.restartTimer();
+		Timer.startTimer();
+		this.startTimer();
 	},
 
-	/* in SectionReviewOrderContainer */
+	/* in sectionReviewOrderContainer */
+	clickButtonSimpleReviewOrderPay() {
+		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => void this.onClickButtonSimpleReviewOrderPay());
+	},
+	onClickButtonSimpleReviewOrderPay() {
+		const totalPrice = $('.spanSimpleReviewOrderTotalPrice').textContent;
 
-	couponComplete() {
+		ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
+		PayContainer.onClickButtonSimpleReviewOrderPay(totalPrice);
+	},
+
+	clickButtonSimpleReviewOrderBack() {
+		$('.buttonSimpleReviewOrderBack').addEventListener('click', () => void this.onClickButtonSimpleReviewOrderBack());
+	},
+	onClickButtonSimpleReviewOrderBack() {
+		ReviewOrderContainer.onClickButtonSimpleReviewOrderBack();
+		Timer.restartTimer();
+		Timer.startTimer();
+		this.startTimer();
+		NavKioskContainer.showNavKioskContainer();
+		FooterKioskContainer.showFooterKioskContainer();
+		SelectProductContainer.onClickButtonSimpleReviewOrderBack();
+	},
+
+	clickButtonShowCoupon() {
+		$('.buttonShowCoupon').addEventListener('click', () => void this.onClickButtonShowCoupon());
+	},
+	onClickButtonShowCoupon() {
+		ReviewOrderContainer.onClickButtonShowCoupon();
+	},
+
+	clickButtonShowOrder() {
+		$('.buttonShowOrder').addEventListener('click', () => void this.onClickButtonShowOrder());
+	},
+	onClickButtonShowOrder() {
+		ReviewOrderContainer.onClickButtonShowOrder();
+	},
+
+	clickButtonCouponSearching() {
+		$$('.buttonCouponSearching').forEach(button => button.addEventListener('click', ({ currentTarget }) => void this.onClickButtonCouponSearching(currentTarget)));
+	},
+	onClickButtonCouponSearching(currentTarget) {
+		ReviewOrderContainer.onClickButtonCouponSearching(currentTarget);
+	},
+
+	keydownInputPhoneNumber() {
+		$('.inputPhoneNumber').addEventListener('keydown', event => void this.onKeydownInputPhoneNumber(event));
+	},
+	onKeydownInputPhoneNumber(event) {
+		!(event.keyCode >= 48 && event.keyCode <= 57) && event.preventDefault();
+	},
+
+	keyupInputPhoneNumber() {
+		$('.inputPhoneNumber').addEventListener('keyup', event => void this.onKeyupInputPhoneNumber(event));
+	},
+	onKeyupInputPhoneNumber(event) {
+		ReviewOrderContainer.onKeyupInputPhoneNumber(event);
+	},
+
+	clickButtonCouponBack() {
+		$('.buttonCouponBack').addEventListener('click', () => void this.onClickButtonCouponBack());
+	},
+	onClickButtonCouponBack() {
+		ReviewOrderContainer.onClickButtonCouponBack();
+	},
+
+	clickButtonCouponComplete() {
+		$('.buttonCouponComplete').addEventListener('click', () => this.onClickButtonCouponComplete());
+	},
+	onClickButtonCouponComplete() {
 		if (this.confirmPhoneNumber()) {
 			UserInfo.getUserInfo($('.inputPhoneNumber').value)
 				.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
@@ -362,102 +467,49 @@ export default {
 			ReviewOrderContainer.onClickButtonCouponComplete(false);
 		}
 	},
-	clickButtonSimpleReviewOrderPay() {
-		$('.buttonSimpleReviewOrderPay').addEventListener('click', () => {
-			const totalPrice = $('.spanSimpleReviewOrderTotalPrice').textContent;
-			ReviewOrderContainer.onClickButtonSimpleReviewOrderPay();
-			PayContainer.onClickButtonSimpleReviewOrderPay(totalPrice);
-		});
-	},
-	clickButtonSimpleReviewOrderBack() {
-		$('.buttonSimpleReviewOrderBack').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonSimpleReviewOrderBack();
-			Timer.restartTimer();
-			Timer.startTimer();
-			this.startTimer();
-			NavKioskContainer.showNavKioskContainer();
-			FooterKioskContainer.showFooterKioskContainer();
-			SelectProductContainer.onClickButtonSimpleReviewOrderBack();
-		});
-	},
-	clickButtonShowCoupon() {
-		$('.buttonShowCoupon').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonShowCoupon();
-		});
-	},
-	clickButtonShowOrder() {
-		$('.buttonShowOrder').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonShowOrder();
-		});
-	},
-	clickButtonCouponSearching() {
-		$$('.buttonCouponSearching').forEach(button =>
-			button.addEventListener('click', ({ currentTarget }) => {
-				ReviewOrderContainer.onClickButtonCouponSearching(currentTarget);
-			})
-		);
-	},
-	keydownInputPhoneNumber() {
-		$('.inputPhoneNumber').addEventListener('keydown', event => !(event.keyCode >= 48 && event.keyCode <= 57) && event.preventDefault());
-	},
-	keyupInputPhoneNumber() {
-		$('.inputPhoneNumber').addEventListener('keyup', event => ReviewOrderContainer.onKeyupInputPhoneNumber(event));
-	},
-	clickButtonCouponBack() {
-		$('.buttonCouponBack').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonCouponBack();
-		});
-	},
-	clickButtonCouponComplete() {
-		$('.buttonCouponComplete').addEventListener('click', () => this.couponComplete());
-	},
-	clickButtonUsingPointNot() {
-		$('.buttonUsingPointNot').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonUsingPointNot();
-		});
-	},
-	clickButtonUsingPointFiveThousand() {
-		$('.buttonUsingPointFiveThousand').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonUsingPointFiveThousand();
-		});
-	},
-	clickButtonUsingPointFull() {
-		$('.buttonUsingPointFull').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonUsingPointFull();
-		});
-	},
-	clickButtonUsingPointAndPay() {
-		$('.buttonUsingPointAndPay').addEventListener('click', () => {
-			ReviewOrderContainer.onClickButtonUsingPointAndPay();
-			PayContainer.onClickButtonUsingPointAndPay();
-		});
-	},
-	clickButtonUsingPointCancel() {
-		$('.buttonUsingPointCancel').addEventListener('click', () => void this.init());
-	},
 	confirmPhoneNumber() {
 		return $('.inputPhoneNumber').value.length === 13;
 	},
-	startTimer() {
-		if (Timer.handler || Timer.limitedSeconds > 0) {
-			setTimeout(() => {
-				NavKioskContainer.setDivKioskTimer(Timer.limitedSeconds);
-				this.startTimer();
-			}, 100);
-		} else {
-			this.init();
-		}
+
+	clickButtonUsingPointNot() {
+		$('.buttonUsingPointNot').addEventListener('click', () => void this.onClickButtonUsingPointNot());
 	},
-	initTimer() {
-		Timer.resetTimer();
-		NavKioskContainer.setDivKioskTimer(300);
+	onClickButtonUsingPointNot() {
+		ReviewOrderContainer.onClickButtonUsingPointNot();
 	},
-	/* Start SlideImageInfo Data */
+
+	clickButtonUsingPointFiveThousand() {
+		$('.buttonUsingPointFiveThousand').addEventListener('click', () => void this.onClickButtonUsingPointFiveThousand());
+	},
+	onClickButtonUsingPointFiveThousand() {
+		ReviewOrderContainer.onClickButtonUsingPointFiveThousand();
+	},
+
+	clickButtonUsingPointFull() {
+		$('.buttonUsingPointFull').addEventListener('click', () => void this.onClickButtonUsingPointFull());
+	},
+	onClickButtonUsingPointFull() {
+		ReviewOrderContainer.onClickButtonUsingPointFull();
+	},
+
+	clickButtonUsingPointAndPay() {
+		$('.buttonUsingPointAndPay').addEventListener('click', () => void this.onClickButtonUsingPointAndPay());
+	},
+	onClickButtonUsingPointAndPay() {
+		ReviewOrderContainer.onClickButtonUsingPointAndPay();
+		PayContainer.onClickButtonUsingPointAndPay();
+	},
+
+	clickButtonUsingPointCancel() {
+		$('.buttonUsingPointCancel').addEventListener('click', () => void this.init());
+	},
+
+	/* slideImageInfo data */
 	slideImageInfo() {
 		return SlideImageInfo.imageUrl;
 	},
 
-	/* Start AllProductsInfo Data */
+	/* allProductsInfo data */
 	allProductsInfo() {
 		return AllProductsInfo.allProducts;
 	},
@@ -465,10 +517,7 @@ export default {
 		return AllProductsInfo.allProductCategories;
 	},
 
-	/* Start AllOptionsInfo Data */
-	allOptions() {
-		return Object.keys(AllOptionsInfo);
-	},
+	/* allOptionsInfo data */
 	defaultOptionInfo() {
 		return AllOptionsInfo.defaultOptions;
 	},
@@ -491,7 +540,7 @@ export default {
 		return AllOptionsInfo.optionPrice;
 	},
 
-	/* Start UserInfo Data */
+	/* userInfo data */
 	userInfo() {
 		return UserInfo.userInfo;
 	},
@@ -513,20 +562,8 @@ export default {
 	totalNumberValue() {
 		return UserInfo.totalNumberValue();
 	},
-	addSelectedProduct() {
-		UserInfo.addSelectedProduct();
-	},
-	setSelectedProductCount(productCountValue) {
-		UserInfo.setSelectedProductCount(productCountValue);
-	},
-	setSelectedProductPrice(productPriceValue) {
-		UserInfo.setSelectedProductPrice(productPriceValue);
-	},
 	setSelectedProductAdditionalFee(productAdditionalFee) {
 		UserInfo.setSelectedProductAdditionalFee(productAdditionalFee);
-	},
-	setSelectedProductSize(productSizeValue) {
-		UserInfo.setSelectedProductSize(productSizeValue);
 	},
 	setSelectedProductEspressoShot(productEspressoShot) {
 		UserInfo.setSelectedProductEspressoShot(productEspressoShot);
@@ -540,18 +577,6 @@ export default {
 	setSelectedProductSyrupCount(productSyrupValue) {
 		UserInfo.setSelectedProductSyrupCount(productSyrupValue);
 	},
-	setSelectedProductIce(productIceValue) {
-		UserInfo.setSelectedProductIce(productIceValue);
-	},
-	confirmSelectedProductNotEspresso() {
-		return UserInfo.confirmSelectedProductNotEspresso();
-	},
-	confirmSelectedProductCountMax() {
-		return UserInfo.confirmSelectedProductCountMax();
-	},
-	confirmSelectedProductCountMin() {
-		return UserInfo.confirmSelectedProductCountMin();
-	},
 	confirmSelectedProductEspressoShotMax() {
 		return UserInfo.confirmSelectedProductEspressoShotMax();
 	},
@@ -564,6 +589,8 @@ export default {
 	confirmSelectedProductSyrupCountMin() {
 		return UserInfo.confirmSelectedProductSyrupCountMin();
 	},
+
+	// main function
 	main() {
 		this.clickH1NavKioskTitle();
 		this.clickSectionIntroContainer();

@@ -1,12 +1,18 @@
+// utils
 import { $, objElement } from '../utils/ElementTool.js';
 
 export default Object.create({
+	// init method
 	init() {
 		this.hideSectionTakeOutContainer();
 	},
+
+	// setup method
 	setup() {
 		return this.printSectionTakeOutContainer();
 	},
+
+	// print methods
 	printSectionTakeOutContainer() {
 		const sectionTakeOutContainer = objElement.createElement('section').setClassName('sectionTakeOutContainer').complete();
 		sectionTakeOutContainer.append(this.printDivWrapperTakeOutContainer(), this.printDivWrapperTakeOutButtonContainer());
@@ -25,14 +31,8 @@ export default Object.create({
 	printButtonTakeOut(content, className) {
 		return objElement.createElement('BUTTON', content).setClassName(className).complete();
 	},
-	showSectionTakeOutContainer() {
-		$('.sectionTakeOutContainer').style.display = 'flex';
-		setTimeout(() => ($('.sectionTakeOutContainer').style.opacity = 1), 0);
-	},
-	hideSectionTakeOutContainer() {
-		$('.sectionTakeOutContainer').style.opacity = 0;
-		setTimeout(() => ($('.sectionTakeOutContainer').style.display = 'none'), 300);
-	},
+
+	// event callback methods
 	onClickSectionSlideContainer() {
 		this.showSectionTakeOutContainer();
 	},
@@ -41,5 +41,15 @@ export default Object.create({
 	},
 	onClickButtonStore() {
 		this.hideSectionTakeOutContainer();
+	},
+
+	// action methods
+	showSectionTakeOutContainer() {
+		$('.sectionTakeOutContainer').style.display = 'flex';
+		setTimeout(() => ($('.sectionTakeOutContainer').style.opacity = 1), 0);
+	},
+	hideSectionTakeOutContainer() {
+		$('.sectionTakeOutContainer').style.opacity = 0;
+		setTimeout(() => ($('.sectionTakeOutContainer').style.display = 'none'), 300);
 	},
 });

@@ -132,39 +132,31 @@ export default {
 		// 차는 detailedOptions가 선택안되게 해야함.(아이스랑 크기 선택만 가능하겠금 해야함.)
 		switch (productType) {
 			case 'hotCoffee':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
 			case 'normalCoffee':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
 			case 'iceCoffee':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
-			case 'noCaffeinHotBeverage':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+			case 'hotBeverage':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
-			case 'noCaffeinNormalBeverage':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+			case 'normalBeverage':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
-			case 'noCaffeinIceBeverage':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+			case 'iceBeverage':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
-			case 'tea':
-				UserInfo.initSelectedProduct(productName);
-				SelectOptionContainer.onClickUlSelectProductItemContainer();
-				Timer.stopTimer();
+			case 'hotTea':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
+				break;
+			case 'normalTea':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
+				break;
+			case 'iceTea':
+				this.onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType);
 				break;
 			case 'avocado':
 				this.onClickUlSelectProductItemContainer_BakeryAndAvocado(productName);
@@ -187,7 +179,27 @@ export default {
 			this.clickButtonItemDelete_BakeryAndAvocado(productName);
 		}
 	},
-
+	onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType) {
+		console.log(productName);
+		console.log(productType);
+		UserInfo.initSelectedProduct(productName);
+		SelectOptionContainer.onClickUlSelectProductItemContainer(productType);
+		Timer.stopTimer();
+	},
+	//
+	onClickUlSelectProductItemContainer_normalCoffee(productName) {
+		UserInfo.initSelectedProduct(productName);
+		SelectOptionContainer.onClickUlSelectProductItemContainer('normalCoffee');
+		Timer.stopTimer();
+	},
+	onClickUlSelectProductItemContainer_iceCoffee(productName) {
+		UserInfo.initSelectedProduct(productName);
+		SelectOptionContainer.onClickUlSelectProductItemContainer('iceCoffee');
+		Timer.stopTimer();
+	},
+	onClickUlSelectProductItemContainer_hotBeverageAndTea() {},
+	onClickUlSelectProductItemContainer_normalBeverageAndTea() {},
+	onClickUlSelectProductItemContainer_iceBeverageAndTea() {},
 	clickButtonPay() {
 		$('.buttonPay')?.addEventListener('click', () => {
 			if (UserInfo.confirmEmptySelectedProducts()) {
@@ -266,6 +278,12 @@ export default {
 	},
 	clickLiWrapperDisabledContainer() {
 		$('.liWrapperDisabledContainer')?.addEventListener('click', () => SelectOptionContainer.onClickLiWrapperDisabledContainer());
+	},
+	clickLiWrapperDisabledNoIceContainer() {
+		$('.liWrapperDisabledNoIceContainer')?.addEventListener('click', () => void SelectOptionContainer.onClickLiWrapperDisabledNoIceContainer());
+	},
+	clickLiWrapperDisabledIceContainer() {
+		$('.liWrapperDisabledIceContainer')?.addEventListener('click', () => void SelectOptionContainer.onClickLiWrapperDisabledIceContainer());
 	},
 	clickDivHideDisabledWrapperOptionModalContainer() {
 		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => SelectOptionContainer.onClickDivHideDisabledWrapperOptionModalContainer());
@@ -560,6 +578,8 @@ export default {
 		this.clickButtonCancel();
 		this.clickUlOptionListContainer();
 		this.clickLiWrapperDisabledContainer();
+		this.clickLiWrapperDisabledNoIceContainer();
+		this.clickLiWrapperDisabledIceContainer();
 		this.clickDivHideDisabledWrapperOptionModalContainer();
 		this.clickUlSizeListContainer();
 		this.clickUlIceListContainer();

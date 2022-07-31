@@ -740,7 +740,7 @@ body {
     width: 80%;
     height: 70%;
   }
-  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer h2.H2DisabledOptionText {
+  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer h2.h2DisabledOptionText {
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
     font-weight: bold;
@@ -793,7 +793,7 @@ body {
     bottom: 0%;
     left: 0;
     z-index: 20;
-    cursor: pointer;
+    cursor: not-allowed;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer {
     padding-left: 1vw;
@@ -974,6 +974,25 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: relative;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledNoIceContainer {
+    cursor: not-allowed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 25%;
+    height: 100%;
+    z-index: 10;
+  }
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledIceContainer {
+    cursor: not-allowed;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
   }
   #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer {
     width: 25%;
@@ -1026,10 +1045,10 @@ body {
     height: 55%;
     margin-top: 10%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(4) {
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) {
     margin-right: 0%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(4) li.liIceCube {
+  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) li.liIceCube {
     width: 82.5%;
     height: 60%;
     margin-top: 5%;

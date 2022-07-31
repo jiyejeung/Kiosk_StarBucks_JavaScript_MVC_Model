@@ -16,7 +16,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "noCaffeinIceBeverage"
+			"productType": "iceBeverage"
 		},
 		{
 			"id": 2,
@@ -33,7 +33,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "tea"
+			"productType": "iceTea"
 		},
 		{
 			"id": 3,
@@ -67,7 +67,7 @@
 			"productSyrupCount": 0,
 			"productIce": "noIce",
 			"productTemperature": "hot",
-			"productType": "noCaffeinHotBeverage"
+			"productType": "hotBeverage"
 		},
 		{
 			"id": 5,
@@ -84,7 +84,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "noCaffeinIceBeverage"
+			"productType": "iceBeverage"
 		},
 		{
 			"id": 6,
@@ -118,7 +118,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "noCaffeinIceBeverage"
+			"productType": "iceBeverage"
 		},
 		{
 			"id": 8,
@@ -145,7 +145,7 @@
 			"productAdditionalFee": 0,
 			"productCategory": "recommendation",
 			"productImage": "./images/recommendation/lavenderCafeBrevet.jpg",
-			"productSize": "defaultOption",
+			"productSize": "short",
 			"productEspressoShot": 0,
 			"productEspressoRoast": "signatureRoast",
 			"productSyrup": "vanillaSyrup",
@@ -560,7 +560,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "noCaffeinIceBeverage"
+			"productType": "iceBeverage"
 		},
 		{
 			"id": 34,
@@ -662,7 +662,7 @@
 			"productSyrupCount": 0,
 			"productIce": "ice",
 			"productTemperature": "ice",
-			"productType": "noCaffeinIceBeverage"
+			"productType": "iceBeverage"
 		},
 		{
 			"id": 40,

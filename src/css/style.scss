@@ -529,7 +529,7 @@
 					position: relative;
 					width: 80%;
 					height: 70%;
-					h2.H2DisabledOptionText {
+					h2.h2DisabledOptionText {
 						font-family: 'Times New Roman', Times, serif;
 						color: $white;
 						font-weight: bold;
@@ -583,7 +583,7 @@
 						bottom: 0%;
 						left: 0;
 						z-index: 20;
-						cursor: pointer;
+						cursor: not-allowed;
 					}
 					ul.ulDefaultOptionContainer {
 						// border: 1px solid$black;
@@ -753,6 +753,27 @@
 								width: 100%;
 								height: 75%;
 								@include flexRow();
+								position: relative;
+								li.liWrapperDisabledNoIceContainer {
+									cursor:not-allowed;
+									position: absolute;
+									left: 0;
+									top: 0;
+									width: 25%;
+									height: 100%;
+									z-index: 10;
+									// background-color: $darkGreen;
+								}
+								li.liWrapperDisabledIceContainer {
+									cursor:not-allowed;
+									position: absolute;
+									left: 0;
+									top: 0;
+									width: 100%;
+									height: 100%;
+									z-index: 20;
+									// background-color: coral;
+								}
 								ul.ulIceListContainer {
 									width: 25%;
 									height: 100%;
@@ -799,7 +820,7 @@
 									height: 55%;
 									margin-top: 10%;
 								}
-								ul.ulIceListContainer:nth-child(4) {
+								ul.ulIceListContainer:nth-child(6) {
 									margin-right: 0%;
 									li.liIceCube {
 										width: 82.5%;

@@ -36,11 +36,11 @@ export default Object.create({
 	},
 	appendDivDisabledOptionModalContainer() {
 		const divDisabledOptionModalContainer = this.printDivDisabledOptionModalContainer();
-		const H2DisabledOptionText = this.printH2DisabledOptionText();
+		const h2DisabledOptionText = this.printH2DisabledOptionText();
 		const divHideDisabledWrapperOptionModalContainer = this.printDivHideDisabledWrapperOptionModalContainer();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(H2DisabledOptionText, divHideDisabledWrapperOptionModalContainer);
+		fragment.append(h2DisabledOptionText, divHideDisabledWrapperOptionModalContainer);
 
 		divDisabledOptionModalContainer.appendChild(fragment);
 
@@ -50,7 +50,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divDisabledOptionModalContainer').complete();
 	},
 	printH2DisabledOptionText() {
-		return objElement.createElement('H2', "You can't access Detailed Options because the selected product is not a caffeine product.").setClassName('H2DisabledOptionText').complete();
+		return objElement.createElement('H2').setClassName('h2DisabledOptionText').complete();
 	},
 	printDivHideDisabledWrapperOptionModalContainer() {
 		return objElement.createElement('DIV').setClassName('divHideDisabledWrapperOptionModalContainer').setAttribute('style', "background-image: url('./images/cancel.png')").complete();
@@ -248,7 +248,11 @@ export default Object.create({
 	// copied
 	appendUlIceListWrapperContainer() {
 		const ulIceListWrapperContainer = this.printUlIceListWrapperContainer();
+		const liWrapperDisabledNoIceContainer = this.printLiWrapperDisabledNoIceContainer();
+		const liWrapperDisabledIceContainer = this.printLiWrapperDisabledIceContainer();
 		const fragment = document.createDocumentFragment();
+
+		fragment.append(liWrapperDisabledNoIceContainer, liWrapperDisabledIceContainer);
 
 		Controller.iceOptionsInfo().forEach(ice => {
 			switch (ice) {
@@ -266,6 +270,12 @@ export default Object.create({
 	},
 	printUlIceListWrapperContainer() {
 		return objElement.createElement('UL').setClassName('ulIceListWrapperContainer').complete();
+	},
+	printLiWrapperDisabledNoIceContainer() {
+		return objElement.createElement('LI').setClassName('liWrapperDisabledNoIceContainer').complete();
+	},
+	printLiWrapperDisabledIceContainer() {
+		return objElement.createElement('LI').setClassName('liWrapperDisabledIceContainer').complete();
 	},
 	appendUlIceListContainer(ice, selectedIce) {
 		const ulIceListContainer = this.printUlIceListContainer();
@@ -591,11 +601,25 @@ export default Object.create({
 	accessDetailedOption() {
 		$('.liWrapperDisabledContainer').style.display = 'none';
 	},
-	toggleLiWrapperContainer(handler) {
+	blockNoIceOption() {
+		$('.liWrapperDisabledNoIceContainer').style.display = 'block';
+	},
+	accessNoIceOption() {
+		$('.liWrapperDisabledNoIceContainer').style.display = 'none';
+	},
+	blockIceOption() {
+		$('.liWrapperDisabledIceContainer').style.display = 'block';
+	},
+	accessIceOption() {
+		$('.liWrapperDisabledIceContainer').style.display = 'none';
+	},
+	toggleLiWrapperContainer(handler = true) {
 		if (handler) $('.ulOptionListContainer .liWrapperContainer').style.top = '0%';
 		else $('.ulOptionListContainer .liWrapperContainer').style.top = '54%';
 	},
-	onClickUlSelectProductItemContainer() {
+	// ========================================================================================== //
+	// ========================================================================================== //
+	onClickUlSelectProductItemContainer_Common() {
 		this.setH3Name();
 		this.setDivCategory();
 		this.setDivImage();
@@ -607,18 +631,67 @@ export default Object.create({
 		this.setLiSyrup();
 		this.setSpanEspressoShotCount();
 		this.setSpanSyrupCount();
-		this.toggleLiWrapperContainer(true);
+		this.toggleLiWrapperContainer();
 		this.hideAdditionalOptionContainer();
 		this.showDefaultOptionContainer();
-		this.accessDetailedOption();
 		this.showSectionSelectOptionContainer();
-		Controller.confirmSelectedProductNotEspresso() && this.blockDetailedOption();
+	},
+	onClickUlSelectProductItemContainer(productType) {
+		this.onClickUlSelectProductItemContainer_Common();
+
+		switch (productType) {
+			case 'hotCoffee':
+				this.accessDetailedOption();
+				this.blockIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'normalCoffee':
+				this.accessDetailedOption();
+				this.accessIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'iceCoffee':
+				this.accessDetailedOption();
+				this.accessIceOption();
+				this.blockNoIceOption();
+				break;
+			case 'hotBeverage':
+				this.blockDetailedOption();
+				this.blockIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'normalBeverage':
+				this.blockDetailedOption();
+				this.accessIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'iceBeverage':
+				this.blockDetailedOption();
+				this.accessIceOption();
+				this.blockNoIceOption();
+				break;
+			case 'hotTea':
+				this.blockDetailedOption();
+				this.blockIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'normalTea':
+				this.blockDetailedOption();
+				this.accessIceOption();
+				this.accessNoIceOption();
+				break;
+			case 'iceTea':
+				this.blockDetailedOption();
+				this.accessIceOption();
+				this.blockNoIceOption();
+				break;
+		}
 	},
 	onClickUlOptionListContainer({ className }) {
-		if (Controller.selectedProductInfo().productEspressoRoast === 'notEspresso') return; // modal
+		if (Controller.selectedProductInfo().productEspressoRoast === 'noEspresso') return; // modal
 		switch (className) {
 			case 'ulDefaultOptionContainer':
-				this.toggleLiWrapperContainer(true);
+				this.toggleLiWrapperContainer();
 				this.hideAdditionalOptionContainer();
 				this.showDefaultOptionContainer();
 				break;
@@ -630,6 +703,15 @@ export default Object.create({
 		}
 	},
 	onClickLiWrapperDisabledContainer() {
+		this.setH2DisabledOptionText("You can't access detailed options because the selected product is not a caffeine product.");
+		this.showDivDisabledWrapperOptionModalContainer();
+	},
+	onClickLiWrapperDisabledNoIceContainer() {
+		this.setH2DisabledOptionText("You can't access no ice option because the selected product is a ice product.");
+		this.showDivDisabledWrapperOptionModalContainer();
+	},
+	onClickLiWrapperDisabledIceContainer() {
+		this.setH2DisabledOptionText("You can't access ice options because the selected product is not a ice product.");
 		this.showDivDisabledWrapperOptionModalContainer();
 	},
 	onClickDivHideDisabledWrapperOptionModalContainer() {
@@ -793,5 +875,8 @@ export default Object.create({
 	},
 	setSpanSyrupCount() {
 		$('.spanSyrupCount').textContent = Controller.selectedProductInfo().productSyrupCount;
+	},
+	setH2DisabledOptionText(warningText) {
+		$('.h2DisabledOptionText').textContent = warningText;
 	},
 });

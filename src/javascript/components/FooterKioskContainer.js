@@ -30,4 +30,10 @@ export default Object.create({
 		$('.footerKioskContainer').style.opacity = 0;
 		setTimeout(() => ($('.footerKioskContainer').style.display = 'none'), 300);
 	},
+	onClickButtonTakeOut() {
+		this.showFooterKioskContainer();
+	},
+	onClickButtonStore() {
+		this.showFooterKioskContainer();
+	},
 });

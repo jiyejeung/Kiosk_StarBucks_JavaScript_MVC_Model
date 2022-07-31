@@ -1,5 +1,5 @@
 import { $, $$ } from '../utils/ElementTool.js';
-import { subSpacingString } from '../utils/StringTool.js';
+import { spacingString, subSpacingString } from '../utils/StringTool.js';
 import IntroContainer from '../view/IntroContainer.js';
 import SlideContainer from '../view/SlideContainer.js';
 import TakeOutContainer from '../view/TakeOutContainer.js';
@@ -40,91 +40,154 @@ export default {
 
 		return fragment;
 	},
-	/* in App */
-	changeBackgroundWhite() {
-		$('#app').style.backgroundColor = '#fafafa';
-	},
-	changeBackgroundGreen() {
-		$('#app').style.backgroundColor = '#172d29';
-	},
 	/* in NavKioskContainer */
 	clickH1NavKioskTitle() {
 		$$('.h1NavKioskTitle')?.forEach(h1 => h1?.addEventListener('click', () => void this.init()));
 	},
+
 	/* in SectionIntroContainer */
 	clickSectionIntroContainer() {
-		$('.sectionIntroContainer')?.addEventListener('click', () => {
-			IntroContainer.hideSectionIntroContainer();
-			SlideContainer.showSectionContainer();
-			setTimeout(() => SlideContainer.startSlideAutomatically(), 300);
-		});
+		$('.sectionIntroContainer')?.addEventListener('click', () => void this.onClickSectionIntroContainer());
 	},
+	onClickSectionIntroContainer() {
+		IntroContainer.onClickSectionIntroContainer();
+		SlideContainer.onClickSectionIntroContainer();
+	},
+
 	/* in SectionSlideContainer */
 	clickSectionSlideContainer() {
-		$('.sectionSlideContainer')?.addEventListener('click', () => {
-			SlideContainer.hideSectionContainer();
-			TakeOutContainer.showSectionTakeOutContainer();
-		});
+		$('.sectionSlideContainer')?.addEventListener('click', () => void this.onClickSectionSlideContainer());
 	},
+	onClickSectionSlideContainer() {
+		SlideContainer.onClickSectionSlideContainer();
+		TakeOutContainer.onClickSectionSlideContainer();
+	},
+
 	/* in SectionTakeOutContainer */
-	updateTakeOutValue({ currentTarget }) {
-		UserInfo.userInfo.takeOut = currentTarget.textContent;
-	},
 	clickButtonTakeOut() {
-		$('.buttonTakeOut')?.addEventListener('click', e => {
-			this.updateTakeOutValue(e);
-			this.changeBackgroundWhite();
-			Timer.startTimer();
-			this.startTimer();
-			TakeOutContainer.hideSectionTakeOutContainer();
-			SelectProductContainer.onClickButtonTakeOut();
-			NavKioskContainer.showNavKioskContainer();
-			FooterKioskContainer.showFooterKioskContainer();
-		});
+		$('.buttonTakeOut')?.addEventListener('click', event => void this.onClickButtonTakeOut(event));
 	},
+	onClickButtonTakeOut({ currentTarget }) {
+		UserInfo.userInfo.takeOut = currentTarget.textContent;
+		Timer.startTimer();
+		this.startTimer();
+		TakeOutContainer.onClickButtonTakeOut();
+		SelectProductContainer.onClickButtonTakeOut();
+		NavKioskContainer.onClickButtonTakeOut();
+		FooterKioskContainer.onClickButtonTakeOut();
+	},
+
 	clickButtonStore() {
-		$('.buttonStore')?.addEventListener('click', e => {
-			this.updateTakeOutValue(e);
-			this.changeBackgroundWhite();
-			Timer.startTimer();
-			this.startTimer();
-			TakeOutContainer.hideSectionTakeOutContainer();
-			SelectProductContainer.onClickButtonStore();
-			NavKioskContainer.showNavKioskContainer();
-			FooterKioskContainer.showFooterKioskContainer();
-		});
+		$('.buttonStore')?.addEventListener('click', event => void this.onClickButtonStore(event));
 	},
+	onClickButtonStore({ currentTarget }) {
+		UserInfo.userInfo.takeOut = currentTarget.textContent;
+
+		Timer.startTimer();
+		this.startTimer();
+
+		TakeOutContainer.onClickButtonStore();
+		SelectProductContainer.onClickButtonStore();
+		NavKioskContainer.onClickButtonStore();
+		FooterKioskContainer.onClickButtonStore();
+	},
+
 	/* in SectionSelectProductContainer */
 	clickLiSelectProductCategoryItem() {
-		$$('.liSelectProductCategoryItem')?.forEach((li, index) =>
-			li?.addEventListener('click', ({ target }) => {
-				SelectProductContainer.onClickLiSelectProductCategoryItem(target, index);
-			})
-		);
+		$$('.liSelectProductCategoryItem')?.forEach((li, index) => li?.addEventListener('click', ({ target }) => void SelectProductContainer.onClickLiSelectProductCategoryItem(target, index)));
 	},
+
 	mouseoverLiSelectProductCategoryItem() {
 		$$('.liSelectProductCategoryItem')?.forEach(li =>
 			li?.addEventListener('mouseover', ({ target }) => {
-				getComputedStyle(target).backgroundColor === 'rgb(22, 88, 78)' && (target.style.backgroundColor = '#193c35');
+				if (getComputedStyle(target).backgroundColor === 'rgb(22, 88, 78)') {
+					target.style.backgroundColor = '#193c35';
+				}
 			})
 		);
 	},
+
 	mouseoutLiSelectProductCategoryItem() {
 		$$('.liSelectProductCategoryItem')?.forEach(li =>
 			li?.addEventListener('mouseout', ({ target }) => {
-				getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (li.style.backgroundColor = '#16584e');
+				if (getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)') {
+					li.style.backgroundColor = '#16584e';
+				}
 			})
 		);
 	},
+
 	clickUlSelectProductItemContainer() {
-		$$('.ulSelectProductItemContainer')?.forEach(ul =>
-			ul?.addEventListener('click', ({ currentTarget }) => {
-				UserInfo.initSelectedProduct(subSpacingString(currentTarget.querySelector('.liSelectProductNameItem').textContent));
+		$$('.ulSelectProductItemContainer')?.forEach(ul => ul?.addEventListener('click', ({ currentTarget }) => void this.onClickUlSelectProductItemContainer(currentTarget)));
+	},
+	onClickUlSelectProductItemContainer(currentTarget) {
+		const productName = subSpacingString(currentTarget.querySelector('.liSelectProductNameItem').textContent);
+		const productType = AllProductsInfo.allProducts.find(productInfo => productInfo.productName === productName).productType;
+
+		// coldBrew는 noIce 선택 안되겠금 해야함. =>
+
+		// ice만 되는 애들은 noIce 선택 안되겠금 해야함.
+		// ice가 기본적으로 안되는 애들은 ice 선택 자체가 안되게 해야함.
+		// bakery는 ulSelectedProductContainer 안에 있는 showOptions가 display = none 이고, delete가 width 100% 되어야함.
+		// 차는 detailedOptions가 선택안되게 해야함.(아이스랑 크기 선택만 가능하겠금 해야함.)
+		switch (productType) {
+			case 'hotCoffee':
+				UserInfo.initSelectedProduct(productName);
 				SelectOptionContainer.onClickUlSelectProductItemContainer();
 				Timer.stopTimer();
-			})
-		);
+				break;
+			case 'normalCoffee':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'iceCoffee':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'noCaffeinHotBeverage':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'noCaffeinNormalBeverage':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'noCaffeinIceBeverage':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'tea':
+				UserInfo.initSelectedProduct(productName);
+				SelectOptionContainer.onClickUlSelectProductItemContainer();
+				Timer.stopTimer();
+				break;
+			case 'avocado':
+				this.onClickUlSelectProductItemContainer_BakeryAndAvocado(productName);
+				break;
+			case 'bakery':
+				this.onClickUlSelectProductItemContainer_BakeryAndAvocado(productName);
+				break;
+		}
 	},
+	onClickUlSelectProductItemContainer_BakeryAndAvocado(productName) {
+		const selectedProductInfo = UserInfo.initSelectedProduct(productName);
+		const handlerAlreadyExist = UserInfo.addSelectedProduct();
+		const handlerEmptySelectedProducts = UserInfo.selectedProducts.length;
+
+		SelectProductContainer.onClickUlSelectProductItemContainer_BakeryAndAvocado(selectedProductInfo, handlerAlreadyExist, handlerEmptySelectedProducts);
+
+		if (!handlerAlreadyExist) {
+			this.clickButtonItemMinusCount_BakeryAndAvocado(productName);
+			this.clickButtonItemAddCount_BakeryAndAvocado(productName);
+			this.clickButtonItemDelete_BakeryAndAvocado(productName);
+		}
+	},
+
 	clickButtonPay() {
 		$('.buttonPay')?.addEventListener('click', () => {
 			if (UserInfo.confirmEmptySelectedProducts()) {
@@ -141,43 +204,60 @@ export default {
 	},
 	// important
 	clickButtonItemMinusCount() {
-		$$('.buttonItemMinusCount').forEach(div =>
-			div?.addEventListener('click', ({ currentTarget }) => {
-				const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
-				const [countValue, priceValue] = UserInfo.setSelectedProductMinusCount(id);
+		$$('.buttonItemMinusCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemMinusCount(currentTarget)));
+	},
+	clickButtonItemMinusCount_BakeryAndAvocado(productName) {
+		$$('.ulSelectedProductItemContainer').forEach(ul => {
+			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
+				ul.querySelector('.buttonItemMinusCount').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemMinusCount(currentTarget));
+			}
+		});
+	},
+	onClickButtonItemMinusCount(currentTarget) {
+		const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
+		const [countValue, priceValue] = UserInfo.setSelectedProductMinusCount(id);
 
-				SelectProductContainer.onClickButtonItemMinusCount(countValue, priceValue, currentTarget);
-			})
-		);
+		SelectProductContainer.onClickButtonItemMinusCount(countValue, priceValue, currentTarget);
 	},
 	clickButtonItemAddCount() {
-		$$('.buttonItemAddCount').forEach(div =>
-			div?.addEventListener('click', ({ currentTarget }) => {
-				const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
-				const [countValue, priceValue] = UserInfo.setSelectedProductAddCount(id);
+		$$('.buttonItemAddCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemAddCount(currentTarget)));
+	},
+	clickButtonItemAddCount_BakeryAndAvocado(productName) {
+		$$('.ulSelectedProductItemContainer').forEach(ul => {
+			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
+				ul.querySelector('.buttonItemAddCount').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemAddCount(currentTarget));
+			}
+		});
+	},
+	onClickButtonItemAddCount(currentTarget) {
+		const id = +currentTarget.parentElement.parentElement.parentElement.querySelector('.liItemId').textContent;
+		const [countValue, priceValue] = UserInfo.setSelectedProductAddCount(id);
 
-				SelectProductContainer.onClickButtonItemAddCount(countValue, priceValue, currentTarget);
-			})
-		);
+		SelectProductContainer.onClickButtonItemAddCount(countValue, priceValue, currentTarget);
 	},
 	clickButtonItemOption() {
-		$$('.buttonItemOption').forEach(button =>
-			button?.addEventListener('click', ({ currentTarget }) => {
-				const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
+		$$('.buttonItemOption').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemOption(currentTarget)));
+	},
+	onClickButtonItemOption(currentTarget) {
+		const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
 
-				SelectProductContainer.onClickButtonItemOption(UserInfo.pickSelectedProduct(id));
-			})
-		);
+		SelectProductContainer.onClickButtonItemOption(UserInfo.pickSelectedProduct(id));
 	},
 	clickButtonItemDelete() {
-		$$('.buttonItemDelete').forEach(button =>
-			button?.addEventListener('click', ({ currentTarget }) => {
-				const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
+		$$('.buttonItemDelete').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemDelete(currentTarget)));
+	},
+	clickButtonItemDelete_BakeryAndAvocado(productName) {
+		$$('.ulSelectedProductItemContainer').forEach(ul => {
+			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
+				ul.querySelector('.buttonItemDelete').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemDelete(currentTarget));
+			}
+		});
+	},
+	onClickButtonItemDelete(currentTarget) {
+		const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
 
-				UserInfo.deleteSelectedProduct(id);
-				SelectProductContainer.onClickButtonItemDelete(currentTarget, UserInfo.confirmEmptySelectedProducts());
-			})
-		);
+		UserInfo.deleteSelectedProduct(id);
+		SelectProductContainer.onClickButtonItemDelete(currentTarget, UserInfo.confirmEmptySelectedProducts());
 	},
 
 	/* in SectionSelectOptionContainer */

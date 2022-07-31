@@ -50,6 +50,8 @@ export default Object.create({
 					selectedProduct.productCount++;
 			});
 		else this.selectedProducts.push({ ...this.selectedProduct });
+
+		return handler;
 	},
 	pickSelectedProduct(selectedProductId) {
 		return this.selectedProducts.find(({ id }) => id === selectedProductId);
@@ -60,6 +62,8 @@ export default Object.create({
 	initSelectedProduct(selectedProductName) {
 		this.selectedProduct = { ...Controller.allProductsInfo().find(({ productName }) => productName === selectedProductName) };
 		this.selectedProduct.id = Date.now();
+
+		return this.selectedProduct;
 	},
 	totalAmountValue() {
 		return this.selectedProducts.reduce((pre, cur) => pre + cur.productCount * (cur.productPrice + cur.productAdditionalFee), 0);

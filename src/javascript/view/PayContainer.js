@@ -90,6 +90,9 @@ export default Object.create({
 		$('.h2PayComplete').style.opacity = 0;
 		setTimeout(() => ($('.h2PayComplete').style.display = 'none'), 300);
 	},
+	hideDivPayReviewContainerDirectly() {
+		$('.divPayReviewContainer').display = 'none';
+	},
 	setH3PayTotalPrice(totalPrice) {
 		$('.h3PayTotalPrice').style.display = 'block';
 		$('.h3PayTotalPrice').textContent = `Total Price: ${totalPrice}`;
@@ -99,9 +102,6 @@ export default Object.create({
 	},
 	setH2PayCompleteDirectly() {
 		$('.h2PayComplete').textContent = '스타벅스를 이용해 주셔서 진심으로 감사드립니다.';
-	},
-	hideDivPayReviewContainerDirectly() {
-		$('.divPayReviewContainer').display = 'none';
 	},
 	onClickButtonSimpleReviewOrderPay(totalPrice) {
 		this.setH3PayTotalPrice(totalPrice);

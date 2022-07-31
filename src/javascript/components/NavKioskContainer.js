@@ -35,4 +35,10 @@ export default Object.create({
 	setDivKioskTimer(time) {
 		$('.divKioskTimer').textContent = convertTime(parseInt(time));
 	},
+	onClickButtonTakeOut() {
+		this.showNavKioskContainer();
+	},
+	onClickButtonStore() {
+		this.showNavKioskContainer();
+	},
 });

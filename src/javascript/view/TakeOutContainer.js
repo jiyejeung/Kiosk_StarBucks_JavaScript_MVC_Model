@@ -33,4 +33,13 @@ export default Object.create({
 		$('.sectionTakeOutContainer').style.opacity = 0;
 		setTimeout(() => ($('.sectionTakeOutContainer').style.display = 'none'), 300);
 	},
+	onClickSectionSlideContainer() {
+		this.showSectionTakeOutContainer();
+	},
+	onClickButtonTakeOut() {
+		this.hideSectionTakeOutContainer();
+	},
+	onClickButtonStore() {
+		this.hideSectionTakeOutContainer();
+	},
 });

@@ -27,4 +27,7 @@ export default Object.create({
 		$('.sectionIntroContainer').style.opacity = 0;
 		setTimeout(() => ($('.sectionIntroContainer').style.display = 'none'), 300);
 	},
+	onClickSectionIntroContainer() {
+		this.hideSectionIntroContainer();
+	},
 });

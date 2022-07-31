@@ -72,4 +72,11 @@ export default Object.create({
 	createLiSlideItems() {
 		$('.ulSlideContainer').appendChild(this.printLiSlideItems());
 	},
+	onClickSectionIntroContainer() {
+		this.showSectionContainer();
+		setTimeout(() => this.startSlideAutomatically(), 300);
+	},
+	onClickSectionSlideContainer() {
+		this.hideSectionContainer();
+	},
 });

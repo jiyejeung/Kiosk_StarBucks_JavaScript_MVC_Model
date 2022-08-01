@@ -133,7 +133,7 @@ export default {
 		$$('.liSelectProductCategoryItem')?.forEach(li => li?.addEventListener('mouseout', ({ target }) => void this.onMouseoutLiSelectProductCategoryItem(target)));
 	},
 	onMouseoutLiSelectProductCategoryItem(target) {
-		getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (li.style.backgroundColor = '#16584e');
+		getComputedStyle(target).backgroundColor !== 'rgb(25, 60, 54)' && (target.style.backgroundColor = '#16584e');
 	},
 
 	clickUlSelectProductItemContainer() {
@@ -216,13 +216,13 @@ export default {
 	},
 
 	clickButtonItemMinusCount() {
-		$$('.buttonItemMinusCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemMinusCount(currentTarget)));
+		$$('.buttonItemMinusCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemMinusCount(currentTarget)));
 	},
 
 	clickButtonItemMinusCount_BakeryAndAvocado(productName) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {
 			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
-				ul.querySelector('.buttonItemMinusCount').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemMinusCount(currentTarget));
+				ul.querySelector('.buttonItemMinusCount').addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemMinusCount(currentTarget));
 			}
 		});
 	},
@@ -234,13 +234,13 @@ export default {
 	},
 
 	clickButtonItemAddCount() {
-		$$('.buttonItemAddCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemAddCount(currentTarget)));
+		$$('.buttonItemAddCount').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemAddCount(currentTarget)));
 	},
 
 	clickButtonItemAddCount_BakeryAndAvocado(productName) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {
 			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
-				ul.querySelector('.buttonItemAddCount').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemAddCount(currentTarget));
+				ul.querySelector('.buttonItemAddCount').addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemAddCount(currentTarget));
 			}
 		});
 	},
@@ -252,7 +252,7 @@ export default {
 	},
 
 	clickButtonItemOption() {
-		$$('.buttonItemOption').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemOption(currentTarget)));
+		$$('.buttonItemOption').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemOption(currentTarget)));
 	},
 	onClickButtonItemOption(currentTarget) {
 		const id = +currentTarget.parentElement.parentElement.querySelector('.liItemId').textContent;
@@ -261,12 +261,12 @@ export default {
 	},
 
 	clickButtonItemDelete() {
-		$$('.buttonItemDelete').forEach(button => button?.addEventListener('click', ({ currentTarget }) => this.onClickButtonItemDelete(currentTarget)));
+		$$('.buttonItemDelete').forEach(button => button?.addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemDelete(currentTarget)));
 	},
 	clickButtonItemDelete_BakeryAndAvocado(productName) {
 		$$('.ulSelectedProductItemContainer').forEach(ul => {
 			if (ul.querySelector('.liItemName').textContent === spacingString(productName)) {
-				ul.querySelector('.buttonItemDelete').addEventListener('click', ({ currentTarget }) => this.onClickButtonItemDelete(currentTarget));
+				ul.querySelector('.buttonItemDelete').addEventListener('click', ({ currentTarget }) => void this.onClickButtonItemDelete(currentTarget));
 			}
 		});
 	},
@@ -307,7 +307,7 @@ export default {
 	},
 
 	clickDivHideDisabledWrapperOptionModalContainer() {
-		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => this.onClickDivHideDisabledWrapperOptionModalContainer());
+		$('.divHideDisabledWrapperOptionModalContainer')?.addEventListener('click', () => void this.onClickDivHideDisabledWrapperOptionModalContainer());
 	},
 	onClickDivHideDisabledWrapperOptionModalContainer() {
 		SelectOptionContainer.onClickDivHideDisabledWrapperOptionModalContainer();
@@ -341,7 +341,7 @@ export default {
 	},
 
 	clickLiSyrupOption() {
-		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li => li?.addEventListener('click', ({ target }) => this.onClickLiSyrupOption(target)));
+		$$('.ulSyrupOptionContainer .liSyrupOption').forEach(li => li?.addEventListener('click', ({ target }) => void this.onClickLiSyrupOption(target)));
 	},
 	onClickLiSyrupOption(target) {
 		this.setSelectedProductSyrup(subSpacingString(target.textContent));
@@ -367,7 +367,7 @@ export default {
 	},
 	onClickButtonAddToCart() {
 		SelectOptionContainer.onClickButtonAddToCart();
-		this.addSelectedProduct();
+		UserInfo.addSelectedProduct();
 		Timer.restartTimer();
 		Timer.startTimer();
 		this.startTimer();
@@ -459,13 +459,11 @@ export default {
 		$('.buttonCouponComplete').addEventListener('click', () => this.onClickButtonCouponComplete());
 	},
 	onClickButtonCouponComplete() {
-		if (this.confirmPhoneNumber()) {
+		if (this.confirmPhoneNumber())
 			UserInfo.getUserInfo($('.inputPhoneNumber').value)
 				.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
 				.catch(err => console.log(err));
-		} else {
-			ReviewOrderContainer.onClickButtonCouponComplete(false);
-		}
+		else ReviewOrderContainer.onClickButtonCouponComplete(false);
 	},
 	confirmPhoneNumber() {
 		return $('.inputPhoneNumber').value.length === 13;

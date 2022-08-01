@@ -528,7 +528,7 @@ export default Object.create({
 				event.currentTarget.value = inputPhoneNumberValue.join('');
 			}
 		} else if (event.keyCode === enterKeyCode) {
-			Controller.couponComplete();
+			Controller.onClickButtonCouponComplete();
 		} else if (event.keyCode === backSpaceKeyCode) {
 			this.onClickButtonCouponBack();
 		}

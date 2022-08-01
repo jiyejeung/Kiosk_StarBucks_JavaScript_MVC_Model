@@ -194,6 +194,69 @@
 			padding-top: 8vw;
 			padding-bottom: 8vw;
 			background-color: $white;
+			// start menu modal
+			.divSelectedProductOptionWrapperContainer {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				@include flexRow();
+				.divSelectedProductOptionContainer {
+					width: 80%;
+					height: 80%;
+					position: relative;
+					@include flexRow();
+					background-color: $white;
+					.divHideSelectedProductOptionContainer {
+						position: absolute;
+						top: 2vw;
+						right: 2vw;
+						background-image: url(../../images/cancel.png);
+						background-position: 50% 50%;
+						background-size: cover;
+						background-repeat: no-repeat;
+					}
+					.divSelectedProductImageWrapperContainer {
+						width: 50%;
+						height: 100%;
+						@include flexRow();
+						.divSelectedProductImageContainer {
+							width: 20vw;
+							height: 20vw;
+							background-position: 50% 50%;
+							background-size: cover;
+							background-repeat: no-repeat;
+						}
+					}
+					.divSelectedProductInformationContainer {
+						width: 50%;
+						height: 100%;
+						@include flexCol();
+						h3.h3SelectedProductName {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 2.5vw;
+						}
+						span.spanSelectedProductSize {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.6vw;
+						}
+						span.spanSelectedProductIce {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.6vw;
+						}
+						span.spanSelectedProductEspresso {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.6vw;
+						}
+						span.spanSelectedProductSyrup {
+							font-family: 'Times New Roman', Times, serif;
+							font-size: 1.6vw;
+						}
+					}
+				}
+			}
+			// end menu modal
 			ul.ulSelectProductCategoryContainer {
 				width: 20%;
 				height: 100%;

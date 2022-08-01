@@ -358,6 +358,79 @@ body {
     padding-bottom: 8vw;
     background-color: #fafafa;
   }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer {
+    width: 80%;
+    height: 80%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer {
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    background-image: url(../../images/cancel.png);
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer .divSelectedProductImageContainer {
+    width: 20vw;
+    height: 20vw;
+    background-position: 50% 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer h3.h3SelectedProductName {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 2.5vw;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSize {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductIce {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductEspresso {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+  }
+  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSyrup {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+  }
   #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer {
     width: 20%;
     height: 100%;

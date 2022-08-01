@@ -64,7 +64,7 @@ export default Object.create({
 	// event callback methods
 	onClickButtonSimpleReviewOrderPay(totalPrice) {
 		this.setH3PayTotalPrice(totalPrice);
-		this.setH2PayComplete(totalPrice);
+		this.setH2PayCompleteDirectly();
 		this.showH2PayInputCard();
 		this.showH3PayTotalPrice();
 		this.showDivPayReviewContainer();

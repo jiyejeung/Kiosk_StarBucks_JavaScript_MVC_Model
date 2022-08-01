@@ -339,7 +339,7 @@
       "productSize": "short",
       "productEspressoShot": 0,
       "productEspressoRoast": "signatureRoast",
-      "productSyrup": "vanillaSyrup",
+      "productSyrup": "caramelSyrup",
       "productSyrupCount": 0,
       "productIce": "noIce",
       "productTemperature": "hot",
@@ -356,7 +356,7 @@
       "productSize": "short",
       "productEspressoShot": 0,
       "productEspressoRoast": "signatureRoast",
-      "productSyrup": "vanillaSyrup",
+      "productSyrup": "caramelSyrup",
       "productSyrupCount": 0,
       "productIce": "ice",
       "productTemperature": "ice",
@@ -528,9 +528,9 @@
       "productEspressoRoast": "signatureRoast",
       "productSyrup": "vanillaSyrup",
       "productSyrupCount": 0,
-      "productIce": "noIce",
-      "productTemperature": "normal",
-      "productType": "normalCoffee"
+      "productIce": "ice",
+      "productTemperature": "ice",
+      "productType": "iceCoffee"
     },
     {
       "id": 32,
@@ -577,7 +577,7 @@
       "productSize": "short",
       "productEspressoShot": 0,
       "productEspressoRoast": "signatureRoast",
-      "productSyrup": "vanillaSyrup",
+      "productSyrup": "caramelSyrup",
       "productSyrupCount": 0,
       "productIce": "ice",
       "productTemperature": "ice",
@@ -895,7 +895,7 @@
       "id": 1,
       "name": "yejeungJi",
       "phoneNumber": "010-4820-1962",
-      "point": 1292089
+      "point": 1282869
     },
     {
       "id": 2,

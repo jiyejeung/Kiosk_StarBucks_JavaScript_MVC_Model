@@ -10,6 +10,7 @@ export default Object.create({
 	// init method
 	init() {
 		this.hideSectionSelectProductContainer();
+		this.hideDivSelectedProductOptionWrapperContainer();
 		setTimeout(() => {
 			this.initLiSelectProductCategoryItem();
 			this.initUlSelectProductListContainer();
@@ -22,6 +23,7 @@ export default Object.create({
 	// setup method
 	setup() {
 		const sectionSelectProductContainer = this.printSectionSelectProductContainer();
+		const divSelectedProductOptionWrapperContainer = this.appendDivSelectedProductOptionWrapperContainer();
 		const ulSelectProductCategoryContainer = this.appendUlSelectProductCategoryContainer();
 		const ulSelectProductWrapperContainer = this.printUlSelectProductWrapperContainer();
 		const ulSelectProductListContainers = this.printUlSelectProductListContainers();
@@ -30,7 +32,7 @@ export default Object.create({
 
 		ulSelectProductWrapperContainer.appendChild(ulSelectProductListContainers);
 
-		fragment.append(ulSelectProductCategoryContainer, ulSelectProductWrapperContainer, divSelectedProductWrapperContainer);
+		fragment.append(divSelectedProductOptionWrapperContainer, ulSelectProductCategoryContainer, ulSelectProductWrapperContainer, divSelectedProductWrapperContainer);
 
 		sectionSelectProductContainer.appendChild(fragment);
 
@@ -40,6 +42,84 @@ export default Object.create({
 	// print methods
 	printSectionSelectProductContainer() {
 		return objElement.createElement('SECTION').setClassName('sectionSelectProductContainer').complete();
+	},
+	appendDivSelectedProductOptionWrapperContainer() {
+		const divSelectedProductOptionWrapperContainer = this.printDivSelectedProductOptionWrapperContainer();
+		const divSelectedProductOptionContainer = this.appendDivSelectedProductOptionContainer();
+
+		divSelectedProductOptionWrapperContainer.appendChild(divSelectedProductOptionContainer);
+
+		return divSelectedProductOptionWrapperContainer;
+	},
+	printDivSelectedProductOptionWrapperContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductOptionWrapperContainer').complete();
+	},
+	appendDivSelectedProductOptionContainer() {
+		const divSelectedProductOptionContainer = this.printDivSelectedProductOptionContainer();
+		const divHideSelectedProductOptionContainer = this.printDivHideSelectedProductOptionContainer();
+		const divSelectedProductImageWrapperContainer = this.appendDivSelectedProductImageWrapperContainer();
+		const divSelectedProductInformationContainer = this.appendDivSelectedProductInformationContainer();
+
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(divHideSelectedProductOptionContainer, divSelectedProductImageWrapperContainer, divSelectedProductInformationContainer);
+
+		divSelectedProductOptionContainer.appendChild(fragment);
+
+		return divSelectedProductOptionContainer;
+	},
+	printDivSelectedProductOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductOptionContainer').complete();
+	},
+	printDivHideSelectedProductOptionContainer() {
+		return objElement.createElement('DIV').setClassName('divHideSelectedProductOptionContainer').complete();
+	},
+	appendDivSelectedProductImageWrapperContainer() {
+		const divSelectedProductImageWrapperContainer = this.printDivSelectedProductImageWrapperContainer();
+		const divSelectedProductImageContainer = this.printDivSelectedProductImageContainer();
+
+		divSelectedProductImageWrapperContainer.appendChild(divSelectedProductImageContainer);
+
+		return divSelectedProductImageWrapperContainer;
+	},
+	printDivSelectedProductImageWrapperContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductImageWrapperContainer').complete();
+	},
+	printDivSelectedProductImageContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductImageContainer').complete();
+	},
+	appendDivSelectedProductInformationContainer() {
+		const divSelectedProductInformationContainer = this.printDivSelectedProductInformationContainer();
+		const h3SelectedProductName = this.printH3SelectedProductName();
+		const spanSelectedProductSize = this.printSpanSelectedProductSize();
+		const spanSelectedProductIce = this.printSpanSelectedProductIce();
+		const spanSelectedProductEspresso = this.printSpanSelectedProductEspresso();
+		const spanSelectedProductSyrup = this.printSpanSelectedProductSyrup();
+		const fragment = document.createDocumentFragment();
+
+		fragment.append(h3SelectedProductName, spanSelectedProductSize, spanSelectedProductIce, spanSelectedProductEspresso, spanSelectedProductSyrup);
+
+		divSelectedProductInformationContainer.appendChild(fragment);
+
+		return divSelectedProductInformationContainer;
+	},
+	printDivSelectedProductInformationContainer() {
+		return objElement.createElement('DIV').setClassName('divSelectedProductInformationContainer').complete();
+	},
+	printH3SelectedProductName() {
+		return objElement.createElement('H3').setClassName('h3SelectedProductName').complete();
+	},
+	printSpanSelectedProductSize() {
+		return objElement.createElement('SPAN').setClassName('spanSelectedProductSize').complete();
+	},
+	printSpanSelectedProductIce() {
+		return objElement.createElement('SPAN').setClassName('spanSelectedProductIce').complete();
+	},
+	printSpanSelectedProductEspresso() {
+		return objElement.createElement('SPAN').setClassName('spanSelectedProductEspresso').complete();
+	},
+	printSpanSelectedProductSyrup() {
+		return objElement.createElement('SPAN').setClassName('spanSelectedProductSyrup').complete();
 	},
 	appendUlSelectProductCategoryContainer() {
 		const ulSelectProductCategoryContainer = this.printUlSelectProductCategoryContainer();
@@ -336,6 +416,9 @@ export default Object.create({
 	onClickButtonStore() {
 		this.showSectionSelectProductContainer();
 	},
+	onClickDivHideSelectedProductOptionContainer() {
+		this.hideDivSelectedProductOptionWrapperContainer();
+	},
 	onClickLiSelectProductCategoryItem(target, index) {
 		this.changeBackgroundColorLiSelectProductCategoryItem(target);
 		this.hideUlSelectProductListContainer(index);
@@ -361,11 +444,13 @@ export default Object.create({
 	},
 	onClickButtonItemOption(selectedProductInfo) {
 		console.log(selectedProductInfo);
-		// notEspresso인 경우
-		// productName, productImage, productPrice, productAdditionalFee, productSize, productCount 만 display
-
-		// espresso인 경우
-		// productName, productImage, productPrice, productAdditionalFee ,productSize, productEspressoRoast, productEspressoShot, productSyrup, productSyrupCount, productCount
+		this.showDivSelectedProductOptionWrapperContainer();
+		this.setDivSelectedProductImageContainer(selectedProductInfo);
+		this.setH3SelectedProductName(selectedProductInfo);
+		this.setSpanSelectedProductSize(selectedProductInfo);
+		this.setSpanSelectedProductIce(selectedProductInfo);
+		this.setSpanSelectedProductEspresso(selectedProductInfo);
+		this.setSpanSelectedProductSyrup(selectedProductInfo);
 	},
 	onClickButtonItemDelete(currentTarget, handlerEmptySelectedProducts) {
 		currentTarget.parentElement.parentElement.remove();
@@ -406,9 +491,9 @@ export default Object.create({
 		$('.sectionSelectProductContainer').style.display = 'flex';
 		setTimeout(() => ($('.sectionSelectProductContainer').style.opacity = 1), 0);
 	},
-	hideSectionSelectProductContainer() {
-		$('.sectionSelectProductContainer').style.opacity = 0;
-		setTimeout(() => ($('.sectionSelectProductContainer').style.display = 'none'), 300);
+	showDivSelectedProductOptionWrapperContainer() {
+		$('.divSelectedProductOptionWrapperContainer').style.display = 'flex';
+		setTimeout(() => ($('.divSelectedProductOptionWrapperContainer').style.opacity = 1), 0);
 	},
 	showUlSelectProductListContainer(index01) {
 		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
@@ -418,6 +503,14 @@ export default Object.create({
 				setTimeout(() => (ul.style.opacity = 1), 300);
 			}
 		});
+	},
+	hideSectionSelectProductContainer() {
+		$('.sectionSelectProductContainer').style.opacity = 0;
+		setTimeout(() => ($('.sectionSelectProductContainer').style.display = 'none'), 300);
+	},
+	hideDivSelectedProductOptionWrapperContainer() {
+		$('.divSelectedProductOptionWrapperContainer').style.opacity = 0;
+		setTimeout(() => ($('.divSelectedProductOptionWrapperContainer').style.display = 'none'), 300);
 	},
 	hideUlSelectProductListContainer(index01) {
 		$$('.ulSelectProductListContainer').forEach((ul, index02) => {
@@ -464,6 +557,26 @@ export default Object.create({
 	},
 
 	// customization methods
+	setDivSelectedProductImageContainer({ productImage }) {
+		$('.divSelectedProductImageContainer').style.backgroundImage = `url('${productImage}')`;
+	},
+	setH3SelectedProductName({ productName }) {
+		$('.h3SelectedProductName').textContent = spacingString(productName);
+	},
+	setSpanSelectedProductSize({ productSize }) {
+		$('.spanSelectedProductSize').textContent = `Size Option: ${spacingString(productSize)}`;
+	},
+	setSpanSelectedProductIce({ productIce }) {
+		$('.spanSelectedProductIce').textContent = `Ice Option: ${spacingString(productIce)}`;
+	},
+	setSpanSelectedProductEspresso({ productEspressoRoast, productEspressoShot }) {
+		if (productEspressoRoast === 'noEspresso') $('.spanSelectedProductEspresso').textContent = 'Espresso Option: No Espresso';
+		else $('.spanSelectedProductEspresso').textContent = `Espresso Option: ${spacingString(productEspressoRoast)}, ${1 + productEspressoShot}`;
+	},
+	setSpanSelectedProductSyrup({ productSyrup, productSyrupCount }) {
+		if (productSyrup === 'noSyrup' || productSyrupCount === 0) $('.spanSelectedProductSyrup').textContent = 'Syrup Option: No Additional Syrup';
+		else $('.spanSelectedProductSyrup').textContent = `Syrup Option: ${spacingString(productSyrup)}, ${productSyrupCount}`;
+	},
 	setSpanTotalAmountValue(totalAmountValue) {
 		$('.spanTotalAmountValue').textContent = addComma(totalAmountValue);
 	},

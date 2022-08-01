@@ -144,7 +144,8 @@ body {
     height: 100vh;
     background-color: #172d29;
   }
-  #app {
+  html #app,
+body #app {
     width: 100%;
     height: 100%;
     display: flex;
@@ -155,7 +156,8 @@ body {
     position: relative;
     overflow: hidden;
   }
-  #app nav.navKioskContainer {
+  html #app nav.navKioskContainer,
+body #app nav.navKioskContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -172,7 +174,8 @@ body {
     opacity: 0;
     transition: all 300ms ease-in-out;
   }
-  #app nav.navKioskContainer h1.h1NavKioskTitle {
+  html #app nav.navKioskContainer h1.h1NavKioskTitle,
+body #app nav.navKioskContainer h1.h1NavKioskTitle {
     margin-top: 1vw;
     font-size: 5.5vw;
     font-weight: bolder;
@@ -180,14 +183,16 @@ body {
     color: #174841;
     cursor: pointer;
   }
-  #app nav.navKioskContainer .divKioskTimer {
+  html #app nav.navKioskContainer .divKioskTimer,
+body #app nav.navKioskContainer .divKioskTimer {
     font-size: 2.7vw;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-weight: bold;
     color: #174841;
   }
-  #app footer.footerKioskContainer {
+  html #app footer.footerKioskContainer,
+body #app footer.footerKioskContainer {
     transition: all 300ms ease-in-out;
     z-index: 10;
     position: absolute;
@@ -203,19 +208,23 @@ body {
     opacity: 0;
     background-color: #172d29;
   }
-  #app footer.footerKioskContainer div {
+  html #app footer.footerKioskContainer div,
+body #app footer.footerKioskContainer div {
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-size: 1.5vw;
     color: #fafafa;
   }
-  #app footer.footerKioskContainer .divEmail {
+  html #app footer.footerKioskContainer .divEmail,
+body #app footer.footerKioskContainer .divEmail {
     margin-bottom: 1.5vw;
   }
-  #app footer.footerKioskContainer .divContactMe {
+  html #app footer.footerKioskContainer .divContactMe,
+body #app footer.footerKioskContainer .divContactMe {
     font-size: 1.1vw;
   }
-  #app section.sectionIntroContainer {
+  html #app section.sectionIntroContainer,
+body #app section.sectionIntroContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -230,19 +239,22 @@ body {
     left: 0;
     cursor: pointer;
   }
-  #app section.sectionIntroContainer h1.h1IntroTitle {
+  html #app section.sectionIntroContainer h1.h1IntroTitle,
+body #app section.sectionIntroContainer h1.h1IntroTitle {
     font-size: 8vw;
     font-weight: bolder;
     color: #fafafa;
     margin-bottom: 2.5vw;
   }
-  #app section.sectionIntroContainer h2.h2IntroGreeting {
+  html #app section.sectionIntroContainer h2.h2IntroGreeting,
+body #app section.sectionIntroContainer h2.h2IntroGreeting {
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-size: 2.5vw;
     color: #fafafa;
   }
-  #app section.sectionSlideContainer {
+  html #app section.sectionSlideContainer,
+body #app section.sectionSlideContainer {
     display: none;
     opacity: 0;
     transition: all 300ms ease-in-out;
@@ -255,12 +267,14 @@ body {
     left: 0;
     cursor: pointer;
   }
-  #app section.sectionSlideContainer ul.ulSlideContainer {
+  html #app section.sectionSlideContainer ul.ulSlideContainer,
+body #app section.sectionSlideContainer ul.ulSlideContainer {
     width: 300vw;
     height: 100%;
     display: block;
   }
-  #app section.sectionSlideContainer ul.ulSlideContainer li {
+  html #app section.sectionSlideContainer ul.ulSlideContainer li,
+body #app section.sectionSlideContainer ul.ulSlideContainer li {
     float: left;
     width: 100vw;
     height: 100%;
@@ -269,7 +283,8 @@ body {
     background-size: cover;
     transition: all 500ms ease-in-out;
   }
-  #app section.sectionSlideContainer h3.h3SlideTouchText {
+  html #app section.sectionSlideContainer h3.h3SlideTouchText,
+body #app section.sectionSlideContainer h3.h3SlideTouchText {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -281,7 +296,8 @@ body {
     font-size: 5vw;
     color: #fafafa;
   }
-  #app section.sectionTakeOutContainer {
+  html #app section.sectionTakeOutContainer,
+body #app section.sectionTakeOutContainer {
     width: 100%;
     height: 100%;
     background-image: url("../../images/deliveryImage01.jpg");
@@ -299,7 +315,8 @@ body {
     top: 0;
     left: 0;
   }
-  #app section.sectionTakeOutContainer .divWrapperTakeOutContainer {
+  html #app section.sectionTakeOutContainer .divWrapperTakeOutContainer,
+body #app section.sectionTakeOutContainer .divWrapperTakeOutContainer {
     width: 100%;
     height: 100%;
     background-color: #0a0a0a;
@@ -309,7 +326,8 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer {
+  html #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer,
+body #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer {
     position: absolute;
     width: 100%;
     height: 30%;
@@ -319,7 +337,8 @@ body {
     align-items: center;
     background-color: transparent;
   }
-  #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button {
+  html #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button,
+body #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button {
     width: 30%;
     height: 100%;
     display: flex;
@@ -335,13 +354,16 @@ body {
     font-size: 6vw;
     cursor: pointer;
   }
-  #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonTakeOut {
+  html #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonTakeOut,
+body #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonTakeOut {
     margin-right: 3vw;
   }
-  #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonStore {
+  html #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonStore,
+body #app section.sectionTakeOutContainer .divWrapperTakeOutButtonContainer button.buttonStore {
     margin-left: 3vw;
   }
-  #app section.sectionSelectProductContainer {
+  html #app section.sectionSelectProductContainer,
+body #app section.sectionSelectProductContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -358,8 +380,10 @@ body {
     padding-bottom: 8vw;
     background-color: #fafafa;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer {
     position: absolute;
+    z-index: 30;
     top: 0;
     left: 0;
     width: 100%;
@@ -368,70 +392,98 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    transition: all 300ms ease-in-out;
+    display: none;
+    opacity: 0;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer {
-    width: 80%;
-    height: 80%;
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer {
+    width: 90%;
+    height: 70%;
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #fafafa;
+    background-color: rgba(23, 45, 41, 0.7);
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer {
     position: absolute;
     top: 2vw;
     right: 2vw;
-    background-image: url(../../images/cancel.png);
+    background-image: url("../../images/cancel.png");
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
+    width: 3vw;
+    height: 3vw;
+    cursor: pointer;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer {
-    width: 50%;
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer {
+    width: 35%;
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer .divSelectedProductImageContainer {
-    width: 20vw;
-    height: 20vw;
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer .divSelectedProductImageContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductImageWrapperContainer .divSelectedProductImageContainer {
+    width: 25vw;
+    height: 25vw;
     background-position: 50% 50%;
     background-size: cover;
     background-repeat: no-repeat;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer {
-    width: 50%;
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer {
+    width: 65%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer h3.h3SelectedProductName {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer h3.h3SelectedProductName,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer h3.h3SelectedProductName {
     font-family: "Times New Roman", Times, serif;
-    font-size: 2.5vw;
+    padding-right: 3vw;
+    font-size: 3vw;
+    color: #fafafa;
+    margin-bottom: 3vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSize {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1.6vw;
-  }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductIce {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1.6vw;
-  }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductEspresso {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSize,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSize {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.6vw;
+    color: #fafafa;
+    margin-bottom: 1vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSyrup {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductIce,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductIce {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.6vw;
+    color: #fafafa;
+    margin-bottom: 1vw;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductEspresso,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductEspresso {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+    color: #fafafa;
+    margin-bottom: 1vw;
+  }
+  html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSyrup,
+body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divSelectedProductInformationContainer span.spanSelectedProductSyrup {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.6vw;
+    color: #fafafa;
+    margin-bottom: 1vw;
+  }
+  html #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer,
+body #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer {
     width: 20%;
     height: 100%;
     display: flex;
@@ -441,7 +493,8 @@ body {
     justify-content: flex-start;
     padding-left: 2vw;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem,
+body #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem {
     width: 100%;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
@@ -455,16 +508,19 @@ body {
     margin-bottom: 0.5vw;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem:nth-child(1) {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem:nth-child(1),
+body #app section.sectionSelectProductContainer ul.ulSelectProductCategoryContainer li.liSelectProductCategoryItem:nth-child(1) {
     background-color: #193c36;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer {
     width: 57%;
     height: 100%;
     overflow: hidden;
     position: relative;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer {
     position: absolute;
     left: 0;
     top: 0;
@@ -479,7 +535,8 @@ body {
     padding-left: 2vw;
     overflow: auto;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer {
     border: 1px solid #0a0a0a;
     width: 17.25vw;
     height: 20vw;
@@ -491,11 +548,13 @@ body {
     align-items: center;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li {
     width: 100%;
     text-align: center;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductImageItem {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductImageItem,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductImageItem {
     height: 13vw;
     width: 13vw;
     background-position: 50% 50%;
@@ -503,7 +562,8 @@ body {
     background-size: cover;
     margin-bottom: 0.4vw;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -515,20 +575,24 @@ body {
     font-size: 1.3vw;
     color: #0a0a0a;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem {
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-size: 1.3vw;
     color: #0a0a0a;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer::-webkit-scrollbar {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer::-webkit-scrollbar,
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer::-webkit-scrollbar {
     display: none;
   }
-  #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer:nth-child(1) {
+  html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer:nth-child(1),
+body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer:nth-child(1) {
     display: flex;
     opacity: 1;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer {
     width: 23%;
     height: 100%;
     display: flex;
@@ -538,7 +602,8 @@ body {
     padding-right: 2vw;
     padding-left: 1vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer {
     width: 100%;
     height: 60%;
     border-top: 1px solid #0a0a0a;
@@ -548,63 +613,72 @@ body {
     justify-content: flex-start;
     overflow: scroll;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer {
+    padding-top: 0.3vw;
     width: 100%;
-    height: 6vw;
-    border-top: 1px solid #0a0a0a;
+    border-bottom: 1px solid #0a0a0a;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 0.6vw;
+    padding-bottom: 0.6vw;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemId {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemId,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemId {
     display: none;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemName {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemName,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemName {
     width: 100%;
-    height: 2vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    justify-content: flex-start;
-    padding-left: 2%;
+    text-align: center;
+    padding: 0 2%;
     font-family: "Times New Roman", Times, serif;
     font-size: 1.15vw;
     font-weight: bold;
     padding-top: 1%;
+    margin-bottom: 0.5vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer {
     width: 100%;
     height: 2vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 0.2vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span {
     height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemPrice {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemPrice,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemPrice {
     width: 70%;
     font-family: "Times New Roman", Times, serif;
     font-size: 1.15vw;
     padding-left: 5%;
     padding-bottom: 1%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer {
     width: 10%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -614,7 +688,8 @@ body {
     background-color: #172d29;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button div.divMinusImageContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button div.divMinusImageContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemMinusCountContainer button div.divMinusImageContainer {
     width: 95%;
     height: 95%;
     background-image: url(../../images/minus.png);
@@ -622,20 +697,23 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemCount {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemCount,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemCount {
     font-family: "Times New Roman", Times, serif;
     font-size: 1vw;
     width: 10%;
     font-size: 1.2vw;
     padding-bottom: 1%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer {
     width: 10%;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -645,7 +723,8 @@ body {
     width: 1.7vw;
     height: 1.7vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button div.divAddImageContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button div.divAddImageContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liWrapperItemContainer span.spanItemAddCountContainer button div.divAddImageContainer {
     background-image: url(../../images/plus.png);
     width: 95%;
     height: 95%;
@@ -653,7 +732,8 @@ body {
     background-repeat: no-repeat;
     background-size: contain;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer {
     width: 100%;
     height: 2vw;
     display: flex;
@@ -661,7 +741,8 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemOption {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemOption,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemOption {
     width: 50%;
     height: 100%;
     display: flex;
@@ -675,7 +756,8 @@ body {
     font-weight: bold;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemDelete {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemDelete,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer li.liItemButtonContainer button.buttonItemDelete {
     width: 50%;
     height: 100%;
     display: flex;
@@ -689,13 +771,16 @@ body {
     font-weight: bold;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer:nth-child(1) {
-    border-top: none;
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer:last-child,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer ul.ulSelectedProductItemContainer:last-child {
+    border: none;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer::-webkit-scrollbar {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer::-webkit-scrollbar,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer ul.ulSelectedProductListContainer::-webkit-scrollbar {
     display: none;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer {
     width: 100%;
     height: 40%;
     display: flex;
@@ -703,12 +788,14 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer {
     width: 100%;
     height: 45%;
     padding-bottom: 2%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer {
     padding-top: 5%;
     display: flex;
     flex-direction: row;
@@ -717,22 +804,26 @@ body {
     width: 100%;
     height: 50%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span {
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
     font-weight: bold;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberText {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberText,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberText {
     font-size: 2.05vw;
     text-align: left;
     width: 70%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberValue {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberValue,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalNumberContainer span.spanTotalNumberValue {
     font-size: 2vw;
     width: 30%;
     text-align: right;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -741,21 +832,25 @@ body {
     height: 50%;
     padding-top: 2.5%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span {
     font-size: 2vw;
     font-weight: bold;
     font-family: "Times New Roman", Times, serif;
     letter-spacing: 0.05vw;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountText {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountText,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountText {
     text-align: left;
     width: 40%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountValue {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountValue,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer .divPayInfoContainer .divTotalAmountContainer span.spanTotalAmountValue {
     text-align: right;
     width: 60%;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button {
     width: 100%;
     height: 25%;
     font-family: "Times New Roman", Times, serif;
@@ -766,15 +861,18 @@ body {
     transition: all 300ms ease-in-out;
     cursor: pointer;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonPay {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonPay,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonPay {
     background-color: #172d29;
     margin-bottom: 5%;
     cursor: not-allowed;
   }
-  #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonCancel {
+  html #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonCancel,
+body #app section.sectionSelectProductContainer .divSelectedProductWrapperContainer .divPayWrapperContainer button.buttonCancel {
     background-color: #cf3131;
   }
-  #app section.sectionOptionContainer {
+  html #app section.sectionOptionContainer,
+body #app section.sectionOptionContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -789,7 +887,8 @@ body {
     padding-bottom: 8vw;
     background-color: #fafafa;
   }
-  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer {
+  html #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer,
+body #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -805,7 +904,8 @@ body {
     display: none;
     opacity: 0;
   }
-  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer {
+  html #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer,
+body #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer {
     background-color: rgba(32, 32, 32, 0.95);
     display: flex;
     flex-direction: row;
@@ -815,13 +915,15 @@ body {
     width: 80%;
     height: 70%;
   }
-  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer h2.h2DisabledOptionText {
+  html #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer h2.h2DisabledOptionText,
+body #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer h2.h2DisabledOptionText {
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
     font-weight: bold;
     font-size: 1.9vw;
   }
-  #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer .divHideDisabledWrapperOptionModalContainer {
+  html #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer .divHideDisabledWrapperOptionModalContainer,
+body #app section.sectionOptionContainer .divDisabledWrapperOptionModalContainer .divDisabledOptionModalContainer .divHideDisabledWrapperOptionModalContainer {
     width: 3vw;
     height: 3vw;
     background-size: cover;
@@ -832,7 +934,8 @@ body {
     right: 2vw;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer {
     width: 60%;
     height: 100%;
     display: flex;
@@ -842,14 +945,16 @@ body {
     padding-left: 2vw;
     align-items: flex-start;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer {
     width: 25%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     position: relative;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperContainer {
     width: 100%;
     position: absolute;
     height: 46%;
@@ -861,7 +966,8 @@ body {
     cursor: pointer;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperDisabledContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperDisabledContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer li.liWrapperDisabledContainer {
     width: 100%;
     height: 50%;
     position: absolute;
@@ -870,7 +976,8 @@ body {
     z-index: 20;
     cursor: not-allowed;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer {
     padding-left: 1vw;
     font-size: 1.7vw;
     font-family: "Times New Roman", Times, serif;
@@ -880,7 +987,8 @@ body {
     margin-bottom: 1vw;
     line-height: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li {
     margin-left: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-size: 1.3vw;
@@ -888,7 +996,8 @@ body {
     font-weight: normal;
     position: relative;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li::before {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li::before,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulDefaultOptionContainer li::before {
     position: absolute;
     background-color: #0a0a0a;
     width: 7px;
@@ -897,7 +1006,8 @@ body {
     top: 50%;
     left: -15px;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer {
     font-size: 1.7vw;
     padding-left: 1vw;
     font-family: "Times New Roman", Times, serif;
@@ -906,7 +1016,8 @@ body {
     padding-bottom: 0.8vw;
     line-height: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li {
     margin-left: 2vw;
     line-height: normal;
     font-weight: normal;
@@ -914,7 +1025,8 @@ body {
     font-size: 1.3vw;
     position: relative;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li::before {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li::before,
+body #app section.sectionOptionContainer .divOptionWrapperContainer ul.ulOptionListContainer ul.ulAdditionalOptionContainer li::before {
     position: absolute;
     background-color: #0a0a0a;
     width: 7px;
@@ -923,12 +1035,14 @@ body {
     top: 50%;
     left: -15px;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer {
     width: 75%;
     height: 100%;
     position: relative;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -942,12 +1056,14 @@ body {
     padding-left: 2vw;
     padding-top: 0.5vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer {
     width: 100%;
     height: 49%;
     margin-bottom: 2%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer h4 {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer h4,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer h4 {
     font-size: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
@@ -955,7 +1071,8 @@ body {
     padding-left: 2vw;
     margin-bottom: 2%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer {
     width: 100%;
     height: 75%;
     display: flex;
@@ -963,7 +1080,8 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer {
     border: 1px solid #0a0a0a;
     width: 25%;
     height: 100%;
@@ -975,11 +1093,13 @@ body {
     transition: all 300ms ease-in-out;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li {
     transition: all 300ms ease-in-out;
     font-family: "Times New Roman", Times, serif;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liCoffeeCup {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liCoffeeCup,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liCoffeeCup {
     width: 60%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -988,7 +1108,8 @@ body {
     margin-top: 20%;
     margin-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liSize {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liSize,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liSize {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -997,7 +1118,8 @@ body {
     height: 15.5%;
     font-size: 1.4vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liMeasurement {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liMeasurement,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer li.liMeasurement {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1006,35 +1128,43 @@ body {
     height: 12.5%;
     margin-bottom: 4%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) {
     background-color: #16584e;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(1) li {
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
     width: 67.5%;
     height: 45%;
     margin-top: 15%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
     width: 75%;
     height: 50%;
     margin-top: 10%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) {
     margin-right: 0%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divSizeOptionContainer ul.ulSizeListWrapperContainer ul.ulSizeListContainer:nth-child(4) li.liCoffeeCup {
     width: 82.5%;
     height: 55%;
     margin-top: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer {
     width: 100%;
     height: 49%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer h4.h4IceOption {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer h4.h4IceOption,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer h4.h4IceOption {
     font-size: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
@@ -1042,7 +1172,8 @@ body {
     padding-left: 2vw;
     margin-bottom: 2%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer {
     width: 100%;
     height: 75%;
     display: flex;
@@ -1051,7 +1182,8 @@ body {
     align-items: center;
     position: relative;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledNoIceContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledNoIceContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledNoIceContainer {
     cursor: not-allowed;
     position: absolute;
     left: 0;
@@ -1060,7 +1192,8 @@ body {
     height: 100%;
     z-index: 10;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledIceContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledIceContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer li.liWrapperDisabledIceContainer {
     cursor: not-allowed;
     position: absolute;
     left: 0;
@@ -1069,7 +1202,8 @@ body {
     height: 100%;
     z-index: 20;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer {
     width: 25%;
     height: 100%;
     display: flex;
@@ -1081,10 +1215,12 @@ body {
     transition: all 300ms ease-in-out;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li {
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIceCube {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIceCube,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIceCube {
     width: 60%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -1093,7 +1229,8 @@ body {
     margin-top: 20%;
     margin-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIce {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIce,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer li.liIce {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1104,32 +1241,39 @@ body {
     font-family: "Times New Roman", Times, serif;
     margin-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) {
     background-color: #16584e;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(1) li {
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(2) li.liIceCube {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(2) li.liIceCube,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(2) li.liIceCube {
     width: 67.5%;
     height: 50%;
     margin-top: 15%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(3) li.liIceCube {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(3) li.liIceCube,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(3) li.liIceCube {
     width: 75%;
     height: 55%;
     margin-top: 10%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) {
     margin-right: 0%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) li.liIceCube {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) li.liIceCube,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divDefaultOptionContainer .divIceOptionContainer ul.ulIceListWrapperContainer ul.ulIceListContainer:nth-child(6) li.liIceCube {
     width: 82.5%;
     height: 60%;
     margin-top: 5%;
     margin-right: 0%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -1145,7 +1289,8 @@ body {
     transition: all 300ms ease-in-out;
     display: none;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer {
     width: 100%;
     margin-bottom: 2%;
     height: 40%;
@@ -1154,20 +1299,23 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer h4.h4EspressoOption {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer h4.h4EspressoOption,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer h4.h4EspressoOption {
     font-size: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
     padding-left: 2vw;
     padding-bottom: 2vh;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer {
     width: 100%;
     display: flex;
     padding-bottom: 3vh;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li {
     font-size: 1.5vw;
     padding: 0.5vw 0vw;
     width: 33.33333%;
@@ -1181,29 +1329,34 @@ body {
     border-right: none;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(1) {
     background-color: #174841;
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(2) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(2),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoRoastOptionContainer li:nth-child(2) {
     border-left: 1px solid #0a0a0a;
     border-right: 1px solid #0a0a0a;
     background-color: #174841;
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 1.6vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li button {
     font-size: 2vw;
     width: 2.6vw;
     height: 2.6vw;
@@ -1215,19 +1368,24 @@ body {
     align-items: center;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1) {
     margin-right: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1) button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1) button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(1) button {
     padding-bottom: 15%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3) {
     margin-left: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3) button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3) button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divEspressoOptionContainer ul.ulEspressoShotContainer li:nth-child(3) button {
     padding-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer {
     width: 100%;
     height: 50%;
     display: flex;
@@ -1235,19 +1393,22 @@ body {
     justify-content: flex-start;
     align-items: flex-start;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer h4.h4SyrupOption {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer h4.h4SyrupOption,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer h4.h4SyrupOption {
     font-size: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-weight: bolder;
     padding-left: 2vw;
     padding-bottom: 2vh;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer {
     width: 100%;
     display: flex;
     padding-bottom: 3vh;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li {
     cursor: pointer;
     font-size: 1.5vw;
     padding: 0.5vw 0vw;
@@ -1262,29 +1423,34 @@ body {
     border-right: none;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(1) {
     background-color: #174841;
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(2) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(2),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupOptionContainer li:nth-child(2) {
     border-left: 1px solid #0a0a0a;
     border-right: 1px solid #0a0a0a;
     background-color: #174841;
     color: #fafafa;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 1.6vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li button {
     font-size: 2vw;
     width: 2.6vw;
     height: 2.6vw;
@@ -1296,19 +1462,24 @@ body {
     align-items: center;
     cursor: pointer;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1) {
     margin-right: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1) button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1) button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(1) button {
     padding-bottom: 15%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3) {
     margin-left: 3vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3) button {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3) button,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divAdditionalOptionContainer .divSyrupOptionContainer ul.ulSyrupContainer li:nth-child(3) button {
     padding-bottom: 5%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer {
     width: 95.4%;
     margin-left: 2vw;
     display: flex;
@@ -1322,16 +1493,19 @@ body {
     align-items: flex-end;
     padding-left: 2vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.9vw;
     font-weight: bold;
     padding-right: 3%;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceOptionContainer span:nth-child(1) {
     padding-right: 5vw;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer {
     width: 95.4%;
     margin-left: 2vw;
     height: 14%;
@@ -1346,15 +1520,18 @@ body {
     padding-left: 1.5vw;
     border-top: 1px solid #0a0a0a;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span,
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 2.5vw;
     font-weight: bolder;
   }
-  #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span:nth-child(1) {
+  html #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span:nth-child(1),
+body #app section.sectionOptionContainer .divOptionWrapperContainer .divOptionCustomContainer .divPriceContainer span:nth-child(1) {
     margin-right: 5vw;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer {
+  html #app section.sectionOptionContainer .divProductWrapperContainer,
+body #app section.sectionOptionContainer .divProductWrapperContainer {
     width: 40%;
     height: 100%;
     display: flex;
@@ -1363,7 +1540,8 @@ body {
     align-items: center;
     padding: 0 2vw;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer {
     width: 100%;
     height: 60%;
     display: flex;
@@ -1372,14 +1550,16 @@ body {
     align-items: center;
     padding-bottom: 1%;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer .divProductImage {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer .divProductImage,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divProductImageContainer .divProductImage {
     width: 90%;
     height: 90%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: contain;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer h3.h3ProductName {
+  html #app section.sectionOptionContainer .divProductWrapperContainer h3.h3ProductName,
+body #app section.sectionOptionContainer .divProductWrapperContainer h3.h3ProductName {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1389,8 +1569,10 @@ body {
     letter-spacing: 0.05vw;
     font-size: 1.9vw;
     font-weight: bolder;
+    text-align: center;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divProductCategory {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divProductCategory,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divProductCategory {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1401,7 +1583,8 @@ body {
     font-weight: bolder;
     font-size: 1.4vw;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer {
     width: 100%;
     height: 20%;
     display: flex;
@@ -1410,7 +1593,8 @@ body {
     align-items: center;
     justify-content: space-between;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button {
     width: 50%;
     height: 70%;
     font-family: "Times New Roman", Times, serif;
@@ -1421,13 +1605,16 @@ body {
     cursor: pointer;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonAddToCart {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonAddToCart,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonAddToCart {
     background-color: #172d29;
   }
-  #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonCancelAddingToCart {
+  html #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonCancelAddingToCart,
+body #app section.sectionOptionContainer .divProductWrapperContainer .divOptionButtonContainer button.buttonCancelAddingToCart {
     background-color: #cf3131;
   }
-  #app section.sectionReviewOrderContainer {
+  html #app section.sectionReviewOrderContainer,
+body #app section.sectionReviewOrderContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1444,7 +1631,8 @@ body {
     opacity: 0;
     overflow: hidden;
   }
-  #app section.sectionReviewOrderContainer button.buttonShowCoupon {
+  html #app section.sectionReviewOrderContainer button.buttonShowCoupon,
+body #app section.sectionReviewOrderContainer button.buttonShowCoupon {
     position: absolute;
     z-index: 20;
     top: 2vw;
@@ -1458,7 +1646,8 @@ body {
     background-color: #fafafa;
     cursor: pointer;
   }
-  #app section.sectionReviewOrderContainer button.buttonShowOrder {
+  html #app section.sectionReviewOrderContainer button.buttonShowOrder,
+body #app section.sectionReviewOrderContainer button.buttonShowOrder {
     position: absolute;
     z-index: 20;
     top: 2vw;
@@ -1472,7 +1661,8 @@ body {
     background-color: #fafafa;
     cursor: pointer;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer {
     width: 60%;
     height: 100%;
     display: flex;
@@ -1483,7 +1673,8 @@ body {
     padding: 2vw;
     overflow: auto;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer {
     width: 80%;
     height: 12vw;
     border-radius: 1vw;
@@ -1494,7 +1685,8 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer {
     width: 25%;
     height: 12vw;
     display: flex;
@@ -1502,15 +1694,17 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer .divDetailedReviewOrderSelectedProductImageContainer {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer .divDetailedReviewOrderSelectedProductImageContainer,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductImageWrapperContainer .divDetailedReviewOrderSelectedProductImageContainer {
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
     width: 8vw;
     height: 8vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer {
-    width: 75%;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer {
+    width: 80%;
     height: 100%;
     font-family: "Times New Roman", Times, serif;
     color: #0a0a0a;
@@ -1520,39 +1714,41 @@ body {
     align-items: center;
     align-items: flex-start;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span {
+    display: inline-block;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductName {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductName,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductName {
     padding-top: 0.5vw;
     font-weight: bold;
     font-size: 1.8vw;
-    height: 30%;
+    margin-bottom: 0.7vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductOptions {
-    height: 10%;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductOptions,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductOptions {
     font-size: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductPrice {
-    height: 10%;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductPrice,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductPrice {
     font-size: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductCount {
-    height: 10%;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductCount,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductCount {
     font-size: 1vw;
+    margin-bottom: 0.7vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductTotalPrice {
-    height: 40%;
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductTotalPrice,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer .divDetailedReviewOrderSelectedProductInfoContainer .divDetailedReviewOrderSelectedProductOptionWrapperContainer span.spanDetailedReviewOrderSelectedProductTotalPrice {
     font-size: 1.4vw;
     padding-bottom: 0.6vw;
   }
-  #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer::-webkit-scrollbar {
+  html #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer::-webkit-scrollbar,
+body #app section.sectionReviewOrderContainer .divDetailedReviewOrderContainer::-webkit-scrollbar {
     display: none;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer {
     width: 40%;
     height: 100%;
     display: flex;
@@ -1566,24 +1762,29 @@ body {
     right: 0vw;
     transition: all 300ms ease-in-out;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer {
     margin-bottom: 1vw;
     margin-left: 0.5vw;
     font-family: "Times New Roman", Times, serif;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderCountContainer span {
     color: #fafafa;
     font-size: 2vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer {
     margin-left: 0.5vw;
     font-family: "Times New Roman", Times, serif;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderTotalPriceContainer span {
     color: #fafafa;
     font-size: 1.3vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer {
     margin: 2vw 0;
     margin-top: 3vw;
     display: flex;
@@ -1592,7 +1793,8 @@ body {
     align-items: center;
     width: 100%;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 2vw;
@@ -1601,18 +1803,21 @@ body {
     padding-bottom: 0.6vw;
     cursor: pointer;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(1) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(1),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(1) {
     margin-left: 0.5vw;
     margin-right: 1vw;
     background-color: #fafafa;
     color: #0a0a0a;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(2) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(2),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderContainer .divSimpleReviewOrderButtonContainer button:nth-child(2) {
     background-color: #cf3131;
     color: #fafafa;
     margin-left: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer {
     width: 40%;
     height: 100%;
     display: flex;
@@ -1627,13 +1832,15 @@ body {
     transition: all 300ms ease-in-out;
     overflow: hidden;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer {
     position: relative;
     width: 100%;
     height: 100%;
     overflow: hidden;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer {
     position: absolute;
     top: 0;
     left: 0;
@@ -1645,7 +1852,8 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer {
     padding-left: 0.5vw;
     width: 90%;
     display: flex;
@@ -1653,21 +1861,24 @@ body {
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer {
     margin-bottom: 2vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer h4.h4CouponSearchingText {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer h4.h4CouponSearchingText,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer h4.h4CouponSearchingText {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 2.5vw;
     color: #fafafa;
     margin-bottom: 2vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer input.inputPhoneNumber {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer input.inputPhoneNumber,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer input.inputPhoneNumber {
     width: 100%;
     height: 4vw;
     font-size: 2vw;
@@ -1677,31 +1888,36 @@ body {
     color: #0a0a0a;
     margin-bottom: 2vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer {
     width: 100%;
     height: 11vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button {
     width: 5vw;
     height: 5vw;
     font-size: 1.8vw;
     font-family: "Times New Roman", Times, serif;
     cursor: pointer;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(11) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(11),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(11) {
     font-size: 1.5vw;
     color: #fafafa;
     background-color: #cf3131;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(12) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(12),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingContainer .divCouponSearchingButtonContainer button:nth-child(12) {
     background-color: #16584e;
     color: #fafafa;
     font-size: 1.5vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1709,7 +1925,8 @@ body {
     align-items: center;
     justify-content: flex-end;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteText {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteText,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteText {
     font-family: "Times New Roman", Times, serif;
     font-weight: bold;
     font-size: 2vw;
@@ -1717,7 +1934,8 @@ body {
     margin-bottom: 1.3vw;
     margin-right: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteResult {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteResult,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer .divSimpleReviewOrderCouponSearchingCompleteContainer span.spanCouponSearchingCompleteResult {
     font-family: "Times New Roman", Times, serif;
     display: inline-block;
     font-weight: bold;
@@ -1726,13 +1944,15 @@ body {
     color: #fafafa;
     margin-bottom: 1.3vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed {
     margin-top: 2vw;
     font-family: "Times New Roman", Times, serif;
     font-size: 1.5vw;
     color: #fafafa;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer {
     position: absolute;
     top: 0;
     left: 40vw;
@@ -1745,7 +1965,8 @@ body {
     align-items: center;
     padding-left: 0.5vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer h4.h4UsingPoint {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer h4.h4UsingPoint,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer h4.h4UsingPoint {
     width: 100%;
     font-family: "Times New Roman", Times, serif;
     font-weight: normal;
@@ -1754,39 +1975,48 @@ body {
     margin-bottom: 2vw;
     text-align: center;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer {
     margin-bottom: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPriceContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.4vw;
     color: #fafafa;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer {
     margin-bottom: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointTotalPointContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.4vw;
     color: #fafafa;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer {
     margin-bottom: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointUsingPointContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.4vw;
     color: #fafafa;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer {
     margin-bottom: 2vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer span {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer span,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointEstimatedPaymentContainer span {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.4vw;
     color: #fafafa;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -1794,7 +2024,8 @@ body {
     align-items: center;
     margin-bottom: 5vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer button {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer button,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointButtonUsingPointContainer button {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.5vw;
     color: #0a0a0a;
@@ -1803,7 +2034,8 @@ body {
     width: 45%;
     margin-bottom: 1vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -1811,7 +2043,8 @@ body {
     align-items: center;
     margin-bottom: 3vw;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button,
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button {
     font-family: "Times New Roman", Times, serif;
     font-size: 2vw;
     font-weight: bold;
@@ -1819,17 +2052,20 @@ body {
     padding: 0.6vw 0;
     cursor: pointer;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(1) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(1),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(1) {
     margin-right: 1vw;
     background-color: #fafafa;
     color: #0a0a0a;
   }
-  #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(2) {
+  html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(2),
+body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer .divUsingPointPayContainer button:nth-child(2) {
     background-color: #cf3131;
     color: #fafafa;
     margin-left: 1vw;
   }
-  #app section.sectionPayContainer {
+  html #app section.sectionPayContainer,
+body #app section.sectionPayContainer {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1846,7 +2082,8 @@ body {
     background-color: #172d29;
     color: #fafafa;
   }
-  #app section.sectionPayContainer .divPayReviewContainer {
+  html #app section.sectionPayContainer .divPayReviewContainer,
+body #app section.sectionPayContainer .divPayReviewContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1855,7 +2092,8 @@ body {
     opacity: 0;
     display: none;
   }
-  #app section.sectionPayContainer .divPayReviewContainer h2.h2PayInputCard {
+  html #app section.sectionPayContainer .divPayReviewContainer h2.h2PayInputCard,
+body #app section.sectionPayContainer .divPayReviewContainer h2.h2PayInputCard {
     transition: all 300ms ease-in-out;
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
@@ -1865,7 +2103,8 @@ body {
     display: none;
     margin-bottom: 2vw;
   }
-  #app section.sectionPayContainer .divPayReviewContainer h3.h3PayTotalPrice {
+  html #app section.sectionPayContainer .divPayReviewContainer h3.h3PayTotalPrice,
+body #app section.sectionPayContainer .divPayReviewContainer h3.h3PayTotalPrice {
     transition: all 300ms ease-in-out;
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
@@ -1873,7 +2112,8 @@ body {
     display: none;
     margin-bottom: 2vw;
   }
-  #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeAccumulated {
+  html #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeAccumulated,
+body #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeAccumulated {
     transition: all 300ms ease-in-out;
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
@@ -1881,7 +2121,8 @@ body {
     display: none;
     margin-bottom: 2vw;
   }
-  #app section.sectionPayContainer h2.h2PayComplete {
+  html #app section.sectionPayContainer h2.h2PayComplete,
+body #app section.sectionPayContainer h2.h2PayComplete {
     transition: all 300ms ease-in-out;
     font-family: "Times New Roman", Times, serif;
     color: #fafafa;
@@ -1897,7 +2138,8 @@ body {
     width: 100%;
     height: 100vh;
   }
-  div#app {
+  html div#app,
+body div#app {
     width: 100%;
     height: 100%;
     display: flex;
@@ -1912,7 +2154,8 @@ body {
     width: 100%;
     height: 100vh;
   }
-  div#app {
+  html div#app,
+body div#app {
     width: 100%;
     height: 100%;
     display: flex;

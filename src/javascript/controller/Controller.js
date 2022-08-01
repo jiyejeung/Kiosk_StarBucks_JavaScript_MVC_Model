@@ -115,6 +115,13 @@ export default {
 	},
 
 	/* in sectionSelectProductContainer */
+	clickDivHideSelectedProductOptionContainer() {
+		$('.divHideSelectedProductOptionContainer').addEventListener('click', () => void this.onClickDivHideSelectedProductOptionContainer());
+	},
+	onClickDivHideSelectedProductOptionContainer() {
+		SelectProductContainer.onClickDivHideSelectedProductOptionContainer();
+	},
+
 	clickLiSelectProductCategoryItem() {
 		$$('.liSelectProductCategoryItem')?.forEach((li, index) => li?.addEventListener('click', ({ target }) => void this.onClickLiSelectProductCategoryItem(target, index)));
 	},
@@ -595,6 +602,7 @@ export default {
 		this.clickSectionSlideContainer();
 		this.clickButtonTakeOut();
 		this.clickButtonStore();
+		this.clickDivHideSelectedProductOptionContainer();
 		this.clickLiSelectProductCategoryItem();
 		this.mouseoverLiSelectProductCategoryItem();
 		this.mouseoutLiSelectProductCategoryItem();

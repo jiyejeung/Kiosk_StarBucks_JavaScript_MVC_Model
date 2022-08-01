@@ -8,1533 +8,1548 @@
 		width: 100%;
 		height: 100vh;
 		background-color: $darkGreen;
-	}
-	#app {
-		width: 100%;
-		height: 100%;
-		@include flexRow();
-		transition: all 300ms ease-in-out;
-		position: relative;
-		overflow: hidden;
-		nav.navKioskContainer {
-			position: absolute;
-			top: 0;
-			left: 0;
+		#app {
 			width: 100%;
-			height: 7vw;
+			height: 100%;
 			@include flexRow();
-			justify-content: space-between;
-			padding: 0 2vw;
-			z-index: 10;
-			display: none;
-			opacity: 0;
 			transition: all 300ms ease-in-out;
-			h1.h1NavKioskTitle {
-				margin-top: 1vw;
-				font-size: 5.5vw;
-				font-weight: bolder;
-				font-family: 'Archivo Black', sans-serif;
-				color: $Green;
-				cursor: pointer;
-			}
-			.divKioskTimer {
-				font-size: 2.7vw;
-				font-family: 'Times New Roman', Times, serif;
-				letter-spacing: 0.05vw;
-				font-weight: bold;
-				color: $Green;
-			}
-		}
-		footer.footerKioskContainer {
-			transition: all 300ms ease-in-out;
-			z-index: 10;
-			position: absolute;
-			width: 100%;
-			bottom: 0;
-			left: 0;
-			height: 7vw;
-			@include flexCol();
-			display: none;
-			opacity: 0;
-			background-color: $darkGreen;
-			div {
-				font-family: 'Times New Roman', Times, serif;
-				letter-spacing: 0.05vw;
-				font-size: 1.5vw;
-				color: $white;
-			}
-			.divEmail {
-				margin-bottom: 1.5vw;
-			}
-			.divContactMe {
-				font-size: 1.1vw;
-			}
-		}
-		section.sectionIntroContainer {
-			width: 100%;
-			height: 100%;
-			@include flexCol();
-			font-size: 5vw;
-			background-color: $darkGreen;
-			transition: all 300ms ease-in-out;
-			position: absolute;
-			top: 0;
-			left: 0;
-			cursor: pointer;
-			h1.h1IntroTitle {
-				font-size: 8vw;
-				font-weight: bolder;
-				color: $white;
-				margin-bottom: 2.5vw;
-			}
-			h2.h2IntroGreeting {
-				font-family: 'Times New Roman', Times, serif;
-				letter-spacing: 0.05vw;
-				font-size: 2.5vw;
-				color: $white;
-			}
-		}
-		section.sectionSlideContainer {
-			display: none;
-			opacity: 0;
-			transition: all 300ms ease-in-out;
-			width: 100vw;
-			height: 100%;
+			position: relative;
 			overflow: hidden;
-			background-color: $darkGreen;
-			position: absolute;
-			top: 0;
-			left: 0;
-			cursor: pointer;
-			ul.ulSlideContainer {
-				width: 300vw;
-				height: 100%;
-				display: block;
-				li {
-					float: left;
-					width: 100vw;
-					height: 100%;
-					background-position: 50% 50%;
-					background-repeat: no-repeat;
-					background-size: cover;
-					transition: all 500ms ease-in-out;
-				}
-			}
-			h3.h3SlideTouchText {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-				font-family: 'Times New Roman', Times, serif;
-				letter-spacing: 0.05vw;
-				text-shadow: rgba($black, 0.7) 0.1vw 0.1vw 0.3vw;
-				font-weight: bolder;
-				font-size: 5vw;
-				color: $white;
-			}
-		}
-		section.sectionTakeOutContainer {
-			width: 100%;
-			height: 100%;
-			background-image: url('../../images/deliveryImage01.jpg');
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: 50% 50%;
-			@include flexRow();
-			display: none;
-			opacity: 0;
-			transition: all 300ms ease-in-out;
-			position: absolute;
-			top: 0;
-			left: 0;
-			.divWrapperTakeOutContainer {
-				width: 100%;
-				height: 100%;
-				background-color: $black;
-				opacity: 0.2;
-				@include flexCol();
-			}
-			.divWrapperTakeOutButtonContainer {
-				position: absolute;
-				width: 100%;
-				height: 30%;
-				@include flexRow();
-				background-color: transparent;
-				button {
-					width: 30%;
-					height: 100%;
-					@include flexRow();
-					background-color: transparent;
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-weight: bolder;
-					text-shadow: rgba($black, 0.5) 0.1vw 0.1vw 0.3vw;
-					color: $white;
-					font-size: 6vw;
-					cursor: pointer;
-				}
-				button.buttonTakeOut {
-					margin-right: 3vw;
-				}
-				button.buttonStore {
-					margin-left: 3vw;
-				}
-			}
-		}
-		section.sectionSelectProductContainer {
-			width: 100%;
-			height: 100%;
-			@include flexRow();
-			display: none;
-			opacity: 0;
-			transition: all 300ms ease-in-out;
-			position: absolute;
-			top: 0;
-			left: 0;
-			padding-top: 8vw;
-			padding-bottom: 8vw;
-			background-color: $white;
-			// start menu modal
-			.divSelectedProductOptionWrapperContainer {
+			nav.navKioskContainer {
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 100%;
+				height: 7vw;
 				@include flexRow();
-				.divSelectedProductOptionContainer {
-					width: 80%;
-					height: 80%;
-					position: relative;
-					@include flexRow();
-					background-color: $white;
-					.divHideSelectedProductOptionContainer {
-						position: absolute;
-						top: 2vw;
-						right: 2vw;
-						background-image: url(../../images/cancel.png);
-						background-position: 50% 50%;
-						background-size: cover;
-						background-repeat: no-repeat;
-					}
-					.divSelectedProductImageWrapperContainer {
-						width: 50%;
-						height: 100%;
-						@include flexRow();
-						.divSelectedProductImageContainer {
-							width: 20vw;
-							height: 20vw;
-							background-position: 50% 50%;
-							background-size: cover;
-							background-repeat: no-repeat;
-						}
-					}
-					.divSelectedProductInformationContainer {
-						width: 50%;
-						height: 100%;
-						@include flexCol();
-						h3.h3SelectedProductName {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 2.5vw;
-						}
-						span.spanSelectedProductSize {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.6vw;
-						}
-						span.spanSelectedProductIce {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.6vw;
-						}
-						span.spanSelectedProductEspresso {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.6vw;
-						}
-						span.spanSelectedProductSyrup {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.6vw;
-						}
-					}
-				}
-			}
-			// end menu modal
-			ul.ulSelectProductCategoryContainer {
-				width: 20%;
-				height: 100%;
-				@include flexCol();
-				justify-content: flex-start;
-				padding-left: 2vw;
-				li.liSelectProductCategoryItem {
-					width: 100%;
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					color: $white;
-					font-size: 1.8vw;
-					font-weight: bold;
-					text-align: center;
-					padding: 1.5vw 0;
-					background-color: $littleBrightGreen;
-					transition: all 300ms ease-in-out;
-					margin-bottom: 0.5vw;
-					cursor: pointer;
-				}
-				li.liSelectProductCategoryItem:nth-child(1) {
-					background-color: $littleDarkGreen;
-				}
-			}
-			ul.ulSelectProductWrapperContainer {
-				width: 57%;
-				height: 100%;
-				overflow: hidden;
-				position: relative;
-				ul.ulSelectProductListContainer {
-					position: absolute;
-					left: 0;
-					top: 0;
-					width: 100%;
-					max-height: 100%;
-					flex-wrap: wrap;
-					display: none;
-					transition: all 300ms ease-in-out;
-					opacity: 0;
-					justify-content: flex-start;
-					align-items: flex-start;
-					padding-left: 2vw;
-					overflow: auto;
-					ul.ulSelectProductItemContainer {
-						border: 1px solid$black;
-						width: 17.25vw;
-						height: 20vw;
-						margin-right: 1vw;
-						margin-bottom: 1vw;
-						@include flexCol();
-						cursor: pointer;
-						li {
-							width: 100%;
-							text-align: center;
-						}
-						li.liSelectProductImageItem {
-							height: 13vw;
-							width: 13vw;
-							background-position: 50% 50%;
-							background-repeat: no-repeat;
-							background-size: cover;
-							margin-bottom: 0.4vw;
-						}
-						li.liSelectProductNameItem {
-							@include flexRow();
-							line-height: 1.5vw;
-							height: 3.7vw;
-							font-family: 'Times New Roman', Times, serif;
-							letter-spacing: 0.05vw;
-							font-size: 1.3vw;
-							color: $black;
-						}
-						li.liSelectProductPriceItem {
-							font-family: 'Times New Roman', Times, serif;
-							letter-spacing: 0.05vw;
-							font-size: 1.3vw;
-							color: $black;
-						}
-					}
-				}
-				ul.ulSelectProductListContainer::-webkit-scrollbar {
-					display: none;
-				}
-				ul.ulSelectProductListContainer:nth-child(1) {
-					display: flex;
-					opacity: 1;
-				}
-			}
-			.divSelectedProductWrapperContainer {
-				width: 23%;
-				height: 100%;
-				@include flexCol();
-				padding-right: 2vw;
-				padding-left: 1vw;
-				ul.ulSelectedProductListContainer {
-					width: 100%;
-					height: 60%;
-					border-top: 1px solid$black;
-					border-bottom: 1px solid$black;
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					overflow: scroll;
-					ul.ulSelectedProductItemContainer {
-						width: 100%;
-						height: 6vw;
-						border-top: 1px solid$black;
-						@include flexCol();
-						margin-bottom: 0.6vw;
-						transition: all 300ms ease-in-out;
-						li.liItemId {
-							display: none;
-						}
-						li.liItemName {
-							width: 100%;
-							height: 2vw;
-							@include flexRow();
-							justify-content: flex-start;
-							padding-left: 2%;
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.15vw;
-							font-weight: bold;
-							padding-top: 1%;
-						}
-						li.liWrapperItemContainer {
-							width: 100%;
-							height: 2vw;
-							@include flexRow();
-							span {
-								height: 100%;
-								@include flexRow();
-							}
-							span.spanItemPrice {
-								width: 70%;
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.15vw;
-								padding-left: 5%;
-								padding-bottom: 1%;
-							}
-							span.spanItemMinusCountContainer {
-								width: 10%;
-								display: flex;
-								justify-content: flex-start;
-								align-items: flex-start;
-								button {
-									@include flexRow();
-									width: 1.7vw;
-									height: 1.7vw;
-									background-color: $darkGreen;
-									cursor: pointer;
-									div.divMinusImageContainer {
-										width: 95%;
-										height: 95%;
-										background-image: url(../../images/minus.png);
-										background-position: 50% 50%;
-										background-repeat: no-repeat;
-										background-size: contain;
-									}
-								}
-							}
-							span.spanItemCount {
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1vw;
-								width: 10%;
-								font-size: 1.2vw;
-								padding-bottom: 1%;
-							}
-							span.spanItemAddCountContainer {
-								width: 10%;
-								display: flex;
-								justify-content: flex-end;
-								align-items: flex-start;
-								button {
-									@include flexRow();
-									background-color: $darkGreen;
-									cursor: pointer;
-									width: 1.7vw;
-									height: 1.7vw;
-									div.divAddImageContainer {
-										background-image: url(../../images/plus.png);
-										width: 95%;
-										height: 95%;
-										background-position: 50% 50%;
-										background-repeat: no-repeat;
-										background-size: contain;
-									}
-								}
-							}
-						}
-						li.liItemButtonContainer {
-							width: 100%;
-							height: 2vw;
-							@include flexRow();
-							button.buttonItemOption {
-								width: 50%;
-								height: 100%;
-								@include flexRow();
-								background-color: $darkGreen;
-								color: $white;
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.1vw;
-								font-weight: bold;
-								cursor: pointer;
-							}
-							button.buttonItemDelete {
-								width: 50%;
-								height: 100%;
-								@include flexRow();
-								background-color: $red;
-								color: $white;
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.1vw;
-								font-weight: bold;
-								cursor: pointer;
-							}
-						}
-					}
-					ul.ulSelectedProductItemContainer:nth-child(1) {
-						border-top: none;
-					}
-				}
-				ul.ulSelectedProductListContainer::-webkit-scrollbar {
-					display: none;
-				}
-				.divPayWrapperContainer {
-					width: 100%;
-					height: 40%;
-					@include flexCol();
-					.divPayInfoContainer {
-						width: 100%;
-						height: 45%;
-						padding-bottom: 2%;
-						.divTotalNumberContainer {
-							padding-top: 5%;
-							@include flexRow();
-							width: 100%;
-							height: 50%;
-							span {
-								font-family: 'Times New Roman', Times, serif;
-								letter-spacing: 0.05vw;
-								font-weight: bold;
-							}
-							span.spanTotalNumberText {
-								font-size: 2.05vw;
-								text-align: left;
-								width: 70%;
-							}
-							span.spanTotalNumberValue {
-								font-size: 2vw;
-								width: 30%;
-								text-align: right;
-							}
-						}
-						.divTotalAmountContainer {
-							@include flexRow();
-							width: 100%;
-							height: 50%;
-							padding-top: 2.5%;
-							span {
-								font-size: 2vw;
-								font-weight: bold;
-								font-family: 'Times New Roman', Times, serif;
-								letter-spacing: 0.05vw;
-							}
-							span.spanTotalAmountText {
-								text-align: left;
-								width: 40%;
-							}
-							span.spanTotalAmountValue {
-								text-align: right;
-								width: 60%;
-							}
-						}
-					}
-					button {
-						width: 100%;
-						height: 25%;
-						font-family: 'Times New Roman', Times, serif;
-						letter-spacing: 0.05vw;
-						font-size: 2.5vw;
-						font-weight: bolder;
-						color: $white;
-						transition: all 300ms ease-in-out;
-						cursor: pointer;
-					}
-					button.buttonPay {
-						background-color: $darkGreen;
-						margin-bottom: 5%;
-						cursor: not-allowed;
-					}
-					button.buttonCancel {
-						background-color: $red;
-					}
-				}
-			}
-		}
-		section.sectionOptionContainer {
-			width: 100%;
-			height: 100%;
-			@include flexRow();
-			display: none;
-			opacity: 0;
-			transition: all 300ms ease-in-out;
-			position: absolute;
-			padding-top: 8vw;
-			padding-bottom: 8vw;
-			background-color: $white;
-			.divDisabledWrapperOptionModalContainer {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100vh;
-				@include flexRow();
-				z-index: 30;
-				transition: all 300ms ease-in-out;
-				background-color: rgba($black, 0.2);
+				justify-content: space-between;
+				padding: 0 2vw;
+				z-index: 10;
 				display: none;
 				opacity: 0;
-				.divDisabledOptionModalContainer {
-					background-color: rgba($modalBackgroundColor, 0.95);
-					@include flexRow();
-					position: relative;
-					width: 80%;
-					height: 70%;
-					h2.h2DisabledOptionText {
-						font-family: 'Times New Roman', Times, serif;
-						color: $white;
-						font-weight: bold;
-						font-size: 1.9vw;
-					}
-					.divHideDisabledWrapperOptionModalContainer {
-						width: 3vw;
-						height: 3vw;
-						background-size: cover;
-						background-repeat: no-repeat;
-						background-position: 50% 50%;
-						position: absolute;
-						top: 2vw;
-						right: 2vw;
-						cursor: pointer;
-					}
+				transition: all 300ms ease-in-out;
+				h1.h1NavKioskTitle {
+					margin-top: 1vw;
+					font-size: 5.5vw;
+					font-weight: bolder;
+					font-family: 'Archivo Black', sans-serif;
+					color: $Green;
+					cursor: pointer;
+				}
+				.divKioskTimer {
+					font-size: 2.7vw;
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-weight: bold;
+					color: $Green;
 				}
 			}
-			.divOptionWrapperContainer {
-				width: 60%;
-				height: 100%;
-				@include flexRow();
-				padding-left: 2vw;
-				align-items: flex-start;
-				ul.ulOptionListContainer {
-					width: 25%;
-					display: flex;
-					flex-direction: column;
-					justify-content: flex-start;
-					position: relative;
-					li.liWrapperContainer {
-						width: 100%;
-						position: absolute;
-						height: 46%;
-						border: 1px solid$black;
-						left: 0;
-						background-color: rgba($black, 0.2);
-						opacity: 0.2;
-						top: 0%;
-						cursor: pointer;
-						transition: all 300ms ease-in-out;
-					}
-					li.liWrapperDisabledContainer {
-						width: 100%;
-						height: 50%;
-						position: absolute;
-						bottom: 0%;
-						left: 0;
-						z-index: 20;
-						cursor: not-allowed;
-					}
-					ul.ulDefaultOptionContainer {
-						padding-left: 1vw;
-						font-size: 1.7vw;
-						font-family: 'Times New Roman', Times, serif;
-						font-weight: bolder;
-						padding-bottom: 0.8vw;
-						cursor: pointer;
-						margin-bottom: 1vw;
-						line-height: 3vw;
-						li {
-							margin-left: 2vw;
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.3vw;
-							line-height: normal;
-							font-weight: normal;
-							position: relative;
-						}
-						li::before {
-							position: absolute;
-							background-color: $black;
-							width: 7px;
-							height: 2px;
-							content: '';
-							top: 50%;
-							left: -15px;
-						}
-					}
-					ul.ulAdditionalOptionContainer {
-						font-size: 1.7vw;
-						padding-left: 1vw;
-						font-family: 'Times New Roman', Times, serif;
-						font-weight: bolder;
-						cursor: pointer;
-						padding-bottom: 0.8vw;
-						line-height: 3vw;
-						li {
-							margin-left: 2vw;
-							line-height: normal;
-							font-weight: normal;
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.3vw;
-							position: relative;
-						}
-						li::before {
-							position: absolute;
-							background-color: $black;
-							width: 7px;
-							height: 2px;
-							content: '';
-							top: 50%;
-							left: -15px;
-						}
-					}
+			footer.footerKioskContainer {
+				transition: all 300ms ease-in-out;
+				z-index: 10;
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				left: 0;
+				height: 7vw;
+				@include flexCol();
+				display: none;
+				opacity: 0;
+				background-color: $darkGreen;
+				div {
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-size: 1.5vw;
+					color: $white;
 				}
-				.divOptionCustomContainer {
-					width: 75%;
-					height: 100%;
-					position: relative;
-					.divDefaultOptionContainer {
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 70%;
-						@include flexCol();
-						transition: all 300ms ease-in-out;
-						padding-left: 2vw;
-						padding-top: 0.5vw;
-						.divSizeOptionContainer {
-							width: 100%;
-							height: 49%;
-							margin-bottom: 2%;
-							h4 {
-								font-size: 2vw;
-								font-family: 'Times New Roman', Times, serif;
-								font-weight: bolder;
-								height: 17.5%;
-								padding-left: 2vw;
-								margin-bottom: 2%;
-							}
-							ul.ulSizeListWrapperContainer {
-								width: 100%;
-								height: 75%;
-								@include flexRow();
-								ul.ulSizeListContainer {
-									border: 1px solid$black;
-									width: 25%;
-									height: 100%;
-									@include flexCol();
-									margin-right: 2%;
-									transition: all 300ms ease-in-out;
-									cursor: pointer;
-									li {
-										transition: all 300ms ease-in-out;
-										font-family: 'Times New Roman', Times, serif;
-									}
-									li.liCoffeeCup {
-										width: 60%;
-										background-position: 50% 50%;
-										background-repeat: no-repeat;
-										background-size: contain;
-										height: 40%;
-										margin-top: 20%;
-										margin-bottom: 5%;
-									}
-									li.liSize {
-										@include flexRow();
-										align-items: flex-end;
-										height: 15.5%;
-										font-size: 1.4vw;
-									}
-									li.liMeasurement {
-										@include flexRow();
-										font-size: 1.1vw;
-										height: 12.5%;
-										margin-bottom: 4%;
-									}
-								}
-								ul.ulSizeListContainer:nth-child(1) {
-									background-color: $littleBrightGreen;
-									li {
-										color: $white;
-									}
-								}
-								ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
-									width: 67.5%;
-									height: 45%;
-									margin-top: 15%;
-								}
-								ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
-									width: 75%;
-									height: 50%;
-									margin-top: 10%;
-								}
-								ul.ulSizeListContainer:nth-child(4) {
-									margin-right: 0%;
-									li.liCoffeeCup {
-										width: 82.5%;
-										height: 55%;
-										margin-top: 5%;
-									}
-								}
-							}
-						}
-						.divIceOptionContainer {
-							width: 100%;
-							height: 49%;
-							h4.h4IceOption {
-								font-size: 2vw;
-								font-family: 'Times New Roman', Times, serif;
-								font-weight: bolder;
-								height: 17.5%;
-								padding-left: 2vw;
-								margin-bottom: 2%;
-							}
-							ul.ulIceListWrapperContainer {
-								width: 100%;
-								height: 75%;
-								@include flexRow();
-								position: relative;
-								li.liWrapperDisabledNoIceContainer {
-									cursor: not-allowed;
-									position: absolute;
-									left: 0;
-									top: 0;
-									width: 25%;
-									height: 100%;
-									z-index: 10;
-								}
-								li.liWrapperDisabledIceContainer {
-									cursor: not-allowed;
-									position: absolute;
-									left: 0;
-									top: 0;
-									width: 100%;
-									height: 100%;
-									z-index: 20;
-								}
-								ul.ulIceListContainer {
-									width: 25%;
-									height: 100%;
-									@include flexCol();
-									border: 1px solid$black;
-									margin-right: 2%;
-									transition: all 300ms ease-in-out;
-									cursor: pointer;
-									li {
-										transition: all 300ms ease-in-out;
-									}
-									li.liIceCube {
-										width: 60%;
-										background-position: 50% 50%;
-										background-repeat: no-repeat;
-										background-size: contain;
-										height: 45%;
-										margin-top: 20%;
-										margin-bottom: 5%;
-									}
-									li.liIce {
-										@include flexRow();
-										align-items: flex-end;
-										height: 20%;
-										font-size: 1.4vw;
-										font-family: 'Times New Roman', Times, serif;
-										margin-bottom: 5%;
-									}
-								}
-								ul.ulIceListContainer:nth-child(1) {
-									background-color: $littleBrightGreen;
-									li {
-										color: $white;
-									}
-								}
-								ul.ulIceListContainer:nth-child(2) li.liIceCube {
-									width: 67.5%;
-									height: 50%;
-									margin-top: 15%;
-								}
-								ul.ulIceListContainer:nth-child(3) li.liIceCube {
-									width: 75%;
-									height: 55%;
-									margin-top: 10%;
-								}
-								ul.ulIceListContainer:nth-child(6) {
-									margin-right: 0%;
-									li.liIceCube {
-										width: 82.5%;
-										height: 60%;
-										margin-top: 5%;
-										margin-right: 0%;
-									}
-								}
-							}
-						}
-					}
-					.divAdditionalOptionContainer {
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 83%;
-						@include flexCol();
-						transition: all 300ms ease-in-out;
-						padding-left: 2vw;
-						padding-top: 0.5vw;
-						transition: all 300ms ease-in-out;
-						display: none;
-						.divEspressoOptionContainer {
-							width: 100%;
-							margin-bottom: 2%;
-							height: 40%;
-							display: flex;
-							flex-direction: column;
-							justify-content: flex-start;
-							align-items: flex-start;
-							h4.h4EspressoOption {
-								font-size: 2vw;
-								font-family: 'Times New Roman', Times, serif;
-								font-weight: bolder;
-								padding-left: 2vw;
-								padding-bottom: 2vh;
-							}
-							ul.ulEspressoRoastOptionContainer {
-								width: 100%;
-								display: flex;
-								padding-bottom: 3vh;
-								cursor: pointer;
-								li {
-									font-size: 1.5vw;
-									padding: 0.5vw 0vw;
-									width: 33.33333%;
-									@include flexRow();
-									font-family: 'Times New Roman', Times, serif;
-									border: 1px solid$black;
-									border-left: none;
-									border-right: none;
-									transition: all 300ms ease-in-out;
-								}
-								li:nth-child(1) {
-									background-color: $Green;
-									color: $white;
-								}
-								li:nth-child(2) {
-									border-left: 1px solid$black;
-									border-right: 1px solid$black;
-									background-color: $Green;
-									color: $white;
-								}
-							}
-							ul.ulEspressoShotContainer {
-								width: 100%;
-								@include flexRow();
-								li {
-									font-family: 'Times New Roman', Times, serif;
-									font-weight: bold;
-									font-size: 1.6vw;
-									button {
-										font-size: 2vw;
-										width: 2.6vw;
-										height: 2.6vw;
-										background-color: $Green;
-										color: $white;
-										@include flexRow();
-										cursor: pointer;
-									}
-								}
-								li:nth-child(1) {
-									margin-right: 3vw;
-									button {
-										padding-bottom: 15%;
-									}
-								}
-								li:nth-child(3) {
-									margin-left: 3vw;
-									button {
-										padding-bottom: 5%;
-									}
-								}
-							}
-						}
-						.divSyrupOptionContainer {
-							width: 100%;
-							height: 50%;
-							display: flex;
-							flex-direction: column;
-							justify-content: flex-start;
-							align-items: flex-start;
-							h4.h4SyrupOption {
-								font-size: 2vw;
-								font-family: 'Times New Roman', Times, serif;
-								font-weight: bolder;
-								padding-left: 2vw;
-								padding-bottom: 2vh;
-							}
-							ul.ulSyrupOptionContainer {
-								width: 100%;
-								display: flex;
-								padding-bottom: 3vh;
-								li {
-									cursor: pointer;
-									font-size: 1.5vw;
-									padding: 0.5vw 0vw;
-									width: 33.33333%;
-									@include flexRow();
-									font-family: 'Times New Roman', Times, serif;
-									border: 1px solid$black;
-									border-left: none;
-									border-right: none;
-									transition: all 300ms ease-in-out;
-								}
-								li:nth-child(1) {
-									background-color: $Green;
-									color: $white;
-								}
-								li:nth-child(2) {
-									border-left: 1px solid$black;
-									border-right: 1px solid$black;
-									background-color: $Green;
-									color: $white;
-								}
-							}
-							ul.ulSyrupContainer {
-								width: 100%;
-								@include flexRow();
-								li {
-									font-family: 'Times New Roman', Times, serif;
-									font-weight: bold;
-									font-size: 1.6vw;
-									button {
-										font-size: 2vw;
-										width: 2.6vw;
-										height: 2.6vw;
-										background-color: $Green;
-										color: $white;
-										@include flexRow();
-										cursor: pointer;
-									}
-								}
-								li:nth-child(1) {
-									margin-right: 3vw;
-									button {
-										padding-bottom: 15%;
-									}
-								}
-								li:nth-child(3) {
-									margin-left: 3vw;
-									button {
-										padding-bottom: 5%;
-									}
-								}
-							}
-						}
-					}
-					.divPriceOptionContainer {
-						width: 95.4%;
-						margin-left: 2vw;
-						@include flexRow();
-						justify-content: flex-start;
-						position: absolute;
-						left: 0;
-						bottom: 18%;
-						align-items: flex-end;
-						padding-left: 2vw;
-						span {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 1.9vw;
-							font-weight: bold;
-							padding-right: 3%;
-						}
-						span:nth-child(1) {
-							padding-right: 5vw;
-						}
-					}
-					.divPriceContainer {
-						width: 95.4%;
-						margin-left: 2vw;
-						height: 14%;
-						bottom: 0;
-						left: 0;
-						position: absolute;
-						@include flexRow();
-						justify-content: flex-start;
-						padding-left: 1.5vw;
-						border-top: 1px solid$black;
-						span {
-							font-family: 'Times New Roman', Times, serif;
-							font-size: 2.5vw;
-							font-weight: bolder;
-						}
-						span:nth-child(1) {
-							margin-right: 5vw;
-						}
-					}
+				.divEmail {
+					margin-bottom: 1.5vw;
+				}
+				.divContactMe {
+					font-size: 1.1vw;
 				}
 			}
-			.divProductWrapperContainer {
-				width: 40%;
+			section.sectionIntroContainer {
+				width: 100%;
 				height: 100%;
 				@include flexCol();
-				padding: 0 2vw;
-				.divProductImageContainer {
-					width: 100%;
-					height: 60%;
-					@include flexRow();
-					padding-bottom: 1%;
-					.divProductImage {
-						width: 90%;
-						height: 90%;
+				font-size: 5vw;
+				background-color: $darkGreen;
+				transition: all 300ms ease-in-out;
+				position: absolute;
+				top: 0;
+				left: 0;
+				cursor: pointer;
+				h1.h1IntroTitle {
+					font-size: 8vw;
+					font-weight: bolder;
+					color: $white;
+					margin-bottom: 2.5vw;
+				}
+				h2.h2IntroGreeting {
+					font-family: 'Times New Roman', Times, serif;
+					letter-spacing: 0.05vw;
+					font-size: 2.5vw;
+					color: $white;
+				}
+			}
+			section.sectionSlideContainer {
+				display: none;
+				opacity: 0;
+				transition: all 300ms ease-in-out;
+				width: 100vw;
+				height: 100%;
+				overflow: hidden;
+				background-color: $darkGreen;
+				position: absolute;
+				top: 0;
+				left: 0;
+				cursor: pointer;
+				ul.ulSlideContainer {
+					width: 300vw;
+					height: 100%;
+					display: block;
+					li {
+						float: left;
+						width: 100vw;
+						height: 100%;
 						background-position: 50% 50%;
 						background-repeat: no-repeat;
-						background-size: contain;
+						background-size: cover;
+						transition: all 500ms ease-in-out;
 					}
 				}
-				h3.h3ProductName {
-					@include flexRow();
-					height: 10%;
+				h3.h3SlideTouchText {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
 					font-family: 'Times New Roman', Times, serif;
 					letter-spacing: 0.05vw;
-					font-size: 1.9vw;
+					text-shadow: rgba($black, 0.7) 0.1vw 0.1vw 0.3vw;
 					font-weight: bolder;
+					font-size: 5vw;
+					color: $white;
 				}
-				.divProductCategory {
-					@include flexRow();
-					height: 10%;
-					font-family: 'Times New Roman', Times, serif;
-					letter-spacing: 0.05vw;
-					font-weight: bolder;
-					font-size: 1.4vw;
-				}
-				.divOptionButtonContainer {
+			}
+			section.sectionTakeOutContainer {
+				width: 100%;
+				height: 100%;
+				background-image: url('../../images/deliveryImage01.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: 50% 50%;
+				@include flexRow();
+				display: none;
+				opacity: 0;
+				transition: all 300ms ease-in-out;
+				position: absolute;
+				top: 0;
+				left: 0;
+				.divWrapperTakeOutContainer {
 					width: 100%;
-					height: 20%;
+					height: 100%;
+					background-color: $black;
+					opacity: 0.2;
+					@include flexCol();
+				}
+				.divWrapperTakeOutButtonContainer {
+					position: absolute;
+					width: 100%;
+					height: 30%;
 					@include flexRow();
-					justify-content: space-between;
+					background-color: transparent;
 					button {
-						width: 50%;
-						height: 70%;
+						width: 30%;
+						height: 100%;
+						@include flexRow();
+						background-color: transparent;
 						font-family: 'Times New Roman', Times, serif;
 						letter-spacing: 0.05vw;
 						font-weight: bolder;
-						font-size: 2vw;
+						text-shadow: rgba($black, 0.5) 0.1vw 0.1vw 0.3vw;
 						color: $white;
+						font-size: 6vw;
 						cursor: pointer;
-						transition: all 300ms ease-in-out;
 					}
-					button.buttonAddToCart {
-						background-color: $darkGreen;
+					button.buttonTakeOut {
+						margin-right: 3vw;
 					}
-					button.buttonCancelAddingToCart {
-						background-color: $red;
+					button.buttonStore {
+						margin-left: 3vw;
 					}
 				}
 			}
-		}
-		section.sectionReviewOrderContainer {
-			width: 100%;
-			height: 100%;
-			@include flexRow();
-			justify-content: flex-start;
-			transition: all 300ms ease-in-out;
-			background-color: $white;
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: none;
-			opacity: 0;
-			overflow: hidden;
-			button.buttonShowCoupon {
-				position: absolute;
-				z-index: 20;
-				top: 2vw;
-				left: 60vw;
-				font-family: 'Times New Roman', Times, serif;
-				margin-left: 4vw;
-				font-size: 1.3vw;
-				padding: 0.5vw 1.5vw;
-				color: $black;
-				transition: all 300ms ease-in-out;
-				background-color: $white;
-				cursor: pointer;
-			}
-			button.buttonShowOrder {
-				position: absolute;
-				z-index: 20;
-				top: 2vw;
-				left: 100vw;
-				font-family: 'Times New Roman', Times, serif;
-				margin-left: 4vw;
-				font-size: 1.3vw;
-				padding: 0.5vw 1.5vw;
-				color: $black;
-				transition: all 300ms ease-in-out;
-				background-color: $white;
-				cursor: pointer;
-			}
-			.divDetailedReviewOrderContainer {
-				width: 60%;
+			section.sectionSelectProductContainer {
+				width: 100%;
 				height: 100%;
-				@include flexCol();
-				justify-content: flex-start;
-				padding: 2vw;
-				overflow: auto;
-				.divDetailedReviewOrderSelectedProductInfoContainer {
-					width: 80%;
-					height: 12vw;
-					border-radius: 1vw;
-					background-color: $brightGray;
-					margin-bottom: 1.5vw;
-					@include flexRow();
-					.divDetailedReviewOrderSelectedProductImageWrapperContainer {
-						width: 25%;
-						height: 12vw;
-						@include flexRow();
-						.divDetailedReviewOrderSelectedProductImageContainer {
-							background-position: 50% 50%;
-							background-repeat: no-repeat;
-							background-size: cover;
-							width: 8vw;
-							height: 8vw;
-						}
-					}
-					.divDetailedReviewOrderSelectedProductOptionWrapperContainer {
-						width: 75%;
-						height: 100%;
-						font-family: 'Times New Roman', Times, serif;
-						color: $black;
-						@include flexCol();
-						align-items: flex-start;
-						span {
-							@include flexRow();
-						}
-						span.spanDetailedReviewOrderSelectedProductName {
-							padding-top: 0.5vw;
-							font-weight: bold;
-							font-size: 1.8vw;
-							height: 30%;
-						}
-						span.spanDetailedReviewOrderSelectedProductOptions {
-							height: 10%;
-							font-size: 1vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductPrice {
-							height: 10%;
-							font-size: 1vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductCount {
-							height: 10%;
-							font-size: 1vw;
-						}
-						span.spanDetailedReviewOrderSelectedProductTotalPrice {
-							height: 40%;
-							font-size: 1.4vw;
-							padding-bottom: 0.6vw;
-						}
-					}
-				}
-			}
-			.divDetailedReviewOrderContainer::-webkit-scrollbar {
+				@include flexRow();
 				display: none;
-			}
-			.divSimpleReviewOrderContainer {
-				width: 40%;
-				height: 100%;
-				@include flexCol();
-				background-color: $darkGreen;
-				padding: 0 2vw;
+				opacity: 0;
+				transition: all 300ms ease-in-out;
 				position: absolute;
 				top: 0;
-				right: 0vw;
-				transition: all 300ms ease-in-out;
-				.divSimpleReviewOrderCountContainer {
-					margin-bottom: 1vw;
-					margin-left: 0.5vw;
-					font-family: 'Times New Roman', Times, serif;
-					span {
-						color: $white;
-						font-size: 2vw;
-					}
-				}
-				.divSimpleReviewOrderTotalPriceContainer {
-					margin-left: 0.5vw;
-					font-family: 'Times New Roman', Times, serif;
-					span {
-						color: $white;
-						font-size: 1.3vw;
-					}
-				}
-				.divSimpleReviewOrderButtonContainer {
-					margin: 2vw 0;
-					margin-top: 3vw;
-					@include flexRow();
-					width: 100%;
-					button {
-						font-family: 'Times New Roman', Times, serif;
-						font-weight: bold;
-						font-size: 2vw;
-						width: 35%;
-						padding: 0.5vw;
-						padding-bottom: 0.6vw;
-						cursor: pointer;
-					}
-					button:nth-child(1) {
-						margin-left: 0.5vw;
-						margin-right: 1vw;
-						background-color: $white;
-						color: $black;
-					}
-					button:nth-child(2) {
-						background-color: $red;
-						color: $white;
-						margin-left: 1vw;
-					}
-				}
-			}
-			.divSimpleReviewOrderCouponContainer {
-				width: 40%;
-				height: 100%;
-				@include flexCol();
-				background-color: $darkGreen;
-				padding: 0 2vw;
-				position: absolute;
-				top: 0;
-				right: -40vw;
-				transition: all 300ms ease-in-out;
-				overflow: hidden;
-				.divOrderCouponWrapperContainer {
-					position: relative;
+				left: 0;
+				padding-top: 8vw;
+				padding-bottom: 8vw;
+				background-color: $white;
+				.divSelectedProductOptionWrapperContainer {
+					position: absolute;
+					z-index: 30;
+					top: 0;
+					left: 0;
 					width: 100%;
 					height: 100%;
-					overflow: hidden;
-					.divSearchingCouponContainer {
-						position: absolute;
-						top: 0;
-						left: 0;
-						width: 100%;
-						height: 100%;
-						transition: all 300ms ease-in-out;
-						@include flexCol();
-						.divSimpleReviewOrderCouponSearchingWrapperContainer {
-							padding-left: 0.5vw;
-							width: 90%;
+					@include flexRow();
+					transition: all 300ms ease-in-out;
+					display: none;
+					opacity: 0;
+					.divSelectedProductOptionContainer {
+						width: 90%;
+						height: 70%;
+						position: relative;
+						@include flexRow();
+						background-color: rgba($darkGreen, 0.7);
+						.divHideSelectedProductOptionContainer {
+							position: absolute;
+							top: 2vw;
+							right: 2vw;
+							background-image: url('../../images/cancel.png');
+							background-position: 50% 50%;
+							background-size: cover;
+							background-repeat: no-repeat;
+							width: 3vw;
+							height: 3vw;
+							cursor: pointer;
+						}
+						.divSelectedProductImageWrapperContainer {
+							width: 35%;
+							height: 100%;
+							@include flexRow();
+							.divSelectedProductImageContainer {
+								width: 25vw;
+								height: 25vw;
+								background-position: 50% 50%;
+								background-size: cover;
+								background-repeat: no-repeat;
+							}
+						}
+						.divSelectedProductInformationContainer {
+							width: 65%;
+							height: 100%;
 							@include flexCol();
-							.divSimpleReviewOrderCouponSearchingContainer {
-								margin-bottom: 2vw;
-								@include flexCol();
-								h4.h4CouponSearchingText {
-									font-family: 'Times New Roman', Times, serif;
-									font-weight: bold;
-									font-size: 2.5vw;
-									color: $white;
-									margin-bottom: 2vw;
-								}
-								input.inputPhoneNumber {
-									width: 100%;
-									height: 4vw;
-									font-size: 2vw;
-									padding: 0 2vw;
-									font-family: 'Times New Roman', Times, serif;
-									font-style: italic;
-									color: $black;
-									margin-bottom: 2vw;
-								}
-								.divCouponSearchingButtonContainer {
-									width: 100%;
-									height: 11vw;
-									display: flex;
-									flex-wrap: wrap;
-									justify-content: space-between;
-									button {
-										width: 5vw;
-										height: 5vw;
-										font-size: 1.8vw;
-										font-family: 'Times New Roman', Times, serif;
-										cursor: pointer;
-									}
-									button:nth-child(11) {
-										font-size: 1.5vw;
-										color: $white;
-										background-color: $red;
-									}
-									button:nth-child(12) {
-										background-color: $littleBrightGreen;
-										color: $white;
-										font-size: 1.5vw;
-									}
-								}
-							}
-							.divSimpleReviewOrderCouponSearchingCompleteContainer {
-								width: 100%;
-								@include flexRow();
-								justify-content: flex-end;
-								span.spanCouponSearchingCompleteText {
-									font-family: 'Times New Roman', Times, serif;
-									font-weight: bold;
-									font-size: 2vw;
-									color: $white;
-									margin-bottom: 1.3vw;
-									margin-right: 1vw;
-								}
-								span.spanCouponSearchingCompleteResult {
-									font-family: 'Times New Roman', Times, serif;
-									display: inline-block;
-									font-weight: bold;
-									font-size: 2vw;
-									text-align: right;
-									color: $white;
-									margin-bottom: 1.3vw;
-								}
-							}
-							span.spanCouponSearchingFailed {
-								margin-top: 2vw;
+							h3.h3SelectedProductName {
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.5vw;
+								padding-right: 3vw;
+								font-size: 3vw;
 								color: $white;
+								margin-bottom: 3vw;
 							}
-						}
-					}
-					.divResultCouponContainer {
-						position: absolute;
-						top: 0;
-						left: 40vw;
-						width: 100%;
-						height: 100%;
-						transition: all 300ms ease-in-out;
-						@include flexCol();
-						padding-left: 0.5vw;
-						h4.h4UsingPoint {
-							width: 100%;
-							font-family: 'Times New Roman', Times, serif;
-							font-weight: normal;
-							font-size: 2vw;
-							color: $white;
-							margin-bottom: 2vw;
-							text-align: center;
-						}
-						.divUsingPointTotalPriceContainer {
-							margin-bottom: 1vw;
-							span {
+							span.spanSelectedProductSize {
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.4vw;
+								font-size: 1.6vw;
 								color: $white;
+								margin-bottom: 1vw;
 							}
-						}
-						.divUsingPointTotalPointContainer {
-							margin-bottom: 1vw;
-							span {
+							span.spanSelectedProductIce {
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.4vw;
+								font-size: 1.6vw;
 								color: $white;
+								margin-bottom: 1vw;
 							}
-						}
-						.divUsingPointUsingPointContainer {
-							margin-bottom: 1vw;
-							span {
+							span.spanSelectedProductEspresso {
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.4vw;
+								font-size: 1.6vw;
 								color: $white;
+								margin-bottom: 1vw;
 							}
-						}
-						.divUsingPointEstimatedPaymentContainer {
-							margin-bottom: 2vw;
-							span {
+							span.spanSelectedProductSyrup {
 								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.4vw;
+								font-size: 1.6vw;
 								color: $white;
-							}
-						}
-						.divUsingPointButtonUsingPointContainer {
-							width: 100%;
-							@include flexCol();
-							margin-bottom: 5vw;
-							button {
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 1.5vw;
-								color: $black;
-								padding: 0.5vw 0;
-								cursor: pointer;
-								width: 45%;
 								margin-bottom: 1vw;
 							}
 						}
-						.divUsingPointPayContainer {
-							width: 100%;
-							@include flexRow();
-							margin-bottom: 3vw;
-							button {
-								font-family: 'Times New Roman', Times, serif;
-								font-size: 2vw;
-								font-weight: bold;
-								width: 40%;
-								padding: 0.6vw 0;
-								cursor: pointer;
+					}
+				}
+				ul.ulSelectProductCategoryContainer {
+					width: 20%;
+					height: 100%;
+					@include flexCol();
+					justify-content: flex-start;
+					padding-left: 2vw;
+					li.liSelectProductCategoryItem {
+						width: 100%;
+						font-family: 'Times New Roman', Times, serif;
+						letter-spacing: 0.05vw;
+						color: $white;
+						font-size: 1.8vw;
+						font-weight: bold;
+						text-align: center;
+						padding: 1.5vw 0;
+						background-color: $littleBrightGreen;
+						transition: all 300ms ease-in-out;
+						margin-bottom: 0.5vw;
+						cursor: pointer;
+					}
+					li.liSelectProductCategoryItem:nth-child(1) {
+						background-color: $littleDarkGreen;
+					}
+				}
+				ul.ulSelectProductWrapperContainer {
+					width: 57%;
+					height: 100%;
+					overflow: hidden;
+					position: relative;
+					ul.ulSelectProductListContainer {
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 100%;
+						max-height: 100%;
+						flex-wrap: wrap;
+						display: none;
+						transition: all 300ms ease-in-out;
+						opacity: 0;
+						justify-content: flex-start;
+						align-items: flex-start;
+						padding-left: 2vw;
+						overflow: auto;
+						ul.ulSelectProductItemContainer {
+							border: 1px solid$black;
+							width: 17.25vw;
+							height: 20vw;
+							margin-right: 1vw;
+							margin-bottom: 1vw;
+							@include flexCol();
+							cursor: pointer;
+							li {
+								width: 100%;
+								text-align: center;
 							}
-							button:nth-child(1) {
-								margin-right: 1vw;
-								background-color: $white;
+							li.liSelectProductImageItem {
+								height: 13vw;
+								width: 13vw;
+								background-position: 50% 50%;
+								background-repeat: no-repeat;
+								background-size: cover;
+								margin-bottom: 0.4vw;
+							}
+							li.liSelectProductNameItem {
+								@include flexRow();
+								line-height: 1.5vw;
+								height: 3.7vw;
+								font-family: 'Times New Roman', Times, serif;
+								letter-spacing: 0.05vw;
+								font-size: 1.3vw;
 								color: $black;
 							}
-							button:nth-child(2) {
-								background-color: $red;
+							li.liSelectProductPriceItem {
+								font-family: 'Times New Roman', Times, serif;
+								letter-spacing: 0.05vw;
+								font-size: 1.3vw;
+								color: $black;
+							}
+						}
+					}
+					ul.ulSelectProductListContainer::-webkit-scrollbar {
+						display: none;
+					}
+					ul.ulSelectProductListContainer:nth-child(1) {
+						display: flex;
+						opacity: 1;
+					}
+				}
+				.divSelectedProductWrapperContainer {
+					width: 23%;
+					height: 100%;
+					@include flexCol();
+					padding-right: 2vw;
+					padding-left: 1vw;
+					ul.ulSelectedProductListContainer {
+						width: 100%;
+						height: 60%;
+						border-top: 1px solid$black;
+						border-bottom: 1px solid$black;
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-start;
+						overflow: scroll;
+						ul.ulSelectedProductItemContainer {
+							padding-top: 0.3vw;
+							width: 100%;
+							border-bottom: 1px solid$black;
+							@include flexCol();
+							padding-bottom: 0.6vw;
+							transition: all 300ms ease-in-out;
+							li.liItemId {
+								display: none;
+							}
+							li.liItemName {
+								width: 100%;
+								@include flexRow();
+								text-align: center;
+								padding: 0 2%;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.15vw;
+								font-weight: bold;
+								padding-top: 1%;
+								margin-bottom: 0.5vw;
+							}
+							li.liWrapperItemContainer {
+								width: 100%;
+								height: 2vw;
+								@include flexRow();
+								margin-bottom: 0.2vw;
+								span {
+									height: 100%;
+									@include flexRow();
+								}
+								span.spanItemPrice {
+									width: 70%;
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.15vw;
+									padding-left: 5%;
+									padding-bottom: 1%;
+								}
+								span.spanItemMinusCountContainer {
+									width: 10%;
+									display: flex;
+									justify-content: flex-start;
+									align-items: flex-start;
+									button {
+										@include flexRow();
+										width: 1.7vw;
+										height: 1.7vw;
+										background-color: $darkGreen;
+										cursor: pointer;
+										div.divMinusImageContainer {
+											width: 95%;
+											height: 95%;
+											background-image: url(../../images/minus.png);
+											background-position: 50% 50%;
+											background-repeat: no-repeat;
+											background-size: contain;
+										}
+									}
+								}
+								span.spanItemCount {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1vw;
+									width: 10%;
+									font-size: 1.2vw;
+									padding-bottom: 1%;
+								}
+								span.spanItemAddCountContainer {
+									width: 10%;
+									display: flex;
+									justify-content: flex-end;
+									align-items: flex-start;
+									button {
+										@include flexRow();
+										background-color: $darkGreen;
+										cursor: pointer;
+										width: 1.7vw;
+										height: 1.7vw;
+										div.divAddImageContainer {
+											background-image: url(../../images/plus.png);
+											width: 95%;
+											height: 95%;
+											background-position: 50% 50%;
+											background-repeat: no-repeat;
+											background-size: contain;
+										}
+									}
+								}
+							}
+							li.liItemButtonContainer {
+								width: 100%;
+								height: 2vw;
+								@include flexRow();
+								button.buttonItemOption {
+									width: 50%;
+									height: 100%;
+									@include flexRow();
+									background-color: $darkGreen;
+									color: $white;
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.1vw;
+									font-weight: bold;
+									cursor: pointer;
+								}
+								button.buttonItemDelete {
+									width: 50%;
+									height: 100%;
+									@include flexRow();
+									background-color: $red;
+									color: $white;
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.1vw;
+									font-weight: bold;
+									cursor: pointer;
+								}
+							}
+						}
+						ul.ulSelectedProductItemContainer:last-child {
+							border: none;
+						}
+					}
+					ul.ulSelectedProductListContainer::-webkit-scrollbar {
+						display: none;
+					}
+					.divPayWrapperContainer {
+						width: 100%;
+						height: 40%;
+						@include flexCol();
+						.divPayInfoContainer {
+							width: 100%;
+							height: 45%;
+							padding-bottom: 2%;
+							.divTotalNumberContainer {
+								padding-top: 5%;
+								@include flexRow();
+								width: 100%;
+								height: 50%;
+								span {
+									font-family: 'Times New Roman', Times, serif;
+									letter-spacing: 0.05vw;
+									font-weight: bold;
+								}
+								span.spanTotalNumberText {
+									font-size: 2.05vw;
+									text-align: left;
+									width: 70%;
+								}
+								span.spanTotalNumberValue {
+									font-size: 2vw;
+									width: 30%;
+									text-align: right;
+								}
+							}
+							.divTotalAmountContainer {
+								@include flexRow();
+								width: 100%;
+								height: 50%;
+								padding-top: 2.5%;
+								span {
+									font-size: 2vw;
+									font-weight: bold;
+									font-family: 'Times New Roman', Times, serif;
+									letter-spacing: 0.05vw;
+								}
+								span.spanTotalAmountText {
+									text-align: left;
+									width: 40%;
+								}
+								span.spanTotalAmountValue {
+									text-align: right;
+									width: 60%;
+								}
+							}
+						}
+						button {
+							width: 100%;
+							height: 25%;
+							font-family: 'Times New Roman', Times, serif;
+							letter-spacing: 0.05vw;
+							font-size: 2.5vw;
+							font-weight: bolder;
+							color: $white;
+							transition: all 300ms ease-in-out;
+							cursor: pointer;
+						}
+						button.buttonPay {
+							background-color: $darkGreen;
+							margin-bottom: 5%;
+							cursor: not-allowed;
+						}
+						button.buttonCancel {
+							background-color: $red;
+						}
+					}
+				}
+			}
+			section.sectionOptionContainer {
+				width: 100%;
+				height: 100%;
+				@include flexRow();
+				display: none;
+				opacity: 0;
+				transition: all 300ms ease-in-out;
+				position: absolute;
+				padding-top: 8vw;
+				padding-bottom: 8vw;
+				background-color: $white;
+				.divDisabledWrapperOptionModalContainer {
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100vh;
+					@include flexRow();
+					z-index: 30;
+					transition: all 300ms ease-in-out;
+					background-color: rgba($black, 0.2);
+					display: none;
+					opacity: 0;
+					.divDisabledOptionModalContainer {
+						background-color: rgba($modalBackgroundColor, 0.95);
+						@include flexRow();
+						position: relative;
+						width: 80%;
+						height: 70%;
+						h2.h2DisabledOptionText {
+							font-family: 'Times New Roman', Times, serif;
+							color: $white;
+							font-weight: bold;
+							font-size: 1.9vw;
+						}
+						.divHideDisabledWrapperOptionModalContainer {
+							width: 3vw;
+							height: 3vw;
+							background-size: cover;
+							background-repeat: no-repeat;
+							background-position: 50% 50%;
+							position: absolute;
+							top: 2vw;
+							right: 2vw;
+							cursor: pointer;
+						}
+					}
+				}
+				.divOptionWrapperContainer {
+					width: 60%;
+					height: 100%;
+					@include flexRow();
+					padding-left: 2vw;
+					align-items: flex-start;
+					ul.ulOptionListContainer {
+						width: 25%;
+						display: flex;
+						flex-direction: column;
+						justify-content: flex-start;
+						position: relative;
+						li.liWrapperContainer {
+							width: 100%;
+							position: absolute;
+							height: 46%;
+							border: 1px solid$black;
+							left: 0;
+							background-color: rgba($black, 0.2);
+							opacity: 0.2;
+							top: 0%;
+							cursor: pointer;
+							transition: all 300ms ease-in-out;
+						}
+						li.liWrapperDisabledContainer {
+							width: 100%;
+							height: 50%;
+							position: absolute;
+							bottom: 0%;
+							left: 0;
+							z-index: 20;
+							cursor: not-allowed;
+						}
+						ul.ulDefaultOptionContainer {
+							padding-left: 1vw;
+							font-size: 1.7vw;
+							font-family: 'Times New Roman', Times, serif;
+							font-weight: bolder;
+							padding-bottom: 0.8vw;
+							cursor: pointer;
+							margin-bottom: 1vw;
+							line-height: 3vw;
+							li {
+								margin-left: 2vw;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.3vw;
+								line-height: normal;
+								font-weight: normal;
+								position: relative;
+							}
+							li::before {
+								position: absolute;
+								background-color: $black;
+								width: 7px;
+								height: 2px;
+								content: '';
+								top: 50%;
+								left: -15px;
+							}
+						}
+						ul.ulAdditionalOptionContainer {
+							font-size: 1.7vw;
+							padding-left: 1vw;
+							font-family: 'Times New Roman', Times, serif;
+							font-weight: bolder;
+							cursor: pointer;
+							padding-bottom: 0.8vw;
+							line-height: 3vw;
+							li {
+								margin-left: 2vw;
+								line-height: normal;
+								font-weight: normal;
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.3vw;
+								position: relative;
+							}
+							li::before {
+								position: absolute;
+								background-color: $black;
+								width: 7px;
+								height: 2px;
+								content: '';
+								top: 50%;
+								left: -15px;
+							}
+						}
+					}
+					.divOptionCustomContainer {
+						width: 75%;
+						height: 100%;
+						position: relative;
+						.divDefaultOptionContainer {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 70%;
+							@include flexCol();
+							transition: all 300ms ease-in-out;
+							padding-left: 2vw;
+							padding-top: 0.5vw;
+							.divSizeOptionContainer {
+								width: 100%;
+								height: 49%;
+								margin-bottom: 2%;
+								h4 {
+									font-size: 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bolder;
+									height: 17.5%;
+									padding-left: 2vw;
+									margin-bottom: 2%;
+								}
+								ul.ulSizeListWrapperContainer {
+									width: 100%;
+									height: 75%;
+									@include flexRow();
+									ul.ulSizeListContainer {
+										border: 1px solid$black;
+										width: 25%;
+										height: 100%;
+										@include flexCol();
+										margin-right: 2%;
+										transition: all 300ms ease-in-out;
+										cursor: pointer;
+										li {
+											transition: all 300ms ease-in-out;
+											font-family: 'Times New Roman', Times, serif;
+										}
+										li.liCoffeeCup {
+											width: 60%;
+											background-position: 50% 50%;
+											background-repeat: no-repeat;
+											background-size: contain;
+											height: 40%;
+											margin-top: 20%;
+											margin-bottom: 5%;
+										}
+										li.liSize {
+											@include flexRow();
+											align-items: flex-end;
+											height: 15.5%;
+											font-size: 1.4vw;
+										}
+										li.liMeasurement {
+											@include flexRow();
+											font-size: 1.1vw;
+											height: 12.5%;
+											margin-bottom: 4%;
+										}
+									}
+									ul.ulSizeListContainer:nth-child(1) {
+										background-color: $littleBrightGreen;
+										li {
+											color: $white;
+										}
+									}
+									ul.ulSizeListContainer:nth-child(2) li.liCoffeeCup {
+										width: 67.5%;
+										height: 45%;
+										margin-top: 15%;
+									}
+									ul.ulSizeListContainer:nth-child(3) li.liCoffeeCup {
+										width: 75%;
+										height: 50%;
+										margin-top: 10%;
+									}
+									ul.ulSizeListContainer:nth-child(4) {
+										margin-right: 0%;
+										li.liCoffeeCup {
+											width: 82.5%;
+											height: 55%;
+											margin-top: 5%;
+										}
+									}
+								}
+							}
+							.divIceOptionContainer {
+								width: 100%;
+								height: 49%;
+								h4.h4IceOption {
+									font-size: 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bolder;
+									height: 17.5%;
+									padding-left: 2vw;
+									margin-bottom: 2%;
+								}
+								ul.ulIceListWrapperContainer {
+									width: 100%;
+									height: 75%;
+									@include flexRow();
+									position: relative;
+									li.liWrapperDisabledNoIceContainer {
+										cursor: not-allowed;
+										position: absolute;
+										left: 0;
+										top: 0;
+										width: 25%;
+										height: 100%;
+										z-index: 10;
+									}
+									li.liWrapperDisabledIceContainer {
+										cursor: not-allowed;
+										position: absolute;
+										left: 0;
+										top: 0;
+										width: 100%;
+										height: 100%;
+										z-index: 20;
+									}
+									ul.ulIceListContainer {
+										width: 25%;
+										height: 100%;
+										@include flexCol();
+										border: 1px solid$black;
+										margin-right: 2%;
+										transition: all 300ms ease-in-out;
+										cursor: pointer;
+										li {
+											transition: all 300ms ease-in-out;
+										}
+										li.liIceCube {
+											width: 60%;
+											background-position: 50% 50%;
+											background-repeat: no-repeat;
+											background-size: contain;
+											height: 45%;
+											margin-top: 20%;
+											margin-bottom: 5%;
+										}
+										li.liIce {
+											@include flexRow();
+											align-items: flex-end;
+											height: 20%;
+											font-size: 1.4vw;
+											font-family: 'Times New Roman', Times, serif;
+											margin-bottom: 5%;
+										}
+									}
+									ul.ulIceListContainer:nth-child(1) {
+										background-color: $littleBrightGreen;
+										li {
+											color: $white;
+										}
+									}
+									ul.ulIceListContainer:nth-child(2) li.liIceCube {
+										width: 67.5%;
+										height: 50%;
+										margin-top: 15%;
+									}
+									ul.ulIceListContainer:nth-child(3) li.liIceCube {
+										width: 75%;
+										height: 55%;
+										margin-top: 10%;
+									}
+									ul.ulIceListContainer:nth-child(6) {
+										margin-right: 0%;
+										li.liIceCube {
+											width: 82.5%;
+											height: 60%;
+											margin-top: 5%;
+											margin-right: 0%;
+										}
+									}
+								}
+							}
+						}
+						.divAdditionalOptionContainer {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 83%;
+							@include flexCol();
+							transition: all 300ms ease-in-out;
+							padding-left: 2vw;
+							padding-top: 0.5vw;
+							transition: all 300ms ease-in-out;
+							display: none;
+							.divEspressoOptionContainer {
+								width: 100%;
+								margin-bottom: 2%;
+								height: 40%;
+								display: flex;
+								flex-direction: column;
+								justify-content: flex-start;
+								align-items: flex-start;
+								h4.h4EspressoOption {
+									font-size: 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bolder;
+									padding-left: 2vw;
+									padding-bottom: 2vh;
+								}
+								ul.ulEspressoRoastOptionContainer {
+									width: 100%;
+									display: flex;
+									padding-bottom: 3vh;
+									cursor: pointer;
+									li {
+										font-size: 1.5vw;
+										padding: 0.5vw 0vw;
+										width: 33.33333%;
+										@include flexRow();
+										font-family: 'Times New Roman', Times, serif;
+										border: 1px solid$black;
+										border-left: none;
+										border-right: none;
+										transition: all 300ms ease-in-out;
+									}
+									li:nth-child(1) {
+										background-color: $Green;
+										color: $white;
+									}
+									li:nth-child(2) {
+										border-left: 1px solid$black;
+										border-right: 1px solid$black;
+										background-color: $Green;
+										color: $white;
+									}
+								}
+								ul.ulEspressoShotContainer {
+									width: 100%;
+									@include flexRow();
+									li {
+										font-family: 'Times New Roman', Times, serif;
+										font-weight: bold;
+										font-size: 1.6vw;
+										button {
+											font-size: 2vw;
+											width: 2.6vw;
+											height: 2.6vw;
+											background-color: $Green;
+											color: $white;
+											@include flexRow();
+											cursor: pointer;
+										}
+									}
+									li:nth-child(1) {
+										margin-right: 3vw;
+										button {
+											padding-bottom: 15%;
+										}
+									}
+									li:nth-child(3) {
+										margin-left: 3vw;
+										button {
+											padding-bottom: 5%;
+										}
+									}
+								}
+							}
+							.divSyrupOptionContainer {
+								width: 100%;
+								height: 50%;
+								display: flex;
+								flex-direction: column;
+								justify-content: flex-start;
+								align-items: flex-start;
+								h4.h4SyrupOption {
+									font-size: 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-weight: bolder;
+									padding-left: 2vw;
+									padding-bottom: 2vh;
+								}
+								ul.ulSyrupOptionContainer {
+									width: 100%;
+									display: flex;
+									padding-bottom: 3vh;
+									li {
+										cursor: pointer;
+										font-size: 1.5vw;
+										padding: 0.5vw 0vw;
+										width: 33.33333%;
+										@include flexRow();
+										font-family: 'Times New Roman', Times, serif;
+										border: 1px solid$black;
+										border-left: none;
+										border-right: none;
+										transition: all 300ms ease-in-out;
+									}
+									li:nth-child(1) {
+										background-color: $Green;
+										color: $white;
+									}
+									li:nth-child(2) {
+										border-left: 1px solid$black;
+										border-right: 1px solid$black;
+										background-color: $Green;
+										color: $white;
+									}
+								}
+								ul.ulSyrupContainer {
+									width: 100%;
+									@include flexRow();
+									li {
+										font-family: 'Times New Roman', Times, serif;
+										font-weight: bold;
+										font-size: 1.6vw;
+										button {
+											font-size: 2vw;
+											width: 2.6vw;
+											height: 2.6vw;
+											background-color: $Green;
+											color: $white;
+											@include flexRow();
+											cursor: pointer;
+										}
+									}
+									li:nth-child(1) {
+										margin-right: 3vw;
+										button {
+											padding-bottom: 15%;
+										}
+									}
+									li:nth-child(3) {
+										margin-left: 3vw;
+										button {
+											padding-bottom: 5%;
+										}
+									}
+								}
+							}
+						}
+						.divPriceOptionContainer {
+							width: 95.4%;
+							margin-left: 2vw;
+							@include flexRow();
+							justify-content: flex-start;
+							position: absolute;
+							left: 0;
+							bottom: 18%;
+							align-items: flex-end;
+							padding-left: 2vw;
+							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 1.9vw;
+								font-weight: bold;
+								padding-right: 3%;
+							}
+							span:nth-child(1) {
+								padding-right: 5vw;
+							}
+						}
+						.divPriceContainer {
+							width: 95.4%;
+							margin-left: 2vw;
+							height: 14%;
+							bottom: 0;
+							left: 0;
+							position: absolute;
+							@include flexRow();
+							justify-content: flex-start;
+							padding-left: 1.5vw;
+							border-top: 1px solid$black;
+							span {
+								font-family: 'Times New Roman', Times, serif;
+								font-size: 2.5vw;
+								font-weight: bolder;
+							}
+							span:nth-child(1) {
+								margin-right: 5vw;
+							}
+						}
+					}
+				}
+				.divProductWrapperContainer {
+					width: 40%;
+					height: 100%;
+					@include flexCol();
+					padding: 0 2vw;
+					.divProductImageContainer {
+						width: 100%;
+						height: 60%;
+						@include flexRow();
+						padding-bottom: 1%;
+						.divProductImage {
+							width: 90%;
+							height: 90%;
+							background-position: 50% 50%;
+							background-repeat: no-repeat;
+							background-size: contain;
+						}
+					}
+					h3.h3ProductName {
+						@include flexRow();
+						height: 10%;
+						font-family: 'Times New Roman', Times, serif;
+						letter-spacing: 0.05vw;
+						font-size: 1.9vw;
+						font-weight: bolder;
+						text-align: center;
+					}
+					.divProductCategory {
+						@include flexRow();
+						height: 10%;
+						font-family: 'Times New Roman', Times, serif;
+						letter-spacing: 0.05vw;
+						font-weight: bolder;
+						font-size: 1.4vw;
+					}
+					.divOptionButtonContainer {
+						width: 100%;
+						height: 20%;
+						@include flexRow();
+						justify-content: space-between;
+						button {
+							width: 50%;
+							height: 70%;
+							font-family: 'Times New Roman', Times, serif;
+							letter-spacing: 0.05vw;
+							font-weight: bolder;
+							font-size: 2vw;
+							color: $white;
+							cursor: pointer;
+							transition: all 300ms ease-in-out;
+						}
+						button.buttonAddToCart {
+							background-color: $darkGreen;
+						}
+						button.buttonCancelAddingToCart {
+							background-color: $red;
+						}
+					}
+				}
+			}
+			section.sectionReviewOrderContainer {
+				width: 100%;
+				height: 100%;
+				@include flexRow();
+				justify-content: flex-start;
+				transition: all 300ms ease-in-out;
+				background-color: $white;
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: none;
+				opacity: 0;
+				overflow: hidden;
+				button.buttonShowCoupon {
+					position: absolute;
+					z-index: 20;
+					top: 2vw;
+					left: 60vw;
+					font-family: 'Times New Roman', Times, serif;
+					margin-left: 4vw;
+					font-size: 1.3vw;
+					padding: 0.5vw 1.5vw;
+					color: $black;
+					transition: all 300ms ease-in-out;
+					background-color: $white;
+					cursor: pointer;
+				}
+				button.buttonShowOrder {
+					position: absolute;
+					z-index: 20;
+					top: 2vw;
+					left: 100vw;
+					font-family: 'Times New Roman', Times, serif;
+					margin-left: 4vw;
+					font-size: 1.3vw;
+					padding: 0.5vw 1.5vw;
+					color: $black;
+					transition: all 300ms ease-in-out;
+					background-color: $white;
+					cursor: pointer;
+				}
+				.divDetailedReviewOrderContainer {
+					width: 60%;
+					height: 100%;
+					@include flexCol();
+					justify-content: flex-start;
+					padding: 2vw;
+					overflow: auto;
+					.divDetailedReviewOrderSelectedProductInfoContainer {
+						width: 80%;
+						height: 12vw;
+						border-radius: 1vw;
+						background-color: $brightGray;
+						margin-bottom: 1.5vw;
+						@include flexRow();
+						.divDetailedReviewOrderSelectedProductImageWrapperContainer {
+							width: 25%;
+							height: 12vw;
+							@include flexRow();
+							.divDetailedReviewOrderSelectedProductImageContainer {
+								background-position: 50% 50%;
+								background-repeat: no-repeat;
+								background-size: cover;
+								width: 8vw;
+								height: 8vw;
+							}
+						}
+						.divDetailedReviewOrderSelectedProductOptionWrapperContainer {
+							width: 80%;
+							height: 100%;
+							font-family: 'Times New Roman', Times, serif;
+							color: $black;
+							@include flexCol();
+							align-items: flex-start;
+							span {
+								display: inline-block;
+							}
+							span.spanDetailedReviewOrderSelectedProductName {
+								padding-top: 0.5vw;
+								font-weight: bold;
+								font-size: 1.8vw;
+								margin-bottom: 0.7vw;
+							}
+							span.spanDetailedReviewOrderSelectedProductOptions {
+								font-size: 1vw;
+							}
+							span.spanDetailedReviewOrderSelectedProductPrice {
+								font-size: 1vw;
+							}
+							span.spanDetailedReviewOrderSelectedProductCount {
+								font-size: 1vw;
+								margin-bottom: 0.7vw;
+							}
+							span.spanDetailedReviewOrderSelectedProductTotalPrice {
+								font-size: 1.4vw;
+								padding-bottom: 0.6vw;
+							}
+						}
+					}
+				}
+				.divDetailedReviewOrderContainer::-webkit-scrollbar {
+					display: none;
+				}
+				.divSimpleReviewOrderContainer {
+					width: 40%;
+					height: 100%;
+					@include flexCol();
+					background-color: $darkGreen;
+					padding: 0 2vw;
+					position: absolute;
+					top: 0;
+					right: 0vw;
+					transition: all 300ms ease-in-out;
+					.divSimpleReviewOrderCountContainer {
+						margin-bottom: 1vw;
+						margin-left: 0.5vw;
+						font-family: 'Times New Roman', Times, serif;
+						span {
+							color: $white;
+							font-size: 2vw;
+						}
+					}
+					.divSimpleReviewOrderTotalPriceContainer {
+						margin-left: 0.5vw;
+						font-family: 'Times New Roman', Times, serif;
+						span {
+							color: $white;
+							font-size: 1.3vw;
+						}
+					}
+					.divSimpleReviewOrderButtonContainer {
+						margin: 2vw 0;
+						margin-top: 3vw;
+						@include flexRow();
+						width: 100%;
+						button {
+							font-family: 'Times New Roman', Times, serif;
+							font-weight: bold;
+							font-size: 2vw;
+							width: 35%;
+							padding: 0.5vw;
+							padding-bottom: 0.6vw;
+							cursor: pointer;
+						}
+						button:nth-child(1) {
+							margin-left: 0.5vw;
+							margin-right: 1vw;
+							background-color: $white;
+							color: $black;
+						}
+						button:nth-child(2) {
+							background-color: $red;
+							color: $white;
+							margin-left: 1vw;
+						}
+					}
+				}
+				.divSimpleReviewOrderCouponContainer {
+					width: 40%;
+					height: 100%;
+					@include flexCol();
+					background-color: $darkGreen;
+					padding: 0 2vw;
+					position: absolute;
+					top: 0;
+					right: -40vw;
+					transition: all 300ms ease-in-out;
+					overflow: hidden;
+					.divOrderCouponWrapperContainer {
+						position: relative;
+						width: 100%;
+						height: 100%;
+						overflow: hidden;
+						.divSearchingCouponContainer {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							transition: all 300ms ease-in-out;
+							@include flexCol();
+							.divSimpleReviewOrderCouponSearchingWrapperContainer {
+								padding-left: 0.5vw;
+								width: 90%;
+								@include flexCol();
+								.divSimpleReviewOrderCouponSearchingContainer {
+									margin-bottom: 2vw;
+									@include flexCol();
+									h4.h4CouponSearchingText {
+										font-family: 'Times New Roman', Times, serif;
+										font-weight: bold;
+										font-size: 2.5vw;
+										color: $white;
+										margin-bottom: 2vw;
+									}
+									input.inputPhoneNumber {
+										width: 100%;
+										height: 4vw;
+										font-size: 2vw;
+										padding: 0 2vw;
+										font-family: 'Times New Roman', Times, serif;
+										font-style: italic;
+										color: $black;
+										margin-bottom: 2vw;
+									}
+									.divCouponSearchingButtonContainer {
+										width: 100%;
+										height: 11vw;
+										display: flex;
+										flex-wrap: wrap;
+										justify-content: space-between;
+										button {
+											width: 5vw;
+											height: 5vw;
+											font-size: 1.8vw;
+											font-family: 'Times New Roman', Times, serif;
+											cursor: pointer;
+										}
+										button:nth-child(11) {
+											font-size: 1.5vw;
+											color: $white;
+											background-color: $red;
+										}
+										button:nth-child(12) {
+											background-color: $littleBrightGreen;
+											color: $white;
+											font-size: 1.5vw;
+										}
+									}
+								}
+								.divSimpleReviewOrderCouponSearchingCompleteContainer {
+									width: 100%;
+									@include flexRow();
+									justify-content: flex-end;
+									span.spanCouponSearchingCompleteText {
+										font-family: 'Times New Roman', Times, serif;
+										font-weight: bold;
+										font-size: 2vw;
+										color: $white;
+										margin-bottom: 1.3vw;
+										margin-right: 1vw;
+									}
+									span.spanCouponSearchingCompleteResult {
+										font-family: 'Times New Roman', Times, serif;
+										display: inline-block;
+										font-weight: bold;
+										font-size: 2vw;
+										text-align: right;
+										color: $white;
+										margin-bottom: 1.3vw;
+									}
+								}
+								span.spanCouponSearchingFailed {
+									margin-top: 2vw;
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.5vw;
+									color: $white;
+								}
+							}
+						}
+						.divResultCouponContainer {
+							position: absolute;
+							top: 0;
+							left: 40vw;
+							width: 100%;
+							height: 100%;
+							transition: all 300ms ease-in-out;
+							@include flexCol();
+							padding-left: 0.5vw;
+							h4.h4UsingPoint {
+								width: 100%;
+								font-family: 'Times New Roman', Times, serif;
+								font-weight: normal;
+								font-size: 2vw;
 								color: $white;
-								margin-left: 1vw;
+								margin-bottom: 2vw;
+								text-align: center;
+							}
+							.divUsingPointTotalPriceContainer {
+								margin-bottom: 1vw;
+								span {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.4vw;
+									color: $white;
+								}
+							}
+							.divUsingPointTotalPointContainer {
+								margin-bottom: 1vw;
+								span {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.4vw;
+									color: $white;
+								}
+							}
+							.divUsingPointUsingPointContainer {
+								margin-bottom: 1vw;
+								span {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.4vw;
+									color: $white;
+								}
+							}
+							.divUsingPointEstimatedPaymentContainer {
+								margin-bottom: 2vw;
+								span {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.4vw;
+									color: $white;
+								}
+							}
+							.divUsingPointButtonUsingPointContainer {
+								width: 100%;
+								@include flexCol();
+								margin-bottom: 5vw;
+								button {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 1.5vw;
+									color: $black;
+									padding: 0.5vw 0;
+									cursor: pointer;
+									width: 45%;
+									margin-bottom: 1vw;
+								}
+							}
+							.divUsingPointPayContainer {
+								width: 100%;
+								@include flexRow();
+								margin-bottom: 3vw;
+								button {
+									font-family: 'Times New Roman', Times, serif;
+									font-size: 2vw;
+									font-weight: bold;
+									width: 40%;
+									padding: 0.6vw 0;
+									cursor: pointer;
+								}
+								button:nth-child(1) {
+									margin-right: 1vw;
+									background-color: $white;
+									color: $black;
+								}
+								button:nth-child(2) {
+									background-color: $red;
+									color: $white;
+									margin-left: 1vw;
+								}
 							}
 						}
 					}
 				}
 			}
-		}
-		section.sectionPayContainer {
-			width: 100%;
-			height: 100%;
-			@include flexCol();
-			transition: all 300ms ease-in-out;
-			position: absolute;
-			top: 0;
-			left: 0;
-			display: none;
-			opacity: 0;
-			overflow: hidden;
-			background-color: $darkGreen;
-			color: $white;
-			.divPayReviewContainer {
+			section.sectionPayContainer {
+				width: 100%;
+				height: 100%;
 				@include flexCol();
 				transition: all 300ms ease-in-out;
-				opacity: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
 				display: none;
-				h2.h2PayInputCard {
+				opacity: 0;
+				overflow: hidden;
+				background-color: $darkGreen;
+				color: $white;
+				.divPayReviewContainer {
+					@include flexCol();
+					transition: all 300ms ease-in-out;
+					opacity: 0;
+					display: none;
+					h2.h2PayInputCard {
+						transition: all 300ms ease-in-out;
+						font-family: 'Times New Roman', Times, serif;
+						color: $white;
+						font-weight: bold;
+						font-size: 4vw;
+						opacity: 0;
+						display: none;
+						margin-bottom: 2vw;
+					}
+					h3.h3PayTotalPrice {
+						transition: all 300ms ease-in-out;
+						font-family: 'Times New Roman', Times, serif;
+						color: $white;
+						font-size: 2vw;
+						display: none;
+						margin-bottom: 2vw;
+					}
+					h3.h3PayPointsToBeAccumulated {
+						transition: all 300ms ease-in-out;
+						font-family: 'Times New Roman', Times, serif;
+						color: $white;
+						font-size: 2vw;
+						display: none;
+						margin-bottom: 2vw;
+					}
+				}
+				h2.h2PayComplete {
 					transition: all 300ms ease-in-out;
 					font-family: 'Times New Roman', Times, serif;
 					color: $white;
 					font-weight: bold;
-					font-size: 4vw;
+					font-size: 3vw;
 					opacity: 0;
 					display: none;
-					margin-bottom: 2vw;
 				}
-				h3.h3PayTotalPrice {
-					transition: all 300ms ease-in-out;
-					font-family: 'Times New Roman', Times, serif;
-					color: $white;
-					font-size: 2vw;
-					display: none;
-					margin-bottom: 2vw;
-				}
-				h3.h3PayPointsToBeAccumulated {
-					transition: all 300ms ease-in-out;
-					font-family: 'Times New Roman', Times, serif;
-					color: $white;
-					font-size: 2vw;
-					display: none;
-					margin-bottom: 2vw;
-				}
-			}
-			h2.h2PayComplete {
-				transition: all 300ms ease-in-out;
-				font-family: 'Times New Roman', Times, serif;
-				color: $white;
-				font-weight: bold;
-				font-size: 3vw;
-				opacity: 0;
-				display: none;
 			}
 		}
 	}
@@ -1545,11 +1560,11 @@
 	body {
 		width: 100%;
 		height: 100vh;
-	}
-	div#app {
-		width: 100%;
-		height: 100%;
-		@include flexRow();
+		div#app {
+			width: 100%;
+			height: 100%;
+			@include flexRow();
+		}
 	}
 }
 
@@ -1558,10 +1573,10 @@
 	body {
 		width: 100%;
 		height: 100vh;
-	}
-	div#app {
-		width: 100%;
-		height: 100%;
-		@include flexRow();
+		div#app {
+			width: 100%;
+			height: 100%;
+			@include flexRow();
+		}
 	}
 }

@@ -405,7 +405,7 @@ body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapper
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgba(23, 45, 41, 0.7);
+    background-color: rgba(23, 45, 41, 0.95);
   }
   html #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer,
 body #app section.sectionSelectProductContainer .divSelectedProductOptionWrapperContainer .divSelectedProductOptionContainer .divHideSelectedProductOptionContainer {
@@ -560,7 +560,8 @@ body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContain
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-bottom: 0.4vw;
+    margin-bottom: 0.2vw;
+    overflow: hidden;
   }
   html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem,
 body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductNameItem {
@@ -574,6 +575,7 @@ body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContain
     letter-spacing: 0.05vw;
     font-size: 1.3vw;
     color: #0a0a0a;
+    padding: 0 1vw;
   }
   html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem,
 body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer ul.ulSelectProductItemContainer li.liSelectProductPriceItem {
@@ -581,6 +583,7 @@ body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContain
     letter-spacing: 0.05vw;
     font-size: 1.3vw;
     color: #0a0a0a;
+    margin-bottom: 0.2vw;
   }
   html #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer::-webkit-scrollbar,
 body #app section.sectionSelectProductContainer ul.ulSelectProductWrapperContainer ul.ulSelectProductListContainer::-webkit-scrollbar {
@@ -1946,10 +1949,13 @@ body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContain
   }
   html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed,
 body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divSearchingCouponContainer .divSimpleReviewOrderCouponSearchingWrapperContainer span.spanCouponSearchingFailed {
-    margin-top: 2vw;
+    margin-top: 1vw;
     font-family: "Times New Roman", Times, serif;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     color: #fafafa;
+    width: 100%;
+    text-align: center;
+    height: 2vw;
   }
   html #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer,
 body #app section.sectionReviewOrderContainer .divSimpleReviewOrderCouponContainer .divOrderCouponWrapperContainer .divResultCouponContainer {

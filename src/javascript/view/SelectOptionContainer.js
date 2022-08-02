@@ -641,15 +641,15 @@ export default Object.create({
 		}
 	},
 	onClickLiWrapperDisabledContainer() {
-		this.setH2DisabledOptionText("You can't access detailed options because the selected product is not a caffeine product.");
+		this.setH2DisabledOptionText("You can't access Detailed Options because the selected product is not a caffeine product.");
 		this.showDivDisabledWrapperOptionModalContainer();
 	},
 	onClickLiWrapperDisabledNoIceContainer() {
-		this.setH2DisabledOptionText("You can't access no ice option because the selected product is a ice product.");
+		this.setH2DisabledOptionText('You cannot access the No Ice Option because you selected a product that comes with ice.');
 		this.showDivDisabledWrapperOptionModalContainer();
 	},
 	onClickLiWrapperDisabledIceContainer() {
-		this.setH2DisabledOptionText("You can't access ice options because the selected product is not a ice product.");
+		this.setH2DisabledOptionText('You cannot access the Ice Options because you selected a hot product.');
 		this.showDivDisabledWrapperOptionModalContainer();
 	},
 	onClickDivHideDisabledWrapperOptionModalContainer() {
@@ -785,7 +785,7 @@ export default Object.create({
 		$('.h3ProductName').textContent = spacingString(Controller.selectedProductInfo().productName);
 	},
 	setDivCategory() {
-		$('.divProductCategory').textContent = 'Kinds Of Coffee: ' + spacingString(Controller.selectedProductInfo().productCategory);
+		$('.divProductCategory').textContent = 'Menu Category: ' + spacingString(Controller.selectedProductInfo().productCategory);
 	},
 	setDivImage() {
 		$('.divProductImage').style.backgroundImage = `url('${Controller.selectedProductInfo().productImage}')`;

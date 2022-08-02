@@ -58,7 +58,7 @@ export default Object.create({
 		return objElement.createElement('H3').setClassName('h3PayTotalPrice').complete();
 	},
 	printH2PayComplete() {
-		return objElement.createElement('H2', '스타벅스를 이용해 주셔서 진심으로 감사 드립니다.').setClassName('h2PayComplete').complete();
+		return objElement.createElement('H2', 'Thank you for using STARBUCKS.').setClassName('h2PayComplete').complete();
 	},
 
 	// event callback methods
@@ -161,9 +161,9 @@ export default Object.create({
 		$('.h3PayTotalPrice').textContent = `Total Price: ${totalPrice}`;
 	},
 	setH2PayComplete(points) {
-		$('.h2PayComplete').textContent = `${points}포인트가 적립되었습니다. 스타벅스를 이용해 주셔서 진심으로 감사드립니다.`;
+		$('.h2PayComplete').textContent = `You have won ${points} points. Thank you for using STARBUCKS.`;
 	},
 	setH2PayCompleteDirectly() {
-		$('.h2PayComplete').textContent = '스타벅스를 이용해 주셔서 진심으로 감사드립니다.';
+		$('.h2PayComplete').textContent = 'Thank you for using STARBUCKS.';
 	},
 });

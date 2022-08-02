@@ -504,7 +504,7 @@ export default {
 		ReviewOrderContainer.onClickButtonUsingPointAndPay();
 		PayContainer.onClickButtonUsingPointAndPay();
 	},
-
+	
 	clickButtonUsingPointCancel() {
 		$('.buttonUsingPointCancel').addEventListener('click', () => void this.init());
 	},

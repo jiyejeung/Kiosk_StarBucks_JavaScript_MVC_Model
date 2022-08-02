@@ -549,10 +549,10 @@ export default Object.create({
 				this.hideNoneButtonShowOrder();
 				break;
 			case 'undefined':
-				$('.spanCouponSearchingFailed').textContent = 'There is no information about the registered number!';
+				$('.spanCouponSearchingFailed').textContent = 'We do not recognize the mobile phone number you entered.';
 				break;
 			case 'boolean':
-				$('.spanCouponSearchingFailed').textContent = 'Please enter the 13th digit of your cell phone!';
+				$('.spanCouponSearchingFailed').textContent = 'Please enter an eleven-digit mobile phone number.';
 				break;
 		}
 	},

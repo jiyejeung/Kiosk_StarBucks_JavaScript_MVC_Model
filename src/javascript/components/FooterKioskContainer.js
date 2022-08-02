@@ -26,7 +26,7 @@ export default Object.create({
 		return objElement.createElement('DIV', 'Email: jiyejeung@gmail.com').setClassName('divEmail').complete();
 	},
 	printDivContactMe() {
-		return objElement.createElement('DIV', "This website was created as part of my portfolio. If you have any questions, please don't hesitate to send me a message!").setClassName('divContactMe').complete();
+		return objElement.createElement('DIV', "This website was solely created for the purposes of a student's portfolio. If you have any questions, feel free to reach out at the above email address!").setClassName('divContactMe').complete();
 	},
 
 	// event callback methods

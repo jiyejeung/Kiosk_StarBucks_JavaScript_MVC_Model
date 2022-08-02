@@ -552,11 +552,11 @@
     {
       "id": 33,
       "productCount": 1,
-      "productName": "jejuOrganicMatchaGreenTeaFrappuccino",
+      "productName": "organicMatchaGreenTeaFrappuccino",
       "productPrice": 6300,
       "productAdditionalFee": 0,
       "productCategory": "frappuccino",
-      "productImage": "./images/frappuccino/jejuOrganicMatchaGreenTeaFrappuccino.jpg",
+      "productImage": "./images/frappuccino/organicMatchaGreenTeaFrappuccino.jpg",
       "productSize": "short",
       "productEspressoShot": 0,
       "productEspressoRoast": "noEspresso",
@@ -895,7 +895,7 @@
       "id": 1,
       "name": "yejeungJi",
       "phoneNumber": "010-4820-1962",
-      "point": 1278309
+      "point": 1270839
     },
     {
       "id": 2,

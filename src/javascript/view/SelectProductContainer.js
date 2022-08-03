@@ -317,16 +317,16 @@ export default Object.create({
 		return objElement.createElement('LI').setClassName('liItemButtonContainer').complete();
 	},
 	printButtonItemOption() {
-		return objElement.createElement('BUTTON', 'Show Options').setClassName('buttonItemOption').complete();
+		return objElement.createElement('BUTTON', 'Options').setClassName('buttonItemOption').complete();
 	},
 	printButtonItemOption_bakeryAndAvocado() {
-		return objElement.createElement('BUTTON', 'Show Options').setClassName('buttonItemOption').setAttribute('style', 'display: none').complete();
+		return objElement.createElement('BUTTON', 'Options').setClassName('buttonItemOption').setAttribute('style', 'display: none').complete();
 	},
 	printButtonItemDelete() {
-		return objElement.createElement('BUTTON', 'Delete Item').setClassName('buttonItemDelete').complete();
+		return objElement.createElement('BUTTON', 'Delete').setClassName('buttonItemDelete').complete();
 	},
 	printButtonItemDelete_bakeryAndAvocado() {
-		return objElement.createElement('BUTTON', 'Delete Item').setClassName('buttonItemDelete').setAttribute('style', 'width: 100%').complete();
+		return objElement.createElement('BUTTON', 'Delete').setClassName('buttonItemDelete').setAttribute('style', 'width: 100%').complete();
 	},
 	appendDivPayWrapperContainer() {
 		const divPayWrapperContainer = this.printDivPayWrapperContainer();
@@ -397,7 +397,7 @@ export default Object.create({
 		return objElement.createElement('SPAN', '0').setClassName('spanTotalNumberValue').complete();
 	},
 	printSpanTotalNumberText() {
-		return objElement.createElement('SPAN', 'No. of items: ').setClassName('spanTotalNumberText').complete();
+		return objElement.createElement('SPAN', 'Order: ').setClassName('spanTotalNumberText').complete();
 	},
 	printDivTotalNumberContainer() {
 		return objElement.createElement('DIV').setClassName('divTotalNumberContainer').complete();

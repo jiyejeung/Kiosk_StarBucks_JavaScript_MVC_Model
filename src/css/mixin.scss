@@ -1,11 +1,5 @@
-@mixin mobile {
-	@media (min-width: $mobileMinSize) and (max-width: $tabletMinSize) {
-		@content;
-	}
-}
-
 @mixin tablet {
-	@media (min-width: $tabletMinSize) and (max-width: $desktopMinSize) {
+	@media (max-width: $desktopMinSize) {
 		@content;
 	}
 }

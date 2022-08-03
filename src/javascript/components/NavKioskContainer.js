@@ -38,6 +38,28 @@ export default Object.create({
 	onClickButtonStore() {
 		this.showNavKioskContainer();
 	},
+	onClickButtonPay() {
+		this.hideNavKioskContainer();
+	},
+	onClickButtonSimpleReviewOrderBack() {
+		this.showNavKioskContainer();
+	},
+	onClickUlSelectProductItemContainer(currentMedia) {
+		switch (currentMedia) {
+			case 'desktop':
+				this.showNavKioskContainer();
+				break;
+			case 'tablet':
+				this.hideNavKioskContainer();
+				break;
+		}
+	},
+	onClickButtonAddToCart() {
+		this.showNavKioskContainer();
+	},
+	onClickButtonCancelAddingToCart() {
+		this.showNavKioskContainer();
+	},
 
 	// action methods
 	showNavKioskContainer() {

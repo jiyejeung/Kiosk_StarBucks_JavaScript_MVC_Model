@@ -17,6 +17,7 @@ export default Object.create({
 			this.initSpanTotalNumberValue();
 			this.initSpanTotalAmountValue();
 			this.initUlSelectedProductListContainer();
+			this.initButtonPay();
 		}, 300);
 	},
 
@@ -554,6 +555,9 @@ export default Object.create({
 	},
 	initUlSelectedProductListContainer() {
 		$$('.ulSelectedProductItemContainer').forEach(ul => ul.remove());
+	},
+	initButtonPay() {
+		$('.divPayWrapperContainer .buttonPay').style.cursor = 'not-allowed';
 	},
 
 	// customization methods

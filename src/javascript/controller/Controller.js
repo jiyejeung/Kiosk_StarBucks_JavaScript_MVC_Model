@@ -2,6 +2,7 @@
 import { $, $$ } from '../utils/ElementTool.js';
 import { spacingString, subSpacingString } from '../utils/StringTool.js';
 import Timer from '../utils/Timer.js';
+import MediaQuery from '../utils/MediaQuery.js';
 
 // components
 import NavKioskContainer from '../components/NavKioskContainer.js';
@@ -25,6 +26,7 @@ import AllOptionsInfo from '../model/AllOptionsInfo.js';
 export default {
 	// initialize function
 	init() {
+		MediaQuery.currentMediaQuery();
 		Timer.resetTimer();
 		IntroContainer.init();
 		SlideContainer.init();
@@ -62,6 +64,10 @@ export default {
 		}
 	},
 
+	mediaQueryInit() {
+		window.addEventListener('resize', () => void this.init());
+	},
+
 	/* in navKioskContainer */
 	clickH1NavKioskTitle() {
 		$$('.h1NavKioskTitle')?.forEach(h1 => h1?.addEventListener('click', () => void this.init()));
@@ -91,12 +97,14 @@ export default {
 	},
 	onClickButtonTakeOut({ currentTarget }) {
 		UserInfo.userInfo.takeOut = currentTarget.textContent;
+
 		Timer.startTimer();
 		this.startTimer();
+
 		TakeOutContainer.onClickButtonTakeOut();
 		SelectProductContainer.onClickButtonTakeOut();
 		NavKioskContainer.onClickButtonTakeOut();
-		FooterKioskContainer.onClickButtonTakeOut();
+		FooterKioskContainer.onClickButtonTakeOut(MediaQuery.currentMedia);
 	},
 
 	clickButtonStore() {
@@ -111,7 +119,7 @@ export default {
 		TakeOutContainer.onClickButtonStore();
 		SelectProductContainer.onClickButtonStore();
 		NavKioskContainer.onClickButtonStore();
-		FooterKioskContainer.onClickButtonStore();
+		FooterKioskContainer.onClickButtonTakeOut(MediaQuery.currentMedia);
 	},
 
 	/* in sectionSelectProductContainer */
@@ -189,6 +197,7 @@ export default {
 	onClickUlSelectProductItemContainer_coffeeAndBeverage(productName, productType) {
 		UserInfo.initSelectedProduct(productName);
 		SelectOptionContainer.onClickUlSelectProductItemContainer(productType);
+		NavKioskContainer.onClickUlSelectProductItemContainer(MediaQuery.currentMedia);
 		Timer.stopTimer();
 	},
 	onClickUlSelectProductItemContainer_BakeryAndAvocado(productName) {
@@ -212,8 +221,8 @@ export default {
 		if (UserInfo.confirmEmptySelectedProducts()) {
 			SelectProductContainer.onClickButtonPay();
 			ReviewOrderContainer.onClickButtonPay();
-			NavKioskContainer.hideNavKioskContainer();
-			FooterKioskContainer.hideFooterKioskContainer();
+			NavKioskContainer.onClickButtonPay();
+			FooterKioskContainer.onClickButtonPay();
 			Timer.stopTimer();
 		}
 	},
@@ -378,6 +387,7 @@ export default {
 		Timer.restartTimer();
 		Timer.startTimer();
 		this.startTimer();
+		NavKioskContainer.onClickButtonAddToCart();
 		SelectProductContainer.onClickButtonAddToCart(UserInfo.confirmEmptySelectedProducts());
 		this.clickButtonItemMinusCount();
 		this.clickButtonItemAddCount();
@@ -389,11 +399,12 @@ export default {
 		$('.buttonCancelAddingToCart').addEventListener('click', () => void this.onClickButtonCancelAddingToCart());
 	},
 	onClickButtonCancelAddingToCart() {
-		SelectOptionContainer.onClickButtonCancelAddingToCart();
-		SelectProductContainer.onClickButtonCancelAddingToCart();
 		Timer.restartTimer();
 		Timer.startTimer();
 		this.startTimer();
+		SelectOptionContainer.onClickButtonCancelAddingToCart();
+		SelectProductContainer.onClickButtonCancelAddingToCart();
+		NavKioskContainer.onClickButtonCancelAddingToCart();
 	},
 
 	/* in sectionReviewOrderContainer */
@@ -415,8 +426,8 @@ export default {
 		Timer.restartTimer();
 		Timer.startTimer();
 		this.startTimer();
-		NavKioskContainer.showNavKioskContainer();
-		FooterKioskContainer.showFooterKioskContainer();
+		NavKioskContainer.onClickButtonSimpleReviewOrderBack();
+		FooterKioskContainer.onClickButtonSimpleReviewOrderBack();
 		SelectProductContainer.onClickButtonSimpleReviewOrderBack();
 	},
 
@@ -597,6 +608,7 @@ export default {
 
 	// main function
 	main() {
+		this.mediaQueryInit();
 		this.clickH1NavKioskTitle();
 		this.clickSectionIntroContainer();
 		this.clickSectionSlideContainer();

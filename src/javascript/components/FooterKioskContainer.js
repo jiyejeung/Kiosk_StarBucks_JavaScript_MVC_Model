@@ -26,18 +26,48 @@ export default Object.create({
 		return objElement.createElement('DIV', 'Email: jiyejeung@gmail.com').setClassName('divEmail').complete();
 	},
 	printDivContactMe() {
-		return objElement.createElement('DIV', "This website was solely created for the purposes of a student's portfolio. If you have any questions, feel free to reach out at the above email address!").setClassName('divContactMe').complete();
+		return objElement
+			.createElement('DIV', "This website was solely created for the purposes of a student's portfolio. If you have any questions, feel free to reach out at the above email address!")
+			.setClassName('divContactMe')
+			.complete();
 	},
 
 	// event callback methods
-	onClickButtonTakeOut() {
-		this.showFooterKioskContainer();
+	onClickButtonTakeOut(currentMedia) {
+		switch (currentMedia) {
+			case 'desktop':
+				this.showFooterKioskContainer();
+				break;
+			case 'tablet':
+				this.hideFooterKioskContainer();
+				break;
+		}
 	},
-	onClickButtonStore() {
-		this.showFooterKioskContainer();
+	onClickButtonStore(currentMedia) {
+		switch (currentMedia) {
+			case 'desktop':
+				this.showFooterKioskContainer();
+				break;
+			case 'tablet':
+				this.hideFooterKioskContainer();
+				break;
+		}
+	},
+	onClickButtonPay() {
+		this.hideFooterKioskContainer();
+	},
+	onClickButtonSimpleReviewOrderBack(currentMedia) {
+		switch (currentMedia) {
+			case 'desktop':
+				this.showFooterKioskContainer();
+				break;
+			case 'tablet':
+				this.hideFooterKioskContainer();
+				break;
+		}
 	},
 
-  // action methods
+	// action methods
 	showFooterKioskContainer() {
 		$('.footerKioskContainer').style.display = 'flex';
 		setTimeout(() => ($('.footerKioskContainer').style.opacity = 1), 0);

@@ -2,25 +2,31 @@ import Controller from '../controller/Controller.js';
 
 export default Object.create({
 	userInfo: {},
-	async getUserInfo(phoneNumber) {
+	initUserInfo() {
+		this.userInfo = {};
+		console.log(this.userInfo);
+	},
+	async getUserInfo(mobilePhoneNumber) {
 		this.userInfo = {};
 
-		await fetch(`http://localhost:3000/userInfo?phoneNumber=${phoneNumber}`)
+		await fetch(`./php/controller.php?page=userInfo&mobilePhoneNumber=${mobilePhoneNumber}`)
 			.then(res => res.json())
-			.then(res => (this.userInfo = res[0]))
+			.then(res => (this.userInfo = res))
+			.then(() => (this.userInfo = { ...this.userInfo, id: +this.userInfo.id }))
 			.catch(err => console.log(err));
 
 		return this.userInfo;
 	},
 	updateUserInfo(updatedPoint) {
-		this.userInfo = { ...this.userInfo, point: updatedPoint };
+		this.userInfo = { ...this.userInfo, points: updatedPoint };
 	},
-	postUserInfo({ id, point } = this.userInfo) {
-		fetch(`http://localhost:3000/userInfo/${id}`, {
-			method: 'PATCH',
+	postUserInfo({ id, points } = this.userInfo) {
+		fetch(`./php/controller.php?page=updatePoints`, {
+			method: 'POST',
 			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify({ id, point }),
-		}).catch(err => console.log(err));
+			body: JSON.stringify({ id, points }),
+		}).then((res) => console.log(res))
+			.catch(err => console.log(err));
 	},
 	selectedProduct: {},
 	selectedProducts: [],

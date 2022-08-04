@@ -788,7 +788,7 @@ export default Object.create({
 		$('.divProductCategory').textContent = 'Menu Category: ' + spacingString(Controller.selectedProductInfo().productCategory);
 	},
 	setDivImage() {
-		$('.divProductImage').style.backgroundImage = `url('${Controller.selectedProductInfo().productImage}')`;
+		$('.divProductImage').style.backgroundImage = `url('${Controller.selectedProductInfo().productImageUrl}')`;
 	},
 	setSpanPrice() {
 		$('.spanPrice').textContent = addComma(Controller.selectedProductInfo().productPrice + Controller.selectedProductInfo().productAdditionalFee);

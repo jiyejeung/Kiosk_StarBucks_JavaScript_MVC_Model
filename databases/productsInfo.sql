@@ -4,16 +4,16 @@ CREATE TABLE `productsInfo`(
     `productCategory` CHAR(20) NOT NULL,
     `productType` CHAR(20) NOT NULL,
     `productPrice` INT NOT NULL,
-    `productAdditionalfee` INT NOT NULL,
+    `productAdditionalFee` INT NOT NULL,
     `productCount` INT NOT NULL,
-    `productImageurl` CHAR(255) NOT NULL,
+    `productImageUrl` CHAR(255) NOT NULL,
     `productSize` CHAR(20) NOT NULL,
     `productIce` CHAR(20) NOT NULL,
     `productTemperature` CHAR(20) NOT NULL,
-    `productEspressoroast` CHAR(25) NOT NULL,
+    `productEspressoRoast` CHAR(25) NOT NULL,
     `productEspressoShot` INT NOT NULL,
     `productSyrup` CHAR(255) NOT NULL,
-    `productSyrupcount` INT NOT NULL,
+    `productSyrupCount` INT NOT NULL,
     PRIMARY KEY (`id`)
 ) AUTO_INCREMENT = 0;
 
@@ -33,8 +33,8 @@ INSERT INTO `productsInfo` VALUES (0, 'coldBrewFloat', 'recommendation', 'iceCof
 INSERT INTO `productsInfo` VALUES (0, 'iceVanillaBeanLatte', 'recommendation', 'iceCoffee', 5300, 0, 1, './images/recommendation/iceVanillaBeanLatte.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'sakeratoBiancoOverIce', 'recommendation', 'iceCoffee', 5100, 0, 1, './images/recommendation/sakeratoBiancoOverIce.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
 
-INSERT INTO `productsInfo` VALUES (0, 'blodeEspressoLatte', 'espresso', 'normalCoffee', 5100, 0, 1, './images/espresso/blodeEspressoLatte.jpg', 'short', 'noIce', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
-INSERT INTO `productsInfo` VALUES (0, 'iceBoldeVanillaMacchiato', 'espresso', 'iceCoffee', 5600, 0, 1, './images/espresso/iceBoldeVanillaMacchiato.jpg', 'short', 'ice', 'ice', 'blondeRoast', 0, 'vanillaSyrup', 0);
+INSERT INTO `productsInfo` VALUES (0, 'blondeEspressoLatte', 'espresso', 'normalCoffee', 5100, 0, 1, './images/espresso/blondeEspressoLatte.jpg', 'short', 'noIce', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
+INSERT INTO `productsInfo` VALUES (0, 'iceBlondeVanillaMacchiato', 'espresso', 'iceCoffee', 5600, 0, 1, './images/espresso/iceBlondeVanillaMacchiato.jpg', 'short', 'ice', 'ice', 'blondeRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'cafeMocha', 'espresso', 'noramlCoffee', 5800, 0, 1, './images/espresso/cafeMocha.jpg', 'short', 'noIce', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'cafeLatte', 'espresso', 'hotCoffee', 5300, 0, 1, './images/espresso/cafeLatte.jpg', 'short', 'noIce', 'hot', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'iceCafeLatte', 'espresso', 'iceCoffee', 5500, 0, 1, './images/espresso/iceCafeLatte.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
@@ -43,12 +43,12 @@ INSERT INTO `productsInfo` VALUES (0, 'iceCaramelMacchiato', 'espresso', 'iceCof
 INSERT INTO `productsInfo` VALUES (0, 'vanillaFlatWhite', 'espresso', 'normalCoffee', 5500, 0, 1, './images/espresso/vanillaFlatWhite.jpg', 'short', 'noIce', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'whiteChocolateMocha', 'espresso', 'normalCoffee', 5800, 0, 1, './images/espresso/whiteChocolateMocha.jpg', 'short', 'noIce', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'iceCafeAmericano', 'espresso', 'iceCoffee', 4500, 0, 1, './images/espresso/iceCafeAmericano.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
-INSERT INTO `productsInfo` VALUES (0, 'espressoConPanana', 'espresso', 'hotCoffee', 4500, 0, 1, './images/espresso/espressoConPanana.jpg', 'short', 'noIce', 'hot', 'signatureRoast', 0, 'vanillaSyrup', 0);
+INSERT INTO `productsInfo` VALUES (0, 'espressoConPanna', 'espresso', 'hotCoffee', 4500, 0, 1, './images/espresso/espressoConPanna.jpg', 'short', 'noIce', 'hot', 'signatureRoast', 0, 'vanillaSyrup', 0);
 
 INSERT INTO `productsInfo` VALUES (0, 'brewingCoffee', 'coldBrew', 'normalCoffee', 4900, 0, 1, './images/coldBrew/brewingCoffee.jpg', 'short', 'ice', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'coldBrewReserve', 'coldBrew', 'iceCoffee', 5200, 0, 1, './images/coldBrew/coldBrewReserve.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'coldBrewOatLatte', 'coldBrew', 'iceCoffee', 6100, 0, 1, './images/coldBrew/coldBrewOatLatte.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
-INSERT INTO `productsInfo` VALUES (0, 'vanillaCreamBrew', 'coldBrew', 'iceCoffee', 6400, 0, 1, './images/coldBrew/vanillaCreamBrew.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
+INSERT INTO `productsInfo` VALUES (0, 'vanillaCreamColdBrew', 'coldBrew', 'iceCoffee', 6400, 0, 1, './images/coldBrew/vanillaCreamColdBrew.jpg', 'short', 'ice', 'ice', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'coldBrewReserveNitro', 'coldBrew', 'normalCoffee', 5800, 0, 1, './images/coldBrew/coldBrewReserveNitro.jpg', 'short', 'ice', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'nitroColdBrew', 'coldBrew', 'normalCoffee', 5700, 0, 1, './images/coldBrew/nitroColdBrew.jpg', 'short', 'ice', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);
 INSERT INTO `productsInfo` VALUES (0, 'nitroVanillaCream', 'coldBrew', 'normalCoffee', 6100, 0, 1, './images/coldBrew/nitroVanillaCream.jpg', 'short', 'ice', 'normal', 'signatureRoast', 0, 'vanillaSyrup', 0);

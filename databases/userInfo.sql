@@ -1,5 +1,6 @@
 CREATE TABLE `userInfo` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(255) NOT NULL,
   `mobilePhoneNumber` CHAR(13) NOT NULL,
   `points` INT NOT NULL,
   PRIMARY KEY (`id`),

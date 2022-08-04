@@ -38,6 +38,7 @@ export default {
 		ReviewOrderContainer.init();
 		PayContainer.init();
 		UserInfo.initSelectedProducts();
+		UserInfo.initUserInfo();
 	},
 
 	// setup function

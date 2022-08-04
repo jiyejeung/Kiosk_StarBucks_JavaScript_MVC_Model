@@ -1,12 +1,15 @@
-<?php 
-  require '../db.inc';
+<?php
+  require '../dbInfo.inc';
 
   $dbHandler = mysqli_connect($host, $user, $password, $database);
+
   if (!$dbHandler) {
-    echo '<script>console.log("Failed DB Connecting...")</script>';
+    echo '<script>console.log("Failed DB Connecting...");</script>';
     exit;
-  } 
+  }
+
   if (!mysqli_select_db($dbHandler, $database)) {
-    echo '<script>console.log("There is no any Database...")</script>';
+    echo '<script>console.log("There is no DB...");</script>';
+    exit;
   }
 ?>

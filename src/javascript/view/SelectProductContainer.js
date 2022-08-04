@@ -183,8 +183,8 @@ export default Object.create({
 
 		return fragment;
 	},
-	printLiSelectProductImageItem({ productImage }) {
-		return objElement.createElement('LI').setClassName('liSelectProductImageItem').setAttribute('style', `background-image: url(${productImage})`).complete();
+	printLiSelectProductImageItem({ productImageUrl }) {
+		return objElement.createElement('LI').setClassName('liSelectProductImageItem').setAttribute('style', `background-image: url(${productImageUrl})`).complete();
 	},
 	printLiSelectProductNameItem({ productName }) {
 		return objElement.createElement('LI', spacingString(productName)).setClassName('liSelectProductNameItem').complete();

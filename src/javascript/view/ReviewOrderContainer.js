@@ -410,9 +410,9 @@ export default Object.create({
 	printDivDetailedReviewOrderSelectedProductInfoContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductInfoContainer').complete();
 	},
-	appendDivDetailedReviewOrderSelectedProductImageWrapperContainer({ productImage }) {
+	appendDivDetailedReviewOrderSelectedProductImageWrapperContainer({ productImageUrl }) {
 		const divDetailedReviewOrderSelectedProductImageWrapperContainer = this.printDivDetailedReviewOrderSelectedProductImageWrapperContainer();
-		const divDetailedReviewOrderSelectedProductImageContainer = this.printDivDetailedReviewOrderSelectedProductImageContainer(productImage);
+		const divDetailedReviewOrderSelectedProductImageContainer = this.printDivDetailedReviewOrderSelectedProductImageContainer(productImageUrl);
 
 		divDetailedReviewOrderSelectedProductImageWrapperContainer.appendChild(divDetailedReviewOrderSelectedProductImageContainer);
 
@@ -421,8 +421,8 @@ export default Object.create({
 	printDivDetailedReviewOrderSelectedProductImageWrapperContainer() {
 		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageWrapperContainer').complete();
 	},
-	printDivDetailedReviewOrderSelectedProductImageContainer(productImage) {
-		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageContainer').setAttribute('style', `background-image: url(${productImage})`).complete();
+	printDivDetailedReviewOrderSelectedProductImageContainer(productImageUrl) {
+		return objElement.createElement('DIV').setClassName('divDetailedReviewOrderSelectedProductImageContainer').setAttribute('style', `background-image: url(${productImageUrl})`).complete();
 	},
 	appendDivDetailedReviewOrderSelectedProductOptionWrapperContainer({ productName, productSize, productIce, productPrice, productAdditionalFee, productCount }) {
 		const fragment = document.createDocumentFragment();
@@ -544,7 +544,7 @@ export default Object.create({
 			case 'object':
 				this.showDivResultCouponContainer();
 				this.setSpanUsingPointTotalPrice();
-				this.setSpanUsingPointTotalPoint(addComma(userInfo.point));
+				this.setSpanUsingPointTotalPoint(addComma(userInfo.points));
 				this.setSpanUsingPointEstimatedPayment();
 				this.hideNoneButtonShowOrder();
 				break;
@@ -559,7 +559,7 @@ export default Object.create({
 	onClickButtonUsingPointNot() {
 		this.setSpanUsingPointUsingPoint();
 		this.setSpanUsingPointTotalPrice();
-		this.setSpanUsingPointTotalPoint(addComma(Controller.userInfo().point));
+		this.setSpanUsingPointTotalPoint(addComma(Controller.userInfo().points));
 		this.setSpanUsingPointEstimatedPayment();
 	},
 	onClickButtonUsingPointFiveThousand() {
@@ -592,7 +592,7 @@ export default Object.create({
 	},
 	onClickButtonUsingPointFull() {
 		const totalPrice = Controller.selectedProductsInfo().reduce((pre, cur) => pre + (cur.productPrice + cur.productAdditionalFee) * cur.productCount, 0);
-		const totalPoints = Controller.userInfo().point;
+		const totalPoints = Controller.userInfo().points;
 
 		$('.spanUsingPointTotalPoint').textContent = addComma(totalPoints - totalPrice > 0 ? totalPoints - totalPrice : 0);
 		$('.spanUsingPointUsingPoint').textContent = addComma(totalPoints > totalPrice ? totalPrice : totalPrice - totalPoints);

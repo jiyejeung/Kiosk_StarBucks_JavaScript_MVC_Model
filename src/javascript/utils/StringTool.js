@@ -16,3 +16,5 @@ export const subSpacingString = string =>
 		.split(' ')
 		.map((string, index) => (index ? string : string.toLowerCase()))
 		.join('');
+
+export const confirmMobilePhoneNumber = string => !/^010-\d*/.test(string);

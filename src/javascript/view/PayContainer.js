@@ -15,17 +15,19 @@ export default Object.create({
 			this.hideH2PayInputCard();
 			this.hideH3PayTotalPrice();
 			this.hideH2PayComplete();
+			this.hideH2PayHadPoints();
 		}, 300);
 	},
 
 	// setup method
 	setup() {
 		const sectionPayContainer = this.printSectionPayContainer();
+		const h2PayHadPoints = this.printH2PayHadPoints();
 		const divPayReviewContainer = this.appendDivPayReviewContainer();
 		const h2PayComplete = this.printH2PayComplete();
 		const fragment = document.createDocumentFragment();
 
-		fragment.append(divPayReviewContainer, h2PayComplete);
+		fragment.append(divPayReviewContainer, h2PayHadPoints, h2PayComplete);
 
 		sectionPayContainer.appendChild(fragment);
 
@@ -57,6 +59,9 @@ export default Object.create({
 	printH3PayTotalPrice() {
 		return objElement.createElement('H3').setClassName('h3PayTotalPrice').complete();
 	},
+	printH2PayHadPoints() {
+		return objElement.createElement('H2').setClassName('h2PayHadPoints').complete();
+	},
 	printH2PayComplete() {
 		return objElement.createElement('H2', 'Thank you for using STARBUCKS.').setClassName('h2PayComplete').complete();
 	},
@@ -69,6 +74,7 @@ export default Object.create({
 		this.showH3PayTotalPrice();
 		this.showDivPayReviewContainer();
 		this.hideH2PayComplete();
+		this.hideH2PayHadPointsDirectly();
 		this.showSectionPayContainer();
 		setTimeout(() => {
 			this.hideDivPayReviewContainer();
@@ -85,18 +91,20 @@ export default Object.create({
 		if (estimatedPayment) {
 			this.showSectionPayContainer();
 			this.showDivPayReviewContainer();
+			this.setH2PayCompleteDirectly();
 			this.setH3PayTotalPrice(addComma(estimatedPayment));
-			this.setH2PayComplete(addComma(pointsToBeAccumulated));
+			this.setH2PayHadPoints(addComma(pointsToBeAccumulated));
 			this.showH2PayInputCard();
 			this.showH3PayTotalPrice();
 			setTimeout(() => {
 				this.hideDivPayReviewContainer();
 				setTimeout(() => {
 					this.showH2PayComplete();
+					this.showH2PayHadPoints();
 					Controller.updateUserInfo(totalPoints)
-						.then(() => Controller.postUserInfo())
-						.then(() => setTimeout(() => Controller.init(), 5000))
-						.catch(err => console.log(err));
+						.then(() => void Controller.postUserInfo())
+						.then(() => void setTimeout(() => Controller.init(), 5000))
+						.catch(err => void console.log(err));
 				}, 300);
 			}, 5000);
 		} else {
@@ -105,9 +113,9 @@ export default Object.create({
 			this.showSectionPayContainer();
 			setTimeout(() => {
 				Controller.updateUserInfo(totalPoints)
-					.then(() => Controller.postUserInfo())
-					.then(() => setTimeout(() => Controller.init(), 5000))
-					.catch(err => console.log(err));
+					.then(() => void Controller.postUserInfo())
+					.then(() => void Controller.init())
+					.catch(err => void console.log(err));
 			}, 5000);
 		}
 	},
@@ -132,6 +140,10 @@ export default Object.create({
 		$('.h2PayComplete').style.display = 'block';
 		setTimeout(() => ($('.h2PayComplete').style.opacity = 1), 0);
 	},
+	showH2PayHadPoints() {
+		$('.h2PayHadPoints').style.display = 'block';
+		setTimeout(() => ($('.h2PayHadPoints').style.opacity = 1), 0);
+	},
 	hideSectionPayContainer() {
 		$('.sectionPayContainer').style.opacity = 0;
 		setTimeout(() => ($('.sectionPayContainer').style.display = 'none'), 300);
@@ -154,14 +166,21 @@ export default Object.create({
 	hideDivPayReviewContainerDirectly() {
 		$('.divPayReviewContainer').display = 'none';
 	},
+	hideH2PayHadPoints() {
+		$('.h2PayHadPoints').style.opacity = 0;
+		setTimeout(() => ($('.h2PayHadPoints').style.display = 'none'), 300);
+	},
+	hideH2PayHadPointsDirectly() {
+		$('.h2PayHadPoints').display = 'none';
+	},
 
 	// customization methods
 	setH3PayTotalPrice(totalPrice) {
 		$('.h3PayTotalPrice').style.display = 'block';
 		$('.h3PayTotalPrice').textContent = `Total Price: ${totalPrice}`;
 	},
-	setH2PayComplete(points) {
-		$('.h2PayComplete').textContent = `You have won ${points} points. Thank you for using STARBUCKS.`;
+	setH2PayHadPoints(points) {
+		$('.h2PayHadPoints').innerHTML = `You have won ${points} points.`;
 	},
 	setH2PayCompleteDirectly() {
 		$('.h2PayComplete').textContent = 'Thank you for using STARBUCKS.';

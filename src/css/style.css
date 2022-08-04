@@ -2128,6 +2128,17 @@ body #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeA
     display: none;
     margin-bottom: 2vw;
   }
+  html #app section.sectionPayContainer h2.h2PayHadPoints,
+body #app section.sectionPayContainer h2.h2PayHadPoints {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 2.5vw;
+    opacity: 0;
+    display: none;
+    margin-bottom: 3vw;
+  }
   html #app section.sectionPayContainer h2.h2PayComplete,
 body #app section.sectionPayContainer h2.h2PayComplete {
     transition: all 300ms ease-in-out;
@@ -2171,6 +2182,8 @@ body #app nav.navKioskContainer {
     justify-content: space-between;
     padding: 0 2vw;
     z-index: 10;
+    display: none;
+    opacity: 0;
     transition: all 300ms ease-in-out;
   }
   html #app nav.navKioskContainer h1.h1NavKioskTitle,
@@ -2231,7 +2244,6 @@ body #app section.sectionIntroContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    display: none;
     font-size: 5vw;
     background-color: #172d29;
     transition: all 300ms ease-in-out;
@@ -2365,6 +2377,8 @@ body #app section.sectionSelectProductContainer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    display: none;
+    opacity: 0;
     justify-content: space-between;
     transition: all 300ms ease-in-out;
     position: absolute;
@@ -4102,6 +4116,17 @@ body #app section.sectionPayContainer .divPayReviewContainer h3.h3PayPointsToBeA
     font-size: 4vw;
     display: none;
     margin-bottom: 2vw;
+  }
+  html #app section.sectionPayContainer h2.h2PayHadPoints,
+body #app section.sectionPayContainer h2.h2PayHadPoints {
+    transition: all 300ms ease-in-out;
+    font-family: "Times New Roman", Times, serif;
+    color: #fafafa;
+    font-weight: bold;
+    font-size: 2.5vw;
+    opacity: 0;
+    display: none;
+    margin-bottom: 3vw;
   }
   html #app section.sectionPayContainer h2.h2PayComplete,
 body #app section.sectionPayContainer h2.h2PayComplete {

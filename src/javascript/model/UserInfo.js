@@ -4,16 +4,15 @@ export default Object.create({
 	userInfo: {},
 	initUserInfo() {
 		this.userInfo = {};
-		console.log(this.userInfo);
 	},
 	async getUserInfo(mobilePhoneNumber) {
 		this.userInfo = {};
 
 		await fetch(`./php/controller.php?page=userInfo&mobilePhoneNumber=${mobilePhoneNumber}`)
 			.then(res => res.json())
-			.then(res => (this.userInfo = res))
-			.then(() => (this.userInfo = { ...this.userInfo, id: +this.userInfo.id }))
-			.catch(err => console.log(err));
+			.then(res => void (this.userInfo = res))
+			.then(() => void (this.userInfo = { ...this.userInfo, id: +this.userInfo.id }))
+			.catch(err => void console.log(err));
 
 		return this.userInfo;
 	},
@@ -21,12 +20,7 @@ export default Object.create({
 		this.userInfo = { ...this.userInfo, points: updatedPoint };
 	},
 	postUserInfo({ id, points } = this.userInfo) {
-		fetch(`./php/controller.php?page=updatePoints`, {
-			method: 'POST',
-			headers: { 'content-type': 'application/json' },
-			body: JSON.stringify({ id, points }),
-		}).then((res) => console.log(res))
-			.catch(err => console.log(err));
+		fetch(`./php/controller.php?page=updatePoints&id=${id}&points=${points}`).catch(err => void console.log(err));
 	},
 	selectedProduct: {},
 	selectedProducts: [],

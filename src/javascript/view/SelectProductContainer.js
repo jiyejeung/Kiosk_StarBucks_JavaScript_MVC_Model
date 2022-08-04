@@ -444,7 +444,6 @@ export default Object.create({
 		this.setSpanTotalNumberValue(Controller.totalNumberValue());
 	},
 	onClickButtonItemOption(selectedProductInfo) {
-		console.log(selectedProductInfo);
 		this.showDivSelectedProductOptionWrapperContainer();
 		this.setDivSelectedProductImageContainer(selectedProductInfo);
 		this.setH3SelectedProductName(selectedProductInfo);

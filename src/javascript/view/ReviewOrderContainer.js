@@ -226,7 +226,7 @@ export default Object.create({
 		return objElement.createElement('BUTTON', index).setClassName('buttonCouponSearching').complete();
 	},
 	printButtonCouponBack() {
-		return objElement.createElement('BUTTON', 'BACK').setClassName('buttonCouponBack').complete();
+		return objElement.createElement('BUTTON', 'C').setClassName('buttonCouponBack').complete();
 	},
 	printButtonCouponComplete() {
 		return objElement.createElement('BUTTON', 'OK').setClassName('buttonCouponComplete').complete();
@@ -530,14 +530,14 @@ export default Object.create({
 		} else if (event.keyCode === enterKeyCode) {
 			Controller.onClickButtonCouponComplete();
 		} else if (event.keyCode === backSpaceKeyCode) {
-			this.onClickButtonCouponBack();
+			const minLength = 4;
+			const arrInputPhoneNumberValue = $('.inputPhoneNumber').value.split('');
+			arrInputPhoneNumberValue.length > minLength && arrInputPhoneNumberValue.pop() === '-' && arrInputPhoneNumberValue.pop();
+			$('.inputPhoneNumber').value = arrInputPhoneNumberValue.join('');
 		}
 	},
 	onClickButtonCouponBack() {
-		const minLength = 4;
-		const arrInputPhoneNumberValue = $('.inputPhoneNumber').value.split('');
-		arrInputPhoneNumberValue.length > minLength && arrInputPhoneNumberValue.pop() === '-' && arrInputPhoneNumberValue.pop();
-		$('.inputPhoneNumber').value = arrInputPhoneNumberValue.join('');
+		$('.inputPhoneNumber').value = '010-';
 	},
 	onClickButtonCouponComplete(userInfo) {
 		switch (typeof userInfo) {

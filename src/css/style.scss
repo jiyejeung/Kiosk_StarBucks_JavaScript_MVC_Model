@@ -1548,6 +1548,16 @@
 						margin-bottom: 2vw;
 					}
 				}
+				h2.h2PayHadPoints{
+					transition: all 300ms ease-in-out;
+					font-family: 'Times New Roman', Times, serif;
+					color: $white;
+					font-weight: bold;
+					font-size: 2.5vw;
+					opacity: 0;
+					display: none;
+					margin-bottom: 3vw;
+				}
 				h2.h2PayComplete {
 					transition: all 300ms ease-in-out;
 					font-family: 'Times New Roman', Times, serif;
@@ -1584,8 +1594,8 @@
 				justify-content: space-between;
 				padding: 0 2vw;
 				z-index: 10;
-				// display: none;
-				// opacity: 0;
+				display: none;
+				opacity: 0;
 				transition: all 300ms ease-in-out;
 				h1.h1NavKioskTitle {
 					margin-top: 0.2vw;
@@ -1633,7 +1643,6 @@
 				width: 100%;
 				height: 100%;
 				@include flexCol();
-				display: none;
 				font-size: 5vw;
 				background-color: $darkGreen;
 				transition: all 300ms ease-in-out;
@@ -1741,8 +1750,8 @@
 				width: 100%;
 				height: 100%;
 				@include flexCol();
-				// display: none;
-				// opacity: 0;
+				display: none;
+				opacity: 0;
 				justify-content: space-between;
 				transition: all 300ms ease-in-out;
 				position: absolute;
@@ -3106,6 +3115,16 @@
 						display: none;
 						margin-bottom: 2vw;
 					}
+				}
+				h2.h2PayHadPoints{
+					transition: all 300ms ease-in-out;
+					font-family: 'Times New Roman', Times, serif;
+					color: $white;
+					font-weight: bold;
+					font-size: 2.5vw;
+					opacity: 0;
+					display: none;
+					margin-bottom: 3vw;
 				}
 				h2.h2PayComplete {
 					transition: all 300ms ease-in-out;

@@ -1,7 +1,7 @@
 export default Object.create({
 	imageUrl: [],
-	async getImageUrl() {
-		await fetch('./php/controller.php?page=slideImageInfo')
+	getImageUrl() {
+		fetch('./php/controller.php?page=slideImageInfo')
 			.then(res => res.json())
 			.then(res => (this.imageUrl = res))
 			.catch(err => console.log(err));

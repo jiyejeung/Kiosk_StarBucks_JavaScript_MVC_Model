@@ -99,7 +99,7 @@
   if ($page === 'updatePoints') {
     $id = $_REQUEST['id'];
     $points = $_REQUEST['points'];
-    $sql = 'UPDATE `userInfo` SET points`='.$points.' WHERE `id`='.$id;
+    $sql = 'UPDATE `userInfo` SET `points`='.$points.' WHERE `id`='.$id;
     
     if (!$records = mysqli_query($dbHandler, $sql)) {
       echo 'SQL Syntax Error';

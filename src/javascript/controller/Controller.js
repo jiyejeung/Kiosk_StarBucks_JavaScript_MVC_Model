@@ -1,6 +1,6 @@
 // utils
 import { $, $$ } from '../utils/ElementTool.js';
-import { spacingString, subSpacingString } from '../utils/StringTool.js';
+import { confirmMobilePhoneNumber, spacingString, subSpacingString } from '../utils/StringTool.js';
 import Timer from '../utils/Timer.js';
 import MediaQuery from '../utils/MediaQuery.js';
 
@@ -45,10 +45,11 @@ export default {
 	async setup() {
 		const fragment = document.createDocumentFragment();
 
-		await SlideImageInfo.getImageUrl()
-			.then(() => fragment.append(NavKioskContainer.setup(), IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup(), FooterKioskContainer.setup()))
-			.then(() => AllProductsInfo.getAllProducts())
-			.then(() => fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup(), ReviewOrderContainer.setup(), PayContainer.setup()));
+		await SlideImageInfo.getImageUrl();
+		await AllProductsInfo.getAllProducts()
+			.then(() => void fragment.append(NavKioskContainer.setup(), IntroContainer.setup(), SlideContainer.setup(), TakeOutContainer.setup(), FooterKioskContainer.setup()))
+			.then(() => void fragment.append(SelectProductContainer.setup(), SelectOptionContainer.setup(), ReviewOrderContainer.setup(), PayContainer.setup()))
+			.then(() => void MediaQuery.currentMediaQuery());
 
 		return fragment;
 	},
@@ -465,6 +466,7 @@ export default {
 	},
 	onKeyupInputPhoneNumber(event) {
 		ReviewOrderContainer.onKeyupInputPhoneNumber(event);
+		confirmMobilePhoneNumber(event.target.value) && (event.target.value = '010-');
 	},
 
 	clickButtonCouponBack() {
@@ -480,8 +482,8 @@ export default {
 	onClickButtonCouponComplete() {
 		if (this.confirmPhoneNumber())
 			UserInfo.getUserInfo($('.inputPhoneNumber').value)
-				.then(res => ReviewOrderContainer.onClickButtonCouponComplete(res))
-				.catch(err => console.log(err));
+				.then(res => void ReviewOrderContainer.onClickButtonCouponComplete(res))
+				.catch(err => void console.log(err));
 		else ReviewOrderContainer.onClickButtonCouponComplete(false);
 	},
 	confirmPhoneNumber() {

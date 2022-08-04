@@ -17,8 +17,7 @@ export default Object.create({
 						productSyrupCount: +productInfo.productSyrupCount,
 					})))
 			)
-			.then(() => console.log(this.allProducts))
 			.then(() => void (this.allProductCategories = [...new Set(this.allProducts.map(product => product['productCategory']))]))
-			.catch(err => console.log(err));
+			.catch(err => void console.log(err));
 	},
 });

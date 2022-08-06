@@ -24,7 +24,7 @@ export default Object.create({
 	},
 	printDivWrapperTakeOutButtonContainer() {
 		const divWrapperTakeOutButtonContainer = objElement.createElement('DIV').setClassName('divWrapperTakeOutButtonContainer').complete();
-		divWrapperTakeOutButtonContainer.append(this.printButtonTakeOut('Take Out', 'buttonTakeOut'), this.printButtonTakeOut('Store', 'buttonStore'));
+		divWrapperTakeOutButtonContainer.append(this.printButtonTakeOut('Take Out', 'buttonTakeOut'), this.printButtonTakeOut('In Store', 'buttonStore'));
 
 		return divWrapperTakeOutButtonContainer;
 	},

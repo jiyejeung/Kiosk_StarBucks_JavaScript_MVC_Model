@@ -560,8 +560,8 @@ export default Object.create({
 	},
 
 	// customization methods
-	setDivSelectedProductImageContainer({ productImage }) {
-		$('.divSelectedProductImageContainer').style.backgroundImage = `url('${productImage}')`;
+	setDivSelectedProductImageContainer({ productImageUrl }) {
+		$('.divSelectedProductImageContainer').style.backgroundImage = `url('${productImageUrl}')`;
 	},
 	setH3SelectedProductName({ productName }) {
 		$('.h3SelectedProductName').textContent = spacingString(productName);

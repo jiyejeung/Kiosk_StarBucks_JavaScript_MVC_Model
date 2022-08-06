@@ -36,7 +36,7 @@ export default Object.create({
 		return objElement.createElement('SECTION').setClassName('sectionSlideContainer').complete();
 	},
 	printH3SlideTouchText() {
-		return objElement.createElement('H3', 'Welcome To STARBUCKS!').setClassName('h3SlideTouchText').complete();
+		return objElement.createElement('H3', 'Welcome To Starbucks!').setClassName('h3SlideTouchText').complete();
 	},
 	printUlSlideContainer() {
 		return objElement.createElement('UL').setClassName('ulSlideContainer').complete();

@@ -54,7 +54,7 @@ export default Object.create({
 		return objElement.createElement('DIV').setClassName('divPayReviewContainer').complete();
 	},
 	printH2PayInputCard() {
-		return objElement.createElement('H2', 'Please input your credit card.').setClassName('h2PayInputCard').complete();
+		return objElement.createElement('H2', 'Please enter your credit card information.').setClassName('h2PayInputCard').complete();
 	},
 	printH3PayTotalPrice() {
 		return objElement.createElement('H3').setClassName('h3PayTotalPrice').complete();

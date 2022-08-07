@@ -20,7 +20,11 @@
 
 <br>
 
-<img src="./images/" align="center">
+<img src="./images/ezgif.com-gif-maker.gif" align="center">
+
+<br>
+
+<img src="./images/ezgif.com-gif-maker2.gif" align="center">
 
 <br>
 
@@ -29,4 +33,3 @@
 - 개인 서버를 구축하고 키오스크 스타벅스를 만들면서, 서버와 클라이언트가 어떻게 통신하는지, 더욱 깊이 있게 알게 되었다.
 - 실제 키오스크라고 생각하며 만들었다. 모든 화면에는 맞출 수 없겠지만 그래도 나름 뿌듯함을 느낀다.
 - MVC 패턴, 함수와 메서드를 작성하는 나름의 기준을 세우며 코드를 작성하다보니, Vanilla JavaScript의 한계를 조금 보게 되었다.
-
